@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Shared building blocks for outbound "REST Hook" integrations (Zapier, n8n, …):
+       a catalog of triggerable object types, REST-hook subscriptions, and a durable
+       signed-delivery pipeline. Built on the same infrastructure every other service
+       uses (PI.Shared.App/Services, Crochik.Mongo, Crochik.Messaging). -->
+
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PI.Shared.App\PI.Shared.App.csproj" />
+    <ProjectReference Include="..\PI.Shared.Services\PI.Shared.Services.csproj" />
+  </ItemGroup>
+
+</Project>

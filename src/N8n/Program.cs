@@ -1,26 +1,23 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using N8n.Models;
 using PI.Shared.App;
 using PI.Shared.Integrations.Delivery;
 using PI.Shared.Integrations.DependencyInjection;
 using PI.Shared.Models;
 using PI.Shared.Services;
 using Serilog;
-using Zapier.Models;
-using Zapier.Services;
 
-namespace PI.Zapier;
+namespace PI.N8n;
 
 public class Program : MicroserviceApp
 {
-    protected override string Name => "Zapier";
+    protected override string Name => "N8n";
 
-    
     public static async Task<int> Main(string[] args)
     {
         Serilog.Debugging.SelfLog.Enable(Console.Error);
@@ -62,7 +59,6 @@ public class Program : MicroserviceApp
             await Log.CloseAndFlushAsync();
         }
     }
-    
 
     protected override void AddServices(IServiceCollection services)
     {
@@ -71,28 +67,25 @@ public class Program : MicroserviceApp
         services
             .AddObjectTypeService()
             // Catalog, subscriptions and the durable signed-delivery pipeline, persisting
-            // Zapier subscriptions into the zapier.Subscription collection.
-            .AddIntegrationServices<ZapierSubscription>(Configuration)
+            // n8n subscriptions into the n8n.Subscription collection.
+            .AddIntegrationServices<N8nSubscription>(Configuration)
             ;
 
         // Generic REST Hook delivery: listen to object events, deliver, retry.
         AddLifetimeService<WebhookEventListener>(services);
         AddLifetimeService<WebhookDeliveryWorker>(services);
         AddLifetimeService<WebhookOutboxReconciler>(services);
-
-        // HttpCallOut flow action (unrelated to Zapier subscriptions).
-        AddLifetimeService<WebhookService>(services);
     }
 
     protected override void AddPolicies(AuthorizationOptions options)
     {
         base.AddPolicies(options);
 
-        options.AddPolicy("zapier", policy => policy
+        options.AddPolicy("n8n", policy => policy
             .RequireClaim(JwtClaimTypes.Subject)
             .RequireRole(nameof(EntityRoleId.Manager), nameof(EntityRoleId.Admin), nameof(EntityRoleId.Root))
             .RequireClaim(JwtClaimTypes.JwtId)
-            .RequireScope("zapier")
+            .RequireScope("n8n")
         );
     }
 }
