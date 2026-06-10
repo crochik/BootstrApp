@@ -132,7 +132,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScriptInterpreter", "src\sc
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{827E0CD3-B72D-47B6-A68D-7590B98EB39B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Service", "src\Webhook.Service\Webhook.Service.csproj", "{704332CF-444E-479E-B9EF-00A000868657}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ingress", "src\Ingress\Ingress.csproj", "{704332CF-444E-479E-B9EF-00A000868657}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI.Shared.Integrations", "src\PI.Shared.Integrations\PI.Shared.Integrations.csproj", "{63A4B891-5EDA-410D-B4A8-795991B193C7}"
 EndProject
