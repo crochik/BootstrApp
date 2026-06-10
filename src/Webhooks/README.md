@@ -5,7 +5,7 @@ platform object events (Create/Update/Delete on any object type) and receive a s
 webhook POST whenever one fires. The neutral sibling of [`Zapier`](../Zapier/README.md) and
 [`N8n`](../N8n/README.md) — same engine, no platform-specific request/response shapes.
 
-> Not to be confused with [`Webhook.Service`](../Webhook.Service) (the *inbound* receiver).
+> Not to be confused with [`Ingress`](../Ingress) (the *inbound* receiver).
 > This service is the *outbound* publisher.
 
 Follows the standard service pattern (`Program : MicroserviceApp`, JWT auth, SSM config,

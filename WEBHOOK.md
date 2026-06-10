@@ -1,13 +1,16 @@
-# Webhook Receiver Service
+# Ingress — Webhook Receiver Service
 
-A configurable ASP.NET Core (.NET 8) service for receiving webhooks from many
+`Ingress` (`src/Ingress`) is a configurable microservice for receiving webhooks from many
 different third parties through a **single dynamic entry point** — with **no code
-changes** to add, remove, or reconfigure a webhook.
+changes** to add, remove, or reconfigure a webhook. It follows the standard
+[`MicroserviceApp`](src/PI.Shared.App) pattern (Serilog/ElasticSearch logging, AWS SSM
+config, Swagger, MongoDB) like the platform's other services.
 
 > **Outbound webhooks too:** the companion library
 > [`src/PI.Shared.Integrations`](src/PI.Shared.Integrations) is the *outbound* half —
 > exposes platform objects/events to automation tools and delivers them as signed HTTP
-> POSTs, stored in MongoDB with durable exponential-backoff retries.
+> POSTs, stored in MongoDB with durable exponential-backoff retries. The generic outbound
+> service is [`src/Webhooks`](src/Webhooks/README.md).
 >
 > **Zapier / n8n integrations:** [`src/Zapier`](src/Zapier/README.md) and
 > [`src/N8n`](src/N8n/README.md) expose your objects and events through a single generic
@@ -17,12 +20,13 @@ changes** to add, remove, or reconfigure a webhook.
 > service's `README.md` for the platform-side setup.
 
 Each configured webhook is assigned a **UUID**. All deliveries hit one route,
-`/<base>/webhooks/{uuid}`, and the service looks up that UUID's configuration to
+`/ingress/{uuid}`, and the service looks up that UUID's configuration to
 decide how to authenticate, parse, answer registration handshakes, dispatch, and
-respond.
+respond. The endpoint is anonymous — external providers can't present a platform JWT,
+so per-webhook authenticity is enforced by the validator pipeline, not ASP.NET policies.
 
 ```
-POST|GET /webhooks/{uuid}
+POST|GET /ingress/{uuid}
         │
         ▼
   lookup definition ──▶ validate (auth) ──▶ registration handshake?
@@ -35,21 +39,23 @@ POST|GET /webhooks/{uuid}
 ## Quick start
 
 ```bash
-dotnet run --project src/Webhook.Service
-# service listens on the default Kestrel port; GET /health returns {"status":"ok"}
+dotnet run --project src/Ingress
+# runs as a Web API by default; GET /health returns 200, Swagger at /ingress/swagger.
+# Set PI_RUN_JOB to run as a background job instead.
 ```
 
-Edit `src/Webhook.Service/webhooks.json` to configure endpoints. The file is
-reloaded automatically when changed (no restart needed).
+Webhook definitions are stored in MongoDB (the `ingress.Definition` collection) and looked
+up globally by their `Uuid`. Add, edit, or disable a definition by writing to that
+collection — no restart needed.
 
 ## Configuration
 
-Webhook definitions live under the `Webhooks:Definitions` section (shipped in
-`webhooks.json`). Each definition:
+Each definition is a document in the `ingress.Definition` collection
+(see `Configuration/WebhookDefinition.cs`, keyed by `Uuid` as its `_id`):
 
 | Field          | Description                                                            |
 |----------------|------------------------------------------------------------------------|
-| `Uuid`         | Route segment: `/webhooks/{uuid}`.                                     |
+| `Uuid`         | Route segment and document id: `/ingress/{uuid}`.                      |
 | `Name`         | Friendly name (used in logs, handler dispatch, response tokens).       |
 | `Enabled`      | When `false`, the endpoint responds `404`.                            |
 | `Handler`      | Name of the `IWebhookHandler` to invoke (default `logging`).           |
@@ -57,6 +63,9 @@ Webhook definitions live under the `Webhooks:Definitions` section (shipped in
 | `Auth`         | Array of validators — **all** must pass (logical AND).                |
 | `Registration` | Registration / verification handshake behaviour.                       |
 | `Response`     | Status, content type and body template for successful deliveries.      |
+
+The JSON snippets below show the shape of each nested config object (the same property
+names are used in the stored documents).
 
 ### Authentication (`Auth[]`)
 
@@ -82,7 +91,7 @@ Combine any number of these; an empty array (or a single `none`) means no auth.
 // Twilio: HMAC-SHA1 over the URL + sorted form params (X-Twilio-Signature).
 // Set Url to the exact public webhook URL when behind a proxy/tunnel.
 { "Type": "twilio", "Header": "X-Twilio-Signature", "Token": "<auth-token>",
-  "Url": "https://example.com/webhooks/<uuid>" }
+  "Url": "https://example.com/ingress/<uuid>" }
 
 // ECDSA over {timestamp}{body}, P-256/SHA-256 (e.g. SendGrid Event Webhook).
 { "Type": "ecdsa", "Header": "X-Twilio-Email-Event-Webhook-Signature",
@@ -140,8 +149,8 @@ into the JSON request body).
 
 ## Provider coverage
 
-`webhooks.json` ships with worked examples for common providers (replace the
-`change-me-*` secrets). Verification of each scheme is covered by tests.
+Worked examples for common providers (replace the `change-me-*` secrets) are available to
+seed the `ingress.Definition` collection. Verification of each scheme is covered by tests.
 
 | Provider          | Verification / registration            | Delivery auth                                   | Config                                   |
 |-------------------|----------------------------------------|-------------------------------------------------|------------------------------------------|
@@ -188,27 +197,30 @@ public sealed class OrderCreatedHandler : IWebhookHandler
 }
 ```
 
-Register it in `Program.cs`, then reference it from config via `"Handler": "order-created"`:
+Register it in `Program.AddServices` (after `AddWebhookEngine`), then reference it from a
+definition via `"Handler": "order-created"`:
 
 ```csharp
-builder.Services.AddWebhookHandler<OrderCreatedHandler>();
+services.AddWebhookHandler<OrderCreatedHandler>();
 ```
 
 ## Extensibility
 
 - **Config store** — the pipeline depends only on `IWebhookConfigStore`. The shipped
-  `JsonFileWebhookConfigStore` reads `webhooks.json` (hot-reload); swap in a
-  database-backed implementation without touching the controller or processor.
+  `MongoWebhookConfigStore` reads the `ingress.Definition` collection; an
+  `InMemoryWebhookConfigStore` is provided for tests. Swap in another implementation
+  without touching the controller or processor.
 - **Validators / parsers** — additional `IWebhookValidator` / `IPayloadParser`
   implementations registered in DI are picked up automatically.
 
 ## Project layout
 
 ```
-src/Webhook.Service/
-  Controllers/        WebhookController — POST/GET/PUT /webhooks/{uuid}
+src/Ingress/
+  Program.cs          MicroserviceApp ("Ingress") — bootstraps the engine + body buffering
+  Controllers/        WebhookController — POST/GET/PUT /ingress/{uuid}
   Engine/             WebhookProcessor, WebhookContext/Result, RegistrationHandshake
-  Config/             IWebhookConfigStore (+ JSON-file and in-memory stores)
+  Config/             IWebhookConfigStore (+ Mongo and in-memory stores)
   Configuration/      WebhookDefinition, Auth/Registration/Response config models
   Validation/         HMAC (+template), token/api-key, basic, IP allowlist, Twilio,
                       ECDSA, signed-timestamp (Stripe/DocuSeal/OpenPhone), clientCert,
@@ -216,11 +228,11 @@ src/Webhook.Service/
   Formats/            JSON / form / XML / raw payload parsers
   Handlers/           IWebhookHandler, registry, default LoggingWebhookHandler
   Responses/          ResponseBuilder (status + content type + body templating)
-tests/Webhook.Service.Tests/   xUnit unit + end-to-end (WebApplicationFactory) tests
+tests/Ingress.Tests/   xUnit unit + in-process engine tests
 ```
 
 ## Tests
 
 ```bash
-dotnet test
+dotnet test tests/Ingress.Tests
 ```

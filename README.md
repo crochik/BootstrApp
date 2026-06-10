@@ -20,7 +20,7 @@ src/
   <third-party>/            # git submodules (Handlebars.Net, ExcelDataReader, …)
 tests/
   UnitTests/                # xUnit + FluentAssertions
-  Webhook.Service.Tests/
+  Ingress.Tests/
 ```
 
 ### Shared libraries (`src/PI.Shared*`)
@@ -39,7 +39,7 @@ tests/
 Each service is an independent deployable that follows the same pattern (`Program :
 MicroserviceApp`, `Dockerfile`, `kubernetes.ps1`, `tag.version`). Examples: `IDP`
 (identity), `API`, `PI.Stripe`, `PI.Slack`, `PI.QuickBooks`, `PI.Salesforce`, `Zapier`,
-`N8n`, `Webhook.Service`.
+`N8n`, `Ingress`.
 
 ## Getting started
 
@@ -64,8 +64,8 @@ Services read most configuration from AWS Systems Manager (SSM) at runtime and r
 
 ## Subsystems worth knowing
 
-- **Webhooks (inbound):** [`WEBHOOK.md`](WEBHOOK.md) — `Webhook.Service` receives webhooks
-  from many third parties through one dynamic, config-driven endpoint.
+- **Webhooks (inbound):** [`WEBHOOK.md`](WEBHOOK.md) — `Ingress` (`src/Ingress`) receives
+  webhooks from many third parties through one dynamic, config-driven endpoint.
 - **Integrations (outbound):** [`src/PI.Shared.Integrations`](src/PI.Shared.Integrations) —
   exposes platform objects/events to automation tools and delivers signed, durable,
   retried webhook POSTs. Consumed by [`src/Zapier`](src/Zapier/README.md),
