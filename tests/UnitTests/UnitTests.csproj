@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="FluentAssertions" Version="8.8.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\API\API.csproj" />
+    <ProjectReference Include="..\..\src\IDP\IDP.csproj" />
+    <ProjectReference Include="..\..\src\PI.Shared\PI.Shared.csproj" />
+    <ProjectReference Include="..\..\src\PI.ProductCatalog\PI.ProductCatalog.csproj" />
+
+<!--    <ProjectReference Include="../OpenAPI.NET/src/Microsoft.OpenApi/Microsoft.OpenApi.csproj"/>-->
+  </ItemGroup>
+</Project>

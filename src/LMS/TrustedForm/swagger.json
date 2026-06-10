@@ -1,0 +1,2100 @@
+{
+  "openapi": "3.0",
+  "info": {
+    "contact": {
+      "email": "support@activeprospect.com",
+      "name": "ActiveProspect Support Team",
+      "url": "https://support.activeprospect.com"
+    },
+    "termsOfService": "https://activeprospect.com/trustedform-eula",
+    "title": "Overview",
+    "version": "4.0.0"
+  },
+  "servers": [
+    {
+      "description": "The base URL for production.",
+      "url": "https://cert.trustedform.com"
+    }
+  ],
+  "tags": [
+    {
+      "description": "Each Certificate URL acts as the endpoint to a simple RPC API. The HTTP methods listed in this section\nare used to interact with an individual certificate. Certificate URLs follow a common format, though the format\nof a certificate ID depends on how the certificate was issued.\n\n```\nhttps://cert.trustedform.com/eb9fc4dd9bed9ad451a5648946cf4bf09b5bb947\n```\n",
+      "name": "Certificate URL"
+    },
+    {
+      "description": "The `match_lead` operation allows you to check whether the email address and/or phone number of the lead you have\nagainst what is recorded on the certificate.\n\nBefore being converted to a hash to be stored email addresses and phone numbers are normalized. Email addresses are simply downcased while\nphone numbers remove all whitespace, hyphens, brackets and parentheses. This normalization is also applied to the\nvalues of lead matching parameters to help legitimate matches be made when the formatting is different.\n\n**Important:** The `match_lead` operation is required when running the `retain` operation.\n",
+      "name": "Match Lead"
+    },
+    {
+      "description": "The `retain` operation stores a TrustedForm certificate in your account per your account retention setting\n(defaults to 5 years). This should be performed for all certificates associated with leads you intend to contact\nso that you have proof of the events that took place.\n\n**Important:** When retaining a certificate, you must also execute the `match_lead` operation. This ensures that the lead with\nwhich you received the certificate matches the lead data collected on the cert.\n\nRequires a Self-Service plan or higher.\n",
+      "name": "Retain"
+    },
+    {
+      "description": "The `insights` operation retrieves metadata about the lead event that generated a TrustedForm certificate.\nThe properties included in the response can be used to filter and/or route your leads to optimize your\nbusiness strategies. More information is available in [our knowledge base](https://community.activeprospect.com/posts/4709758-trustedform-insights).\n\n**Important:** Requires a Professional plan or higher. The effective unit cost for an insights call depends on the\nInsights data points retrieved.\n",
+      "name": "Insights"
+    },
+    {
+      "description": "The verify operation uses data from lead events and the source from which they originated to verify that a\nconsumer gave their express written consent to be contacted as defined by the requirements configured in your account.\n\n**Important**\n- Verify requires a Self-Service plan or higher.\n- For Facebook certificates, consent language is detected only if it is included in the [custom disclaimer section](https://www.facebook.com/business/help/1550411888622740?id=735435806665862).\n",
+      "name": "Verify"
+    },
+    {
+      "description": "The HTTP `POST` method called on the certificate URL is a RPC API. That API is organized around \"operations.\"\nEach operation can be called with parameters in the JSON request body. The HTTP response body contains the result\nof each specified operation. The structure of the parameters and response is symetrical. That is, the parameters\nare echoed back in the response. The operation response body also contains a `result` property that returns the\noutcome of the operation.\n\n**IMPORTANT:** Each operation is contracted separately so you may not be able to use them all. Additionally, each operation is\nbilled separtely has incurs a unit cost each time the operation is run.\n\nIf you are using this API in a ping/post lead buying arrangement, you might consider using only the `insights`\noperation on ping and the `retain` operation on post. That way, you can use the insights data points to inform\nyour bid price. If you win the auction for a lead you will then store the certificate on post using the `retain` operation.\n",
+      "name": "Operations",
+      "x-traitTag": true
+    },
+    {
+      "description": "TrustedForm can issue certificates appropriate for several types of lead origination. Each certificate type has a different\ncertificate ID format and supports different Insights data points.\n\n### Web\nWeb certs are generated using our javascript web SDK. [Sign up online](https://account.activeprospect.com/trustedform/script)\nfor a free TrustedForm Certify account to access the web SDK. Web cert IDs look like this:\n```\neb9fc4dd9bed9ad451a5648946cf4bf09b5bb947\n```\n\nBy default, web certs have a 72-hour (3 day) window during which they are available to API callers. This window is\nautomatically expanded to 90 days if the certificate recorded a form submission event. After this window has elapsed,\ncertificate API calls will return an HTTP 404.\n\n### Mobile App\nMobile app certificates are generated using our mobile SDK for iOS or Android. Contact sales@activeprosepct.com for more information.\nMobile app certificates look like this:\n```\n11NgkzK_mroUbOD1-x66NigDliU1kdvbaCtLGvyja1K80vU1sKh9grlwP78vzKSp4ncwAfJAlNPNVY8f\n```\n\nMobile app certificates have a 90 day window during which they are available to API callers. After this window\nhas elapsed, certificate API calls will return an HTTP 404.\n\n### Meta Lead Ads\nMeta Lead Ads certificates are supported through LeadConduit. Contact sales@activeprosepct.com for more information.\nMeta Lead Ads cert IDs look like this:\n```\n0.rpM21ddljS9BNNUOm6FZVVqb5C5JMk1cofI4nDGdwy5ezucyxjok9qLyUXMu9diW62Xac8xNMpomBf1B-XDpfbYvaFMr0YC-54TzHcLrni4.OHOMoMFXaX9YW9DoX_xeng.1vnf6DTWU7sJo6XAxlRP_w\n```\n\nMeta Lead Ads certificates have a 90 day window during which they are available to API callers. After this window\nhas elapsed, certificate API calls will return an HTTP 404.\n",
+      "name": "Types",
+      "x-traitTag": true
+    },
+    {
+      "description": "Each TrustedForm certificate captures a session replay of what the consumer saw when they filled out the offer form.\nThe full certificate, including the replay, is visiable to any account holder that has retained the certificate\nusing the `retain` operation. In order to protect consumer privacy, the certificate hides form input\nfields recorded in the session replay by default. The In other words, simply retaining a certificate is insufficient\nfor  accessing the consumer's PII because it cannot be seen in the replay.\n\nThis means that a certificate URL can be safely passed to a lead buyer on ping. As long as the phone number and email address\nare withheld, the buyer cannot access the consumer's PII. The buyer can only examine the certificate using `insights`\nto see if it meets their requirements. When the lead is posted with the certificate URL and the email or phone, the\nbuyer can use `match_lead` and `retain` together to both [unlock the PII in the session replay](https://community.activeprospect.com/posts/5021187-lead-matching-when-viewing-a-trustedform-certificate?utm_source=beamer&utm_medium=standalone&utm_campaign=TrustedForms-Enhanced-PII-Protection&utm_content=textlink)\nand also store the certificate.\n\n**Important:** If you are pinging a buyer who uses LeadConduit, none of the data you provide on ping can be accessed\nby the buyer. Because of this, it's prefectly safe to pass the certificate URL and all PII on ping to LeadConduit.\nDoing so can dramatically reduce post-rejects since LeadConduit is able to evaluate the entire lead on ping.\n",
+      "name": "Sending on Ping",
+      "x-traitTag": true
+    },
+    {
+      "name": "Masking",
+      "x-traitTag": true
+    },
+    {
+      "name": "Sharing",
+      "x-traitTag": true
+    }
+  ],
+  "externalDocs": {
+    "description": "ActiveProspect Community",
+    "url": "https://developers.activeprospect.com/"
+  },
+  "paths": {
+    "/{cert_id}": {
+      "post": {
+        "callbacks": {},
+        "description": "The TrustedForm Certificate API is able to perform multiple operations based on the parameters sent in the request.\nEach operation is demonstrated in the request body documentation. The overall outcome of the operations is revealed\nby the `outcome` property. Best practice is to base your purchase decision on this property.\n\nSeparate documentation about the parameters and results of each operation is available in the Operations\nreference. and can be used alone or in tandem with another operation. The `match_lead` operation is required\nwhen running the `retain` operation.\n\n",
+        "externalDocs": {
+          "description": "Introduction of TrustedForm Certificate API v4.0",
+          "url": "https://community.activeprospect.com/posts/5066720-introducing-trustedform-certificate-api-v4-0"
+        },
+        "operationId": "certificateOperation",
+        "parameters": [
+          {
+            "description": "`application/json`\n",
+            "in": "header",
+            "name": "Content-Type",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "x-struct": null,
+              "x-validate": null
+            }
+          },
+          {
+            "description": "    If your account is configured to use an earlier api-version,\n    optionally include this header to override the\n\n    default behavior and force usage of v4.0. Defaults to your currently\n    configured API version, visible in\n    [your settings](https://app.trustedform.com/settings).\n",
+            "in": "header",
+            "name": "Api-Version",
+            "required": false,
+            "schema": {
+              "example": "4.0",
+              "type": "string",
+              "x-struct": null,
+              "x-validate": null
+            }
+          },
+          {
+            "description": "The certificate ID format varies depending on the type of certificate. Certificate ID length will\nnot exceed 255 characters.\n",
+            "example": "eb9fc4dd9bed9ad451a5648946cf4bf09b5bb947",
+            "in": "path",
+            "name": "cert_id",
+            "required": true,
+            "schema": {
+              "maxLength": 255,
+              "type": "string",
+              "x-struct": null,
+              "x-validate": null
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "allOf": [
+                  {
+                    "$ref": "#/components/schemas/MatchLeadRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/RetainRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/InsightsRequest"
+                  },
+                  {
+                    "$ref": "#/components/schemas/VerifyRequest"
+                  }
+                ],
+                "x-struct": null,
+                "x-validate": null
+              }
+            }
+          },
+          "required": false
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    {
+                      "$ref": "#/components/schemas/Outcome"
+                    },
+                    {
+                      "$ref": "#/components/schemas/MatchLeadResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/RetainResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/InsightsResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/VerifyResponse"
+                    }
+                  ],
+                  "x-struct": null,
+                  "x-validate": null
+                }
+              }
+            },
+            "description": "OK"
+          },
+          "400": {
+            "$ref": "#/components/responses/BadRequest"
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "402": {
+            "$ref": "#/components/responses/PaymentRequired"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "405": {
+            "$ref": "#/components/responses/MethodNotAllowed"
+          },
+          "422": {
+            "$ref": "#/components/responses/UnprocessableEntity"
+          }
+        },
+        "security": [
+          {
+            "Basic": []
+          }
+        ],
+        "summary": "Run Certificate Operations",
+        "tags": [
+          "Certificate URL"
+        ]
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "BadRequest": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/BadRequest"
+            }
+          }
+        },
+        "description": "Bad Request"
+      },
+      "Forbidden": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Forbidden"
+            }
+          }
+        },
+        "description": "Uavailable operation requested"
+      },
+      "MethodNotAllowed": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/MethodNotAllowed"
+            }
+          }
+        },
+        "description": "Attempted to claim a 'sandboxed' certificate"
+      },
+      "NotFound": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/NotFound"
+            }
+          }
+        },
+        "description": "TrustedForm certificate has expired or could not be found"
+      },
+      "PaymentRequired": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/PaymentRequired"
+            }
+          }
+        },
+        "description": "Account is inactive or out of funds"
+      },
+      "Unauthorized": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Unauthorized"
+            }
+          }
+        },
+        "description": "Incorrect API key"
+      },
+      "UnprocessableEntity": {
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/UnprocessableEntity"
+            }
+          }
+        },
+        "description": "Unprocessable Entity"
+      }
+    },
+    "schemas": {
+      "BadRequest": {
+        "example": {
+          "errors": {
+            "detail": "Malformed certificate id"
+          },
+          "message": "Malformed certificate id",
+          "outcome": "error",
+          "reason": "Malformed certificate id"
+        },
+        "properties": {
+          "errors": {
+            "properties": {
+              "detail": {
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "message": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "required": [
+          "errors",
+          "message",
+          "outcome",
+          "reason"
+        ],
+        "title": "BadRequest",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "Forbidden": {
+        "example": {
+          "outcome": "error",
+          "reason": "Unavailable product requested"
+        },
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "Forbidden",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "InsightsParameters": {
+        "description": "    Request individual Insights data points (`properties`) to be returned\n    and terms for which to scan for in a certificate session replay.\n",
+        "example": {
+          "properties": [
+            "seconds_on_page",
+            "domain",
+            "bot_detected",
+            "confirmed_owner",
+            "ip",
+            "approx_ip_geo",
+            "browser",
+            "age_seconds",
+            "created_at",
+            "expires_at",
+            "form_input_method",
+            "form_input_kpm",
+            "form_input_wpm",
+            "is_framed",
+            "is_masked",
+            "num_sensitive_content_elements",
+            "num_sensitive_form_elements",
+            "page_url",
+            "parent_page_url",
+            "os"
+          ],
+          "scans": {
+            "forbidden": [
+              "free",
+              "ipad"
+            ],
+            "required": [
+              "home security system"
+            ]
+          }
+        },
+        "properties": {
+          "properties": {
+            "description": "        A list of the Insights data points you would like to be returned in\n        the response. Some `properties` are not\n\n        compatible with all certificate types and will return a null value.\n        Only contracted `properties` are\n\n        available to query. Your account will only be charged for properties\n        that are returned.\n\n        See InsightsResult for `form_input_method` values.\n",
+            "items": {
+              "enum": [
+                "age_seconds",
+                "approx_ip_geo",
+                "bot_detected",
+                "confirmed_owner",
+                "created_at",
+                "domain",
+                "expires_at",
+                "form_input_kpm",
+                "form_input_method",
+                "form_input_wpm",
+                "ip",
+                "is_framed",
+                "is_masked",
+                "num_sensitive_content_elements",
+                "num_sensitive_form_elements",
+                "os",
+                "page_url",
+                "parent_page_url",
+                "seconds_on_page"
+              ],
+              "type": "string",
+              "x-enumDescriptions": {
+                "age_seconds": "The number of seconds elapsed since the last recorded session replay event",
+                "approx_ip_geo": "The consumer's approximate geographical location based on `ip`",
+                "bot_detected": "A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect’s proprietary algorithms.",
+                "browser": "An object containing properties that provide information about the consumer's browser.",
+                "confirmed_owner": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- ``\"No Verified ActiveProspect Account Identified\"`` — no account has been confirmed as the owner of this certificate.\n- ``\"ActiveProspect Verified Account\"`` — the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- ``\"<account name>\"`` — the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "created_at": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
+                "domain": "The domain shown to the consumer during the lead event",
+                "expires_at": "The UTC ISO8601 formatted date and time when the certificate will expire.",
+                "form_input_kpm": "The average number of keystrokes per minute based on the consumer's rate of form input.",
+                "form_input_method": "Methods used by the consumer to fill web form fields",
+                "form_input_wpm": "The approximate number of words per minute calculated by using the form_input_kpm and assuming five characters represent a word.",
+                "ip": "The consumer's public IP address",
+                "is_framed": "A boolean indicating that the form was displayed within an iframe.",
+                "is_masked": "A boolean indicating if the certificate is masked and does not show source information nor a session replay.",
+                "num_sensitive_content_elements": "Count of how many content elements (e.g. img, div) are marked sensitive and hidden from the session replay.",
+                "num_sensitive_form_elements": "Count of how many form elements (e.g. input, textarea) are marked sensitive and hidden from the session replay.",
+                "os": "An object containing properties that provide information about the consumer's operating system.",
+                "page_url": "The URL of the page hosting TrustedForm Certify.",
+                "parent_page_url": "The parent URL of the page hosting TrustedForm Certify, if framed.",
+                "seconds_on_page": "The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received."
+              },
+              "x-struct": null,
+              "x-validate": null
+            },
+            "type": "array",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "scans": {
+            "description": "An object containing the terms to use to perform a page scan which checks for their presence in the content captured by the certificate.",
+            "properties": {
+              "delimiter": {
+                "description": "Use this parameter to designate a delimiter to use when wrapping wildcards. Your choice of delimiter must be homogeneous (i.e. the beginning and end are the same character(s)), such as |, ==, or |||.\n",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "forbidden": {
+                "description": "Use this parameter to perform a scan of the page for text that must not be present. TrustedForm will then perform a case and whitespace insensitive search for the string.\n",
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  {
+                    "items": {
+                      "type": "string",
+                      "x-struct": null,
+                      "x-validate": null
+                    },
+                    "type": "array",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                ],
+                "x-struct": null,
+                "x-validate": null
+              },
+              "required": {
+                "description": "Use this parameter to perform a scan of the page for required text. TrustedForm will then perform a case and whitespace insensitive search for the string.",
+                "oneOf": [
+                  {
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  {
+                    "items": {
+                      "type": "string",
+                      "x-struct": null,
+                      "x-validate": null
+                    },
+                    "type": "array",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                ],
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "required": [
+          "properties"
+        ],
+        "title": "InsightsParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Insights"
+        ],
+        "x-validate": null
+      },
+      "InsightsRequest": {
+        "properties": {
+          "insights": {
+            "$ref": "#/components/schemas/InsightsParameters"
+          }
+        },
+        "title": "InsightsRequest",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "InsightsResponse": {
+        "properties": {
+          "insights": {
+            "$ref": "#/components/schemas/InsightsResult"
+          }
+        },
+        "title": "InsightsResponse",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "InsightsResult": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/WebInsightsResult"
+          },
+          {
+            "$ref": "#/components/schemas/MobileInsightsResult"
+          },
+          {
+            "$ref": "#/components/schemas/MetaLeadAdsInsightsResult"
+          }
+        ],
+        "title": "InsightsResult",
+        "x-struct": null,
+        "x-tags": [
+          "Insights"
+        ],
+        "x-validate": null
+      },
+      "MatchLeadEmailParameters": {
+        "description": "Match certificate to the lead based on the lead `email` address",
+        "example": {
+          "email": "janedoe@gmail.com"
+        },
+        "properties": {
+          "email": {
+            "description": "The email of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "required": [
+          "email"
+        ],
+        "title": "MatchLeadEmailParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MatchLeadParameters": {
+        "anyOf": [
+          {
+            "$ref": "#/components/schemas/MatchLeadEmailParameters"
+          },
+          {
+            "$ref": "#/components/schemas/MatchLeadPhoneParameters"
+          },
+          {
+            "$ref": "#/components/schemas/MatchLeadPhoneEmailParameters"
+          }
+        ],
+        "title": "MatchLeadParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Match Lead"
+        ],
+        "x-validate": null
+      },
+      "MatchLeadPhoneEmailParameters": {
+        "description": "Match certificate to the lead based on the lead `phone` number and/or `email` address",
+        "example": {
+          "email": "janedoe@gmail.com",
+          "phone": "5125551212"
+        },
+        "properties": {
+          "email": {
+            "description": "The email of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "phone": {
+            "description": "The phone number of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "required": [
+          "email",
+          "phone"
+        ],
+        "title": "MatchLeadPhoneEmailParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MatchLeadPhoneParameters": {
+        "description": "Match certificate to the lead based on the lead `phone` number",
+        "example": {
+          "phone": "5125551212"
+        },
+        "properties": {
+          "phone": {
+            "description": "The phone number of the consumer you believe was recorded in the certificate. Optionally you can hash the value using a SHA1 hash function in place of providing the unhashed value.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "required": [
+          "phone"
+        ],
+        "title": "MatchLeadPhoneParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MatchLeadRequest": {
+        "properties": {
+          "match_lead": {
+            "$ref": "#/components/schemas/MatchLeadParameters"
+          }
+        },
+        "title": "MatchLeadRequest",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MatchLeadResponse": {
+        "properties": {
+          "match_lead": {
+            "$ref": "#/components/schemas/MatchLeadResult"
+          }
+        },
+        "title": "MatchLeadResponse",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MatchLeadResult": {
+        "description": "  The result of the `match_lead` operation. The `email` and `phone` parameters are echoed and the\n  `result` property reports the outcome of the operation. More information is [available in our KB](https://community.activeprospect.com/posts/4766190-trustedform-lead-matching).\n\n  If the operation result is not a `success`, TrustedForm was unable to confirm that the consumer information\n  collected on the cert matches the lead it came with. This is a strong signal that the lead should not be contacted.\n\n  The result of the `match_lead` operation does not impact the behavior of the `retain` operation.\n",
+        "example": {
+          "email": "janedoe@gmail.com",
+          "phone": "51125551212",
+          "result": {
+            "email_match": true,
+            "phone_match": true,
+            "success": true
+          }
+        },
+        "properties": {
+          "email": {
+            "description": "The email or hashed value provided in the request, believed to be that of the consumer recorded in the certificate.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "phone": {
+            "description": "The phone number or hashed value provided in the request, believed to be that of the consumer recorded in the certificate.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "result": {
+            "properties": {
+              "email_match": {
+                "description": "    A `boolean` indicating if the specified `email` was found on the\n    certificate. A `null` value indicates that no emails were\n    provided.\n",
+                "example": true,
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "phone_match": {
+                "description": "    A `boolean` indicating if the specified `phone` was found on the\n    certificate. A `null` value indicates that a phone number was\n    not provided.\n",
+                "example": false,
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "success": {
+                "description": "    A `boolean` indicating if any matches were found during the lead\n    matching operation. A `null` value indicates that lead matching\n    was not performed.\n",
+                "example": true,
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "MatchLeadResult",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Match Lead"
+        ],
+        "x-validate": null
+      },
+      "MetaLeadAdsInsightsResult": {
+        "example": {
+          "properties": {
+            "age_seconds": 92,
+            "created_at": "2024-09-23T12:07:09Z",
+            "expires_at": "2024-09-26T12:07:09Z"
+          },
+          "scans": {
+            "forbidden": [
+              "free",
+              "ipad"
+            ],
+            "required": [
+              "home security system"
+            ],
+            "result": {
+              "forbidden": {
+                "found": [],
+                "not_found": [
+                  "ipad",
+                  "free"
+                ]
+              },
+              "required": {
+                "found": [
+                  "home security system"
+                ],
+                "not_found": []
+              },
+              "success": true
+            }
+          }
+        },
+        "properties": {
+          "properties": {
+            "description": "The data points requested, if available.",
+            "properties": {
+              "age_seconds": {
+                "description": "Number of seconds since the last user interaction with the certificate.",
+                "type": "integer",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "confirmed_owner": {
+                "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- ``\"ActiveProspect Verified Account\"`` — the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- ``\"<account name>\"`` — the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "created_at": {
+                "description": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "expires_at": {
+                "description": "The UTC ISO8601 formatted date and time when the certificate will expire.",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "scans": {
+            "$ref": "#/components/schemas/ScansResult"
+          }
+        },
+        "title": "MetaLeadAdsInsightsResult",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MethodNotAllowed": {
+        "example": {
+          "outcome": "error",
+          "reason": "Certificate is not claimable"
+        },
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "MethodNotAllowed",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "MobileInsightsResult": {
+        "example": {
+          "properties": {
+            "age_seconds": 100,
+            "approx_ip_geo": {
+              "city": "Austin",
+              "postal_code": "78704",
+              "state": "TX"
+            },
+            "created_at": "2024-09-23T12:07:09Z",
+            "expires_at": "2024-09-26T12:07:09Z",
+            "ip": "192.168.1.1",
+            "is_masked": false,
+            "os": {
+              "full": "Android 10.15.7",
+              "is_mobile": true,
+              "name": "Android",
+              "version": {
+                "full": "10.15.7",
+                "major": "10",
+                "minor": "15",
+                "patch": "7"
+              }
+            },
+            "seconds_on_page": 80
+          },
+          "scans": {
+            "forbidden": [
+              "free",
+              "ipad"
+            ],
+            "required": [
+              "home security system"
+            ],
+            "result": {
+              "forbidden": {
+                "found": [],
+                "not_found": [
+                  "ipad",
+                  "free"
+                ]
+              },
+              "required": {
+                "found": [
+                  "home security system"
+                ],
+                "not_found": []
+              },
+              "success": true
+            }
+          }
+        },
+        "properties": {
+          "properties": {
+            "description": "The data points requested, if available.",
+            "properties": {
+              "age_seconds": {
+                "description": "Number of seconds since the last user interaction with the certificate.",
+                "type": "integer",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "approx_ip_geo": {
+                "description": "An object containing properties that provide information about the consumer’s location at the time the certificate was created based on their IP address.",
+                "nullable": true,
+                "properties": {
+                  "city": {
+                    "description": "City name based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "country_code": {
+                    "description": "Country code based on consumer's public IP address",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "lat": {
+                    "description": "Latitude based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "number",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "lon": {
+                    "description": "Longitude based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "number",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "postal_code": {
+                    "description": "Mailing address postal code based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "state": {
+                    "description": "State/Province or Political Subdivision abbreviation based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "time_zone": {
+                    "description": "Timezone name based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "confirmed_owner": {
+                "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- ``\"ActiveProspect Verified Account\"`` — the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- ``\"<account name>\"`` — the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "created_at": {
+                "description": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "expires_at": {
+                "description": "The UTC ISO8601 formatted date and time when the certificate will expire.",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "ip": {
+                "description": "The consumer's public IP address.",
+                "nullable": true,
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "is_masked": {
+                "description": "A boolean indicating if the certificate is masked and does not show source information nor a session replay.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "os": {
+                "description": "An object containing properties that provide information about the consumer's operating system.",
+                "properties": {
+                  "full": {
+                    "description": "A human-friendly version of the operating system information parsed from the user-agent.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "is_mobile": {
+                    "description": "A boolean indicating that the form was filled out on a mobile device or tablet, based on the user-agent.",
+                    "type": "boolean",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "name": {
+                    "description": "The operating system's name.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "version": {
+                    "description": "An object containing properties that provide information about the version of the consumer's operating system.",
+                    "properties": {
+                      "full": {
+                        "description": "A string containing the version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "major": {
+                        "description": "A string containing the major version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "minor": {
+                        "description": "A string containing the minor version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "patch": {
+                        "description": "A string containing the patch version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    },
+                    "type": "object",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "seconds_on_page": {
+                "description": "The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received.",
+                "nullable": true,
+                "type": "number",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "scans": {
+            "$ref": "#/components/schemas/ScansResult"
+          }
+        },
+        "title": "MobileInsightsResult",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "NotFound": {
+        "example": {
+          "outcome": "error",
+          "reason": "TrustedForm certificate has expired or could not be found"
+        },
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "NotFound",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "Outcome": {
+        "properties": {
+          "outcome": {
+            "description": "  The overall outcome of executed operations. Indicates whether the call succeeded, failed, or resulted in an error.\n  Best practice is to use this property to determine if you should purchase a lead. A `failure` or `error`\n  indicate that the lead should not be contacted. The reason for failure or error is revealed in the `reason` property.\n",
+            "enum": [
+              "success",
+              "failure",
+              "error"
+            ],
+            "example": "success",
+            "type": "string",
+            "x-enumDescriptions": {
+              "error": "An unexpected error occurred in one or more of the operations",
+              "failure": "One or more operations were unsuccessful",
+              "success": "All operations were successful"
+            },
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "description": "Explanation for a `failure` or `error`, otherwise `null`",
+            "example": "null",
+            "nullable": true,
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "Outcome",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "PaymentRequired": {
+        "example": {
+          "outcome": "error",
+          "reason": "Account is inactive"
+        },
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "PaymentRequired",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "RetainParameters": {
+        "description": "    Though both `retain` parameters are optional, we strongly recommend\n    using them. Doing so will record additional\n\n    metadata on your stored certificate which is often of use down the road.\n",
+        "properties": {
+          "reference": {
+            "description": "Any text that may help you identify the lead associated with the certificate such as a unique lead\nidentifier or URL pointing to the lead in another system. This value will be displayed in your copy of the\ncertificate for your future reference\n",
+            "example": "1128238382829",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "vendor": {
+            "description": "When retaining a certificate, you can optionally pass the vendor name. This is intended for tracking the name\nof the company that provided the lead associated with the certificate. TrustedForm will record this value on the\ncertificate stored in your account. Other accounts cannot see this value. When you use TrustedForm reporting,\nyou can easily filter or group by vendor.\n",
+            "example": "Acme Co.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "RetainParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Retain"
+        ],
+        "x-validate": null
+      },
+      "RetainRequest": {
+        "properties": {
+          "retain": {
+            "$ref": "#/components/schemas/RetainParameters"
+          }
+        },
+        "title": "RetainRequest",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "RetainResponse": {
+        "properties": {
+          "retain": {
+            "$ref": "#/components/schemas/RetainResult"
+          }
+        },
+        "title": "RetainResponse",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "RetainResult": {
+        "properties": {
+          "reference": {
+            "description": "        Any text that may help you identify the lead associated with the\n        certificate such as a unique lead\n\n        identifier or URL pointing to the lead in another system. This value\n        will be displayed in your copy of\n\n        the certificate for your future reference.\n",
+            "example": "1128238382829",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "result": {
+            "properties": {
+              "expires_at": {
+                "description": "The UTC ISO8601 formatted date and time when this certificate will no longer be available for API requests.",
+                "example": "2023-07-18T12:03:52Z",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "masked_cert_url": {
+                "description": "A certificate URL that masks the lead source URL and snapshot",
+                "nullable": true,
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "previously_retained": {
+                "description": "A boolean indicating whether your account had already retained this certificate.",
+                "example": "false",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "vendor": {
+            "description": "    When retaining a certificate, you can optionally pass the vendor\n    name. This is intended for tracking the name\n    of the company that provided the lead associated with the\n    certificate. TrustedForm will record this value on the\n\n    certificate stored in your account. Other accounts cannot see this\n    value. When you use TrustedForm reporting,\n\n    you can easily filter or group by vendor.\n",
+            "example": "Acme Co.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "RetainResult",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Retain"
+        ],
+        "x-validate": null
+      },
+      "ScansResult": {
+        "description": "An object containing the properties that are part of the page scan process.",
+        "properties": {
+          "delimiter": {
+            "description": "The parameter provided in the request that was used as the delimiter to identify wildcards during the page scan process.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "forbidden": {
+            "description": "The parameter provided in the request that was searched for during the page scan process to verify that it was not included in the recorded content.",
+            "oneOf": [
+              {
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              {
+                "items": {
+                  "type": "string",
+                  "x-struct": null,
+                  "x-validate": null
+                },
+                "type": "array",
+                "x-struct": null,
+                "x-validate": null
+              }
+            ],
+            "x-struct": null,
+            "x-validate": null
+          },
+          "required": {
+            "description": "The parameter provided in the request that was searched for during the page scan process to verify that it was included in the recorded content.",
+            "oneOf": [
+              {
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              {
+                "items": {
+                  "type": "string",
+                  "x-struct": null,
+                  "x-validate": null
+                },
+                "type": "array",
+                "x-struct": null,
+                "x-validate": null
+              }
+            ],
+            "x-struct": null,
+            "x-validate": null
+          },
+          "result": {
+            "properties": {
+              "forbidden": {
+                "description": "An object containing the forbidden scans that were found and not found.",
+                "properties": {
+                  "found": {
+                    "description": " A list of forbidden scan terms that were found in the recorded content.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      {
+                        "items": {
+                          "type": "string",
+                          "x-struct": null,
+                          "x-validate": null
+                        },
+                        "type": "array",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    ],
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "not_found": {
+                    "description": "A list of forbidden scan terms that were not found in the recorded content.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      {
+                        "items": {
+                          "type": "string",
+                          "x-struct": null,
+                          "x-validate": null
+                        },
+                        "type": "array",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    ],
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "required": {
+                "description": "An object containing the required scans that were found and not found.",
+                "properties": {
+                  "found": {
+                    "description": "A list of required scan terms that were found in the recorded content.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      {
+                        "items": {
+                          "type": "string",
+                          "x-struct": null,
+                          "x-validate": null
+                        },
+                        "type": "array",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    ],
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "not_found": {
+                    "description": "A list of required scan terms that were not found in the recorded content.",
+                    "oneOf": [
+                      {
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      {
+                        "items": {
+                          "type": "string",
+                          "x-struct": null,
+                          "x-validate": null
+                        },
+                        "type": "array",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    ],
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "success": {
+                "description": "A boolean indicating if all required text was found and none of the forbidden text was found.<br> Null if page scan parameters are not provided.",
+                "nullable": true,
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "ScansResult",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "Unauthorized": {
+        "example": {
+          "outcome": "error",
+          "reason": "Unauthorized"
+        },
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "Unauthorized",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "UnprocessableEntity": {
+        "example": {
+          "outcome": "error",
+          "reason": "Certificate has been claimed too many times"
+        },
+        "properties": {
+          "outcome": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "reason": {
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "UnprocessableEntity",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "VerifyParameters": {
+        "description": "The `advertiser_name` parameter is optional but is required to populate the `one_to_one` property.\n\nThe `advertiser_name` parameter only applies to the One to One Consent value (returned as `one_to_one`). It has no effect on\nany other values returned by the Verify call.\n\nThe `min_font_size_px_required`, `min_contrast_ratio_required`, and `opt_in_types_allowed` parameters are optional.\n",
+        "example": {
+          "advertiser_name": "Acme Inc.",
+          "min_contrast_ratio_required": 7,
+          "min_font_size_px_required": 16,
+          "opt_in_types_allowed": [
+            "manual",
+            "pre-selected",
+            "non-interactive"
+          ]
+        },
+        "properties": {
+          "advertiser_name": {
+            "description": "The name of the legal entity for an advertiser, used to determine if they were given consent in a one-to-one manner. Normalized to be case-insensitive, ignore extra spaces, and omit non-alphanumeric characters (e.g., “Acme Inc.” and “acme inc” are the same). This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "example": "Acme Inc.",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "min_contrast_ratio_required": {
+            "description": "The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "example": 7,
+            "type": "number",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "min_font_size_px_required": {
+            "description": "The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "example": 16,
+            "type": "number",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "opt_in_types_allowed": {
+            "description": "An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method. The array can include one or more of the following values:\n\n- `manual`: The consumer actively checked a box to provide consent.\n- `pre-selected`: An opt-in field was selected by default, without explicit action from the consumer.\n- `non-interactive`: In the absence of an opt-in field, the consumer gave consent by submitting the form.\n\nThis field is used to define which opt-in types are considered valid.\n",
+            "items": {
+              "enum": [
+                "manual",
+                "pre-selected",
+                "non-interactive"
+              ],
+              "type": "string",
+              "x-struct": null,
+              "x-validate": null
+            },
+            "type": "array",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "VerifyParameters",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Verify"
+        ],
+        "x-validate": null
+      },
+      "VerifyRequest": {
+        "properties": {
+          "verify": {
+            "$ref": "#/components/schemas/VerifyParameters"
+          }
+        },
+        "title": "VerifyRequest",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "VerifyResponse": {
+        "properties": {
+          "verify": {
+            "$ref": "#/components/schemas/VerifyResult"
+          }
+        },
+        "title": "VerifyResponse",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      },
+      "VerifyResult": {
+        "example": {
+          "advertiser_name": "Acme Inc.",
+          "languages": [
+            {
+              "text": "By clicking on the 'Get Rates' button below, I consent to be contacted"
+            }
+          ],
+          "min_contrast_ratio_required": 7,
+          "min_font_size_px_required": 16,
+          "opt_in_types_allowed": [
+            "manual",
+            "pre-selected",
+            "non-interactive"
+          ],
+          "result": {
+            "form_submitted": true,
+            "language_approved": true,
+            "min_contrast_ratio_satisfied": true,
+            "min_font_size_px_satisfied": true,
+            "one_to_one": true,
+            "opt_in_types_satisfied": true,
+            "success": true
+          }
+        },
+        "properties": {
+          "advertiser_name": {
+            "description": "  The legal name of the advertiser used to perform the 1:1 consent language check. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "type": "string",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "languages": {
+            "description": "A list of the consent languages detected within the certificate",
+            "items": {
+              "properties": {
+                "text": {
+                  "description": "The text of a consent language found within the certificate",
+                  "example": "By clicking on the 'Submit' button below, I consent to be contacted",
+                  "type": "string",
+                  "x-struct": null,
+                  "x-validate": null
+                }
+              },
+              "type": "object",
+              "x-struct": null,
+              "x-validate": null
+            },
+            "type": "array",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "min_contrast_ratio_required": {
+            "description": "  The number indicating the minimum contrast ratio required between the consent language text and background. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "type": "number",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "min_font_size_px_required": {
+            "description": "  The number indicating the minimum font size required for the consent language. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided in either.\n",
+            "type": "number",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "opt_in_types_allowed": {
+            "description": "  An array of strings that lists the opt-in types that are allowed. This value can be passed in the request or set via the [verification criteria page](https://app.trustedform.com/verification_criteria) and will appear in the response if provided through either method.\n",
+            "items": {
+              "enum": [
+                "manual",
+                "pre-selected",
+                "non-interactive"
+              ],
+              "type": "string",
+              "x-struct": null,
+              "x-validate": null
+            },
+            "type": "array",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "result": {
+            "description": "An object containing properties that detail the result of the verify operation.",
+            "properties": {
+              "form_submitted": {
+                "description": "A boolean indicating whether the form was successfully submitted by the consumer. true means a form submission was detected, while false indicates that the form was abandoned before submission. This field will only influence the one_to_one check result, not the overall Verify outcome.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "language_approved": {
+                "description": "A boolean indicating if any of the consent languages found have been approved in your account’s consent language manager.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "min_contrast_ratio_satisfied": {
+                "description": "A boolean indicating whether the contrast ratio between the consent language text and background meets or exceeds the required minimum contrast ratio.  true means the contrast requirement was satisfied, while false means it was insufficient. A null value is returned when the min_contrast_ratio_required is missing, and the check could not be performed.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "min_font_size_px_satisfied": {
+                "description": "A boolean indicating whether the consent language meets or exceeds the required minimum font size. true means the font size requirement was satisfied, while false indicates it was not. A null value is returned when the min_font_size_px_required is missing, and the check could not be performed.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "one_to_one": {
+                "description": "A boolean indicating if the cert structure satisfied the requirements for 1:1 consent. You must pass the `advertiser_name` for the check to be performed. A `null` value is returned when consent tags were not used, or when the `advertiser_name` is missing, and the consent check could not be performed.",
+                "nullable": true,
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "opt_in_types_satisfied": {
+                "description": "A boolean indicating whether all the opt-in types on the form match one or more of the allowed opt-in types specified in the opt_in_types_allowed parameter. true means all opt-in types on the form meet the specified criteria.  false means at least one opt-in type on the form does not match any of the allowed types. A null value is returned when the opt_in_types_allowed is missing, and the check could not be performed.\n",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "success": {
+                "description": "A boolean indicating whether all Verify checks succeeded.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          }
+        },
+        "title": "VerifyResult",
+        "type": "object",
+        "x-struct": null,
+        "x-tags": [
+          "Verify"
+        ],
+        "x-validate": null
+      },
+      "WebInsightsResult": {
+        "example": {
+          "properties": {
+            "age_seconds": 76287,
+            "approx_ip_geo": {
+              "city": "Dallas",
+              "country_code": "US",
+              "lat": 32.7451,
+              "lon": -96.8038,
+              "postal_code": "75203",
+              "state": "Texas",
+              "time_zone": "America/Chicago"
+            },
+            "bot_detected": false,
+            "browser": {
+              "full": "Chrome 128.0.0.0",
+              "name": "Chrome",
+              "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+              "version": {
+                "full": "128.0.0.0",
+                "major": "128",
+                "minor": "0",
+                "patch": "0"
+              }
+            },
+            "confirmed_owner": "ActiveProspect, Inc.",
+            "created_at": "2024-09-18T17:07:09Z",
+            "domain": "example.com",
+            "expires_at": "2024-12-20T17:07:09Z",
+            "form_input_kpm": 234.92560689115115,
+            "form_input_method": [
+              "typing"
+            ],
+            "form_input_wpm": 47.355958958168905,
+            "ip": "192.168.0.1",
+            "is_framed": false,
+            "is_masked": false,
+            "num_sensitive_content_elements": 0,
+            "num_sensitive_form_elements": 0,
+            "os": {
+              "full": "Mac OS X 10.15.7",
+              "is_mobile": false,
+              "name": "Mac OS X",
+              "version": {
+                "full": "10.15.7",
+                "major": "10",
+                "minor": "15",
+                "patch": "7"
+              }
+            },
+            "page_url": "https://www.example.com/contact.html",
+            "parent_page_url": null,
+            "seconds_on_page": 1129
+          },
+          "scans": {
+            "forbidden": [
+              "free"
+            ],
+            "required": [
+              "offer"
+            ],
+            "result": {
+              "forbidden": {
+                "found": [],
+                "not_found": [
+                  "free"
+                ]
+              },
+              "required": {
+                "found": [],
+                "not_found": [
+                  "offer"
+                ]
+              },
+              "success": false
+            }
+          }
+        },
+        "properties": {
+          "properties": {
+            "description": "The data points requested, if available.",
+            "properties": {
+              "age_seconds": {
+                "description": "Number of seconds since the last user interaction with the certificate.",
+                "type": "integer",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "approx_ip_geo": {
+                "description": "An object containing properties that provide information about the consumer’s location at the time the certificate was created based on their IP address.",
+                "nullable": true,
+                "properties": {
+                  "city": {
+                    "description": "City name based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "country_code": {
+                    "description": "Country code based on consumer's public IP address",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "lat": {
+                    "description": "Latitude based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "number",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "lon": {
+                    "description": "Longitude based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "number",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "postal_code": {
+                    "description": "Mailing address postal code based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "state": {
+                    "description": "State/Province or Political Subdivision abbreviation based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "time_zone": {
+                    "description": "Timezone name based on consumer's public IP address.",
+                    "nullable": true,
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "bot_detected": {
+                "description": "A determination of whether the events documented were likely produced by a non-human entity based on ActiveProspect’s proprietary algorithms.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "browser": {
+                "description": "An object containing properties that provide information about the consumer’s browser.",
+                "properties": {
+                  "full": {
+                    "description": "A human-friendly version of the browser parsed from the user-agent.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "name": {
+                    "description": "The browser's name.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "user_agent": {
+                    "description": "The consumer's browser user-agent.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "version": {
+                    "description": "An object containing properties that provide information about the browser's version number.",
+                    "properties": {
+                      "full": {
+                        "description": "A string containing the full version.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "major": {
+                        "description": "A string containing the major version.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "minor": {
+                        "description": "A string containing the minor version.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "patch": {
+                        "description": "A string containing the patch version.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    },
+                    "type": "object",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "confirmed_owner": {
+                "description": "This field indicates the verified owner of the TrustedForm certificate.\n\nThe value can be one of the following:\n- ``\"No Verified ActiveProspect Account Identified\"`` — no account has been confirmed as the owner of this certificate.\n- ``\"ActiveProspect Verified Account\"`` — the certificate has been confirmed to belong to an account verified by ActiveProspect, but the specific account name is not disclosed as the account is not a connected partner or has not granted permission to confirm ownership.\n- ``\"<account name>\"`` — the name of the verified account that owns the certificate and has granted permission to confirm ownership.\n\nTo manage permissions, visit the [Connections](https://account.activeprospect.com/connections/invitations/new) page. You can invite a new partner to connect, or request the necessary permissions from an existing connection. Once granted, ownership information can be shared transparently.\n",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "created_at": {
+                "description": "The UTC ISO8601 formatted date and time when TrustedForm Certify was loaded.",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "domain": {
+                "description": "The domain displayed to the consumer during the page visit.",
+                "nullable": true,
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "expires_at": {
+                "description": "The UTC ISO8601 formatted date and time when the certificate will expire.",
+                "format": "datetime",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "form_input_kpm": {
+                "description": "The average number of keystrokes per minute based on the consumer's rate of form input.",
+                "type": "number",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "form_input_method": {
+                "description": "The detected input method(s) the consumer used to fill out the form.",
+                "items": {
+                  "enum": [
+                    "autofill",
+                    "paste",
+                    "typing",
+                    "pre-populated"
+                  ],
+                  "type": "string",
+                  "x-struct": null,
+                  "x-validate": null
+                },
+                "nullable": true,
+                "type": "array",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "form_input_wpm": {
+                "description": "The approximate number of words per minute calculated by using the form_input_kpm and assuming five characters represent a word.",
+                "type": "number",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "ip": {
+                "description": "The consumer's public IP address.",
+                "nullable": true,
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "is_framed": {
+                "description": "A boolean indicating that the form was displayed within an iframe.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "is_masked": {
+                "description": "A boolean indicating if the certificate is masked and does not show source information nor a session replay.",
+                "type": "boolean",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "num_sensitive_content_elements": {
+                "description": "Count of how many content elements (e.g. img, div) are marked sensitive and hidden from the session replay.",
+                "type": "number",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "num_sensitive_form_elements": {
+                "description": "Count of how many form elements (e.g. input, textarea) are marked sensitive and hidden from the session replay.",
+                "type": "number",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "os": {
+                "description": "An object containing properties that provide information about the consumer's operating system.",
+                "properties": {
+                  "full": {
+                    "description": "A human-friendly version of the operating system information parsed from the user-agent.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "is_mobile": {
+                    "description": "A boolean indicating that the form was filled out on a mobile device or tablet, based on the user-agent.",
+                    "type": "boolean",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "name": {
+                    "description": "The operating system's name.",
+                    "type": "string",
+                    "x-struct": null,
+                    "x-validate": null
+                  },
+                  "version": {
+                    "description": "An object containing properties that provide information about the version of the consumer's operating system.",
+                    "properties": {
+                      "full": {
+                        "description": "A string containing the version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "major": {
+                        "description": "A string containing the major version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "minor": {
+                        "description": "A string containing the minor version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      },
+                      "patch": {
+                        "description": "A string containing the patch version of the consumer's operating system.",
+                        "type": "string",
+                        "x-struct": null,
+                        "x-validate": null
+                      }
+                    },
+                    "type": "object",
+                    "x-struct": null,
+                    "x-validate": null
+                  }
+                },
+                "type": "object",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "page_url": {
+                "description": "The URL of the page hosting TrustedForm Certify.",
+                "format": "url",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "parent_page_url": {
+                "description": "The parent URL of the page hosting TrustedForm Certify, if framed.",
+                "format": "url",
+                "type": "string",
+                "x-struct": null,
+                "x-validate": null
+              },
+              "seconds_on_page": {
+                "description": "The time in seconds between when TrustedForm Certify was loaded and when the most recent cert event was received.",
+                "nullable": true,
+                "type": "number",
+                "x-struct": null,
+                "x-validate": null
+              }
+            },
+            "type": "object",
+            "x-struct": null,
+            "x-validate": null
+          },
+          "scans": {
+            "$ref": "#/components/schemas/ScansResult"
+          }
+        },
+        "title": "WebInsightsResult",
+        "type": "object",
+        "x-struct": null,
+        "x-validate": null
+      }
+    },
+    "securitySchemes": {
+      "Basic": {
+        "description": "TrustedForm uses [HTTP Basic\nAuthentication](https://en.wikipedia.org/wiki/Basic_access_authentication)\nwith the username `API` and your API key as the password.\n\nFor example: `API:1f1b96c9150d8050e858c043d543bb4eadae0e6f`'\n",
+        "scheme": "basic",
+        "type": "http"
+      }
+    }
+  },
+  "x-tagGroups": [
+    {
+      "name": "API Endpoint",
+      "tags": [
+        "Certificate URL"
+      ]
+    },
+    {
+      "name": "Operations",
+      "tags": [
+        "Match Lead",
+        "Retain",
+        "Insights",
+        "Verify"
+      ]
+    },
+    {
+      "name": "Certificate",
+      "tags": [
+        "Types",
+        "Sending on Ping"
+      ]
+    }
+  ]
+}

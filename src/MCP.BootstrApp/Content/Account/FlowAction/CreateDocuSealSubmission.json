@@ -1,0 +1,13 @@
+{
+  "_id" : "84167aae-1999-4376-ba51-1d12ec1c589c",
+  "ActionId" : "76a86a8c-de4c-4045-94ad-16861603ea08",
+  "Outputs" : {
+    "SubmissionCreated" : "Submission Created",
+    "FailedToCreateSubmission" : "Failed To Create Submission"
+  },
+  "Name" : "CreateDocuSealSubmission",
+  "Description" : "Create DocuSeal Submission",
+  "Role" : "Admin",
+  "IsActive" : true,
+  "ActionOptionsObjectType" : "CreateDocuSealSubmissionActionOptions"
+}

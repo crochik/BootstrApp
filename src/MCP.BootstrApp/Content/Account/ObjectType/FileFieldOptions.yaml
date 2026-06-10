@@ -1,0 +1,47 @@
+_id: b2022144-8bfa-4e87-985c-09d0127b55cf
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for File Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: FileFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: FileFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  ContentTypes:
+    Field:
+      _t: MultiSelectField
+      Label: Content Types
+      Name: ContentTypes
+      Options:
+        _t: MultiSelectFieldOptions
+        Items:
+          application/json: json
+          application/vnd.ms-excel: Binary Excel
+          application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: Excel xlxs
+          text/csv: CSV
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FileFieldOptions
+IsEmbedded: true
+Name: FileFieldOptions
+NativeType: PI.Shared.Form.Models.FileFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,38 @@
+_id: 13817356-60aa-4674-822a-b2c93857aeb3
+BaseObjectType: IntegrationConfiguration
+CollectionName: IntegrationConfiguration
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: IntegrationId
+      Value: 1da3422f-80e5-44ed-ad54-7d9ed3108a11
+Description: Integration Configuration for OpenAI
+Fields:
+  APIKey:
+    Field:
+      _t: PasswordField
+      Label: API Key
+      Name: APIKey
+      Options:
+        _t: PasswordFieldOptions
+        DataDataProtection:
+          _t: ms-data-protection
+          Purpose: EntityIntegration.OpenAI
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 6
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: OpenAIIntegrationConfiguration
+IsAbstract: false
+IsEmbedded: false
+Name: OpenAIIntegrationConfiguration
+NativeType: '*'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Account: 7
+    Admin: 7
+Tags:
+- Integration
+- System

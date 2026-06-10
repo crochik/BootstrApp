@@ -1,0 +1,64 @@
+{
+  "_id" : "4eef8624-98af-4165-a00b-27e64a32b9e9",
+  "Name" : "SwitchActionOptions",
+  "Description" : "Options for Switch Action ",
+  "CollectionName" : "?",
+  "NativeType" : "Messages.Flow.SwitchActionOptions",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Constraints" : { },
+  "Tags" : ["System"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Cases" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Cases",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "KeyType" : "int",
+          "ObjectType" : "SwitchCase"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "DefaultCase" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DefaultCase",
+        "Label" : "Otherwise...",
+        "DefaultValue" : "Fallback"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "DefaultEventId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DefaultEventId"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    }
+  },
+  "FullName" : "SwitchActionOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

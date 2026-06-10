@@ -1,0 +1,34 @@
+{
+  "_id" : "4ff778b7-00df-4b33-ab16-85c324f22146",
+  "Name" : "MultiSelectFieldOptions",
+  "Description" : "Options for MultiSelect Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.MultiSelectFieldOptions",
+  "BaseObjectType" : "SelectFieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "_t",
+        "Label" : "Type"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "MultiSelectFieldOptions"
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "MultiSelectFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

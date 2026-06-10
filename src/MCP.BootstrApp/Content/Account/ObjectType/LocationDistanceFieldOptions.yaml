@@ -1,0 +1,42 @@
+_id: 6368ddec-6b7a-438b-a4ef-ffd75544767e
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LocationDistanceFieldOptions
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: LocationDistanceFieldOptions
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: LocationDistanceFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LocationDistanceFieldOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: LocationDistanceFieldOptions
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

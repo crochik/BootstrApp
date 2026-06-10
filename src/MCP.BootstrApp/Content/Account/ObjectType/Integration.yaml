@@ -1,0 +1,87 @@
+_id: 49f0c992-2218-4e45-acf7-dae12f390a2a
+CollectionName: Integration
+Constraints: {}
+Description: Integration with External Service
+Fields:
+  _id:
+    _InitialValue: '{{new UUID}}'
+    Field:
+      _t: TextField
+      DefaultValue: '{{new UUID}}'
+      IsRequired: false
+      Label: Id
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(Integration)
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Integration
+IsAbstract: false
+IsEmbedded: false
+Name: Integration
+NativeType: '*'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 7
+RelatedObjectTypes: []
+Tags:
+- System

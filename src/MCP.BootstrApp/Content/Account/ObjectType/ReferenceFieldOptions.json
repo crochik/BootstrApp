@@ -1,0 +1,254 @@
+{
+  "_id" : "16dfa94f-10c4-40ec-8130-0f4ac1db6daa",
+  "Name" : "ReferenceFieldOptions",
+  "Description" : "Options for Reference Field ",
+  "CollectionName" : "CustomObject",
+  "NativeType" : "PI.Shared.Form.Models.ReferenceFieldOptions",
+  "BaseObjectType" : "SelectFieldOptions",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "ReferenceFieldOptions"
+        }]
+    }
+  },
+  "Discriminator" : {
+    "MultiReferenceFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "MultiReferenceFieldOptions"
+        }]
+    },
+    "RemoteFileFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "RemoteFileFieldOptions"
+        }]
+    },
+    "AppointmentFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "AppointmentFieldOptions"
+        }]
+    },
+    "ChatReferenceFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ChatReferenceFieldOptions"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "ReferenceFieldOptions",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "ReferenceFieldOptions" : "Reference Field Options",
+            "MultiReferenceFieldOptions" : "Multi Reference Field Options",
+            "RemoteFileFieldOptions" : "Remote File Field Options",
+            "AppointmentFieldOptions" : "Appointment Field Options",
+            "ChatReferenceFieldOptions" : "Chat Reference Field Options"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName",
+          "AutoComplete" : true,
+          "Actions" : [{
+              "_t" : "FormAction",
+              "Name" : "#new",
+              "Label" : "New Object Type",
+              "Action" : "#new"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "AutoComplete" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "AutoComplete",
+        "Label" : "Auto Complete",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ForeignFieldName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ForeignFieldName",
+        "Label" : "Foreign Field Name",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Criteria" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Criteria",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Condition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "JoinBehavior" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "JoinBehavior",
+        "Label" : "Join Behavior",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Unsafe" : "Unsafe: lookup without constraints/criteria",
+            "FilterOnly" : "Filter Only: Filter lookup results but does not exclude",
+            "Exclude" : "Exclude: Apply criteria and filter even when not visible"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Actions" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Actions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "FormAction",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ContributeUserEvents" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "ContributeUserEvents",
+        "Label" : "Contribute Events To",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Never" : "Never",
+            "View" : "View",
+            "Always" : "Always",
+            "Form" : "Form"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ValueType" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "ValueType",
+        "Label" : "Value Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "ObjectId" : "MongoDb ObjectId",
+            "String" : "String"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [{
+      "Name" : "ObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Object Type",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FullName" : "ReferenceFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

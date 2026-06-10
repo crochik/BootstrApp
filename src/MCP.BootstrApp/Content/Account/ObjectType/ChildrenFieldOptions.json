@@ -1,0 +1,203 @@
+{
+  "_id" : "d8cbc249-072b-4a27-8646-3f6d7d573254",
+  "Name" : "ChildrenFieldOptions",
+  "Description" : "Options for Children Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.ChildrenFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "ChildrenFieldOptions"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "ChildrenFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "ChildrenFieldOptions",
+      "Indexed" : true
+    },
+    "Url" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Url",
+        "Label" : "Url",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "KeyType" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "KeyType",
+        "Label" : "Key Type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "int" : "Array",
+            "string" : "Dictionary"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Criteria" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Criteria",
+        "Label" : "Criteria",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Condition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "KeyField" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "KeyField",
+        "Label" : "Key Field",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Field"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "AddFormUrls" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "AddFormUrls",
+        "Label" : "Add Form Urls",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "ReferenceField",
+            "Name" : "Key",
+            "Label" : "Object Type",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "AllowUnknown" : false,
+              "ObjectType" : "ObjectType",
+              "AutoComplete" : true,
+              "ForeignFieldName" : "FullName"
+            }
+          },
+          "ValueField" : {
+            "_t" : "TagsField",
+            "Name" : "Value",
+            "Label" : "Data Form Path",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TagsFieldOptions"
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "EditForms" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "EditForms",
+        "Label" : "Edit Forms",
+        "Description" : "Calculated by backend",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Form",
+          "KeyType" : "string",
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Key",
+            "Label" : "Key",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "ChildrenFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

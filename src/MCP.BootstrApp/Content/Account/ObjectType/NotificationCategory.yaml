@@ -1,0 +1,56 @@
+_id: ddc17cd3-0dab-4ee4-9684-8941c48dd4e7
+BaseObjectType: EntityOwnedModel
+CollectionName: notification.Category
+Description: Notification Category
+Fields:
+  EntityId:
+    InitialValue: '{{AccountId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  EntityRole:
+    Field:
+      _t: SelectField
+      Label: Role
+      Name: EntityRole
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Organization: Organization
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ExternalId:
+    Field:
+      _t: TextField
+      Label: Code
+      Name: ExternalId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Name:
+    InitialValue: '{{ExternalId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: NotificationCategory
+Name: NotificationCategory
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+    Manager: 1
+RelatedObjectTypes: []
+Tags:
+- Notifications
+UniqueExternalId: true

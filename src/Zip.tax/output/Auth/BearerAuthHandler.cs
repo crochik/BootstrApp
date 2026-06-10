@@ -1,0 +1,39 @@
+using System.Net.Http.Headers;
+
+namespace ZipTax.Auth;
+
+/// <summary>
+/// Delegating handler for Bearer token authentication
+/// </summary>
+public class BearerAuthHandler : DelegatingHandler
+{
+    private string? _token;
+
+    /// <summary>
+    /// Sets the Bearer token for authentication
+    /// </summary>
+    public void SetToken(string token)
+    {
+        _token = token;
+    }
+
+    /// <summary>
+    /// Clears the Bearer token
+    /// </summary>
+    public void ClearToken()
+    {
+        _token = null;
+    }
+
+    protected override async Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        if (!string.IsNullOrEmpty(_token))
+        {
+            request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", _token);
+        }
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}

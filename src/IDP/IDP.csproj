@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+    <ItemGroup>
+        <!--    <PackageReference Include="IdentityServer4" Version="4.1.2" />-->
+        <!--      <PackageReference Include="IdentityServer4.Storage" Version="4.1.2"/>-->
+<!--        <PackageReference Include="IdentityModel" Version="6.1.0"/>-->
+
+        <!--      <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="6.10.0" />-->
+
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="7.0.20" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="7.0.20" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.MicrosoftAccount" Version="7.0.20" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\PI.Shared.Services\PI.Shared.Services.csproj"/>
+        <ProjectReference Include="..\PI.Shared.O365\PI.Shared.O365.csproj"/>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Remove="IdentityServer4\Storage\Constants.cs"/>
+        <Compile Remove="IdentityServer4\Storage\IdentityServerConstants.cs"/>
+        <Compile Remove="IdentityServer4\Storage\IdentityServerUser.cs"/>
+        <Compile Remove="IdentityServer4\Storage\Extensions\IEnumerableExtensions.cs"/>
+        <Compile Remove="IdentityServer4\Storage\Extensions\StringsExtensions.cs"/>
+    </ItemGroup>
+</Project>

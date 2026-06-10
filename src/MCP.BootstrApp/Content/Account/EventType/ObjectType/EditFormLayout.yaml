@@ -1,0 +1,59 @@
+_id: 1b42f1c6-1bd9-4086-aa21-3b959fcba095
+Description: Form Layout Editor launched
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: EditFormLayout
+ObjectType: ObjectType
+Trigger:
+  _t: User
+  Form:
+    Actions:
+    - Action: Launch
+      Label: Launch
+      Name: Launch
+    Fields:
+    - _t: ReferenceField
+      DefaultValue: '{{Context.ProfileId}}'
+      Label: Profile
+      Name: Profile
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: AppProfile
+    - _t: SelectField
+      Label: Role
+      Name: Role
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Admin: Admin
+          Manager: Manager
+          Profile: Profile
+          User: User
+    - _t: SelectField
+      Label: Type
+      Name: FormName
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Add: Add
+          Details: Details
+          Edit: Edit
+          View: View
+    - _t: TextField
+      DefaultValue: '{{Object.Name}}'
+      Label: Object Type
+      Name: ObjectType
+    Layouts:
+      xs:
+        _t: GridFormLayout
+        Breakpoint: xs
+        Rows:
+        - Fields:
+          - Name: FormName
+        - Fields:
+          - Name: ObjectType
+        - Fields:
+          - Name: Profile
+    Name: LaunchFormLayoutEditor
+    Title: Edit Form Layout
+  Name: Form Layout editor
+  NextUrl: dataForm://api/v1/ObjectType({{Object.FullName}})/Profile({{Request|Parameters.Profile}})/Form({{Request|Parameters.FormName}})?roleId={{Request|Parameters.Role}}

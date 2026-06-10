@@ -1,0 +1,50 @@
+_id: 4dd73d5d-7a7e-49bb-a167-ad73b372c327
+BaseObjectType: Model
+CollectionName: openapi.Schema
+Description: OpenAPI Schema
+Fields:
+  FullName:
+    Field:
+      _t: TextField
+      Label: Full Name
+      Name: FullName
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Namespace:
+    Field:
+      _t: TextField
+      Label: Namespace
+      Name: Namespace
+    RBAC:
+      Permissions:
+        Admin: 1
+  Reference:
+    Field:
+      _t: TextField
+      Label: Reference
+      Name: Reference
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.Schema
+IsAbstract: false
+IsEmbedded: false
+Name: Schema
+Namespace: openapi
+NativeType: PI.OpenAPI.Models.OApiSchema
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+Tags:
+- openapi

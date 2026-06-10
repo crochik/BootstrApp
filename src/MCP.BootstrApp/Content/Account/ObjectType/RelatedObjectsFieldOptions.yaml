@@ -1,0 +1,32 @@
+_id: 2b798cab-6c26-4c16-bbeb-b442a7d06dd5
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for RelatedObjects Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: RelatedObjectsFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: RelatedObjectsFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RelatedObjectsFieldOptions
+IsEmbedded: true
+Name: RelatedObjectsFieldOptions
+NativeType: PI.Shared.Form.Models.RelatedObjectsFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

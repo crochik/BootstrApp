@@ -1,0 +1,485 @@
+_id: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+CollectionName: ObjectType.1
+Constraints:
+  077e4ad6-713e-45b3-b466-ae6957c532f0:
+    Conditions:
+    - FieldName: RBAC|Permissions|077e4ad6-713e-45b3-b466-ae6957c532f0
+      Value:
+        $bitsAllSet: 1
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Object Type
+Discriminator:
+  SalesforceObjectType:
+    Conditions:
+    - FieldName: Integrations|Salesforce|_t
+      Value: salesforce
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 1
+  AccountId:
+    Field:
+      _t: TextField
+      Description: Account
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: '{{context "AccountId"}}'
+    RBAC:
+      Permissions:
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  BaseObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Base Type
+      Name: BaseObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 5
+        Admin: 5
+        d33d2dda-5180-44a5-9e63-77494f57646a: 5
+        Manager: 1
+  CollectionName:
+    Field:
+      _t: TextField
+      DefaultValue: CustomObject
+      IsRequired: false
+      Label: Collection
+      Name: CollectionName
+      Options:
+        _t: TextFieldOptions
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  Fields:
+    Field:
+      _t: ChildrenField
+      Name: Fields
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: string
+        ObjectType: ObjectTypeField
+        Url: /api/v1/CustomObject/ObjectType({{id}})/Fields
+    InitialValue: {}
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: ObjectType
+        ObjectType: Flow
+    Indexed: true
+    InitialValue: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  FullName:
+    Field:
+      _t: TextField
+      Label: Full Name
+      Name: FullName
+    Indexed: true
+    InitialValue: '{{join "." Namespace? Name!}}'
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  InitialFlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: New Object Flow
+      Name: InitialFlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{FullName}}'
+        ObjectType: Flow
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 3
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 1
+  InitialObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: New Object Status
+      Name: InitialObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{FullName}}'
+        ObjectType: ObjectStatus
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 3
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 1
+  Integrations|Salesforce|_t:
+    Field:
+      _t: HiddenField
+      Name: Integrations|Salesforce|_t
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  IsAbstract:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      IsRequired: false
+      Label: Abstract?
+      Name: IsAbstract
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  IsEmbedded:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      IsRequired: false
+      Label: Embedded?
+      Name: IsEmbedded
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 0
+        Admin: 0
+        d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        LinkLabel: View Objects
+        LinkUrl: dataGrid://api/v1/CustomObject({{id}})
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Account: 5
+        Admin: 5
+        d33d2dda-5180-44a5-9e63-77494f57646a: 5
+        Manager: 1
+  Namespace:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Namespace
+      Name: Namespace
+      Options:
+        _t: TextFieldOptions
+        LinkLabel: Namespace Objects
+        LinkUrl: datagrid:/api/v1/CustomObject(ObjectType)?Namespace={{value}}
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 5
+        Admin: 5
+        d33d2dda-5180-44a5-9e63-77494f57646a: 5
+  NativeType:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Native Type
+      Name: NativeType
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      DefaultValue: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+      IsRequired: true
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: ObjectType
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  RBAC:
+    Field:
+      _t: HiddenField
+      Name: RBAC
+    InitialValue:
+      Permissions:
+        Admin: 15
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(ObjectType)
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  UniqueExternalId:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Unique ExternalId
+      Name: UniqueExternalId
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Account: 7
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectType
+IsActive: true
+Label: Object Type
+LabelPlural: Object Types
+LookupFields:
+  Description: Description
+  Key: FullName
+  Name: FullName
+Name: ObjectType
+NativeType: PI.Shared.Models.ObjectType
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+    33d883d8-c153-44b2-9094-d4fd158e767d: 1
+    Account: 15
+    Admin: 1
+    d33d2dda-5180-44a5-9e63-77494f57646a: 15
+    Manager: 1
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+      Account: 0
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{InitialFlowId}}'
+  Label: New Object Flow
+  Name: InitialFlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+      Account: 0
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{InitialObjectStatusId}}'
+  Label: New Object Status
+  Name: InitialObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+      Account: 0
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Object Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+      Account: 0
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{BaseObjectType}}'
+  Label: Base Type
+  Name: BaseObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+      Account: 0
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+Tags:
+- OTG
+- System
+UniqueExternalId: false

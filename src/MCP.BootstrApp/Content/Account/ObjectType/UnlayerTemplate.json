@@ -1,0 +1,311 @@
+{
+  "_id" : "c43a2f7f-43b3-467d-ba9d-aaf5d5c04484",
+  "CollectionName" : "UnlayerTemplate",
+  "Description" : "Email Template using Unlayer",
+  "Name" : "UnlayerTemplate",
+  "NativeType" : "PI.Shared.Models.UnlayerTemplate",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7,
+      "Manager" : 7
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    },
+    "Organization" : {
+      "Conditions" : [{
+          "FieldName" : "EntityId",
+          "Operator" : "In",
+          "Value" : ["{{OrganizationId}}", "{{AccountId}}"]
+        }]
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "page://EmailEditor?id={{id}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "Design" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "Design",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "Html" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Html",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "Plain" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Plain",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "PreviousVersionId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "PreviousVersionId",
+        "Label" : "Previous Version",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "UnlayerTemplate"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "ID",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}",
+      "Indexed" : true
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "IsRequired" : false,
+        "DefaultValue" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : true
+    },
+    "AccountId" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "AccountId",
+        "Label" : "Account",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Mananger" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{AccountId}}"
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "User",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "Criteria" : [{
+              "FieldName" : "AccountId",
+              "Operator" : "Eq",
+              "Value" : "{{AccountId}}"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{UserId}}"
+    },
+    "Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(UnlayerTemplate)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "TemplateType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TemplateType",
+        "Label" : "Template Type",
+        "IsRequired" : false,
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "TemplatedObjectId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TemplatedObjectId",
+        "Label" : "Templated Object",
+        "IsRequired" : false,
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "Tags" : ["System"],
+  "RelatedObjectTypes" : [],
+  "FullName" : "UnlayerTemplate",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,13 @@
+{
+  "_id" : "d01abb30-461e-43e7-bf51-30f1ca3a5374",
+  "Name" : "CreateSalesforceObject",
+  "Description" : "Create Salesforce Object",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "1d5f47f3-1880-4f3c-8297-5e1f60e40cd6",
+  "ActionOptionsObjectType" : "salesforce.CreateSalesforceObjectActionOptions",
+  "Outputs" : {
+    "ObjectCreatedEvent" : "Object Created",
+    "FailedToCreateObjectEvent" : "Failed to create Object"
+  }
+}

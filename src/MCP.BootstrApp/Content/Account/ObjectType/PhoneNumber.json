@@ -1,0 +1,105 @@
+{
+  "_id" : "674f96f7-a4f3-4e21-b5ee-d1846fdffd12",
+  "Name" : "PhoneNumber",
+  "Description" : "Phone Number",
+  "CollectionName" : "?",
+  "NativeType" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "OTG"],
+  "FullName" : "PhoneNumber",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 15,
+      "Manager" : 15,
+      "User" : 15
+    }
+  },
+  "Fields" : {
+    "Description" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Description",
+        "Label" : "Label",
+        "IsRequired" : true,
+        "ApiName" : "description",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Mobile" : "Mobile",
+            "Home" : "Home",
+            "Work" : "Work",
+            "School" : "School"
+          },
+          "AllowUnknown" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+          "Manager" : 7,
+          "User" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "PhoneNumber" : {
+      "Field" : {
+        "_t" : "PhoneField",
+        "Name" : "PhoneNumber",
+        "Label" : "Phone Number",
+        "IsRequired" : true,
+        "ApiName" : "phoneNumber",
+        "Options" : {
+          "_t" : "PhoneFieldOptions",
+          "AutoFormat" : "International"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+          "Manager" : 7,
+          "User" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Type" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Type",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "ApiName" : "type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Mobile" : "Mobile",
+            "Fax" : "Fax",
+            "Fixed" : "Fixed",
+            "VoIP" : "Voice over IP",
+            "Satelite" : "Satelite"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+          "Manager" : 7,
+          "User" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "ApiName" : "PhoneNumber",
+  "Label" : "Phone Number",
+  "LabelPlural" : "Phone Numbers",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

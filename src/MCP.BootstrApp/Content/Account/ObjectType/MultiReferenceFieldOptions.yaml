@@ -1,0 +1,34 @@
+_id: f2656103-51fa-4985-b313-d9b96a3ed203
+BaseObjectType: ReferenceFieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: MultiReferenceFieldOptions
+Description: 'Options for MultiReference Field '
+Fields:
+  _t:
+    Field:
+      _t: HiddenField
+      Label: Type
+      Name: _t
+    InitialValue: MultiReferenceFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 0
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: MultiReferenceFieldOptions
+IsEmbedded: true
+Name: MultiReferenceFieldOptions
+NativeType: PI.Shared.Form.Models.MultiReferenceFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,121 @@
+{
+  "_id" : "1f003e21-672a-4e0d-831c-0dc3e70720ce",
+  "CollectionName" : "notification.Subscriber",
+  "Description" : "Subscriber for each notification category",
+  "Name" : "NotificationSubscriber",
+  "NativeType" : "PI.Shared.Models.Notifications.NotificationSubscriber",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "Manager" : 15
+    }
+  },
+  "BaseObjectType" : "EntityOwnedModel",
+  "Fields" : {
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Subscriber",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "User",
+          "AutoComplete" : true
+        },
+        "DefaultValue" : "fc100000-0000-0000-0000-000000000000"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "DestinationEntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "DestinationEntityId",
+        "Label" : "For",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Category" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "Category",
+        "Label" : "Category",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "NotificationCategory",
+          "ForeignFieldName" : "ExternalId",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "CommunicationChannel" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "CommunicationChannel",
+        "Label" : "Channel",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Email" : "Email",
+            "SMS" : "Text (SMS)",
+            "PushNotification" : "App push notification"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ChannelAddress" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ChannelAddress",
+        "Label" : "Override Address",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["Notifications"],
+  "FullName" : "NotificationSubscriber",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

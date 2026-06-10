@@ -1,0 +1,9 @@
+_id: fcf6d7f7-1a5f-490c-8c0b-c6e6bfeab5a4
+ActionId: 79117459-7ca7-483a-91cf-49aa2adffd86
+ActionOptionsObjectType: GooglePlacesSearchActionOptions
+Description: Google Places Search
+IsActive: true
+Name: GooglePlacesSearch
+Outputs:
+  OnFoundEvent: Place Found
+Role: Admin

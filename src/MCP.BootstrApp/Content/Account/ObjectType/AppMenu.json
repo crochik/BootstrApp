@@ -1,0 +1,41 @@
+{
+  "_id" : "7b22d72b-4696-470b-ab67-7647789148e9",
+  "Name" : "AppMenu",
+  "Description" : "Client Menus",
+  "CollectionName" : "app.Menu.1",
+  "BaseObjectType" : "AppProfileElement",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "AppMenu",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Menu" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Menu",
+        "Label" : "Menu",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Menu"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "Label" : "Menu",
+  "LabelPlural" : "Menus"
+}

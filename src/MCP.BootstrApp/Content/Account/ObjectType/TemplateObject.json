@@ -1,0 +1,61 @@
+{
+  "_id" : "57307a48-3a03-4a7c-88d3-c2513cc83e4d",
+  "Name" : "TemplateObject",
+  "Description" : "Template for new Objects",
+  "CollectionName" : "ObjectType.Template",
+  "NativeType" : "PI.Shared.Models.TemplateObject",
+  "BaseObjectType" : "AppProfileElement",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "FullName" : "TemplateObject",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Object" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Object",
+        "Label" : "Partial Object",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "*"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

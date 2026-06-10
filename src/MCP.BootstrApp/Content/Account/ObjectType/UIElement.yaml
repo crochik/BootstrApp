@@ -1,0 +1,88 @@
+_id: 41aa45ec-48a0-4cbc-91f2-11e1b6f88626
+CollectionName: '?'
+Description: UI Element
+Fields:
+  Enable:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Enable
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsReadOnly:
+    Field:
+      _t: HiddenField
+      Label: Read Only?
+      Name: IsReadOnly
+    RBAC:
+      Permissions:
+        Admin: 1
+  IsVisible:
+    Field:
+      _t: HiddenField
+      Label: Visible?
+      Name: IsVisible
+    RBAC:
+      Permissions:
+        Admin: 1
+  Label:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Label
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Visible:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Visible
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UIElement
+IsAbstract: true
+IsEmbedded: true
+Name: UIElement
+NativeType: PI.Shared.Form.Models.UIElement
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 1
+RelatedObjectTypes: []
+Tags:
+- ui

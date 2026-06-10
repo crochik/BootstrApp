@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  
+  <ItemGroup>
+    <ProjectReference Include="..\PI.Shared.App\PI.Shared.App.csproj"/>
+    <ProjectReference Include="..\PI.Shared.Services\PI.Shared.Services.csproj"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="IdentityModel" Version="6.1.0" />
+    <PackageReference Include="IdentityModel.OidcClient" Version="5.2.1" />
+    <PackageReference Include="IdentityModel.OidcClient.IdentityTokenValidator" Version="5.2.1" />
+    <PackageReference Include="IppDotNetSdkForQuickBooksApiV3" Version="14.7.1.1-css" />
+
+  </ItemGroup>
+</Project>

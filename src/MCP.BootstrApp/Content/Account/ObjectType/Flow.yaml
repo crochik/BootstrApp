@@ -1,0 +1,113 @@
+_id: e745401d-cd3e-47b5-8fbc-baa2919c90c6
+BaseObjectType: EntityOwnedModel
+CollectionName: Flow
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{context "AccountId"}}'
+Description: Flow
+Fields:
+  IsActive:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 7
+        Manager: 1
+        User: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        LinkLabel: View/Edit Flow
+        LinkUrl: page://Flow?id={{id}}
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 7
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+        User: 1
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 7
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+        User: 1
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(Flow)
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Flow
+IsActive: true
+Label: Flow
+LabelPlural: Flows
+Name: Flow
+NativeType: PI.Shared.Models.Flow
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+    Admin: 15
+    d33d2dda-5180-44a5-9e63-77494f57646a: 527
+    e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+    Manager: 1
+    User: 1
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{ObjectType}}'
+  Label: Type
+  Name: ObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: InitialEvent|FlowId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Runs
+  Name: FlowRun
+  ObjectType: FlowRun
+  RBAC:
+    Permissions:
+      Admin: 1
+  RelationType: OneToMany
+Tags: []
+UniqueExternalId: false

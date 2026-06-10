@@ -1,0 +1,51 @@
+_id: 47b8e716-deda-4991-b4e3-8b108d08d080
+CollectionName: '?'
+Description: Meta Data for search result
+Fields:
+  Highlights:
+    Field:
+      _t: ChildrenField
+      ApiName: highlights
+      IsRequired: false
+      Name: Highlights
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: SearchHighlights
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  Score:
+    Field:
+      _t: NumberField
+      ApiName: score
+      IsRequired: false
+      Label: Score (Search)
+      Name: Score
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+        Style: Default
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SearchMetaData
+IsAbstract: false
+IsEmbedded: true
+Label: Meta Data (Search)
+LabelPlural: Meta Data (Search)
+Name: SearchMetaData
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 1
+    Admin: 1
+Tags:
+- OTG
+- System

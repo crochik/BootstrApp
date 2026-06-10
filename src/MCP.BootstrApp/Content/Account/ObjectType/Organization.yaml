@@ -1,0 +1,859 @@
+_id: 7c3ffa58-53b0-4e59-ba4f-53f692621f9f
+BaseObjectType: Entity
+CollectionName: Entity
+Constraints:
+  077e4ad6-713e-45b3-b466-ae6957c532f0:
+    Conditions:
+    - FieldName: IsActive
+      Value: true
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: Organization
+  Organization:
+    Conditions:
+    - FieldName: _id
+      Value: '{{OrganizationId}}'
+Description: Organization
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Account: Account
+          Organization: Organization
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 1
+  Address:
+    Field:
+      _t: AddressField
+      IsRequired: true
+      Label: Address
+      Name: Address
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  Address2:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Suite/Unit
+      Name: Address2
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  BusinessPlanRemoteFileId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Business Plan 2025
+      Name: BusinessPlanRemoteFileId
+      Options:
+        _t: RemoteFileFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ContentType
+          Value: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
+        - FieldName: ParentId
+          Value: 891598de-d648-4630-89b4-50f99455b4ff
+        ObjectType: RemoteFile
+        UploadFileOptions:
+          Name: '{{Object.Name}}{{Objects.UploadedFile.FileExtension}}'
+          Permissions:
+            Admin: 3
+            Manager: 3
+          RemoteFileFlowId: 7fde817d-fde3-471b-ab8f-04b183e9f19d
+          RemoteFileObjectStatusId: 3973cda7-96a2-4c16-8a47-de330b63f3bf
+          RemotePath: '{{Object.Name}}_{{Objects.UploadedFile._id}}.{{Objects.UploadedFile.FileExtension}}'
+        Url: /files/v1/Folder(891598de-d648-4630-89b4-50f99455b4ff)/Organization({{_id}})/BusinessPlanRemoteFileId
+    RBAC:
+      Permissions:
+        Admin: 27
+        d33d2dda-5180-44a5-9e63-77494f57646a: 27
+  CallcenterInfo:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Callcenter Info
+      Name: CallcenterInfo
+      Options:
+        _t: TextFieldOptions
+        ContentType: text/html
+        Multline: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 1
+  City:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: City
+      Name: City
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  Country:
+    Field:
+      _t: TextField
+      DefaultValue: United States
+      IsRequired: true
+      Label: Country
+      Name: Country
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+  Description:
+    Field:
+      _t: TextField
+      ApiName: description
+      Label: Public Branch Name
+      Name: Description
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 3
+  Email:
+    Field:
+      _t: EmailField
+      ApiName: email
+      IsRequired: false
+      Label: Email
+      Name: Email
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 3
+  FCI|INBranchId:
+    Field:
+      _t: TextField
+      ApiName: branchNumber
+      IsRequired: false
+      Label: 'Branch #'
+      Name: FCI|INBranchId
+      Options:
+        _t: TextFieldOptions
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  FCI|IsPPA:
+    Field:
+      _t: CheckboxField
+      Enable:
+      - '!FCI|IsPPA'
+      IsRequired: false
+      Label: PPA Participant
+      Name: FCI|IsPPA
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 1
+  FCI|IsPPL:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: PPL
+      Name: FCI|IsPPL
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  FCI|SFTerritoryId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Sf Organization
+      Name: FCI|SFTerritoryId
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: ExternalId
+        LinkUrl: dataForm://api/v1/CustomObject/sf_ServiceTerritory/View?id={{value}}
+        ObjectType: sf_ServiceTerritory
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: Organization
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        d33d2dda-5180-44a5-9e63-77494f57646a: 5
+        Manager: 0
+  Identities|CompanyCam|CompanyId:
+    Field:
+      _t: CalculatedField
+      Calculation:
+        _t: expression
+        Calculations:
+        - _t: lookup
+          Conditions:
+          - FieldName: IdentityProviderId
+            Value: CompanyCam
+        - _t: path
+          Path: ExternalId
+        - _t: path
+          Path: Identities
+      Field:
+        _t: TextField
+      InputFields:
+      - Identities
+      Label: CompanyCam Company Id
+      Name: Identities|CompanyCam|CompanyId
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Identities|Quickbooks|CompanyId:
+    Field:
+      _t: CalculatedField
+      Calculation:
+        _t: expression
+        Calculations:
+        - _t: lookup
+          Conditions:
+          - FieldName: IdentityProviderId
+            Value: Quickbooks
+        - _t: path
+          Path: ExternalId
+        - _t: path
+          Path: Identities
+      Field:
+        _t: TextField
+      InputFields:
+      - Identities
+      Label: Quickbooks Company Id
+      Name: Identities|Quickbooks|CompanyId
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Identities|Salesforce|Main:
+    Field:
+      _t: CalculatedField
+      Calculation:
+        _t: expression
+        Calculations:
+        - _t: lookup
+          Conditions:
+          - FieldName: Data
+            Operator: Ne
+            Value: 
+          - FieldName: IdentityProviderId
+            Value: Salesforce
+        - _t: path
+          Path: ExternalId
+        - _t: path
+          Path: Identities
+      Field:
+        _t: ReferenceField
+        Options:
+          _t: ReferenceFieldOptions
+          ForeignFieldName: ExternalId
+          LinkUrl: dataForm://api/v1/CustomObject/sf_ServiceTerritory({{value}})/View
+          ObjectType: sf_ServiceTerritory
+      Label: Salesforce Service Territory
+      Name: Identities|Salesforce|Main
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  IsActive:
+    Field:
+      _t: CheckboxField
+      ApiName: isActive
+      IsRequired: false
+      Label: Active
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+  Location:
+    Field:
+      _t: LocationField
+      IsRequired: false
+      Label: Location (Map)
+      Name: Location
+      Options:
+        _t: LocationFieldOptions
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  LocationDistance:
+    Field:
+      _t: LocationDistanceField
+      IsRequired: false
+      Label: Distance to Location
+      Name: LocationDistance
+      Options:
+        _IconFieldName: Icon
+        _t: LocationDistanceFieldOptions
+        LocationFieldName: Location
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  LocationInformation:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Location Info
+      Name: LocationInformation
+      Options:
+        _t: LabelFieldOptions
+        Multline: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 0
+        Admin: 0
+        d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  Name:
+    Field:
+      _t: TextField
+      ApiName: name
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _LinkUrl: page://api/v1/CustomObject/Organization({{id}})
+        _t: TextFieldOptions
+        LinkUrl: page://Organization?id={{id}}
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: Organization
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        d33d2dda-5180-44a5-9e63-77494f57646a: 15
+  OrganizationId:
+    Field:
+      _t: ReferenceField
+      ApiName: organizationId
+      IsRequired: false
+      Label: Organization
+      Name: OrganizationId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        LinkUrl: dataForm://api/v1/CustomObject/Organization({{value}})/View
+        ObjectType: Organization
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 0
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 0
+  Phone:
+    Field:
+      _t: PhoneField
+      ApiName: phone
+      IsRequired: false
+      Label: Phone
+      Name: Phone
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  PostalCode:
+    Field:
+      _t: PostalCodeField
+      IsRequired: true
+      Label: Postal Code
+      Name: PostalCode
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  PPATargeting:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: PPA Leads
+      Name: PPATargeting
+      Visible:
+      - FCI|IsPPA
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 3
+  PPATargets:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Customize PPA Targeting
+      Name: PPATargets
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: FCIOrganizationPPATargets
+      Visible:
+      - PPATargeting
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  PrimaryUserId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Primary User
+      Name: PrimaryUserId
+      Options:
+        _t: ReferenceFieldOptions
+        LinkUrl: dataForm://api/v1/CustomObject/User/View?id={{value}}
+        ObjectType: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 0
+  Promos:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Promos
+      Name: Promos
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: OrganizationPromos
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 0
+  Properties|ConfirmationEmailsOptOut:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Confirmation Emails Opt Out
+      Name: Properties|ConfirmationEmailsOptOut
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 1
+  Properties|HomeAdvisorId:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: HomeAdvisor Id
+      Name: Properties|HomeAdvisorId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 1
+  Properties|LiftifyOptIn:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Produced Customers to Liftify
+      Name: Properties|LiftifyOptIn
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 3
+  Properties|LuminOptOut:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Lumin Opt Out
+      Name: Properties|LuminOptOut
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  Properties|SendSchedulerSMS:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Send SMS with scheduling link
+      Name: Properties|SendSchedulerSMS
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  Properties|TerritoryByDistanceOptOut:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Territory By Distance Opt Out
+      Name: Properties|TerritoryByDistanceOptOut
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  Properties|UnlayerTemplateId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Appointment Confirmation Email Template
+      Name: Properties|UnlayerTemplateId
+      Options:
+        _t: ReferenceFieldOptions
+        Actions:
+        - Action: '#new'
+          Label: Edit
+          Name: '#new'
+        - Action: SendTestEmail?Template=Appointment
+          Label: Send Test email
+          Name: SendTestEmail
+        Criteria:
+        - FieldName: IsActive
+          Operator: Eq
+          Value: true
+        - FieldName: Tags
+          Operator: In
+          Value:
+          - Appointment
+        ObjectType: UnlayerTemplate
+      Visible:
+      - '!Properties|ConfirmationEmailsOptOut'
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 0
+  State:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: State
+      Name: State
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 7
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(Organization)
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  TimeZoneId:
+    Field:
+      _t: TextField
+      ApiName: timeZone
+      IsRequired: false
+      Label: Time Zone
+      Name: TimeZoneId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  WhoIsFCI:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Who Is FCI?
+      Name: WhoIsFCI
+      Options:
+        _t: TextFieldOptions
+        Multline: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Organization
+IsActive: true
+Label: Organization
+LabelPlural: Organizations
+Name: Organization
+NativeType: PI.Shared.Models.Organization
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+    Admin: 163
+    d33d2dda-5180-44a5-9e63-77494f57646a: 751
+    Manager: 3
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{BusinessPlanRemoteFileId}}'
+  Label: Business Plan 2025
+  Name: BusinessPlanRemoteFileId
+  ObjectType: RemoteFile
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{OrganizationId}}'
+  Label: Organization
+  Name: OrganizationId
+  ObjectType: Organization
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{PrimaryUserId}}'
+  Label: Primary User
+  Name: PrimaryUserId
+  ObjectType: User
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{Properties|UnlayerTemplateId}}'
+  Label: Appointment Confirmation Email Template
+  Name: Properties|UnlayerTemplateId
+  ObjectType: UnlayerTemplate
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: EntityId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Leads
+  Name: Lead
+  ObjectType: Lead
+  RBAC:
+    Permissions:
+      077e4ad6-713e-45b3-b466-ae6957c532f0: 0
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+      Manager: 0
+  RelationType: OneToMany
+- Criteria:
+    Conditions:
+    - FieldName: EntityId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Marketing Info
+  Name: MarketingInfo
+  ObjectType: fci.MarketingInfo
+  RBAC:
+    Permissions:
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+      Manager: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: EntityId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Territory
+  Name: ZeeTerritory
+  ObjectType: ZeeTerritory
+  RBAC:
+    Permissions:
+      077e4ad6-713e-45b3-b466-ae6957c532f0: 0
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+      Manager: 0
+  RelationType: OneToMany
+- Criteria:
+    Conditions:
+    - FieldName: ExternalId
+      Operator: Eq
+      Value: '{{FCI|SFTerritoryId}}'
+  Label: Sf Organization
+  Name: FCI|SFTerritoryId
+  ObjectType: sf_ServiceTerritory
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: OrganizationId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Users
+  Name: User
+  ObjectType: User
+  RBAC:
+    Permissions:
+      077e4ad6-713e-45b3-b466-ae6957c532f0: 0
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+      Manager: 1
+  RelationType: OneToMany
+- Criteria:
+    Conditions:
+    - FieldName: Parent|ObjectId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Notes
+  Name: OrganizationNote
+  ObjectType: OrganizationNote
+  RBAC:
+    Permissions:
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  RelationType: OneToMany
+Tags:
+- OTG
+UniqueExternalId: false

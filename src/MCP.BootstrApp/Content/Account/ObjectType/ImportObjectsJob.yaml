@@ -1,0 +1,137 @@
+_id: 09116902-6867-458d-a8f2-e8e7a6c39898
+BaseObjectType: EntityOwnedModel
+CollectionName: job.ImportObjects
+Description: Import Objects from file
+Fields:
+  EndedOn:
+    Field:
+      _t: DateTimeField
+      Label: Ended On
+      Name: EndedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: ImportObjectsJob
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  Mapping:
+    Field:
+      _t: DictionaryField
+      IsRequired: true
+      Name: Mapping
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: true
+        KeyField:
+          _t: TextField
+          Name: Property
+        ValueField:
+          _t: TextField
+          Name: Value
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: ImportObjectsJob
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  OutputRemoteFileId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Log File
+      Name: OutputRemoteFileId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        LinkUrl: action://file/v1/File({{value}})?action=Redirect
+        ObjectType: RemoteFile
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  SourceRemoteFileId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Source File
+      Name: SourceRemoteFileId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        LinkUrl: action://file/v1/File({{value}})?action=Redirect
+        ObjectType: RemoteFile
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  StartedOn:
+    Field:
+      _t: DateTimeField
+      Label: Started On
+      Name: StartedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  TargetObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Object Type
+      Name: TargetObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: Name
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ImportObjectsJob
+InitialFlowId: 9debae15-57e6-4f94-ae9b-681a33e2ea0d
+InitialObjectStatusId: c24ad8f0-4416-485a-b701-79b3525044fa
+IsAbstract: false
+IsEmbedded: false
+Name: ImportObjectsJob
+NativeType: PI.Shared.Models.ImportObjectsJob
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 1
+Tags:
+- System

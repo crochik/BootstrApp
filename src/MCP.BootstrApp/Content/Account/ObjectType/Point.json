@@ -1,0 +1,83 @@
+{
+  "_id" : "9dca3e38-b8e2-48c3-99b6-36596a64c356",
+  "Name" : "Point",
+  "Description" : "Point coordinates",
+  "CollectionName" : "???",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["OTG"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "Point",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 15
+    }
+  },
+  "Fields" : {
+    "X" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "X",
+        "IsRequired" : true,
+        "ApiName" : "x",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Y" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Y",
+        "IsRequired" : true,
+        "ApiName" : "y",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Z" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Z",
+        "IsRequired" : false,
+        "ApiName" : "z",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ApiName" : "Point",
+  "Label" : "Point",
+  "LabelPlural" : "Points"
+}

@@ -1,0 +1,36 @@
+_id: 137ed1b6-6e46-4940-8c5b-0deae6724af8
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: DateField
+Description: Date Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: DateField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: DateField
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DateField
+IsEmbedded: true
+Name: DateField
+NativeType: PI.Shared.Models.DateField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

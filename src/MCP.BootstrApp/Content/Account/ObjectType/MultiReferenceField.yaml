@@ -1,0 +1,47 @@
+_id: 38b4c340-0924-4982-9944-c4edf326adf7
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: MultiReferenceField
+Description: MultiReference Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: MultiReferenceField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: MultiReferenceField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: MultiReferenceFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: MultiReferenceField
+IsEmbedded: true
+Name: MultiReferenceField
+NativeType: PI.Shared.Form.Models.MultiReferenceField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,55 @@
+{
+  "_id" : "96f10b8a-3893-4976-a478-b760e41a493e",
+  "Name" : "ExternalPage",
+  "Description" : "External Page",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.ExternalPage",
+  "BaseObjectType" : "Page",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "ExternalPage"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Url" : {
+      "Field" : {
+        "_t" : "UrlField",
+        "Name" : "Url",
+        "Label" : "Url"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "OpenInNewWindow" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "OpenInNewWindow",
+        "Label" : "Open In New Window"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "Tags" : ["ui", "System", "PI-API"],
+  "FullName" : "ExternalPage",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

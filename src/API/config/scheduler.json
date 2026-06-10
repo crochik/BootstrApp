@@ -1,0 +1,70 @@
+[
+    {
+        "label": "Name",
+        "name": "name",
+        "type": "Text",
+        "source": "Contact.name"
+    },
+    {
+        "label": "Email",
+        "name": "email",
+        "type": "Email",
+        "source": "Contact.email"
+    },
+    {
+        "label": "Phone #",
+        "name": "phone",
+        "type": "Phone",
+        "source": "Contact.phone"
+    },
+    {
+        "label": "Address",
+        "name": "address",
+        "type": "Address",
+        "source": "Contact.address"
+    },
+    {
+        "label": "Postal Code",
+        "name": "postalCode",
+        "type": "PostalCode",
+        "source": "Contact.postalCode"
+    },
+    {
+        "label": "City",
+        "name": "city",
+        "type": "text",
+        "source": "Contact.city"
+    },
+    {
+        "label": "State",
+        "name": "state",
+        "type": "text",
+        "source": "Contact.state"
+    },
+    {
+        "label": "Country",
+        "name": "country",
+        "type": "text",
+        "source": "Contact.country"
+    },
+    {
+        "name": "hdyhau",
+        "type": "Hidden",
+        "source": "LaunchUrl.searchParams.attributeId"
+    },
+    {
+        "name": "apptDate",
+        "type": "Hidden",
+        "source": "Appointment.LocalDate"
+    },
+    {
+        "name": "apptStartMinutes",
+        "type": "Hidden",
+        "source": "Appointment.StartMinutes"
+    },
+    {
+        "name": "redirectUrl",
+        "type": "Hidden",
+        "source": "LaunchUrl.searchParams.redirectUrl"
+    }
+]

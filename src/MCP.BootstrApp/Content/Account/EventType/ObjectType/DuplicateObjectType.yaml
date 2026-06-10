@@ -1,0 +1,32 @@
+_id: b3cf0331-aeed-4793-b741-fbbc5f9e910b
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: DuplicateObjectType
+ObjectType: ObjectType
+Trigger:
+  _NextUrl: action://api/v1/ObjectTypeDesigner/{{Object.FullName}}/Duplicate
+  _t: User
+  Form:
+    Actions:
+    - Action: action://api/v1/ObjectTypeDesigner/Duplicate
+      Label: Duplicate
+      Name: Duplicate
+    Fields:
+    - _t: CheckboxField
+      Label: Keep Base Object
+      Name: KeepBaseObjectType
+    - _t: HiddenField
+      DefaultValue: '{{Object.FullName}}'
+      Name: ObjectType
+    - _t: LabelField
+      Label: Duplicate {{coalesce Object.Label? Object.Description? Object.Name?}}
+      Name: ObjectTypeLbl
+    - _t: TextField
+      Label: New Name
+      Name: Name
+    - _t: TextField
+      Label: New Namespace
+      Name: Namespace
+    Name: LaunchFormLayoutEditor
+    Title: Duplicate Object Type
+  Name: Duplicate...
+  Role: Admin

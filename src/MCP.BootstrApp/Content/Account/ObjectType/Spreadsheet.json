@@ -1,0 +1,155 @@
+{
+  "_id" : "4e454849-e3b6-4138-8b68-74f761f981eb",
+  "Name" : "Spreadsheet",
+  "Description" : "Spreasheet",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Spreadsheet",
+  "UniqueExternalId" : false,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "Manager" : 1
+    }
+  },
+  "Fields" : {
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Started On",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Parent" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Parent",
+        "Label" : "Email Subject",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "RowsCount" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "RowsCount",
+        "Label" : "Rows",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "ErrorsCount" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "ErrorsCount",
+        "Label" : "Errors",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "ObjectStatus" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectStatus",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Organization",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Organization",
+          "Items" : {
+            "fc100000-0000-0000-0000-000000000000" : "[FCI Corp]"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "CollectionName" : "filebox.Spreadsheet",
+  "Tags" : [],
+  "FullName" : "Spreadsheet",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

@@ -1,0 +1,37 @@
+_id: 42c587c3-001f-4067-ab81-30cf15e301a2
+BaseObjectType: Criteria
+CollectionName: '?'
+Constraints: {}
+Description: Case for Switch Action
+Fields:
+  EventId:
+    Field:
+      _t: TextField
+      Label: Event Id
+      Name: EventId
+    Indexed: true
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SwitchCase
+IsAbstract: false
+IsEmbedded: true
+Name: SwitchCase
+NativeType: Messages.Flow.SwitchCase
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

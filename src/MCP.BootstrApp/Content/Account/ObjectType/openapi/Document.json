@@ -1,0 +1,228 @@
+{
+  "_id" : "235a8942-c97a-4fb4-9fbf-63cd27a044a3",
+  "Namespace" : "openapi",
+  "Name" : "Document",
+  "Description" : "OpenAPI Document",
+  "CollectionName" : "openapi.Document",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["openapi"],
+  "FullName" : "openapi.Document",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "Namespace" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Namespace"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "BaseUrl" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "BaseUrl"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "IntegrationId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "IntegrationId",
+        "Label" : "Integration",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Integration",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "RemoteFileId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "RemoteFileId",
+        "Label" : "File",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "RemoteFileFieldOptions",
+          "ObjectType" : "RemoteFile",
+          "Criteria" : [{
+              "FieldName" : "ParentId",
+              "Value" : "cb77e4e4-212e-4af5-a458-fdf89a08b8d9"
+            }, {
+              "FieldName" : "ContentType",
+              "Operator" : "In",
+              "Value" : ["application/x-yaml", "application/yaml", "application/json"]
+            }],
+          "_Url" : "/files/v1/Folder(cb77e4e4-212e-4af5-a458-fdf89a08b8d9)/openapi.Document({{_id}})/RemoteFileId",
+          "Url" : "/files/v1/Folder(cb77e4e4-212e-4af5-a458-fdf89a08b8d9)",
+          "UploadFileOptions" : {
+            "RemotePath" : "{{_id}}_{{new Timestamp}}.{{UploadedFile|FileExtension}}",
+            "Name" : "{{Name}}{{UploadedFile|FileExtension}}",
+            "_RemoteFileObjectStatusId" : "3973cda7-96a2-4c16-8a47-de330b63f3bf",
+            "_RemoteFileFlowId" : "7fde817d-fde3-471b-ab8f-04b183e9f19d",
+            "Permissions" : {
+              "Admin" : 3
+            }
+          },
+          "ContentTypes" : ["application/x-yaml", "application/yaml", "application/json"],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3
+        }
+      }
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "LinkUrl" : "dataForm://api/v1/CustomObject/Flow({{value}})/View",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "openapi.Document"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "openapi.Document"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "RelatedObjectTypes" : [{
+      "Name" : "IntegrationId",
+      "ObjectType" : "Integration",
+      "Label" : "Integration",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{IntegrationId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "RemoteFileId",
+      "ObjectType" : "RemoteFile",
+      "Label" : "File",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{RemoteFileId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "Operations",
+      "ObjectType" : "openapi.Operation",
+      "Label" : "Operations",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "Namespace",
+            "Operator" : "Eq",
+            "Value" : "{{Namespace}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }]
+}

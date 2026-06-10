@@ -1,0 +1,252 @@
+{
+  "_id" : "526ed428-6d38-4b92-89ce-7cb8dec131d7",
+  "CollectionName" : "app.DataView.1",
+  "Description" : "App DataView",
+  "Name" : "AppDataView",
+  "NativeType" : "PI.Shared.Models.AppDataView",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 3
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "Name"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Role" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Role",
+        "Label" : "Role",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Admin" : "Admin",
+            "Manager" : "Manager",
+            "User" : "User"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "AppDataView"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "LinkUrl" : "dataForm://api/v1/CustomObject/ObjectStatus({{value}})/View",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "AppDataView"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}"
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    },
+    "DataView" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "DataView",
+        "Label" : "Data View",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "DataView"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "ObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Object Type",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "Name",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FullName" : "AppDataView",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

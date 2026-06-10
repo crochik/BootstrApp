@@ -1,0 +1,11 @@
+{
+  "_id" : "e0904855-ab29-4902-a0fe-9f20d5e39ba4",
+  "Trigger" : {
+    "Name" : "Design",
+    "NextUrl" : "page:/ObjectTypeDesigner?id={{Object.FullName}}",
+    "_t" : "User"
+  },
+  "ObjectType" : "ObjectType",
+  "Name" : "Launched Designer",
+  "EntityId" : "fc100000-0000-0000-0000-000000000000"
+}

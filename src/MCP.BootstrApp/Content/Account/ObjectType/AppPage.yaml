@@ -1,0 +1,37 @@
+_id: e63c7af2-9366-40ba-a22d-6cf02c5c4d6b
+BaseObjectType: AppProfileElement
+CollectionName: app.Page.1
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: App Pages
+Fields:
+  Page:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Page Definition
+      Name: Page
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Page
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppPage
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+Name: AppPage
+NativeType: PI.Shared.Models.AppPage
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System
+- ui
+UniqueExternalId: false

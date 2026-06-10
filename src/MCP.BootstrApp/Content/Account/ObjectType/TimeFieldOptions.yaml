@@ -1,0 +1,32 @@
+_id: f742acfd-f46c-4185-8dd2-ce1c798495ec
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for Time Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: TimeFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: TimeFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TimeFieldOptions
+IsEmbedded: true
+Name: TimeFieldOptions
+NativeType: PI.Shared.Form.Models.TimeFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

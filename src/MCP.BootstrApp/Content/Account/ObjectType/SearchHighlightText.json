@@ -1,0 +1,64 @@
+{
+  "_id" : "b7cf385c-3560-48ad-a8e4-f059aeef9d75",
+  "Name" : "SearchHighlightText",
+  "Description" : "Text fragment (Search)",
+  "CollectionName" : "?",
+  "NativeType" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "OTG"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "SearchHighlightText",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+    }
+  },
+  "Fields" : {
+    "type" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "text" : "Text",
+            "hit" : "Hit"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "value" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "value",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ApiName" : "Match",
+  "Label" : "Match (Search)",
+  "LabelPlural" : "Matches"
+}

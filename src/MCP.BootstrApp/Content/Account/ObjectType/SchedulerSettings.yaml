@@ -1,0 +1,193 @@
+_id: c0731dc0-85d1-4295-b092-21d7542f1dd0
+CollectionName: scheduler.Settings
+Description: Scheduler Settings
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 1
+  ClientId:
+    Field:
+      _Options:
+        _t: ReferenceFieldOptions
+        ObjectType: AppClient
+      _t: TextField
+      Label: Client
+      Name: ClientId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  EntityId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Organization
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Items:
+          fc100000-0000-0000-0000-000000000000: '[FCI Corp]'
+        ObjectType: Organization
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ExternalId:
+    Field:
+      _t: TextField
+      Label: Launch Code
+      Name: ExternalId
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  LeadTypeId:
+    Field:
+      _t: ReferenceField
+      Label: Lead Type
+      Name: LeadTypeId
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: LeadType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  OutOfServiceMessage:
+    Field:
+      _t: TextField
+      Enable:
+      - '!IsActive'
+      IsRequired: false
+      Label: Out of Service
+      Name: OutOfServiceMessage
+    RBAC:
+      Permissions:
+        Admin: 7
+  OverrideSchedulingPolicy:
+    Field:
+      _t: SelectField
+      Label: Scheduling Policy
+      Name: OverrideSchedulingPolicy
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          FromNow: 2 hours from now
+          NextDay: Tomorrow and beyond
+    RBAC:
+      Permissions:
+        Admin: 7
+  UnavailableSlots|AssignEntityId:
+    Field:
+      _t: ReferenceField
+      Label: Assigned User for Unavailable slots
+      Name: UnavailableSlots|AssignEntityId
+      Options:
+        _t: ReferenceFieldOptions
+        Criteria:
+        - FieldName: OrganizationId
+          Value: '{{EntityId}}'
+        ObjectType: User
+    RBAC:
+      Permissions:
+        Admin: 7
+  UnavailableSlots|AvailabilityPolicy:
+    Field:
+      _t: SelectField
+      Label: Availability for Unavailable slots
+      Name: UnavailableSlots|AvailabilityPolicy
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          DefaultForAccount: Default business hours
+          UserAvailability: Assigned User's working hours
+    RBAC:
+      Permissions:
+        Admin: 7
+  UnavailableSlots|FlowId:
+    Field:
+      _t: ReferenceField
+      Label: Appointment Flow for Unavailable slots
+      Name: UnavailableSlots|FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        Criteria:
+        - FieldName: ObjectType
+          Value: Appointment
+        ObjectType: Flow
+    RBAC:
+      Permissions:
+        Admin: 7
+  UnavailableSlots|ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      Label: Appointment Status for Unavailable slots
+      Name: UnavailableSlots|ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        Criteria:
+        - FieldName: ObjectType
+          Value: Appointment
+        ObjectType: ObjectStatus
+    RBAC:
+      Permissions:
+        Admin: 7
+  UnavailableSlots|SchedulingPolicy:
+    Field:
+      _t: SelectField
+      Label: Scheduling Policy for Unavailable slots
+      Name: UnavailableSlots|SchedulingPolicy
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          FromNow: 2 hours from now
+          NextDay: Tomorrow and beyond
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SchedulerSettings
+Name: SchedulerSettings
+NativeType: PI.Shared.Models.SchedulerSettings
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+UniqueExternalId: true

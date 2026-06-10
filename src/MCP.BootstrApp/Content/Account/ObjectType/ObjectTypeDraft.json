@@ -1,0 +1,680 @@
+{
+  "_id" : "9fcfbd76-1308-4d43-bccc-005cf94a3e6d",
+  "Name" : "ObjectTypeDraft",
+  "Description" : "Object Type Draft",
+  "CollectionName" : "ObjectType.Draft",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "FullName" : "ObjectTypeDraft",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "Account" : 7,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Draft Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Draft Description",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "ContentType" : "text/plain",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Draft Active?",
+        "IsRequired" : true,
+        "DefaultValue" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType|Namespace" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|Namespace",
+        "Label" : "Namespace",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType|Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|Name",
+        "Label" : "Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType|FullName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|FullName",
+        "Label" : "Full Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{join \".\" ObjectType|Namespace? ObjectType|Name!}}",
+      "CalculatedValue" : "{{join \".\" ObjectType|Namespace? ObjectType|Name!}}"
+    },
+    "ObjectType|Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|Description",
+        "Label" : "Type Description",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|CollectionName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|CollectionName",
+        "Label" : "Collection",
+        "IsRequired" : false,
+        "DefaultValue" : "CustomObject",
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType|NativeType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|NativeType",
+        "Label" : "Native Type",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|BaseObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType|BaseObjectType",
+        "Label" : "Base Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|UniqueExternalId" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ObjectType|UniqueExternalId",
+        "Label" : "Unique ExternalId",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|IsEmbedded" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ObjectType|IsEmbedded",
+        "Label" : "Embedded?",
+        "IsRequired" : false,
+        "DefaultValue" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|IsAbstract" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ObjectType|IsAbstract",
+        "Label" : "Abstract?",
+        "IsRequired" : false,
+        "DefaultValue" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|InitialFlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType|InitialFlowId",
+        "Label" : "New Object Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "{{ObjectType|FullName}}"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|InitialObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType|InitialObjectStatusId",
+        "Label" : "New Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "{{ObjectType|FullName}}"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "ObjectType|Tags",
+        "Label" : "Object Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(ObjectType)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType|LookupFields" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "ObjectType|LookupFields",
+        "Label" : "Lookup Fields",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "LookupFields"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectType|RBAC|Permissions" : {
+      "Field" : {
+        "Options" : {
+          "KeyField" : {
+            "Options" : {
+              "ObjectType" : "AppProfile",
+              "_t" : "ReferenceFieldOptions",
+              "Items" : {
+                "Admin" : "[Admin]",
+                "Manager" : "[Manager]",
+                "User" : "[User]",
+                "Account" : "[Account]",
+                "Organization" : "[Organization]"
+              }
+            },
+            "IsRequired" : true,
+            "Name" : "Key",
+            "Label" : "Profile/Role",
+            "_t" : "ReferenceField"
+          },
+          "ValueField" : {
+            "Options" : {
+              "Items" : {
+                "1" : "Read",
+                "2" : "Update",
+                "4" : "Create",
+                "8" : "Delete",
+                "16" : "Import",
+                "32" : "Export",
+                "64" : "Delete Many",
+                "128" : "Tag Many",
+                "256" : "Customize?",
+                "512" : "Deep Clone"
+              },
+              "_t" : "BitwiseFlagFieldOptions"
+            },
+            "Name" : "Permissions",
+            "_t" : "BitwiseFlagField"
+          },
+          "_t" : "DictionaryFieldOptions"
+        },
+        "IsRequired" : true,
+        "Name" : "ObjectType|RBAC|Permissions",
+        "Label" : "Permissions",
+        "_t" : "DictionaryField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "ObjectType|ApiPaths" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "ObjectType|ApiPaths",
+        "Label" : "API Path Overrides",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : true,
+          "KeyField" : {
+            "_t" : "SelectField",
+            "Name" : "Endpoint",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "Get" : "Get (one object)",
+                "Create" : "Create",
+                "Delete" : "Delete",
+                "Filter" : "Filter (objects)",
+                "Update" : "Update"
+              },
+              "AllowUnknown" : false
+            }
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Path",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectType|Label" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|Label",
+        "Label" : "Label",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectType|LabelPlural" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|LabelPlural",
+        "Label" : "Label (Plural)",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectType|ApiName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType|ApiName",
+        "Label" : "Api Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType|IsFullTextSearchable" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ObjectType|IsFullTextSearchable",
+        "Label" : "Searchable?",
+        "DefaultValue" : true,
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Draft Flow",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "ObjectTypeDraft"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "32ce0d87-023b-4a64-b5fc-64f65517809e"
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Draft Status",
+        "DefaultValue" : "55359d4e-d38e-4172-b11f-b153caf60036",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "ObjectTypeDraft"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "Tags",
+        "Label" : "Draft Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(ObjectTypeDraft)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "_Fields" : {
+    "ObjectType|Discriminator" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "ObjectType|Discriminator",
+        "Label" : "Discriminator",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Criteria",
+          "KeyType" : "string"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Label" : "Object Type (Draft)",
+  "LabelPlural" : "Object Type (Drafts)",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "RelatedObjectTypes" : [{
+      "Name" : "ObjectType|BaseObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Base Type",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectType|BaseObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectType|InitialFlowId",
+      "ObjectType" : "Flow",
+      "Label" : "New Object Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectType|InitialFlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectType|InitialObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "New Object Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectType|InitialObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Draft Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Draft Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "InitialFlowId" : "32ce0d87-023b-4a64-b5fc-64f65517809e",
+  "InitialObjectStatusId" : "55359d4e-d38e-4172-b11f-b153caf60036"
+}

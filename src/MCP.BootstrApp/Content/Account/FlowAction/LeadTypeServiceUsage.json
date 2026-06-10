@@ -1,0 +1,14 @@
+{
+  "_id" : "4d4c3e00-aed0-4738-9f80-ffe49ca687aa",
+  "Name" : "LeadTypeServiceUsage",
+  "Description" : "Update Object",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "5f7eef70-6392-46d7-993b-29e76afb93ac",
+  "InputObjectTypes" : ["LMSTransaction"],
+  "ActionOptionsObjectType" : "LeadTypeServiceUsageActionOptions",
+  "Outputs" : {
+    "OnBudgetEvent" : "Service active",
+    "OverBudgetEvent" : "Service over budget or disabled"
+  }
+}

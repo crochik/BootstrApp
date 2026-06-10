@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="FluentFTP" Version="37.1.2" />
+    <PackageReference Include="Google.Cloud.Storage.V1" Version="4.14.0" />
+    <PackageReference Include="AWSSDK.S3" Version="4.0.11.3" />
+    <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="4.0.3.12" />
+  </ItemGroup>
+  <ItemGroup>
+<!--    <ProjectReference Include="../FluentFTP/FluentFTP/FluentFTP.csproj" />-->
+    <ProjectReference Include="../Renci.SshNet/Renci.SshNet.csproj" />
+    <ProjectReference Include="..\PI.Shared.Services\PI.Shared.Services.csproj" />
+    <ProjectReference Include="..\PI.Shared\PI.Shared.csproj" />
+  </ItemGroup>
+</Project>

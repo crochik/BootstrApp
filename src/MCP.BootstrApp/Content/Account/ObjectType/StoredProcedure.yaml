@@ -1,0 +1,144 @@
+_id: 6a6d16bb-415c-4bb8-be80-0963bc3b9749
+CollectionName: Dipper.StoredProcedures
+CraatedOn:
+  $date: 2022-07-28T12:03:47.509Z
+Description: Stored Procedure
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    Indexed: true
+    InitialValue: '{{new ObjectId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Aggregate: Aggregate
+          Macro: Macro
+          Update: Update
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Collection:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Collection
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  DatabaseName:
+    Field:
+      _t: TextField
+      Name: DatabaseName
+    RBAC:
+      Permissions:
+        Admin: 7
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  LastUpdatedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Updated On (Obsolete)
+      Name: LastUpdatedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Namespace:
+    Field:
+      _t: TextField
+      Name: Namespace
+    RBAC:
+      Permissions:
+        Admin: 7
+  Version:
+    Field:
+      _t: NumberField
+      Name: Version
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: StoredProcedure
+LookupFields:
+  Key: _id
+  Name: _id
+Name: StoredProcedure
+NativeType: Crochik.Dipper.StoredProcedure
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []

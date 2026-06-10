@@ -1,0 +1,81 @@
+{
+  "_id" : "eae1d160-03c2-44bc-9779-266b3420ae81",
+  "Name" : "ComposeActionOptions",
+  "Description" : "Compose Action Options",
+  "CollectionName" : "???",
+  "NativeType" : "ComposeActionOptions",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "ComposeActionOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Alias" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Alias",
+        "Label" : "Alias to be used (Event.MetaValues.[...])",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "ContentType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ContentType",
+        "Label" : "Content Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Template" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Template",
+        "Label" : "Handlebars Template",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "ContentType" : "text/plain",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "Label" : "Compose Action Options",
+  "LabelPlural" : "Compose Action Options"
+}

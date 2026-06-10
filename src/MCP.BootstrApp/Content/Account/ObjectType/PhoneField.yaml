@@ -1,0 +1,47 @@
+_id: 87b739dd-cdab-47a8-ba45-d49c870ee8d2
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: PhoneField
+Description: Phone Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: PhoneField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: PhoneField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: PhoneFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PhoneField
+IsEmbedded: true
+Name: PhoneField
+NativeType: PI.Shared.Form.Models.PhoneField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

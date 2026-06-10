@@ -1,0 +1,63 @@
+_id: 33991b53-b545-4c0e-bdd0-47576af4a36d
+BaseObjectType: MenuItem
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: Menu
+Description: Menu Object
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: Menu
+      IsRequired: true
+      Label: Type
+      Name: _t
+    InitialValue: Menu
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 0
+  Collapsible:
+    Field:
+      _t: CheckboxField
+      Name: Collapsible
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Items:
+    Field:
+      _t: ChildrenField
+      Description: Items
+      IsRequired: false
+      Label: Items
+      Name: Items
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: MenuItem
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Menu
+IsAbstract: false
+IsEmbedded: true
+Name: Menu
+NativeType: PI.Shared.Form.Models.Menu
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui
+UniqueExternalId: false

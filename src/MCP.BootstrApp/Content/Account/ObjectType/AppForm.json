@@ -1,0 +1,53 @@
+{
+  "_id" : "e081b21c-ad5c-42cf-8f27-f3153e8fd4af",
+  "CollectionName" : "app.Form.1",
+  "Description" : "AppForm",
+  "BaseObjectType" : "AppProfileElement",
+  "Name" : "AppForm",
+  "NativeType" : "PI.Shared.Models.AppForm",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "IsAbstract" : false,
+  "IsEmbedded" : false,
+  "Fields" : {
+    "Form" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Form",
+        "Label" : "Form Definition",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Form"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "Tags" : ["System", "ui"],
+  "FullName" : "AppForm",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,10 @@
+{
+  "_id" : "d0a8e7d2-4060-4b71-9adf-5950795c9ab9",
+  "Name" : "User",
+  "Page" : {
+    "_t" : "CustomPage",
+    "Name" : "User",
+    "Label" : "User",
+    "ComponentName" : "User"
+  }
+}

@@ -1,0 +1,81 @@
+_id: 9bad3b53-e1df-43a1-9270-1391abf216b1
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Update Object Options
+Fields:
+  Mapping:
+    Field:
+      _t: DictionaryField
+      Description: Fields to be modified. Value can be an Expression.
+      IsRequired: true
+      Label: Fields
+      Name: Mapping
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: ReferenceField
+          IsRequired: false
+          Name: FieldName
+          Options:
+            _t: ReferenceFieldOptions
+            AllowUnknown: true
+            AutoComplete: true
+            ObjectType: /api/v1/CustomObject/{{ObjectType}}/Fields
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Expression
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: true
+            Multline: true
+      Visible:
+      - ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectId:
+    Field:
+      _t: TextField
+      Description: Object Id to be updated. If empty, it will be flow Target Object. It can be an Expression.
+      IsRequired: false
+      Label: Object Id (expression)
+      Name: ObjectId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      Description: Object Type to be updated. If empty, it will be flow Target Object Type
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UpdateObjectActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: UpdateObjectActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

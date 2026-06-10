@@ -1,0 +1,157 @@
+_id: 710a9c71-297f-4e08-903b-b47eed5f823c
+BaseObjectType: ActionOptions
+CollectionName: ???
+Description: Options for Create DocuSeal Submission Action
+Fields:
+  Inputs:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Inputs
+      Name: Inputs
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: true
+          Name: Input
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: TextField
+          IsRequired: true
+          Label: Value (Expression)
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectId:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Object Id
+      Name: ObjectId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ExpressionField
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: ReferenceField
+          Options:
+            _t: ReferenceFieldOptions
+            AutoComplete: true
+            ForeignFieldName: FullName
+            ObjectType: ObjectType
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  SubmitterEmail:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Submitter Email
+      Name: SubmitterEmail
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  SubmitterName:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Submitter Name
+      Name: SubmitterName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  SubmitterRole:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Submitter Role
+      Name: SubmitterRole
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  TemplateId:
+    Field:
+      _t: ExpressionField
+      IsRequired: true
+      Label: Template
+      Name: TemplateId
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: ReferenceField
+          IsRequired: true
+          Options:
+            _t: ReferenceFieldOptions
+            AutoComplete: true
+            ObjectType: report.DocumentTemplate
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: CreateDocuSealSubmissionActionOptions
+IsAbstract: false
+IsEmbedded: true
+Label: Create DocuSeal Submissions
+LabelPlural: Create DocuSeal Submissions
+Name: CreateDocuSealSubmissionActionOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

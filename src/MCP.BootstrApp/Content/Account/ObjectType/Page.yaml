@@ -1,0 +1,176 @@
+_id: 220378f2-41f0-4460-9999-9d4b99152a3a
+CollectionName: '?'
+Constraints: {}
+Description: UI Page
+Discriminator:
+  CustomPage:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: CustomPage
+  ExternalPage:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ExternalPage
+  FormPage:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: FormPage
+  GridPage:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: GridPage
+  LayoutPage:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LayoutPage
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          CustomPage: Custom Component
+          ExternalPage: Link to External Url
+          FormPage: Form
+          GridPage: Grid
+          LayoutPage: Layout (Composition)
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  AppMenu:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Top Level Menu Name (to load)
+      Name: AppMenu
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Enable:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Enable
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsReadOnly:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Read Only?
+      Name: IsReadOnly
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 0
+  IsVisible:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Visible?
+      Name: IsVisible
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 0
+  Label:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Label
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Menu:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Name: Menu
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Menu
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Visible:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Visible
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Page
+IsAbstract: true
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: Page
+NativeType: PI.Shared.Form.Models.Page
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System
+- ui
+UniqueExternalId: false

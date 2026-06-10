@@ -1,0 +1,69 @@
+_id: 43dca23b-04f4-429b-a75d-3bec46a8b96e
+CollectionName: filebox.EmailInbox
+Description: Email inbox
+Fields:
+  _id:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 5
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  Entity:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Organization
+      Name: Entity
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Organization
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: EmailInbox
+IsActive: true
+Name: EmailInbox
+NativeType: PI.Shared.Models.EmailInbox
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags: []
+UniqueExternalId: false

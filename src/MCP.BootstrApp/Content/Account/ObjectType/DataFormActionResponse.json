@@ -1,0 +1,145 @@
+{
+  "_id" : "064e85d9-d8a8-44b4-886c-afb912da3e0a",
+  "Name" : "DataFormActionResponse",
+  "Description" : "DataForm Action Response",
+  "CollectionName" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "DataFormActionResponse",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Action" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Action",
+        "Label" : "Action",
+        "Description" : "Requested Action",
+        "IsRequired" : true,
+        "ApiName" : "Action",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Ids" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Ids",
+        "Label" : "Object Ids",
+        "Description" : "Object Ids affected by action",
+        "IsRequired" : false,
+        "ApiName" : "Ids",
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "Label" : "Id",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "Format" : "uuid",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Message" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message",
+        "Label" : "Message",
+        "Description" : "Result summary or error message",
+        "IsRequired" : false,
+        "ApiName" : "Message",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "NextUrl" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "NextUrl",
+        "Label" : "NextUrl",
+        "Description" : "Suggested Next Url",
+        "IsRequired" : false,
+        "ApiName" : "NextUrl",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RunId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "RunId",
+        "Label" : "Run Id",
+        "IsRequired" : false,
+        "ApiName" : "RunId",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Success" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Success",
+        "Label" : "Operation successful ",
+        "Description" : "Whether the operation successful ",
+        "IsRequired" : true,
+        "ApiName" : "Success"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

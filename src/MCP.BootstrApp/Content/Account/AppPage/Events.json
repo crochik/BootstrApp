@@ -1,0 +1,10 @@
+{
+  "_id" : "fa4c326c-49e5-467f-98ed-c3fce8c64028",
+  "Name" : "Events",
+  "Page" : {
+    "_t" : "CustomPage",
+    "Name" : "Events",
+    "Label" : "Office365 Calendar",
+    "ComponentName" : "Events"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "_id" : "e06f317c-b203-446d-95d1-5bd342d859f7",
+  "Name" : "LayoutPage",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Enable" : ["false"],
+        "DefaultValue" : "LayoutPage",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "LayoutPage"
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LayoutPage"
+        }]
+    }
+  },
+  "BaseObjectType" : "Page",
+  "Tags" : ["AUTOFIX", "PI-API"],
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "FullName" : "LayoutPage",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

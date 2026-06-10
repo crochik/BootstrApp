@@ -1,0 +1,232 @@
+_id: c43a2f7f-43b3-467d-ba9d-aaf5d5c04484
+CollectionName: UnlayerTemplate
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+  Organization:
+    Conditions:
+    - FieldName: EntityId
+      Operator: In
+      Value:
+      - '{{AccountId}}'
+      - '{{OrganizationId}}'
+Description: Email Template using Unlayer
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: ID
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  AccountId:
+    Field:
+      _t: HiddenField
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+    Indexed: true
+    InitialValue: '{{AccountId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Mananger: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Design:
+    Field:
+      _t: HiddenField
+      IsRequired: true
+      Name: Design
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: User
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: AccountId
+          Operator: Eq
+          Value: '{{AccountId}}'
+        ObjectType: Entity
+    Indexed: true
+    InitialValue: '{{UserId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Html:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Html
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  IsActive:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      IsRequired: false
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    InitialValue: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        LinkUrl: page://EmailEditor?id={{id}}
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: UnlayerTemplate
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Plain:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Plain
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  PreviousVersionId:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Previous Version
+      Name: PreviousVersionId
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(UnlayerTemplate)
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  TemplatedObjectId:
+    Field:
+      _t: TextField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Templated Object
+      Name: TemplatedObjectId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  TemplateType:
+    Field:
+      _t: TextField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Template Type
+      Name: TemplateType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UnlayerTemplate
+Name: UnlayerTemplate
+NativeType: PI.Shared.Models.UnlayerTemplate
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 7
+    Manager: 7
+RelatedObjectTypes: []
+Tags:
+- System

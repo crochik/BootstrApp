@@ -1,0 +1,88 @@
+_id: da7a65fe-6d38-40e1-8e7f-df247b2d23d9
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Marketing CloudData Extension Options
+Fields:
+  DataExtensionKey:
+    Field:
+      _t: TextField
+      Description: Object Type to be created. Can be an Expression.
+      IsRequired: true
+      Label: Data Extension External Key
+      Name: DataExtensionKey
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  PrimaryKey:
+    Field:
+      _t: TextField
+      Description: Primary Key value for the row. Can be an Expression.
+      IsRequired: true
+      Label: Primary Key Value for the Row
+      Name: PrimaryKey
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  PrimaryKeyField:
+    Field:
+      _t: TextField
+      Description: Primary Key Field Name. Can be an Expression.
+      IsRequired: true
+      Label: Primary Key Field
+      Name: PrimaryKeyField
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Values:
+    Field:
+      _t: DictionaryField
+      Description: Row Values. Value can be an Expression.
+      IsRequired: true
+      Label: Row Values
+      Name: Values
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Name: Expression
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: true
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Expression
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: MarketingCloudDataExtensionActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: MarketingCloudDataExtensionActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

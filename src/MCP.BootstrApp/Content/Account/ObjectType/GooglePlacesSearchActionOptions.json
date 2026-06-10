@@ -1,0 +1,82 @@
+{
+  "_id" : "05942774-0da5-4087-b20a-6d39bdf50569",
+  "Name" : "GooglePlacesSearchActionOptions",
+  "Description" : "Google Places Search Options",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "NewObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "NewObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName"
+        },
+        "DefaultValue" : "google.Place"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Alias" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Alias",
+        "Label" : "Object Alias for response",
+        "Description" : "Alias to be used for response in Run",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "SearchText" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "SearchText",
+        "Label" : "Search Text (expression)",
+        "Description" : "Search Text calculated from expression",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "DefaultValue" : "{{Object.Address!}},{{Object.City!}},{{Object.State?}} {{Object.PostalCode?}},{{Object.Country}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "FullName" : "GooglePlacesSearchActionOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

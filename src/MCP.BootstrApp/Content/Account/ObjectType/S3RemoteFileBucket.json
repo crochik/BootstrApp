@@ -1,0 +1,73 @@
+{
+  "_id" : "0becfdfd-f6bd-4a2e-8569-c53bf15022e6",
+  "Name" : "S3RemoteFileBucket",
+  "Description" : "S3 Bucket",
+  "CollectionName" : "file.Bucket",
+  "NativeType" : "PI.Shared.Models.Files.S3RemoteFileBucket",
+  "BaseObjectType" : "RemoteFileBucket",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "s3"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "RemoteName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "RemoteName",
+        "Label" : "S3 Bucket Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "AccessKey" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "AccessKey",
+        "Label" : "Access Key"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "SecretKey" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "SecretKey",
+        "Label" : "Secret Key",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "objectType://S3RemoteFileBucket.SecretKey"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 6
+        }
+      }
+    }
+  },
+  "Tags" : ["Files"],
+  "FullName" : "S3RemoteFileBucket",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

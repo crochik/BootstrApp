@@ -1,0 +1,60 @@
+_id: 9fe26b17-5c5d-46c0-9777-90cf8e8a6577
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: LabelField
+Description: Label Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: LabelField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    Indexed: true
+    InitialValue: LabelField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Label:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Label
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: LabelFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LabelField
+IsEmbedded: true
+Name: LabelField
+NativeType: PI.Shared.Form.Models.LabelField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

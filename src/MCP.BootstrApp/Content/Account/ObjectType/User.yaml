@@ -1,0 +1,370 @@
+_id: c0e2b0ac-0816-4bb7-9417-40bc1579a636
+BaseObjectType: Entity
+CollectionName: Entity
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: User
+  Organization:
+    Conditions:
+    - FieldName: OrganizationId
+      Value: '{{OrganizationId}}'
+  User:
+    Conditions:
+    - FieldName: _id
+      Value: '{{UserId}}'
+Description: User
+Discriminator:
+  UserAdmin:
+    Conditions:
+    - FieldName: UserRoleId
+      Operator: Eq
+      Value: Admin
+  UserDesignAssociate:
+    Conditions:
+    - FieldName: UserRoleId
+      Operator: Eq
+      Value: User
+  UserManager:
+    Conditions:
+    - FieldName: UserRoleId
+      Operator: Eq
+      Value: Manager
+  UserProfile:
+    Conditions:
+    - FieldName: UserRoleId
+      Operator: Eq
+      Value: Profile
+Fields:
+  AppProfiles:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Profiles
+      Name: AppProfiles
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  AppProfiles|OTG:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: OTG Profile
+      Name: AppProfiles|OTG
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: AppProfile
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+  AppProfiles|PI:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: PI Profile
+      Name: AppProfiles|PI
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: AppProfile
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+  AppProfiles|PLM:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: PLM Profile
+      Name: AppProfiles|PLM
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: AppProfile
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: User
+        LinkUrl: dataForm://api/v1/CustomObject/Flow({{value}})/View
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  Identities|Salesforce|Main:
+    Field:
+      _t: CalculatedField
+      Calculation:
+        _t: expression
+        Calculations:
+        - _t: lookup
+          Conditions:
+          - FieldName: Data
+            Operator: Ne
+            Value: 
+          - FieldName: IdentityProviderId
+            Value: Salesforce
+        - _t: path
+          Path: ExternalId
+        - _t: path
+          Path: Identities
+      Field:
+        _t: ReferenceField
+        Options:
+          _t: ReferenceFieldOptions
+          ForeignFieldName: ExternalId
+          LinkUrl: dataForm://api/v1/CustomObject/sf_User({{value}})/View
+          ObjectType: sf_User
+      Label: Salesforce User
+      Name: Identities|Salesforce|Main
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 1
+  Identities|Salesforce|ServiceResource:
+    Field:
+      _t: CalculatedField
+      Calculation:
+        _t: expression
+        Calculations:
+        - _t: lookup
+          Conditions:
+          - FieldName: IdentityProviderId
+            Value: Salesforce
+          - FieldName: Name
+            Value: ServiceResource
+        - _t: path
+          Path: ExternalId
+        - _t: path
+          Path: Identities
+      Field:
+        _t: ReferenceField
+        Options:
+          _t: ReferenceFieldOptions
+          ForeignFieldName: ExternalId
+          LinkUrl: dataForm://api/v1/CustomObject/sf_ServiceResource({{value}})/View
+          ObjectType: sf_ServiceResource
+      Label: Salesforce Service Resource
+      Name: Identities|Salesforce|ServiceResource
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 1
+  Name:
+    Field:
+      _Options:
+        _t: TextFieldOptions
+        LinkUrl: page://User?id={{id}}
+      _t: TextField
+      ApiName: name
+      IsRequired: true
+      Label: Name
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: User
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  OrganizationId:
+    Field:
+      _t: ReferenceField
+      ApiName: organizationId
+      IsRequired: false
+      Label: Organization
+      Name: OrganizationId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: IsActive
+          Value: true
+        LinkUrl: dataForm://api/v1/CustomObject/Organization({{value}})/View
+        ObjectType: Organization
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+        User: 1
+  UserRoleId:
+    Field:
+      _t: SelectField
+      ApiName: role
+      IsRequired: false
+      Label: Role
+      Name: UserRoleId
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Admin: Admin
+          Manager: Manager
+          Profile: Limited Profile
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: User
+IsActive: true
+Label: User
+LabelPlural: Users
+Name: User
+NativeType: PI.Shared.Models.User
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+    33d883d8-c153-44b2-9094-d4fd158e767d: 1
+    Admin: 33
+    d33d2dda-5180-44a5-9e63-77494f57646a: 47
+    Manager: 1
+    User: 1
+RelatedObjectTypes:
+- ApiName: organization
+  Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{OrganizationId}}'
+  Label: Organization
+  Name: Organization
+  ObjectType: Organization
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 1
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{AppProfiles|OTG}}'
+  Label: OTG Profile
+  Name: AppProfiles|OTG
+  ObjectType: AppProfile
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{AppProfiles|PI}}'
+  Label: PI Profile
+  Name: AppProfiles|PI
+  ObjectType: AppProfile
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{AppProfiles|PLM}}'
+  Label: PLM Profile
+  Name: AppProfiles|PLM
+  ObjectType: AppProfile
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: Refs|v
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: Messages
+  Name: Messages
+  ObjectType: Notification
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+      Admin: 1
+      d33d2dda-5180-44a5-9e63-77494f57646a: 1
+      Manager: 1
+  RelationType: OneToMany
+Tags:
+- OTG
+UniqueExternalId: false

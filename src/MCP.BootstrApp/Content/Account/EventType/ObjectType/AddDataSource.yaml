@@ -1,0 +1,9 @@
+_id: 9478adf3-2518-4910-b71e-7ddeafcedf1a
+Description: Add Postgres Data Source
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: AddDataSource
+ObjectType: ObjectType
+Trigger:
+  _t: User
+  Name: Add As Data Source
+  NextUrl: action:/reports/v1/DataSource/ObjectType({{Object.FullName}})/Postgres

@@ -1,0 +1,13 @@
+{
+  "_id" : "f244cd35-c83d-461c-8350-4ceb6f808f3c",
+  "Name" : "CreateObject",
+  "Description" : "Create Object",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "b9047b78-cae3-427d-a1b0-4317f05b2443",
+  "ActionOptionsObjectType" : "CreateObjectActionOptions",
+  "Outputs" : {
+    "ObjectCreatedEvent" : "Object Created",
+    "FailedToCreateObjectEvent" : "Failed to create Object"
+  }
+}

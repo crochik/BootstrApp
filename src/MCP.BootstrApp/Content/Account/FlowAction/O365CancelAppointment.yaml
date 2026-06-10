@@ -1,0 +1,12 @@
+_id: 326cc9ab-6b81-41dd-865d-b6ea8657b2cd
+ActionId: abcd6f11-cd8d-47a9-95a7-ba3c43698f74
+ActionOptionsObjectType: CancelAppointmentActionOptions
+Description: 'O365: Cancel Appointment(s)'
+IconName: 03650000-0000-0000-0000-000000000000
+IsActive: true
+Name: O365CancelAppointment
+Outputs:
+  CancelledEvent: Event Cancelled
+  FailedToCancelEvent: Failed to Cancel Event
+  SkippedEvent: Skipped
+Role: Admin

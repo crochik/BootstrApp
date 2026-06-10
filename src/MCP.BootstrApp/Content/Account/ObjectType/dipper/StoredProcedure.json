@@ -1,0 +1,298 @@
+{
+  "_id" : "560f0da6-f517-463c-a9c4-a94c7753fe3d",
+  "Name" : "StoredProcedure",
+  "Description" : "Stored Procedure",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Macro" : "Macro",
+            "Update" : "Update",
+            "Aggregate" : "Aggregate"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Collection" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Collection",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "DatabaseName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DatabaseName",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Namespace" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Namespace",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Version" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Version",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        },
+        "DefaultValue" : "{{new ObjectId}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 5
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}",
+      "IsFinal" : false
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "LastUpdatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastUpdatedOn",
+        "Label" : "Last Updated On (Obsolete)",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : false,
+      "CalculatedValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "CalculatedValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "Body" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Body",
+        "Label" : "Body",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "ContentType" : "text/plain",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "CollectionName" : "Dipper.StoredProcedures",
+  "RelatedObjectTypes" : [],
+  "LookupFields" : {
+    "Key" : "_id",
+    "Name" : "_id"
+  },
+  "Namespace" : "dipper",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "Crochik.Dipper.StoredProcedure",
+  "FullName" : "dipper.StoredProcedure",
+  "Label" : "Stored Procedure",
+  "LabelPlural" : "Stored Procedures"
+}

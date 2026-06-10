@@ -1,0 +1,81 @@
+{
+  "_id" : "1b42f1c6-1bd9-4086-aa21-3b959fcba095",
+  "Trigger" : {
+    "Name" : "Form Layout editor",
+    "_t" : "User",
+    "NextUrl" : "dataForm://api/v1/ObjectType({{Object.FullName}})/Profile({{Request|Parameters.Profile}})/Form({{Request|Parameters.FormName}})?roleId={{Request|Parameters.Role}}",
+    "Form" : {
+      "Name" : "LaunchFormLayoutEditor",
+      "Title" : "Edit Form Layout",
+      "Fields" : [{
+          "_t" : "TextField",
+          "Name" : "ObjectType",
+          "Label" : "Object Type",
+          "DefaultValue" : "{{Object.Name}}"
+        }, {
+          "_t" : "ReferenceField",
+          "Name" : "Profile",
+          "Label" : "Profile",
+          "Options" : {
+            "_t" : "ReferenceFieldOptions",
+            "ObjectType" : "AppProfile"
+          },
+          "DefaultValue" : "{{Context.ProfileId}}"
+        }, {
+          "_t" : "SelectField",
+          "Name" : "Role",
+          "Label" : "Role",
+          "Options" : {
+            "_t" : "SelectFieldOptions",
+            "Items" : {
+              "Admin" : "Admin",
+              "Manager" : "Manager",
+              "User" : "User",
+              "Profile" : "Profile"
+            }
+          }
+        }, {
+          "_t" : "SelectField",
+          "Name" : "FormName",
+          "Label" : "Type",
+          "Options" : {
+            "_t" : "SelectFieldOptions",
+            "Items" : {
+              "View" : "View",
+              "Add" : "Add",
+              "Edit" : "Edit",
+              "Details" : "Details"
+            }
+          }
+        }],
+      "Actions" : [{
+          "Name" : "Launch",
+          "Action" : "Launch",
+          "Label" : "Launch"
+        }],
+      "Layouts" : {
+        "xs" : {
+          "Breakpoint" : "xs",
+          "_t" : "GridFormLayout",
+          "Rows" : [{
+              "Fields" : [{
+                  "Name" : "ObjectType"
+                }]
+            }, {
+              "Fields" : [{
+                  "Name" : "Profile"
+                }]
+            }, {
+              "Fields" : [{
+                  "Name" : "FormName"
+                }]
+            }]
+        }
+      }
+    }
+  },
+  "ObjectType" : "ObjectType",
+  "Name" : "EditFormLayout",
+  "Description" : "Form Layout Editor launched",
+  "EntityId" : "fc100000-0000-0000-0000-000000000000"
+}

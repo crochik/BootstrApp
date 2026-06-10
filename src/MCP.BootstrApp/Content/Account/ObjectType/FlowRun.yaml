@@ -1,0 +1,195 @@
+_id: ce9d8d41-349a-4a0e-bf79-ea39466d23c3
+CollectionName: FlowRun
+Description: Flow Execution
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new ObjectId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType}}'
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  InitialEvent:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Initial Event
+      Name: InitialEvent
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  InitialEvent|FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: InitialEvent|FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  InitialObject:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Initial Object
+      Name: InitialObject
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Objects:
+    Field:
+      _t: DictionaryField
+      Label: Objects
+      Name: Objects
+      Options:
+        _t: DictionaryFieldOptions
+        KeyField:
+          _t: TextField
+          Label: ObjectType
+        ValueField:
+          _t: ObjectField
+          IsRequired: false
+          Label: Object
+          Name: Value
+          Options:
+            _t: ObjectFieldOptions
+            ObjectType: '*'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType}}'
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: Name
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FlowRun
+Name: FlowRun
+NativeType: PI.Shared.Models.FlowRun
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: RunId
+      Operator: Eq
+      Value: '{{_id}}'
+  Label: All Events
+  Name: FlowEventLog2
+Tags: []

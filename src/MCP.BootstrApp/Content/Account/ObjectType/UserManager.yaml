@@ -1,0 +1,255 @@
+_id: 4ae9bca5-dae2-446c-894a-ceaeebec3c5b
+BaseObjectType: User
+CollectionName: Entity
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: User
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+    - FieldName: UserRoleId
+      Value: Manager
+Description: Manager
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Account: Account
+          Organization: Organization
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 0
+        d33d2dda-5180-44a5-9e63-77494f57646a: 0
+        Manager: 0
+  AppProfiles|InspireNetMobile_ProductSelector:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: IM Profile
+      Name: AppProfiles|InspireNetMobile_ProductSelector
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          134ddab0-da6c-4f1d-8de5-362db0b50324: IM Default
+          e89f08d4-db31-46ff-a451-15c78b391e3a: IM Corporate Product Selector
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  AppProfiles|PLM:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: PLM Profile
+      Name: AppProfiles|PLM
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          6c501464-a6e0-4469-9b28-3198c3045763: PLM Default
+          b78c5bb6-5603-4d51-8a20-e0f1ff8f25bb: PLM Corporate Product Selector
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+  Description:
+    Field:
+      _t: TextField
+      ApiName: description
+      IsRequired: true
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 3
+  Email:
+    Field:
+      _t: EmailField
+      ApiName: email
+      IsRequired: false
+      Label: Email
+      Name: Email
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 3
+  IsActive:
+    Field:
+      _t: CheckboxField
+      ApiName: isActive
+      IsRequired: false
+      Label: Active
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+  Name:
+    Field:
+      _t: TextField
+      ApiName: name
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  OrganizationId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Organization
+      Name: OrganizationId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        JoinBehavior: Exclude
+        LinkUrl: dataForm://api/v1/CustomObject/Organization({{value}})/View
+        ObjectType: Organization
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+  Phone:
+    Field:
+      _t: PhoneField
+      ApiName: phone
+      IsRequired: false
+      Label: Phone
+      Name: Phone
+    RBAC:
+      Permissions:
+        Admin: 3
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 3
+  TimeZoneId:
+    Field:
+      _t: TextField
+      ApiName: timeZone
+      IsRequired: false
+      Label: Time Zone
+      Name: TimeZoneId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 3
+        Manager: 1
+  UserRoleId:
+    Field:
+      _t: SelectField
+      ApiName: role
+      IsRequired: false
+      Label: Role
+      Name: UserRoleId
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Admin: Admin
+          Manager: Manager
+          Profile: Limited Profile
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+        Manager: 0
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UserManager
+IsActive: true
+Label: Manager
+LabelPlural: Managers
+Name: UserManager
+NativeType: PI.Shared.Models.User
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 3
+    d33d2dda-5180-44a5-9e63-77494f57646a: 15
+    Manager: 1
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{OrganizationId}}'
+  Label: Organization
+  Name: OrganizationId
+  ObjectType: Organization
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+Tags: []
+UniqueExternalId: false

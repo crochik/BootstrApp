@@ -1,0 +1,125 @@
+_id: fde30ac1-3c7c-4dc9-859b-58fac8142bf3
+CollectionName: '*'
+Description: Flow Event
+Fields:
+  Action:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Action
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Actor:
+    Field:
+      _t: GenericField
+      Label: Actor
+      Name: Actor
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  EventTypeId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Event Type
+      Name: EventTypeId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '#{{ObjectType}}'
+        ObjectType: EventType
+      Visible:
+      - ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '#{{ObjectType}}'
+        ObjectType: Flow
+      Visible:
+      - ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '#{{ObjectType}}'
+        ObjectType: ObjectStatus
+      Visible:
+      - ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: Name
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  RunId:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Run Id
+      Name: RunId
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FlowEvent
+IsAbstract: false
+IsEmbedded: true
+Name: FlowEvent
+NativeType: '*'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

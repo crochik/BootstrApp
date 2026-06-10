@@ -1,0 +1,119 @@
+_id: 4b75c45e-95af-453f-a29d-5a9202fb696a
+BaseObjectType: Model
+CollectionName: openapi.Operation
+Description: OpenAPI Operation
+Fields:
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Namespace:
+    Field:
+      _t: TextField
+      Name: Namespace
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  OperationId:
+    Field:
+      _t: TextField
+      Name: OperationId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Raw:
+    Field:
+      _t: ObjectField
+      Label: OpenAPI Spec
+      Name: Raw
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Request:
+    Field:
+      _t: ObjectField
+      Name: Request
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: openapi.Request
+    RBAC:
+      Permissions:
+        Admin: 7
+  Responses:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Responses
+      Name: Responses
+      Options:
+        _t: ChildrenFieldOptions
+        KeyField:
+          _t: SelectField
+          Label: Status Code
+          Options:
+            _t: SelectFieldOptions
+            Items:
+              200: Success
+              201: Added
+              400: Bad Request
+        KeyType: string
+        ObjectType: openapi.Response
+    RBAC:
+      Permissions:
+        Admin: 7
+  Summary:
+    Field:
+      _t: TextField
+      Name: Summary
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Label: Tags
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(openapi.Operation)
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.Operation
+IsAbstract: false
+IsEmbedded: false
+Label: Operation
+LabelPlural: Operations
+Name: Operation
+Namespace: openapi
+NativeType: PI.OpenAPI.Models.OApiOperation
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 527
+Tags:
+- openapi

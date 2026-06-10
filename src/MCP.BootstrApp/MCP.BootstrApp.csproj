@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\MCP\MCP.csproj" />
+    <ProjectReference Include="..\PI.Shared.Services.OpenApiGenerator\PI.Shared.Services.OpenApiGenerator.csproj" />
+    <ProjectReference Include="..\script-parser\src\ScriptInterpreter\ScriptInterpreter.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="appsettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Content\**\*.*">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Content\Account\" />
+  </ItemGroup>
+  
+</Project>

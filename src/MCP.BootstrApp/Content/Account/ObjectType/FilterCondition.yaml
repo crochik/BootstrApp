@@ -1,0 +1,64 @@
+_id: f97bfee4-1d39-4d49-bba7-e8260cbd1012
+CollectionName: '?'
+Description: Filter Condition used in Filter Requests
+Fields:
+  FieldName:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Field Name
+      Name: FieldName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Operator:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Operator
+      Name: Operator
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Eq: Equal
+          Gt: Greater Than
+          Gte: Greater Than or Equal
+          In: In
+          Lt: Less Than
+          Lte: Less Than or Equal
+          Ne: Not Equal
+          Nin: Not In
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Value:
+    Field:
+      _t: GenericField
+      IsRequired: false
+      Label: Value
+      Name: Value
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FilterCondition
+IsAbstract: false
+IsEmbedded: true
+Label: Filter Condition
+LabelPlural: Filter Conditions
+Name: FilterCondition
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 1
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

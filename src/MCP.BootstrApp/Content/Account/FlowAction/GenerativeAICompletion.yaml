@@ -1,0 +1,10 @@
+_id: 63eaf4f2-e62f-4d80-b2e9-423a8abcf8bb
+ActionId: 189795a3-4f6b-447d-b034-88cd87b397da
+ActionOptionsObjectType: GenerativeAICompletionActionOptions
+Description: 'AI: Assistant Completion'
+IsActive: true
+Name: GenerativeAICompletion
+Outputs:
+  OnCompletionEvent: Completion Generated
+  OnFailedEvent: Failed to generate Completion
+Role: Admin

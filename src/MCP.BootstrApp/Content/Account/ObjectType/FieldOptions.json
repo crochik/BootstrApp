@@ -1,0 +1,351 @@
+{
+  "_id" : "1ed241d6-a443-4348-a3e0-dbe97febf9c2",
+  "CollectionName" : "?",
+  "Description" : "Base type for field options",
+  "Name" : "FieldOptions",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "NativeType" : "PI.Shared.Models.FieldOptions",
+  "IsAbstract" : true,
+  "IsEmbedded" : true,
+  "Discriminator" : {
+    "AddressFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "AddressFieldOptions"
+        }]
+    },
+    "AppointmentFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "AppointmentFieldOptions"
+        }]
+    },
+    "ArrayFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ArrayFieldOptions"
+        }]
+    },
+    "BitwiseFlagFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "BitwiseFlagFieldOptions"
+        }]
+    },
+    "ChatReferenceFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ChatReferenceFieldOptions"
+        }]
+    },
+    "CheckboxFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "CheckboxFieldOptions"
+        }]
+    },
+    "ChildrenFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ChildrenFieldOptions"
+        }]
+    },
+    "DateRangeFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "DateRangeFieldOptions"
+        }]
+    },
+    "DictionaryFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "DictionaryFieldOptions"
+        }]
+    },
+    "ExpressionFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ExpressionFieldOptions"
+        }]
+    },
+    "EmailFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "EmailFieldOptions"
+        }]
+    },
+    "FileFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "FileFieldOptions"
+        }]
+    },
+    "GenericFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "GenericFieldOptions"
+        }]
+    },
+    "HiddenFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "HiddenFieldOptions"
+        }]
+    },
+    "ImageFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ImageFieldOptions"
+        }]
+    },
+    "LabelFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LabelFieldOptions"
+        }]
+    },
+    "LocationDistanceFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LocationDistanceFieldOptions"
+        }]
+    },
+    "LocationFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LocationFieldOptions"
+        }]
+    },
+    "LookupFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LookupFieldOptions"
+        }]
+    },
+    "MultiReferenceFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "MultiReferenceFieldOptions"
+        }]
+    },
+    "MultiSelectFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "MultiSelectFieldOptions"
+        }]
+    },
+    "NumberFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "NumberFieldOptions"
+        }]
+    },
+    "ObjectFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ObjectFieldOptions"
+        }]
+    },
+    "PasswordFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PasswordFieldOptions"
+        }]
+    },
+    "PhoneFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PhoneFieldOptions"
+        }]
+    },
+    "PostalCodeFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PostalCodeFieldOptions"
+        }]
+    },
+    "ReferenceFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ReferenceFieldOptions"
+        }]
+    },
+    "RelatedObjectsFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "RelatedObjectsFieldOptions"
+        }]
+    },
+    "RemoteFileFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "RemoteFileFieldOptions"
+        }]
+    },
+    "SelectFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "SelectFieldOptions"
+        }]
+    },
+    "TagsFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "TagsFieldOptions"
+        }]
+    },
+    "TextFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "TextFieldOptions"
+        }]
+    },
+    "TimeFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "TimeFieldOptions"
+        }]
+    },
+    "URLFieldOptions" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "URLFieldOptions"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "AddressFieldOptions" : "Address",
+            "AppointmentFieldOptions" : "Appointment",
+            "ArrayFieldOptions" : "Array",
+            "BitwiseFlagFieldOptions" : "Bitwise Flag",
+            "ChatReferenceFieldOptions" : "Chat",
+            "CheckboxFieldOptions" : "Checkbox",
+            "ChildrenFieldOptions" : "Children",
+            "DateRangeFieldOptions" : "DateRange",
+            "DictionaryFieldOptions" : "Dictionary",
+            "ExpressionFieldOptions" : "Expression",
+            "EmailFieldOptions" : "Email",
+            "FileFieldOptions" : "File",
+            "GenericFieldOptions" : "Generic",
+            "HiddenFieldOptions" : "Hidden",
+            "ImageFieldOptions" : "Image",
+            "LabelFieldOptions" : "Label",
+            "LocationDistanceFieldOptions" : "Location Distance",
+            "LocationFieldOptions" : "Location",
+            "LookupFieldOptions" : "Lookup",
+            "MultiReferenceFieldOptions" : "Multi Reference",
+            "MultiSelectFieldOptions" : "Multi Select",
+            "NumberFieldOptions" : "Number",
+            "ObjectFieldOptions" : "Object",
+            "PasswordFieldOptions" : "Password",
+            "PhoneFieldOptions" : "Phone",
+            "PostalCodeFieldOptions" : "Postal Code",
+            "ReferenceFieldOptions" : "Reference",
+            "RelatedObjectsFieldOptions" : "Related Objects",
+            "RemoteFileFieldOptions" : "Remote File",
+            "SelectFieldOptions" : "Select",
+            "TagsFieldOptions" : "Tags",
+            "TextFieldOptions" : "Text",
+            "TimeFieldOptions" : "Time",
+            "URLFieldOptions" : "Url"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "LinkUrl" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "LinkUrl",
+        "Label" : "Link Url",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "LinkLabel" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "LinkLabel",
+        "Label" : "Link Label",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "RelatedObjectTypes" : [],
+  "FullName" : "FieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

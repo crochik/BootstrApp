@@ -1,0 +1,69 @@
+{
+  "_id" : "19b4bad8-6377-42ce-95cf-4f26b10d246d",
+  "Name" : "ReferencedObject",
+  "Description" : "Referenced Object",
+  "CollectionName" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "OTG"],
+  "FullName" : "ReferencedObject",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+      "Manager" : 7
+    }
+  },
+  "Fields" : {
+    "ObjectId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectId",
+        "Label" : "Object",
+        "IsRequired" : true,
+        "ApiName" : "objectId",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+          "Manager" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : true,
+        "ApiName" : "objectType",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+          "Manager" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "Label" : "Referenced Object",
+  "LabelPlural" : "Referenced Objects",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

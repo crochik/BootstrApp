@@ -1,0 +1,47 @@
+_id: 4eef8624-98af-4165-a00b-27e64a32b9e9
+BaseObjectType: ActionOptions
+CollectionName: '?'
+Constraints: {}
+Description: 'Options for Switch Action '
+Fields:
+  Cases:
+    Field:
+      _t: ChildrenField
+      Name: Cases
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: SwitchCase
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  DefaultCase:
+    Field:
+      _t: TextField
+      DefaultValue: Fallback
+      Label: Otherwise...
+      Name: DefaultCase
+    RBAC:
+      Permissions:
+        Admin: 7
+  DefaultEventId:
+    Field:
+      _t: TextField
+      Name: DefaultEventId
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SwitchActionOptions
+IsAbstract: false
+IsEmbedded: true
+Name: SwitchActionOptions
+NativeType: Messages.Flow.SwitchActionOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

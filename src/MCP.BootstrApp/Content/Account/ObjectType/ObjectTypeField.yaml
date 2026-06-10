@@ -1,0 +1,104 @@
+_id: 3d740403-7e78-48ed-9ecb-d832d65c2cf1
+CollectionName: CustomObject
+Constraints: {}
+DefaultSort: Field|Name
+Description: Field
+Fields:
+  Field|_t:
+    Field:
+      _t: TextField
+      Label: Type
+      Name: Field|_t
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Field|IsRequired:
+    Field:
+      _t: CheckboxField
+      Label: Required?
+      Name: Field|IsRequired
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Field|Label:
+    Field:
+      _t: TextField
+      Label: Label
+      Name: Field|Label
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Field|Name:
+    Field:
+      _t: TextField
+      Label: Name
+      Name: Field|Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  RBAC|Permissions|Admin:
+    Field:
+      _t: SelectField
+      Label: Admin
+      Name: RBAC|Permissions|Admin
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          1: Read
+          10: WD
+          11: RWD
+          12: CD
+          13: CRD
+          14: CD
+          15: CRUD
+          2: Update
+          3: RU
+          4: Create
+          5: CR
+          6: CU
+          7: CRU
+          8: Delete
+          9: RD
+    RBAC:
+      Permissions:
+        Admin: 1
+  RBAC|Permissions|Manager:
+    Field:
+      _t: SelectField
+      Label: Manager
+      Name: RBAC|Permissions|Manager
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          1: Read
+          10: WD
+          11: RWD
+          12: CD
+          13: CRD
+          14: CD
+          15: CRUD
+          2: Update
+          3: RU
+          4: Create
+          5: CR
+          6: CU
+          7: CRU
+          8: Delete
+          9: RD
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectTypeField
+IsActive: true
+Name: ObjectTypeField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 1
+RelatedObjectTypes: []
+Tags: []

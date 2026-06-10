@@ -1,0 +1,89 @@
+_id: 5e949486-2c81-4d91-920a-37cff2eb792a
+CollectionName: idp.Client
+Constraints:
+  Account:
+    _Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: API Client
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new ObjectId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ClientName:
+    Field:
+      _t: TextField
+      Label: Name
+      Name: ClientName
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Created:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: Created
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Enabled:
+    Field:
+      _t: CheckboxField
+      Label: Enabled
+      Name: Enabled
+    RBAC:
+      Permissions:
+        Admin: 1
+  ProfileKey:
+    Field:
+      _t: TextField
+      Name: ProfileKey
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Updated:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Updated
+      Name: Updated
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppClient
+Label: API Client
+LabelPlural: API Clients
+LookupFields:
+  Description: Description
+  Key: _id
+  Name: ClientName
+Name: AppClient
+NativeType: PI.Shared.Models.AppClient
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+Tags: []

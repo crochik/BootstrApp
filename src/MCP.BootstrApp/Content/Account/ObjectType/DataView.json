@@ -1,0 +1,235 @@
+{
+  "_id" : "d5b20f38-10ce-4982-981a-ab708b2eda05",
+  "Name" : "DataView",
+  "Description" : "DataView",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.DataView",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "DataView",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "DefaultSort" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DefaultSort",
+        "Label" : "Default Sort",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Fields" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Fields",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Field",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Filter" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Filter",
+        "Label" : "Filter",
+        "Description" : "Fields that can be used to filter dataview",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Field",
+            "Label" : "Field Name",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "FilterForm" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "FilterForm",
+        "Label" : "Filter Form",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Form"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "IsFilterableLocally" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsFilterableLocally",
+        "Label" : "Filterable Locally?",
+        "DefaultValue" : false,
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "IsSelectable" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsSelectable",
+        "Label" : "Selectable?",
+        "DefaultValue" : true,
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "KeyField" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "KeyField",
+        "Label" : "Key Field Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Menu" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Menu",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Menu"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "PageSize" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "PageSize",
+        "Label" : "Page Size",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Searchable" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Searchable",
+        "Label" : "Searchable?",
+        "Description" : "Supports full text search",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Title" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Title",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019"
+}

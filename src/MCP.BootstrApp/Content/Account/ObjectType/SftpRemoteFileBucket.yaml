@@ -1,0 +1,80 @@
+_id: f957d591-e42f-4bf4-b554-4eee46e13982
+BaseObjectType: RemoteFileBucket
+CollectionName: file.Bucket
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: sftp
+Description: SFTP Bucket
+Fields:
+  Host:
+    Field:
+      _t: TextField
+      Label: Host
+      Name: Host
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  Passphrase:
+    Field:
+      _t: PasswordField
+      Label: Passphrase
+      Name: Passphrase
+      Options:
+        _t: PasswordFieldOptions
+        DataDataProtection:
+          _t: ms-data-protection
+          Purpose: objectType://SftpRemoteFileBucket.Passphrase
+        Multiline: true
+    RBAC:
+      Permissions:
+        Admin: 6
+  Password:
+    Field:
+      _t: PasswordField
+      Label: Password
+      Name: Password
+      Options:
+        _t: PasswordFieldOptions
+        DataDataProtection:
+          _t: ms-data-protection
+          Purpose: objectType://SftpRemoteFileBucket.Password
+    RBAC:
+      Permissions:
+        Admin: 6
+  SecretKey:
+    Field:
+      _t: PasswordField
+      Label: Private Key
+      Name: SecretKey
+      Options:
+        _t: PasswordFieldOptions
+        DataDataProtection:
+          _t: ms-data-protection
+          Purpose: objectType://SftpRemoteFileBucket.SecretKey
+        Multiline: true
+    RBAC:
+      Permissions:
+        Admin: 6
+  UserName:
+    Field:
+      _t: TextField
+      Label: User Name
+      Name: UserName
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SftpRemoteFileBucket
+IsAbstract: false
+IsEmbedded: false
+Name: SftpRemoteFileBucket
+NativeType: PI.Shared.Models.Files.SftpRemoteFileBucket
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- Files

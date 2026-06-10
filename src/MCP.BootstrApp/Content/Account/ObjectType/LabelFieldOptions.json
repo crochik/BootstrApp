@@ -1,0 +1,90 @@
+{
+  "_id" : "17759a32-ee25-475b-9a06-84d956efa8f6",
+  "Name" : "LabelFieldOptions",
+  "Description" : "Options for Label Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.LabelFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "LabelFieldOptions"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "LabelFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "LabelFieldOptions"
+    },
+    "Style" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Style",
+        "Label" : "Style",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Normal" : "Normal",
+            "Header" : "Header",
+            "Subheader" : "Sub Header",
+            "Subheader2" : "Sub Header 2",
+            "HTML" : "HTML",
+            "Button" : "Button"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Color" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Color",
+        "Label" : "Color",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Default" : "Default",
+            "Primary" : "Primary",
+            "Secondary" : "Secondary",
+            "TextPrimary" : "Text Primary",
+            "TextSecondary" : "Text Secondary",
+            "Error" : "Error"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "LabelFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,48 @@
+_id: 09efb63e-36a3-4011-b965-370df3cee434
+CollectionName: '?'
+Description: Search Highlights
+Fields:
+  path:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Path
+      Name: path
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  texts:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Name: texts
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: SearchHighlightText
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SearchHighlights
+IsAbstract: false
+IsEmbedded: true
+Label: Search Highlights
+LabelPlural: Search Highlights
+Name: SearchHighlights
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 1
+    Admin: 1
+Tags:
+- OTG
+- System

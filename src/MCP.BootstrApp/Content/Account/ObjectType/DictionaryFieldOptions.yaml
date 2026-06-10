@@ -1,0 +1,69 @@
+_id: 815929c1-ac38-4280-a195-5ce0fda6eca3
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: DictionaryFieldOptions
+Description: 'Options for Dictionary Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: DictionaryFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: DictionaryFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  ExpandAllKeys:
+    Field:
+      _t: CheckboxField
+      Label: Expand All Keys
+      Name: ExpandAllKeys
+    RBAC:
+      Permissions:
+        Admin: 7
+  KeyField:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Key Field
+      Name: KeyField
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Field
+    RBAC:
+      Permissions:
+        Admin: 7
+  ValueField:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Value Field
+      Name: ValueField
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Field
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DictionaryFieldOptions
+IsEmbedded: true
+Name: DictionaryFieldOptions
+NativeType: PI.Shared.Form.Models.DictionaryFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

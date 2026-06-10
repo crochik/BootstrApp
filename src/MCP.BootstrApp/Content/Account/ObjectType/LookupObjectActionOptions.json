@@ -1,0 +1,107 @@
+{
+  "_id" : "809c38e1-c5ef-42c5-b449-4f7a4c0d169f",
+  "Name" : "LookupObjectActionOptions",
+  "Description" : "Lookup Object Options",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "Description" : "Object Type to be updated. If empty, it will be flow Target Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Criteria" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Criteria",
+        "Label" : "Fields",
+        "Description" : "Fields to be modified. Value can be an Expression.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Criteria"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectNickname" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectNickname",
+        "Label" : "Object Alias",
+        "Description" : "Alias to be used for Object found",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "OrderBy" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "OrderBy",
+        "Label" : "Order By",
+        "Description" : "Order to sort the results",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ReverseOrder" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ReverseOrder",
+        "Label" : "Reverse Order",
+        "Description" : "Whether to reverse the order (e.g. use descending order)",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "FullName" : "LookupObjectActionOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

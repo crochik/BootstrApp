@@ -1,0 +1,140 @@
+_id: 071fc414-936b-4662-a93b-f7fda6b80017
+CollectionName: '?'
+Description: Upload File Options
+Fields:
+  Name:
+    Field:
+      _t: TextField
+      Description: Name for the remote file (can be template)
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Owner:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Owner
+      Name: Owner
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Account: '[Account]'
+          Admin: '[Admin]'
+          Manager: '[Manager]'
+          Organization: '[Organization]'
+          User: '[User]'
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RemoteFileFlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Remote File Flow
+      Name: RemoteFileFlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: RemoteFile
+        ObjectType: Flow
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RemoteFileObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Remote File Object Status
+      Name: RemoteFileObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: RemoteFile
+        ObjectType: ObjectStatus
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RemoteFolderId:
+    Field:
+      _t: ReferenceField
+      Description: Base Folder
+      IsRequired: false
+      Label: Base Folder
+      Name: RemoteFolderId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        ObjectType: RemoteFolder
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RemotePath:
+    Field:
+      _t: TextField
+      Description: Relative Path including file name in the bucket (can be template)
+      IsRequired: true
+      Label: Remote Path
+      Name: RemotePath
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UploadFileOptions
+IsAbstract: false
+IsEmbedded: true
+Name: UploadFileOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{RemoteFileFlowId}}'
+  Label: Remote File Flow
+  Name: RemoteFileFlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{RemoteFileObjectStatusId}}'
+  Label: Remote File Object Status
+  Name: RemoteFileObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- PI-API
+- System

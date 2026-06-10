@@ -1,0 +1,128 @@
+db.getCollection('Lead.Snapshot.FirstAppt').aggregate(
+        [
+            {
+                "$match": {
+                    "LastActor.JobId": "23a805e5-e5d9-480d-a6b4-e3854d15b705", // "{{{Parameters.JobId}}}",
+                    "LastActor._t": "SingerSyncActor"
+                }
+            },
+            {
+                "$sort": {
+                    "CreatedOn": 1
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "Appointment.Snapshot",
+                    "localField": "AppointmentId",
+                    "foreignField": "_id",
+                    "as": "Appointment"
+                }
+            },
+            {
+                "$unwind": "$Appointment"
+            },
+            {
+                "$set": {
+                    "leadSource": {
+                            "$cond": {
+                                "if": {
+                                    "$eq": ["$Appointment.FCI.IsPPA", true]
+                                },
+                                "then": "$Appointment.FCI.LeadSource",
+                                "else": "NOTPPA"
+                            }
+                        }
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "bill.Item",
+                    "as": "ppa",
+                    "let": {
+                        "leadSource": "$leadSource"
+                    },
+                    "pipeline": [
+                        { "$match": {
+                            "Rule": "PpaAppointment",
+                            "IsActive": true,                            
+                            "$expr": {
+                                "$eq": [
+                                    "$Name",
+                                    "$$leadSource"
+                                ]
+                            }
+                        }}
+                    ]
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "bill.Item",
+                    "as": "tool",
+                    "let": {
+                        "tool": "$Appointment.Tool"
+                    },
+                    "pipeline": [
+                        { "$match": {
+                            "Rule": "Tool",
+                            "IsActive": true,
+                            "$expr": {
+                                "$eq": [
+                                    "$Name",
+                                    "$$tool"
+                                ]
+                            }
+                        }}
+                    ]
+                }
+            },
+            {
+                "$set": {
+                    "Items": {
+                        "$concatArrays": [
+                            "$ppa",
+                            "$tool"
+                        ]
+                    }
+                }
+            },
+            {
+                "$project": {
+                    "_id": 1,
+                    "_t": "Invoice",
+                    "ExternalId": "$_id",
+                    "ReferenceDate": "$Appointment.CreatedOn",
+                    "AccountId": "$Appointment.AccountId",
+                    "OrganizationId": "$Appointment.OrganizationId",
+                    "EntityId": "$Appointment.OrganizationId",
+                    "Name": "$Appointment.Lead",
+                    "Items": 1,
+                    "LastActor": 1,
+                    "Refs": [
+                        {
+                            "Type": "Appointment",
+                            "_id": "$Appointment._id",
+                            "Tag": "$Appointment.Tool"
+                        },
+                        {
+                            "Type": "Lead",
+                            "_id": "$_id"
+                        }
+                    ],
+                    "Total": {
+                        "$reduce": {
+                            "input": "$Items",
+                            "initialValue": 0,
+                            "in": {
+                                "$subtract": [
+                                    "$$value",
+                                    "$$this.Value"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        ]
+)

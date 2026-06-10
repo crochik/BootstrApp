@@ -1,0 +1,256 @@
+{
+  "_id" : "27c5b9fa-3a6b-44f9-b337-b73e09f56da1",
+  "Name" : "BackgroundServiceConfig",
+  "Description" : "Background Service Config",
+  "IsActive" : true,
+  "UniqueExternalId" : true,
+  "CollectionName" : "job.Service",
+  "IsAbstract" : false,
+  "IsEmbedded" : false,
+  "NativeType" : "PI.Shared.Models.BackgroundServiceConfig",
+  "_BaseObjectType" : "DynamicFlowObjectModel",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    },
+    "077e4ad6-713e-45b3-b466-ae6957c532f0" : {
+      "Conditions" : [{
+          "FieldName" : "IsActive",
+          "Value" : true
+        }]
+    }
+  },
+  "UniqueIndices" : [{
+      "Name" : "Job Name",
+      "Fields" : ["ExternalId"],
+      "Upsert" : true
+    }],
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ExternalId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ExternalId",
+        "Label" : "Code",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MaxConcurrentInstances" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "MaxConcurrentInstances",
+        "Label" : "Max Instances",
+        "DefaultValue" : 1,
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      }
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "BackgroundServiceConfig"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "BackgroundServiceConfig"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "CurrentInstances" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "CurrentInstances",
+        "Label" : "Running Instances",
+        "Enable" : ["false"],
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "AvailableInstances" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "AvailableInstances",
+        "Label" : "Available Instances",
+        "Enable" : ["false"],
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "StartedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "StartedOn",
+        "Label" : "Started",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "EndedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "EndedOn",
+        "Label" : "Ended",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "LastError" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "LastError",
+        "Label" : "Last Error"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "LastTransactionId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "LastTransactionId",
+        "Label" : "Last Transaction"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "Tags" : ["System"],
+  "FullName" : "BackgroundServiceConfig",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

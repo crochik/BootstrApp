@@ -1,0 +1,67 @@
+_id: c15048e0-a2e8-4572-86a8-e1bce2ec8aa6
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: CalculatedField
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: CalculatedField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: CalculatedField
+    RBAC:
+      Permissions:
+        Admin: 1
+  Calculation:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Calculation
+      Name: Calculation
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Calculation
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Field:
+    Field:
+      _t: ObjectField
+      Label: Field
+      Name: Field
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Field
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: CalculatedField
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: CalculatedField
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

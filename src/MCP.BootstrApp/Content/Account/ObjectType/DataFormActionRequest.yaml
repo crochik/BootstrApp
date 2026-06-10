@@ -1,0 +1,83 @@
+_id: 17f3f711-180a-4f20-a8f6-282bcbca3977
+CollectionName: '?'
+Description: Data Form Action Request
+Fields:
+  Action:
+    Field:
+      _t: TextField
+      ApiName: Action
+      IsRequired: true
+      Label: Action
+      Name: Action
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Parameters:
+    Field:
+      _t: ObjectField
+      ApiName: Parameters
+      IsRequired: true
+      Label: Parameters
+      Name: Parameters
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  SelectedIds:
+    Field:
+      _t: ArrayField
+      ApiName: selectedIds
+      IsRequired: false
+      Label: Selected Object Ids
+      Name: SelectedIds
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: Object Id
+          Name: ObjectId
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+  View:
+    Field:
+      _t: TextField
+      ApiName: View
+      IsRequired: false
+      Label: View
+      Name: View
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DataFormActionRequest
+IsAbstract: false
+IsEmbedded: true
+Name: DataFormActionRequest
+NativeType: DataFormActionRequest
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

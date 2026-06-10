@@ -1,0 +1,47 @@
+_id: 0c730131-55a5-4210-87d2-5722f1b3a867
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: UrlField
+Description: Url Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: UrlField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: UrlField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: URLFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UrlField
+IsEmbedded: true
+Name: UrlField
+NativeType: PI.Shared.Form.Models.UrlField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

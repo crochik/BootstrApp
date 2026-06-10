@@ -1,0 +1,36 @@
+{
+  "_id" : "cc5d79e5-5636-4a62-b827-cfa2507717b8",
+  "Name" : "MongoDbLoadSource",
+  "Description" : "MongoDb Source for Data Sources",
+  "CollectionName" : "*",
+  "NativeType" : "PI.Shared.Models.Dashboards.MongoDbLoadSource",
+  "BaseObjectType" : "LoadSource",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["bi", "System"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "StoredProcedure" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "StoredProcedure",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "StoredProcedure"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      }
+    }
+  },
+  "FullName" : "MongoDbLoadSource",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

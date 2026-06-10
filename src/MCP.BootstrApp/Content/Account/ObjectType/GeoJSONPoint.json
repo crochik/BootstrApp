@@ -1,0 +1,57 @@
+{
+  "_id" : "770df9f2-caf4-4a79-9157-29cd45ca4db8",
+  "Name" : "GeoJSONPoint",
+  "Description" : "GeoJSON Point",
+  "CollectionName" : "*",
+  "NativeType" : "PI.Shared.Models.GeoJSON.Point",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["GeoJSON"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Constraints" : { },
+  "Fields" : {
+    "type" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "type"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "point"
+    },
+    "coordinates" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "coordinates",
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "NumberField",
+            "Options" : {
+              "_t" : "NumberFieldOptions"
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FullName" : "GeoJSONPoint",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

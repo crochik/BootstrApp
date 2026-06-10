@@ -1,0 +1,128 @@
+_id: c1c497e2-4331-4de3-a6af-c84d1d2d4ef0
+CollectionName: openapi.ClientGeneration
+Description: API Client Generation
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: openapi.ClientGeneration
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: openapi.ClientGeneration
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  Settings:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Settings
+      Name: Settings
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: openapi.ClientGeneratorSettings
+    RBAC:
+      Permissions:
+        Admin: 7
+  SourceUrl:
+    Field:
+      _t: UrlField
+      Label: Source Url
+      Name: SourceUrl
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.ClientGeneration
+IsAbstract: false
+IsEmbedded: false
+Name: ClientGeneration
+Namespace: openapi
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- openapi

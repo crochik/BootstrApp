@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="..\PI.Shared.App\PI.Shared.App.csproj" />
+    <ProjectReference Include="..\PI.GTM.API\PI.GTM.API.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,47 @@
+_id: 57307a48-3a03-4a7c-88d3-c2513cc83e4d
+BaseObjectType: AppProfileElement
+CollectionName: ObjectType.Template
+Description: Template for new Objects
+Fields:
+  Object:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Partial Object
+      Name: Object
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+        User: 1
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TemplateObject
+IsAbstract: false
+IsEmbedded: false
+Name: TemplateObject
+NativeType: PI.Shared.Models.TemplateObject
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

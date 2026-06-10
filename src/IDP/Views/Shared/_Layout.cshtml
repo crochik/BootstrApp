@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - IDP</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+<div class="navbar">
+    <div class="container">
+        <a class="navbar-brand" href="~/">IDP</a>
+    </div>
+</div>
+
+<div class="container body-content">
+    @RenderBody()
+</div>
+
+<footer>
+    <div class="container">
+        <small>&copy; @DateTime.Now.Year - IDP</small>
+    </div>
+</footer>
+
+@await RenderSectionAsync("scripts", required: false)
+</body>
+</html>

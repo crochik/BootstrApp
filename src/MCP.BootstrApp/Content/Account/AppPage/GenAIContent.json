@@ -1,0 +1,10 @@
+{
+  "_id" : "66634f8a-3b27-4739-a844-41b8e7fb7c94",
+  "Name" : "GenAIContent",
+  "Page" : {
+    "_t" : "CustomPage",
+    "Name" : "GenAIContent",
+    "Label" : "GenAIContent",
+    "ComponentName" : "GenAIContent"
+  }
+}

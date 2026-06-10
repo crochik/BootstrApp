@@ -1,0 +1,77 @@
+{
+  "_id" : "9fe26b17-5c5d-46c0-9777-90cf8e8a6577",
+  "Name" : "LabelField",
+  "Description" : "Label Field",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.LabelField",
+  "BaseObjectType" : "Field",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15.0
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Condiitons" : [{
+          "FieldName" : "_t",
+          "Value" : "LabelField"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "LabelField",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "LabelField",
+      "Indexed" : true
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "LabelFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Label" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Label",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "FullName" : "LabelField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

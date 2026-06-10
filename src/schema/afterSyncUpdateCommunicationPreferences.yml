@@ -1,0 +1,79 @@
+id: 651b856d-acf8-4cb9-aa2f-02f19825a690
+collection: Lead
+name: 'Lead - 08/04/2022 11:53:48'
+pipeline:
+  - $match:
+      LastActor.JobId: '{{{Parameters.JobId}}}'
+      LastActor._t: SingerSyncActor
+  # - $match:
+      # Integrations.Data.Status:
+      #   $eq: Dead
+      # Integrations.Data.Call_Instructions__c: 
+      #   $eq: DO NOT CALL
+  - $set:
+      DoNotCall:
+        $reduce:
+          input: $Integrations
+          initialValue: false
+          in:
+            $cond:
+              if:
+                $eq:
+                  - $$this.Data.Call_Instructions__c
+                  - DO NOT CALL
+              then: true
+              else: $$value
+      DoNotEmail:
+        $reduce:
+          input: $Integrations
+          initialValue: false
+          in:
+            $cond:
+              if:
+                $eq:
+                  - $$this.Data.E_mail_Instructions__c
+                  - DO NOT SEND
+              then: true
+              else: $$value
+      DeadStatus:
+        $reduce:
+          input: $Integrations
+          initialValue: false
+          in:
+            $cond:
+              if:
+                $eq:
+                  - $$this.Data.Status
+                  - Dead
+              then: true
+              else: $$value
+  - $set:
+      CommunicationPreferences.Phone:
+        $cond:
+          if: $DoNotCall
+          then: OptedOut
+          else: $CommunicationPreferences.Phone
+      CommunicationPreferences.Email:
+        $cond:
+          if: $DoNotEmail
+          then: OptedOut
+          else: $CommunicationPreferences.Email
+      Active:
+        $cond:
+          if: $DeadStatus
+          then: false
+          else: 
+            $ifNull:
+              - $IsActive
+              - true
+  - $project:
+      CommunicationPreferences: 1
+      IsActive: $Active
+  - $merge:
+      into: Lead
+      'on': _id
+      whenMatched:
+        - $set:
+            CommunicationPreferences: $$new.CommunicationPreferences
+            IsActive: $$new.IsActive
+      whenNotMatched: discard

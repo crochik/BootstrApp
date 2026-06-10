@@ -1,0 +1,177 @@
+_id: 498ffd68-5ab7-4911-9919-1b661699d81f
+BaseObjectType: EntityOwnedModel
+CollectionName: Snapshot
+Description: Data Snapshot
+Discriminator:
+  BulkEmail:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: BulkEmail
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      Label: Type
+      Name: _t
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  AppDataViewId:
+    Field:
+      _t: ReferenceField
+      Name: AppDataViewId
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: AppDataView
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CollectionName:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: CollectionName
+    InitialValue: SnapshotData
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Count:
+    Field:
+      _t: NumberField
+      Name: Count
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedById:
+    Field:
+      _t: ReferenceField
+      Name: CreatedById
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: Entity
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  DatabaseName:
+    Field:
+      _t: TextField
+      Name: DatabaseName
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Description:
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  End:
+    Field:
+      _t: DateTimeField
+      Label: Snapshot Ended
+      Name: End
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Error:
+    Field:
+      _t: TextField
+      Name: Error
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ExpiresOn:
+    Field:
+      _t: DateTimeField
+      Name: ExpiresOn
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: Snapshot
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  Name:
+    Field:
+      _t: TextField
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        LinkUrl: dataGrid://api/v1/Snapshot({{id}})
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: Snapshot
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  Start:
+    Field:
+      _t: DateTimeField
+      Label: Snapshot Started
+      Name: Start
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Snapshot
+InitialFlowId: 3e8f682a-ed51-4449-9584-8e75bf20df11
+InitialObjectStatusId: 7f5dd8fb-d7b5-43a3-b019-c4ca1dd9f23e
+IsAbstract: false
+IsEmbedded: false
+Name: Snapshot
+NativeType: PI.Shared.Models.Snapshot
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

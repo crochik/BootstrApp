@@ -1,0 +1,13 @@
+{
+  "_id" : "db07966d-9bba-4291-be13-68f086528e99",
+  "Name" : "UpdateSalesforceObject",
+  "Description" : "Update Salesforce Object",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "7aa67a07-1cf6-4a98-b377-28a1deeb6bc2",
+  "ActionOptionsObjectType" : "salesforce.UpdateSalesforceObjectActionOptions",
+  "Outputs" : {
+    "ObjectUpdatedEvent" : "Object Updated",
+    "FailedToUpdateObjectEvent" : "Failed to update Object"
+  }
+}

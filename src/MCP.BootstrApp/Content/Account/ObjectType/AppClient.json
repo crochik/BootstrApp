@@ -1,0 +1,126 @@
+{
+  "_id" : "5e949486-2c81-4d91-920a-37cff2eb792a",
+  "CollectionName" : "idp.Client",
+  "Description" : "API Client",
+  "Name" : "AppClient",
+  "NativeType" : "PI.Shared.Models.AppClient",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "_Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    }
+  },
+  "Fields" : {
+    "ClientName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ClientName",
+        "Label" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "ProfileKey" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ProfileKey"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new ObjectId}}"
+    },
+    "Created" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Created",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}"
+    },
+    "Updated" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Updated",
+        "Label" : "Updated"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    },
+    "Enabled" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Enabled",
+        "Label" : "Enabled"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "FullName" : "AppClient",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "Tags" : [],
+  "Label" : "API Client",
+  "LabelPlural" : "API Clients",
+  "LookupFields" : {
+    "Key" : "_id",
+    "Name" : "ClientName",
+    "Description" : "Description"
+  }
+}

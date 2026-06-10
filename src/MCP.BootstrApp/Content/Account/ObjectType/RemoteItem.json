@@ -1,0 +1,222 @@
+{
+  "_id" : "cf8beaf7-621d-461f-96b7-d0de602d1bc7",
+  "Name" : "RemoteItem",
+  "Description" : "Remote Item",
+  "CollectionName" : "file.Item",
+  "NativeType" : "PI.Shared.Models.Files.RemoteItem",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : true,
+  "Tags" : ["Files"],
+  "Discriminator" : {
+    "RemoteFile" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "file"
+        }]
+    },
+    "RemoteFolder" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "folder"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "Account" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "file" : "File",
+            "folder" : "Folder"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Account" : 7
+        }
+      }
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "dataGrid://api/v1/CustomObject(RemoteItem)?ParentId={{id}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Account" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "AbsoluteUri" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "AbsoluteUri",
+        "Label" : "Uri"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1,
+          "Account" : 7
+        }
+      }
+    },
+    "RelativePath" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "RelativePath",
+        "Label" : "Relative Path"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1,
+          "Account" : 7
+        }
+      }
+    },
+    "BucketId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "BucketId",
+        "Label" : "Bucket",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "RemoteFileBucket",
+          "Criteria" : [],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "Account" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ParentId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ParentId",
+        "Label" : "Parent",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "RemoteFolder",
+          "Criteria" : [],
+          "AutoComplete" : true,
+          "LinkUrl" : "dataGrid://api/v1/CustomObject(RemoteItem)?ParentId={{value}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "Account" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "CreatedBy" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "CreatedBy",
+        "Label" : "Created By",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "User",
+          "Criteria" : [],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "Account" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "BucketId",
+      "ObjectType" : "RemoteFileBucket",
+      "Label" : "Bucket",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{BucketId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 1
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ParentId",
+      "ObjectType" : "RemoteFolder",
+      "Label" : "Parent",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ParentId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 1
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "CreatedBy",
+      "ObjectType" : "User",
+      "Label" : "Created By",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{CreatedBy}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 1
+        }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FullName" : "RemoteItem",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

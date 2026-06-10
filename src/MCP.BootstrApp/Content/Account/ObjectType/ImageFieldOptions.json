@@ -1,0 +1,52 @@
+{
+  "_id" : "9b1e2543-31e5-4438-b8e5-91fb8af5e1c3",
+  "Name" : "ImageFieldOptions",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Enable" : ["false"],
+        "DefaultValue" : "ImageFieldOptions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "ImageFieldOptions"
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ImageFieldOptions"
+        }]
+    }
+  },
+  "BaseObjectType" : "FieldOptions",
+  "Tags" : ["AUTOFIX", "PI-API"],
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "FullName" : "ImageFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

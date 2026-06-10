@@ -1,0 +1,221 @@
+{
+  "_id" : "cb8da62d-3b44-4694-9022-15012dae86e1",
+  "Namespace" : "dipper",
+  "Name" : "History",
+  "Description" : "Editing History for user",
+  "CollectionName" : "Dipper.History",
+  "NativeType" : "Models.AggregationHistory",
+  "BaseObjectType" : "AppElement",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : [],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "dipper.History",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 0,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+    }
+  },
+  "Fields" : {
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : true,
+      "IsFinal" : false
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "CalculatedValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "{{new UUID}}",
+      "IsFinal" : false
+    },
+    "Collection" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Collection",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Namespace" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Namespace",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Pipeline" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Pipeline",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Stage",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "UserId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "UserId",
+        "Label" : "User",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "User",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "Label" : "Editor History",
+  "LabelPlural" : "Editor History"
+}

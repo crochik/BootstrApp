@@ -1,0 +1,71 @@
+{
+  "_id" : "66401368-e760-4836-aa9b-c453c23257e3",
+  "Name" : "PageMenuItem",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Enable" : ["false"],
+        "DefaultValue" : "PageMenuItem",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "PageMenuItem"
+    },
+    "Page" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Page",
+        "Label" : "Page",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PageMenuItem"
+        }]
+    }
+  },
+  "BaseObjectType" : "MenuItem",
+  "Tags" : ["AUTOFIX", "PI-API"],
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "FullName" : "PageMenuItem",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

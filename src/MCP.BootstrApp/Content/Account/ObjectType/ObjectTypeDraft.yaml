@@ -1,0 +1,508 @@
+_Fields:
+  ObjectType|Discriminator:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Discriminator
+      Name: ObjectType|Discriminator
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: string
+        ObjectType: Criteria
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+_id: 9fcfbd76-1308-4d43-bccc-005cf94a3e6d
+BaseObjectType: EntityOwnedModel
+CollectionName: ObjectType.Draft
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Object Type Draft
+Fields:
+  Description:
+    Field:
+      _t: TextField
+      Label: Draft Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        ContentType: text/plain
+        Multline: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Draft Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: ObjectTypeDraft
+        ObjectType: Flow
+    Indexed: true
+    InitialValue: 32ce0d87-023b-4a64-b5fc-64f65517809e
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      IsRequired: true
+      Label: Draft Active?
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Name:
+    Field:
+      _t: TextField
+      Label: Draft Name
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      DefaultValue: 55359d4e-d38e-4172-b11f-b153caf60036
+      IsRequired: true
+      Label: Draft Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: ObjectTypeDraft
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|ApiName:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Api Name
+      Name: ObjectType|ApiName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|ApiPaths:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: API Path Overrides
+      Name: ObjectType|ApiPaths
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: true
+        KeyField:
+          _t: SelectField
+          IsRequired: false
+          Name: Endpoint
+          Options:
+            _t: SelectFieldOptions
+            AllowUnknown: false
+            Items:
+              Create: Create
+              Delete: Delete
+              Filter: Filter (objects)
+              Get: Get (one object)
+              Update: Update
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Path
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|BaseObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Base Type
+      Name: ObjectType|BaseObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|CollectionName:
+    Field:
+      _t: TextField
+      DefaultValue: CustomObject
+      IsRequired: false
+      Label: Collection
+      Name: ObjectType|CollectionName
+      Options:
+        _t: TextFieldOptions
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|Description:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Type Description
+      Name: ObjectType|Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|FullName:
+    CalculatedValue: '{{join "." ObjectType|Namespace? ObjectType|Name!}}'
+    Field:
+      _t: TextField
+      Label: Full Name
+      Name: ObjectType|FullName
+    Indexed: true
+    InitialValue: '{{join "." ObjectType|Namespace? ObjectType|Name!}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|InitialFlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: New Object Flow
+      Name: ObjectType|InitialFlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType|FullName}}'
+        ObjectType: Flow
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|InitialObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: New Object Status
+      Name: ObjectType|InitialObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType|FullName}}'
+        ObjectType: ObjectStatus
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|IsAbstract:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      IsRequired: false
+      Label: Abstract?
+      Name: ObjectType|IsAbstract
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|IsEmbedded:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      IsRequired: false
+      Label: Embedded?
+      Name: ObjectType|IsEmbedded
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|IsFullTextSearchable:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      IsRequired: false
+      Label: Searchable?
+      Name: ObjectType|IsFullTextSearchable
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|Label:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Label
+      Name: ObjectType|Label
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|LabelPlural:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Label (Plural)
+      Name: ObjectType|LabelPlural
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|LookupFields:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Lookup Fields
+      Name: ObjectType|LookupFields
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: LookupFields
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: ObjectType|Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|Namespace:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Namespace
+      Name: ObjectType|Namespace
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|NativeType:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Native Type
+      Name: ObjectType|NativeType
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|RBAC|Permissions:
+    Field:
+      _t: DictionaryField
+      IsRequired: true
+      Label: Permissions
+      Name: ObjectType|RBAC|Permissions
+      Options:
+        _t: DictionaryFieldOptions
+        KeyField:
+          _t: ReferenceField
+          IsRequired: true
+          Label: Profile/Role
+          Name: Key
+          Options:
+            _t: ReferenceFieldOptions
+            Items:
+              Account: '[Account]'
+              Admin: '[Admin]'
+              Manager: '[Manager]'
+              Organization: '[Organization]'
+              User: '[User]'
+            ObjectType: AppProfile
+        ValueField:
+          _t: BitwiseFlagField
+          Name: Permissions
+          Options:
+            _t: BitwiseFlagFieldOptions
+            Items:
+              1: Read
+              128: Tag Many
+              16: Import
+              2: Update
+              256: Customize?
+              32: Export
+              4: Create
+              512: Deep Clone
+              64: Delete Many
+              8: Delete
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Label: Object Tags
+      Name: ObjectType|Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(ObjectType)
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  ObjectType|UniqueExternalId:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Unique ExternalId
+      Name: ObjectType|UniqueExternalId
+    RBAC:
+      Permissions:
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Tags:
+    Field:
+      _t: TagsField
+      IsRequired: false
+      Label: Draft Tags
+      Name: Tags
+      Options:
+        _t: TagsFieldOptions
+        Url: /api/v1/CustomObject/Tags(ObjectTypeDraft)
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 7
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectTypeDraft
+InitialFlowId: 32ce0d87-023b-4a64-b5fc-64f65517809e
+InitialObjectStatusId: 55359d4e-d38e-4172-b11f-b153caf60036
+IsAbstract: false
+IsEmbedded: false
+Label: Object Type (Draft)
+LabelPlural: Object Type (Drafts)
+Name: ObjectTypeDraft
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Account: 7
+    Admin: 1
+    d33d2dda-5180-44a5-9e63-77494f57646a: 7
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Draft Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Draft Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectType|InitialFlowId}}'
+  Label: New Object Flow
+  Name: ObjectType|InitialFlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectType|InitialObjectStatusId}}'
+  Label: New Object Status
+  Name: ObjectType|InitialObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{ObjectType|BaseObjectType}}'
+  Label: Base Type
+  Name: ObjectType|BaseObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions:
+      d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  RelationType: OneToOne
+Tags:
+- System

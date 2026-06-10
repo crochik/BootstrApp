@@ -1,0 +1,526 @@
+{
+  "_id" : "c4ca1364-fc03-489a-9cf1-c379254f2cb1",
+  "Name" : "Field",
+  "Description" : "Form Field",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "LocationDistanceField" : "Location Distance",
+            "EmailField" : "Email",
+            "ExpressionField" : "Expression",
+            "GenericField" : "Generic",
+            "FileField" : "File",
+            "PhoneField" : "Phone",
+            "MultiReferenceField" : "Multi Reference",
+            "LookupField" : "Lookup",
+            "ObjectField" : "Object",
+            "CheckboxField" : "Checkbox",
+            "TextField" : "Text",
+            "PasswordField" : "Password",
+            "ReferenceField" : "Reference",
+            "PostalCodeField" : "Postal Code",
+            "DateTimeField" : "DateTime",
+            "ImageField" : "Image",
+            "AddressField" : "Address",
+            "DateField" : "Date",
+            "TagsField" : "Tags",
+            "HiddenField" : "Hidden",
+            "ChildrenField" : "Children",
+            "SelectField" : "Select",
+            "DictionaryField" : "Dictionary",
+            "MultiSelectField" : "Multi Select",
+            "CalculatedField" : "Calculated",
+            "LabelField" : "Label",
+            "ArrayField" : "Array",
+            "LocationField" : "Location",
+            "DateRangeField" : "DateRange",
+            "RelatedObjectsField" : "Related Objects",
+            "BitwiseFlagField" : "Bitwise Flag",
+            "UrlField" : "Url",
+            "NumberField" : "Number",
+            "TimeField" : "Time"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false,
+          "ContentType" : "text/plain",
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ApiName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ApiName",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "DefaultValue" : {
+      "Field" : {
+        "_t" : "GenericField",
+        "Name" : "DefaultValue",
+        "Label" : "Default Value",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "IsRequired" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsRequired",
+        "Label" : "Required?",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Style" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "Style",
+        "Label" : "Style",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "FieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Label" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Label",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "IsReadOnly" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "IsReadOnly",
+        "Label" : "Read Only?",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "IsVisible" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "IsVisible",
+        "Label" : "Visible?",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "Enable" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Enable",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Visible" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Visible",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "?",
+  "Discriminator" : {
+    "AddressField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "AddressField"
+        }]
+    },
+    "ArrayField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ArrayField"
+        }]
+    },
+    "BitwiseFlagField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "BitwiseFlagField"
+        }]
+    },
+    "CalculatedField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "CalculatedField"
+        }]
+    },
+    "CheckboxField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "CheckboxField"
+        }]
+    },
+    "ChildrenField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ChildrenField"
+        }]
+    },
+    "DateField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "DateField"
+        }]
+    },
+    "DateRangeField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "DateRangeField"
+        }]
+    },
+    "DateTimeField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "DateTimeField"
+        }]
+    },
+    "DictionaryField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "DictionaryField"
+        }]
+    },
+    "EmailField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "EmailField"
+        }]
+    },
+    "ExpressionField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ExpressionField"
+        }]
+    },
+    "FileField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "FileField"
+        }]
+    },
+    "GenericField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "GenericField"
+        }]
+    },
+    "HiddenField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "HiddenField"
+        }]
+    },
+    "ImageField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ImageField"
+        }]
+    },
+    "LabelField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LabelField"
+        }]
+    },
+    "LocationDistanceField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LocationDistanceField"
+        }]
+    },
+    "LocationField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LocationField"
+        }]
+    },
+    "LookupField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LookupField"
+        }]
+    },
+    "MultiReferenceField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "MultiReferenceField"
+        }]
+    },
+    "MultiSelectField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "MultiSelectField"
+        }]
+    },
+    "NumberField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "NumberField"
+        }]
+    },
+    "ObjectField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ObjectField"
+        }]
+    },
+    "PasswordField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PasswordField"
+        }]
+    },
+    "PhoneField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PhoneField"
+        }]
+    },
+    "PostalCodeField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "PostalCodeField"
+        }]
+    },
+    "ReferenceField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "ReferenceField"
+        }]
+    },
+    "RelatedObjectsField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "RelatedObjectsField"
+        }]
+    },
+    "SelectField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "SelectField"
+        }]
+    },
+    "TagsField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "TagsField"
+        }]
+    },
+    "TextField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "TextField"
+        }]
+    },
+    "TimeField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "TimeField"
+        }]
+    },
+    "UrlField" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "UrlField"
+        }]
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "IsAbstract" : true,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "PI.Shared.Form.Models.FormField",
+  "FullName" : "Field",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

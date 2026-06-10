@@ -1,0 +1,59 @@
+{
+  "_id" : "9a8df88c-05d1-414a-ba23-f3c10c5b630f",
+  "Name" : "GridFormFieldLayout",
+  "Description" : "Grid Form Field Layout",
+  "CollectionName" : "?",
+  "NativeType" : "GridFormFieldLayout",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "GridFormFieldLayout",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Field Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Width" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Width",
+        "Label" : "Width",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default",
+          "DecimalPlaces" : 0,
+          "Minimum" : { "$numberDecimal" : "1" },
+          "Maximum" : { "$numberDecimal" : "12" }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

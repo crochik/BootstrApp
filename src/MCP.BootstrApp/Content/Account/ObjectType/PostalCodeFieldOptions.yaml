@@ -1,0 +1,32 @@
+_id: eecb9a7f-376a-43f6-8db1-22668c870362
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for PostalCode Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: PasswordFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: PostalCodeFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PostalCodeFieldOptions
+IsEmbedded: true
+Name: PostalCodeFieldOptions
+NativeType: PI.Shared.Form.Models.PostalCodeFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

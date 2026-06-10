@@ -1,0 +1,116 @@
+_id: 18ab6ef2-f4ab-438c-af3c-3f1aff07ffa3
+CollectionName: '?'
+Description: Form Action
+Fields:
+  Action:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Action
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Enable:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Enable
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsReadOnly:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Read Only?
+      Name: IsReadOnly
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  IsVisible:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Visible?
+      Name: IsVisible
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Label:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Label
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Visible:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Visible
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FormAction
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: FormAction
+NativeType: PI.Shared.Models.FormAction
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui
+UniqueExternalId: false

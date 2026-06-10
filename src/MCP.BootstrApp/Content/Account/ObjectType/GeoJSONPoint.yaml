@@ -1,0 +1,42 @@
+_id: 770df9f2-caf4-4a79-9157-29cd45ca4db8
+CollectionName: '*'
+Constraints: {}
+Description: GeoJSON Point
+Fields:
+  coordinates:
+    Field:
+      _t: ArrayField
+      Name: coordinates
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: NumberField
+          Options:
+            _t: NumberFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  type:
+    Field:
+      _t: HiddenField
+      Name: type
+    Indexed: true
+    InitialValue: point
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GeoJSONPoint
+IsAbstract: false
+IsEmbedded: true
+Name: GeoJSONPoint
+NativeType: PI.Shared.Models.GeoJSON.Point
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- GeoJSON

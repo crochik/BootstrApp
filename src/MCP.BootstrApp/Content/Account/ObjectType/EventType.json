@@ -1,0 +1,102 @@
+{
+  "_id" : "c3dd0de7-0685-4a1d-b759-e52da4b7e5ff",
+  "Name" : "EventType",
+  "Description" : "Event types that can be triggered",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.EventType",
+  "UniqueExternalId" : false,
+  "BaseObjectType" : "EntityOwnedModel",
+  "Discriminator" : {
+    "UserEventType" : {
+      "Conditions" : [{
+          "FieldName" : "Trigger|_t",
+          "Value" : "User"
+        }]
+    },
+    "ScheduledEventType" : {
+      "Conditions" : [{
+          "FieldName" : "Trigger|_t",
+          "Value" : "Scheduled"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Trigger|_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Trigger|_t",
+        "Label" : "Trigger Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "User" : "User",
+            "System" : "System",
+            "Trigger" : "Side Effect",
+            "Error" : "Error",
+            "Scheduled" : "Scheduled"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Trigger|ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "Trigger|ObjectStatusId",
+        "Label" : "Trigger Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Value" : "{{ObjectType}}"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "CollectionName" : "EventType",
+  "Tags" : ["System"],
+  "IsAbstract" : false,
+  "IsEmbedded" : false,
+  "RelatedObjectTypes" : [],
+  "FullName" : "EventType",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,121 @@
+{
+  "_id" : "48d20f72-5a8b-4ac3-9911-7127568b8273",
+  "Name" : "FieldTemplate",
+  "Description" : "Field Template",
+  "CollectionName" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "FullName" : "FieldTemplate",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Field" : {
+      "Field" : {
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Field"
+        },
+        "Description" : "Field",
+        "IsRequired" : true,
+        "Name" : "Field",
+        "_t" : "ObjectField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "InitialValue" : {
+      "Field" : {
+        "IsRequired" : false,
+        "Name" : "InitialValue",
+        "Label" : "Initial Value",
+        "_t" : "GenericField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "CalculatedValue" : {
+      "Field" : {
+        "Name" : "CalculatedValue",
+        "Label" : "Calculated Value",
+        "_t" : "GenericField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Indexed" : {
+      "Field" : {
+        "Name" : "Indexed",
+        "Label" : "Indexed",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "RBAC|Permissions" : {
+      "Field" : {
+        "Options" : {
+          "KeyField" : {
+            "Options" : {
+              "ObjectType" : "AppProfile",
+              "_t" : "ReferenceFieldOptions",
+              "Items" : {
+                "Admin" : "[Admin]",
+                "Manager" : "[Manager]",
+                "User" : "[User]",
+                "Account" : "[Account]",
+                "Organization" : "[Organization]"
+              }
+            },
+            "IsRequired" : true,
+            "Name" : "Key",
+            "Label" : "Profile/Role",
+            "_t" : "ReferenceField"
+          },
+          "ValueField" : {
+            "Options" : {
+              "Items" : {
+                "1" : "Read",
+                "2" : "Update",
+                "4" : "Create",
+                "8" : "Unset",
+                "16" : "Create On Demand"
+              },
+              "_t" : "BitwiseFlagFieldOptions"
+            },
+            "Name" : "Permissions",
+            "_t" : "BitwiseFlagField"
+          },
+          "_t" : "DictionaryFieldOptions"
+        },
+        "IsRequired" : true,
+        "Name" : "RBAC|Permissions",
+        "Label" : "Permissions",
+        "_t" : "DictionaryField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

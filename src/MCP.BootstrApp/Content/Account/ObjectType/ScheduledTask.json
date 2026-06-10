@@ -1,0 +1,198 @@
+{
+  "_id" : "332c1180-64c6-4693-8398-d0456c0007ce",
+  "Name" : "ScheduledTask",
+  "Description" : "Scheduled Task",
+  "CollectionName" : "job.ScheduledTask",
+  "NativeType" : "PI.Shared.Models.ScheduledTask",
+  "IsEmbedded" : false,
+  "IsAbstract" : true,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    }
+  },
+  "Discriminator" : {
+    "PostEventScheduledTask" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "postEvent"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "postEvent" : "Post Event"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Tag" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Tag"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Time" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Time",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "AutoReschedule" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "AutoReschedule",
+        "Label" : "Schedule (Crontab)",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Started" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Started",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Finished" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Finished",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Error" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Error",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}"
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    }
+  },
+  "Tags" : ["System", "job"],
+  "FullName" : "ScheduledTask",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

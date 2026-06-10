@@ -1,0 +1,113 @@
+{
+  "_id" : "f957d591-e42f-4bf4-b554-4eee46e13982",
+  "Name" : "SftpRemoteFileBucket",
+  "Description" : "SFTP Bucket",
+  "CollectionName" : "file.Bucket",
+  "NativeType" : "PI.Shared.Models.Files.SftpRemoteFileBucket",
+  "BaseObjectType" : "RemoteFileBucket",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "sftp"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Host" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Host",
+        "Label" : "Host"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "UserName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "UserName",
+        "Label" : "User Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Password" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "Password",
+        "Label" : "Password",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "objectType://SftpRemoteFileBucket.Password"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 6
+        }
+      }
+    },
+    "SecretKey" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "SecretKey",
+        "Label" : "Private Key",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "Multiline" : true,
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "objectType://SftpRemoteFileBucket.SecretKey"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 6
+        }
+      }
+    },
+    "Passphrase" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "Passphrase",
+        "Label" : "Passphrase",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "Multiline" : true,
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "objectType://SftpRemoteFileBucket.Passphrase"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 6
+        }
+      }
+    }
+  },
+  "Tags" : ["Files"],
+  "FullName" : "SftpRemoteFileBucket",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

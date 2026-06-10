@@ -1,0 +1,82 @@
+_id: d6b4db58-cc68-48e3-a1e2-3d070a189210
+BaseObjectType: EventType
+CollectionName: EventType
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: Trigger|_t
+      Value: Scheduled
+Description: Scheduled Event
+Fields:
+  Trigger|Criteria:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Criteria
+      Name: Trigger|Criteria
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Condition
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: Trigger|FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        Criteria:
+        - FieldName: ObjectType
+          Value: '{{ObjectType}}'
+        ObjectType: Flow
+      Visible:
+      - ObjectType
+    RBAC:
+      Permissions:
+        Admin: 5
+  Trigger|IsActive:
+    Field:
+      _t: CheckboxField
+      Label: Active?
+      Name: Trigger|IsActive
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Schedule:
+    Field:
+      _t: TextField
+      DefaultValue: 0 * * * *
+      IsRequired: false
+      Label: Schedule
+      Name: Trigger|Schedule
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Start:
+    Field:
+      _t: DateTimeField
+      DefaultValue: '{{new Date}}'
+      IsRequired: true
+      Label: Start
+      Name: Trigger|Start
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ScheduledEventType
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+Name: ScheduledEventType
+NativeType: PI.Shared.Models.EventType
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System
+UniqueExternalId: false

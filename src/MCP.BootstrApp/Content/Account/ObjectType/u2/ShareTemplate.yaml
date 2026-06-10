@@ -1,0 +1,66 @@
+_id: ad4cdf55-d595-41de-ac6a-6b8a91c3775a
+BaseObjectType: ShortLinkRedirection
+CollectionName: u2.redirection
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: template
+Description: Template to create anonymous shares
+Fields:
+  MetaValues|FieldName:
+    Field:
+      _t: TextField
+      Label: Field Name (expression)
+      Name: MetaValues|FieldName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  MetaValues|ObjectId:
+    Field:
+      _t: TextField
+      Label: Object Id (expression)
+      Name: MetaValues|ObjectId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  MetaValues|ObjectType:
+    Field:
+      _t: ReferenceField
+      Label: Object Type (Meta)
+      Name: MetaValues|ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  MetaValues|ShareId:
+    Field:
+      _t: TextField
+      Label: Share Id (expression)
+      Name: MetaValues|ShareId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: u2.ShareTemplate
+IsAbstract: false
+IsEmbedded: false
+Name: ShareTemplate
+Namespace: u2
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15

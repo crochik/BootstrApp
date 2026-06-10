@@ -1,0 +1,115 @@
+{
+  "_id" : "77d7604d-df9e-42c3-b9a2-5744a7774ead",
+  "Name" : "ObjectStatus",
+  "Description" : "Object Status",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.ObjectStatus",
+  "UniqueExternalId" : false,
+  "CollectionName" : "ObjectStatus",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "Manager" : 1,
+      "User" : 1,
+      "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+      "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      }
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    }
+  },
+  "Tags" : ["System"],
+  "RelatedObjectTypes" : [],
+  "FullName" : "ObjectStatus",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

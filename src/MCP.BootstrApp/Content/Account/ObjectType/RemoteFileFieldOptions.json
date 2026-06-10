@@ -1,0 +1,108 @@
+{
+  "_id" : "2bc63260-31ac-4c9a-b328-d6f6c0650818",
+  "Name" : "RemoteFileFieldOptions",
+  "Description" : "Options for Remote File Field",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.RemoteFileFieldOptions",
+  "BaseObjectType" : "ReferenceFieldOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["ui", "System", "API", "PI-API"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "RemoteFileFieldOptions"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "RemoteFileFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "UploadFileOptions" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "UploadFileOptions",
+        "Label" : "Upload File Options",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "UploadFileOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ContentTypes" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "ContentTypes",
+        "Label" : "Content Types",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "Label" : "Value",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Url" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Url",
+        "Label" : "Url",
+        "Description" : "Relative path to post file (will automatically add \"/RemoteFile/Upload\" Suffix)",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FullName" : "RemoteFileFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

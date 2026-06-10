@@ -1,0 +1,257 @@
+{
+  "_id" : "d802866c-cae1-4976-8a29-3c2f5ad39446",
+  "Name" : "UserEventType",
+  "Description" : "Event type with user trigger",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.EventType",
+  "UniqueExternalId" : false,
+  "BaseObjectType" : "EventType",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "Trigger|_t",
+          "Value" : "User"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Entity",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Organization",
+          "AutoComplete" : true,
+          "Items" : {
+            "fc100000-0000-0000-0000-000000000000" : "Global"
+          }
+        },
+        "DefaultValue" : "{{OrganizationId}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Trigger|Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Trigger|Name",
+        "Label" : "Trigger Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|AllowMultiple" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Trigger|AllowMultiple",
+        "Label" : "Allow Multiple",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|AllowNone" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Trigger|AllowNone",
+        "Label" : "Allow None",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|IsHidden" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Trigger|IsHidden",
+        "Label" : "Hidden",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|Form" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Trigger|Form",
+        "Label" : "Form",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Form"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|NextUrl" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Trigger|NextUrl",
+        "Label" : "Next Url",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|Icon" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Trigger|Icon",
+        "Label" : "Icon",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Trigger|Message" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Trigger|Message",
+        "Label" : "Message",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "ContentType" : "text/plain",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Trigger|ProfileIds" : {
+      "Field" : {
+        "_t" : "MultiReferenceField",
+        "Name" : "Trigger|ProfileIds",
+        "Label" : "Profiles",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "MultiReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "AppProfile",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Trigger|Role" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Trigger|Role",
+        "Label" : "Role ",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "User" : "[User]",
+            "Admin" : "[Admin]",
+            "Manager" : "[Manager]"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Trigger|Conditions" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Trigger|Conditions",
+        "Label" : "Conditions",
+        "Description" : "Conditions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Condition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "EventType",
+  "Tags" : ["System"],
+  "IsAbstract" : false,
+  "IsEmbedded" : false,
+  "FullName" : "UserEventType",
+  "RelatedObjectTypes" : [{
+      "Name" : "EntityId",
+      "ObjectType" : "Organization",
+      "Label" : "Entity",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{EntityId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,73 @@
+{{#with Data}}
+namespace {{Namespace}}.Auth;
+
+/// <summary>
+/// Delegating handler for API Key authentication
+/// </summary>
+public class ApiKeyAuthHandler : DelegatingHandler
+{
+    private readonly Dictionary<string, string> _apiKeys = new();
+    private readonly Dictionary<string, ApiKeyLocation> _apiKeyLocations = new();
+
+    public enum ApiKeyLocation
+    {
+        Header,
+        Query
+    }
+
+    /// <summary>
+    /// Sets an API key for authentication
+    /// </summary>
+    /// <param name="name">The name/key of the API key (e.g., "X-API-Key")</param>
+    /// <param name="value">The API key value</param>
+    /// <param name="location">Where to send the API key (Header or Query)</param>
+    public void SetApiKey(string name, string value, ApiKeyLocation location = ApiKeyLocation.Header)
+    {
+        _apiKeys[name] = value;
+        _apiKeyLocations[name] = location;
+    }
+
+    /// <summary>
+    /// Clears an API key
+    /// </summary>
+    public void ClearApiKey(string name)
+    {
+        _apiKeys.Remove(name);
+        _apiKeyLocations.Remove(name);
+    }
+
+    /// <summary>
+    /// Clears all API keys
+    /// </summary>
+    public void ClearAllApiKeys()
+    {
+        _apiKeys.Clear();
+        _apiKeyLocations.Clear();
+    }
+
+    protected override async Task<HttpResponseMessage> SendAsync(
+        HttpRequestMessage request,
+        CancellationToken cancellationToken)
+    {
+        foreach (var apiKey in _apiKeys)
+        {
+            var location = _apiKeyLocations.GetValueOrDefault(apiKey.Key, ApiKeyLocation.Header);
+
+            if (location == ApiKeyLocation.Header)
+            {
+                request.Headers.TryAddWithoutValidation(apiKey.Key, apiKey.Value);
+            }
+            else if (location == ApiKeyLocation.Query)
+            {
+                var uriBuilder = new UriBuilder(request.RequestUri!);
+                var query = System.Web.HttpUtility.ParseQueryString(uriBuilder.Query);
+                query[apiKey.Key] = apiKey.Value;
+                uriBuilder.Query = query.ToString();
+                request.RequestUri = uriBuilder.Uri;
+            }
+        }
+
+        return await base.SendAsync(request, cancellationToken);
+    }
+}
+{{/with}}

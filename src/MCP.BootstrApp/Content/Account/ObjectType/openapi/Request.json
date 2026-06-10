@@ -1,0 +1,233 @@
+{
+  "_id" : "6c376735-713a-4135-bdf7-1ef9983caf01",
+  "Namespace" : "openapi",
+  "Name" : "Request",
+  "Description" : "OpenAPI Operation Request",
+  "CollectionName" : "?",
+  "NativeType" : "PI.OpenAPI.Models.OApiRequest",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["openapi"],
+  "FullName" : "openapi.Request",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "ParametersObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ParametersObjectType",
+        "Label" : "Parameters",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName",
+          "LinkUrl" : "dataform:/api/v1/CustomObject/ObjectType({{value}})/Edit",
+          "LinkLabel" : "Edit Object",
+          "Actions" : [{
+              "Name" : "New",
+              "Action" : "#new",
+              "Label" : "Create new Object"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Method" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Method",
+        "Label" : "HTTP Method",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "HEAD" : "Head",
+            "GET" : "Get",
+            "DELETE" : "Delete",
+            "OPTIONS" : "Options",
+            "POST" : "Post",
+            "PATCH" : "Patch",
+            "TRACE" : "Trace",
+            "PUT" : "Put"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Path" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Path",
+        "Label" : "Path",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ParametersPlacement" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "ParametersPlacement",
+        "Label" : "Parameters Placement",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Key",
+            "IsRequired" : true,
+            "Label" : "Parameter Name"
+          },
+          "ValueField" : {
+            "_t" : "SelectField",
+            "Name" : "Value",
+            "Label" : "Placement",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "Path" : "Path",
+                "Query" : "Query",
+                "Cookie" : "Cookie",
+                "Header" : "Header"
+              },
+              "AllowUnknown" : false
+            }
+          },
+          "ExpandAllKeys" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Payloads" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Payloads",
+        "Label" : "Payload",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "KeyType" : "string",
+          "ObjectType" : "openapi.Payload",
+          "KeyField" : {
+            "_t" : "SelectField",
+            "Name" : "Key",
+            "Label" : "MIME Content Type",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "application/json" : "JSON (application/json)"
+              },
+              "AllowUnknown" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Payloads|application/json|ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "Payloads|application/json|ObjectType",
+        "Label" : "Payload",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Parameters" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Parameters",
+        "Label" : "Parameters",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Field",
+          "KeyType" : "string",
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Key",
+            "Label" : "Field Name",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "ParametersObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Parameters",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{ParametersObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "Payloads|application/json|ObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Payload",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{Payloads|application/json|ObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

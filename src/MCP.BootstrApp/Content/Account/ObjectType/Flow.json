@@ -1,0 +1,149 @@
+{
+  "_id" : "e745401d-cd3e-47b5-8fbc-baa2919c90c6",
+  "Name" : "Flow",
+  "Description" : "Flow",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Flow",
+  "BaseObjectType" : "EntityOwnedModel",
+  "UniqueExternalId" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{context \"AccountId\"}}"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 527,
+      "Admin" : 15,
+      "Manager" : 1,
+      "User" : 1,
+      "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+      "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "page://Flow?id={{id}}",
+          "LinkLabel" : "View/Edit Flow"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "DefaultValue" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(Flow)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "e7018742-c2a6-43de-9a25-8e42a1c47a2a" : 1
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "CollectionName" : "Flow",
+  "Tags" : [],
+  "RelatedObjectTypes" : [{
+      "Name" : "FlowRun",
+      "ObjectType" : "FlowRun",
+      "Label" : "Runs",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "InitialEvent|FlowId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }, {
+      "Name" : "ObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Type",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FullName" : "Flow",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "Label" : "Flow",
+  "LabelPlural" : "Flows"
+}

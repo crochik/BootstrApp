@@ -1,0 +1,256 @@
+{
+  "_id" : "a189f0c0-328d-4a50-9004-c47a1f4c10ae",
+  "CollectionName" : "notification.Notification",
+  "Description" : "Push Notification",
+  "Name" : "Notification",
+  "NativeType" : "PI.Shared.Models.Notification",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "Manager" : 1,
+      "User" : 1
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    },
+    "User" : {
+      "Conditions" : [{
+          "FieldName" : "EntityId",
+          "Value" : "{{UserId}}"
+        }]
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Title"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Message"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Category" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Category"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Url" : {
+      "Field" : {
+        "_t" : "UrlField",
+        "Name" : "Url"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Action" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Action"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Notification"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Entity",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Notification"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Refs|v" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Refs|v",
+        "Label" : "References",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new ObjectId}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}",
+      "Indexed" : true
+    },
+    "ReadOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "ReadOn",
+        "Label" : "Read"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    }
+  },
+  "Tags" : ["Notifications"],
+  "FullName" : "Notification",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

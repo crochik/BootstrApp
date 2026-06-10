@@ -1,0 +1,194 @@
+{
+  "_id" : "4eeb3a2c-8d19-4403-92c9-c61ccef240a4",
+  "CollectionName" : "FlowLog",
+  "Name" : "FlowEventLog2",
+  "NativeType" : "PI.Shared.Models.FlowEventLog",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "Description" : "All Events",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "Fields" : {
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}",
+      "Indexed" : true
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectType"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "ObjectId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectId",
+        "Label" : "Object",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Refs|v" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Refs|v",
+        "Label" : "Reference Object",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "StatusId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "StatusId",
+        "Label" : "Object Status",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new ObjectId}}"
+    },
+    "Action" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Action",
+        "Label" : "Action",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "EventId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EventId",
+        "Label" : "Event",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "EventType"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Type" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Type",
+        "Label" : "Type",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Actor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "Actor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    }
+  },
+  "FullName" : "FlowEventLog2",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

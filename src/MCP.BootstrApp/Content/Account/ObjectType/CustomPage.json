@@ -1,0 +1,42 @@
+{
+  "_id" : "2651151a-d09e-4897-88e3-f90126a7431b",
+  "Name" : "CustomPage",
+  "Description" : "Custom (Component) Page",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.CustomPage",
+  "BaseObjectType" : "Page",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "CustomPage"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ComponentName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ComponentName",
+        "Label" : "Component"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "Tags" : ["ui", "System", "PI-API"],
+  "FullName" : "CustomPage",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

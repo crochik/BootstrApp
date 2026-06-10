@@ -1,0 +1,21 @@
+[submodule "src/Handlebars.Net"]
+	path = src/Handlebars.Net
+	url = git@github.com:crochik/Handlebars.Net.git
+[submodule "src/CometD"]
+	path = src/CometD
+	url = git@github.com:crochik/CometD.NetCore.git
+[submodule "src/ExcelDataReader"]
+	path = src/ExcelDataReader
+	url = git@github.com:crochik/ExcelDataReader.git
+[submodule "src/TrustedForm"]
+	path = src/TrustedForm
+	url = git@github.com:crochik/TrustedForm.git
+[submodule "src/IdentityServer4.AccessTokenValidation"]
+	path = src/IdentityServer4.AccessTokenValidation
+	url = git@github.com:crochik/IdentityServer4.AccessTokenValidation.git
+[submodule "src/script-parser"]
+	path = src/script-parser
+	url = git@github.com:crochik/script-parser.git
+[submodule "src/NetCoreForce"]
+	path = src/NetCoreForce
+	url = git@github.com:crochik/NetCoreForce.git

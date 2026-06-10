@@ -1,0 +1,89 @@
+_id: 8c884c27-887a-4a4f-9416-ae5d6740510f
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for Object Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ObjectFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    Indexed: true
+    InitialValue: ObjectFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  AddFormUrls:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Add Form Urls
+      Name: AddFormUrls
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Label: Object Type
+          Name: Ket
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: URL
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  EditForm:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Edit Form
+      Name: EditForm
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Form
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        Items:
+          '*': '[Undefined]'
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectFieldOptions
+IsEmbedded: true
+Name: ObjectFieldOptions
+NativeType: PI.Shared.Form.Models.ObjectFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

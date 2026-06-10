@@ -1,0 +1,48 @@
+_id: 9a8df88c-05d1-414a-ba23-f3c10c5b630f
+CollectionName: '?'
+Description: Grid Form Field Layout
+Fields:
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Field Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Width:
+    Field:
+      _t: NumberField
+      IsRequired: true
+      Label: Width
+      Name: Width
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+        Maximum:
+          $numberDecimal: 12
+        Minimum:
+          $numberDecimal: 1
+        Style: Default
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GridFormFieldLayout
+IsAbstract: false
+IsEmbedded: true
+Name: GridFormFieldLayout
+NativeType: GridFormFieldLayout
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System

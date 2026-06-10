@@ -1,0 +1,139 @@
+{
+  "_id" : "39dec135-6531-403a-a630-39b24006f65b",
+  "Name" : "FilterRequest",
+  "Description" : "Filter Request",
+  "CollectionName" : "?",
+  "NativeType" : "FilterRequest",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "FilterRequest",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Criteria" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Criteria",
+        "Label" : "Filter Criteria",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "FilterCondition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Fields" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Fields",
+        "Label" : "Field Names",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "Label" : "Field Name",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "OrderBy" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "OrderBy",
+        "Label" : "Order By Field Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ReverseOrder" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ReverseOrder",
+        "IsRequired" : false,
+        "ApiName" : "Reverse Sort Order"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Skip" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Skip",
+        "Label" : "Skip",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Top" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Top",
+        "Label" : "Top",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Label" : "Filter Request",
+  "LabelPlural" : "Filter Requests",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

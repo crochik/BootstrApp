@@ -1,0 +1,21 @@
+_id: 83bb62dd-4e0b-4f82-bc2c-8d579b195a39
+BaseObjectType: Entity
+CollectionName: Entity
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: Account
+Description: Account
+Fields: {}
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Account
+IsActive: true
+Name: Account
+NativeType: PI.Shared.Models.Account
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions: {}
+RelatedObjectTypes: []
+Tags: []
+UniqueExternalId: false

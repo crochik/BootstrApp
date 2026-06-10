@@ -1,0 +1,44 @@
+{
+  "_id" : "27b99ed7-a87e-467d-a506-137d01870e82",
+  "Name" : "HiddenFieldOptions",
+  "Description" : "Options for Hidden Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.HiddenFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "HiddenFieldOptions"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15.0
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "HiddenFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "HiddenFieldOptions"
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "HiddenFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

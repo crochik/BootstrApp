@@ -1,0 +1,11 @@
+_id: 4cedd452-dfa5-4601-9f83-8d38749821a7
+ActionId: 217eb167-dfc1-4ffe-98a4-3ed50f431f54
+ActionOptionsObjectType: LookupObjectActionOptions
+Description: Lookup Object
+IsActive: true
+Name: LookupObject
+Outputs:
+  MoreThanOneObjectFoundEvent: More than one object found
+  ObjectFoundEvent: Object found
+  ObjectNotFoundEvent: Object not found
+Role: Admin

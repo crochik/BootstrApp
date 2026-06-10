@@ -1,0 +1,35 @@
+{
+  "_id" : "cbf8b46b-ecdd-46e0-bd80-59a9d127ff5c",
+  "Name" : "UserAdmin",
+  "Description" : "Admin User",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.User",
+  "BaseObjectType" : "User",
+  "UniqueExternalId" : false,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 3
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }, {
+          "FieldName" : "_t",
+          "Value" : "User"
+        }, {
+          "FieldName" : "UserRoleId",
+          "Value" : "Admin"
+        }]
+    }
+  },
+  "Fields" : { },
+  "CollectionName" : "Entity",
+  "Tags" : [],
+  "FullName" : "UserAdmin",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

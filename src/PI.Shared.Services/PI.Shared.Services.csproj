@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Handlebars.Net\source\Handlebars\Handlebars.csproj" />
+    <ProjectReference Include="..\PI.Shared.Salesforce\PI.Shared.Salesforce.csproj" />
+    <ProjectReference Include="..\PI.Shared.App\PI.Shared.App.csproj" />
+    <ProjectReference Include="../ExcelDataReader/src/ExcelDataReader/ExcelDataReader.csproj" />
+  </ItemGroup>
+</Project>

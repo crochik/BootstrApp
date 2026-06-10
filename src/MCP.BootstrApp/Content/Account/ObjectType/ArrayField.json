@@ -1,0 +1,54 @@
+{
+  "_id" : "6a0ec6fd-80b8-434e-9aa4-9aa9c1db505e",
+  "Name" : "ArrayField",
+  "Description" : "Array Field",
+  "CollectionName" : "?",
+  "BaseObjectType" : "Field",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "ArrayField",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "ArrayFieldOptions"
+        }
+      }
+    },
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "ArrayField",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        },
+        "Enable" : ["false"],
+        "IsReadOnly" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "ArrayField"
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

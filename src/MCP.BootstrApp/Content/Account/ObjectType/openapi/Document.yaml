@@ -1,0 +1,175 @@
+_id: 235a8942-c97a-4fb4-9fbf-63cd27a044a3
+BaseObjectType: EntityOwnedModel
+CollectionName: openapi.Document
+Description: OpenAPI Document
+Fields:
+  BaseUrl:
+    Field:
+      _t: TextField
+      Name: BaseUrl
+    RBAC:
+      Permissions:
+        Admin: 7
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: openapi.Document
+        LinkUrl: dataForm://api/v1/CustomObject/Flow({{value}})/View
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  IntegrationId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Integration
+      Name: IntegrationId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: Integration
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Namespace:
+    Field:
+      _t: TextField
+      Name: Namespace
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: openapi.Document
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  RemoteFileId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: File
+      Name: RemoteFileId
+      Options:
+        _t: RemoteFileFieldOptions
+        _Url: /files/v1/Folder(cb77e4e4-212e-4af5-a458-fdf89a08b8d9)/openapi.Document({{_id}})/RemoteFileId
+        AutoComplete: true
+        ContentTypes:
+        - application/json
+        - application/x-yaml
+        - application/yaml
+        Criteria:
+        - FieldName: ContentType
+          Operator: In
+          Value:
+          - application/json
+          - application/x-yaml
+          - application/yaml
+        - FieldName: ParentId
+          Value: cb77e4e4-212e-4af5-a458-fdf89a08b8d9
+        ObjectType: RemoteFile
+        UploadFileOptions:
+          _RemoteFileFlowId: 7fde817d-fde3-471b-ab8f-04b183e9f19d
+          _RemoteFileObjectStatusId: 3973cda7-96a2-4c16-8a47-de330b63f3bf
+          Name: '{{Name}}{{UploadedFile|FileExtension}}'
+          Permissions:
+            Admin: 3
+          RemotePath: '{{_id}}_{{new Timestamp}}.{{UploadedFile|FileExtension}}'
+        Url: /files/v1/Folder(cb77e4e4-212e-4af5-a458-fdf89a08b8d9)
+    RBAC:
+      Permissions:
+        Admin: 3
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.Document
+IsAbstract: false
+IsEmbedded: false
+Name: Document
+Namespace: openapi
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{IntegrationId}}'
+  Label: Integration
+  Name: IntegrationId
+  ObjectType: Integration
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{RemoteFileId}}'
+  Label: File
+  Name: RemoteFileId
+  ObjectType: RemoteFile
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: Namespace
+      Operator: Eq
+      Value: '{{Namespace}}'
+  Label: Operations
+  Name: Operations
+  ObjectType: openapi.Operation
+  RBAC:
+    Permissions:
+      Admin: 1
+  RelationType: OneToMany
+Tags:
+- openapi

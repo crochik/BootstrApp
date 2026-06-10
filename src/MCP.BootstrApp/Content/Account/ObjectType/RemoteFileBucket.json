@@ -1,0 +1,90 @@
+{
+  "_id" : "f895a8f9-2c2e-48fb-9c09-73f07147fbfb",
+  "Name" : "RemoteFileBucket",
+  "Description" : "Remote File Bucket",
+  "CollectionName" : "file.Bucket",
+  "NativeType" : "PI.Shared.Models.Files.RemoteFileBucket",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : true,
+  "Discriminator" : {
+    "S3RemoteFileBucket" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "s3"
+        }]
+    },
+    "SftpRemoteFileBucket" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "sftp"
+        }]
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "Folders",
+      "ObjectType" : "RemoteFolder",
+      "Label" : "Folders",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "BucketId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }, {
+            "FieldName" : "ParentId"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "s3" : "AWS S3 Bucket",
+            "sftp" : "SFTP Connection"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "dataGrid://api/v1/CustomObject(RemoteFolder)?BucketId={{id}}&ParentId={{NULL}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["Files"],
+  "FullName" : "RemoteFileBucket",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

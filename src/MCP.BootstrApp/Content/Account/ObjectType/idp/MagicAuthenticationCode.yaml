@@ -1,0 +1,131 @@
+_id: 0f1b9b0b-0da6-46d3-ab16-8d70a48927be
+BaseObjectType: EntityOwnedModel
+CollectionName: idp.MagicAuthenticationCode
+Description: Magic Authentication Code
+Fields:
+  ClientId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Client
+      Name: ClientId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: AppClient
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Code:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Code
+      Name: Code
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  EntityId:
+    Field:
+      _t: ReferenceField
+      ApiName: entityId
+      DefaultValue: '{{OrganizationId}}'
+      IsRequired: true
+      Label: Entity
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: Entity
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+        Manager: 1
+        User: 1
+  IsActive:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      IsRequired: true
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ProfileId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Profile
+      Name: ProfileId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: AppProfile
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Signature:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Signature
+      Name: Signature
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: idp.MagicAuthenticationCode
+IsAbstract: false
+IsEmbedded: false
+Name: MagicAuthenticationCode
+Namespace: idp
+NativeType: ???
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ClientId}}'
+  Label: Client
+  Name: ClientId
+  ObjectType: AppClient
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ProfileId}}'
+  Label: Profile
+  Name: ProfileId
+  ObjectType: AppProfile
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- OTG

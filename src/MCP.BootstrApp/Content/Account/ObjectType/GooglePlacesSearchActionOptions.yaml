@@ -1,0 +1,62 @@
+_id: 05942774-0da5-4087-b20a-6d39bdf50569
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Google Places Search Options
+Fields:
+  Alias:
+    Field:
+      _t: TextField
+      Description: Alias to be used for response in Run
+      IsRequired: false
+      Label: Object Alias for response
+      Name: Alias
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  NewObjectType:
+    Field:
+      _t: ReferenceField
+      DefaultValue: google.Place
+      IsRequired: true
+      Label: Object Type
+      Name: NewObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  SearchText:
+    Field:
+      _t: TextField
+      DefaultValue: '{{Object.Address!}},{{Object.City!}},{{Object.State?}} {{Object.PostalCode?}},{{Object.Country}}'
+      Description: Search Text calculated from expression
+      IsRequired: false
+      Label: Search Text (expression)
+      Name: SearchText
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GooglePlacesSearchActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: GooglePlacesSearchActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

@@ -1,0 +1,49 @@
+{
+  "_id" : "42c587c3-001f-4067-ab81-30cf15e301a2",
+  "Name" : "SwitchCase",
+  "Description" : "Case for Switch Action",
+  "CollectionName" : "?",
+  "NativeType" : "Messages.Flow.SwitchCase",
+  "BaseObjectType" : "Criteria",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "Constraints" : { },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "EventId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "EventId",
+        "Label" : "Event Id"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new UUID}}"
+    }
+  },
+  "FullName" : "SwitchCase",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

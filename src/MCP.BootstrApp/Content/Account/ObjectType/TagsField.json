@@ -1,0 +1,59 @@
+{
+  "_id" : "420632c6-f308-435d-b6e0-735e583c966d",
+  "Name" : "TagsField",
+  "Description" : "Tags Field",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.TagsField",
+  "BaseObjectType" : "Field",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15.0
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Condiitons" : [{
+          "FieldName" : "_t",
+          "Value" : "TagsField"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "TagsField",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "TagsField"
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "TagsFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "FullName" : "TagsField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

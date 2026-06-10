@@ -1,0 +1,141 @@
+<HTML>
+
+<head>
+    <title>Sample</title>
+</head>
+
+<body>
+    <button onclick="init()">Simulate Entire Process</button>
+
+    <div style="overflow:auto; width: 300px; height: 300px;" id="slots"></div>
+
+    <script>
+        async function init() {
+            const branchId = "178517";
+            const clientId = "scheduler";
+            const clientSecret = "secret";
+            const idpHost = "https://idp.fci.cloud";
+            const apiHost = "https://api.fci.cloud";
+            // const apiHost = "http://localhost:8080";
+
+            // authenticate
+            let body = "authority=" + idpHost;
+            body += "&client_id=" + clientId;
+            body += "&client_secret=" + clientSecret;
+            body += "&response_type=id_token%20token&";
+            body += "&scope=client_app%20scheduler";
+            body += "&grant_type=client_credentials";
+            // body += "&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Findex.html%3F";
+            // body += "&post_logout_redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Findex.html"; 
+            const resp = await fetch(idpHost + "/connect/token", {
+                headers: {
+                    "accept": "application/json",
+                    "content-type": "application/x-www-form-urlencoded",
+                },
+                body,
+                method: "POST"
+            });
+
+            if (resp.status != 200) {
+                alert('failed to authenticate');
+                return;
+            }
+
+            const token = await resp.json();
+            const access_token = token['access_token'];
+
+            // get config
+            const resp2 = await fetch(apiHost + "/app/Scheduler/Organization(" + branchId + ")", {
+                "headers": {
+                    "accept": "application/json",
+                    "authorization": "Bearer " + access_token,
+                },
+                method: "GET",
+            });
+
+            if (resp2.status != 200) {
+                alert('failed to initiate session');
+                return;
+            }
+
+            const session = await resp2.json();
+            const sessionId = session['id'];
+
+            // add lead 
+            var lead = {
+                firstName: "Test",
+                lastName: Math.random().toString(),
+                phone: "(222) 333-4444",
+                email: "test@test.com.invalid",
+                address: "12345 Wonderland St",
+                city: "TheCity",
+                state: "NC",
+                postalCode: "12345",
+                country: "USA",
+                notes: "this project is going to be great",
+            }
+
+            const addLeadResp = await fetch(apiHost + "/app/Scheduler(" + sessionId + ")/Lead", {
+                "headers": {
+                    "accept": "application/json",
+                    "authorization": "Bearer " + access_token,
+                    "content-type": "application/json",
+                },
+                method: "POST",
+                body: JSON.stringify(lead),
+            });
+
+            if (addLeadResp.status != 200) {
+                alert("error creating lead");
+                return;
+            }
+
+            const addedLead = await addLeadResp.json();
+            // alert(`Lead added ${addedLead.id}`);
+
+            // get slots
+            let slotsUrl = apiHost + "/app/Scheduler(" + sessionId + ")/Slots";
+            slotsUrl += "?start=2022-05-30T04%3A00%3A00.000Z";
+            slotsUrl += "&end=2022-06-27T04%3A00%3A00.000Z";
+            var resp3 = await fetch(slotsUrl, {
+                "headers": {
+                    "accept": "application/json",
+                    "authorization": "Bearer " + access_token,
+                },
+                "method": "GET",
+            });
+
+            const slots = await resp3.json();
+
+            // book first slot 
+            const start = slots[0].start;
+            const end = slots[0].end;
+            console.log('add appt', start, end);
+
+            const appt = {
+                start,
+                end
+            };
+
+            const addApptResp = await fetch(apiHost + "/app/Scheduler(" + sessionId + ")/Appointment", {
+                "headers": {
+                    "accept": "application/json",
+                    "authorization": "Bearer " + access_token,
+                    "content-type": "application/json",
+                },
+                method: "POST",
+                body: JSON.stringify(appt),
+            });
+
+            if (addApptResp.status != 200) {
+                alert("error creating appt");
+                return;
+            }
+
+            const apptAdded = await addApptResp.json();
+            alert(`${apptAdded.id}`);
+        }
+    </script>
+</body>
+
+</HTML>

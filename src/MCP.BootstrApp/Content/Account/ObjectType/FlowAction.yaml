@@ -1,0 +1,130 @@
+_id: 694bee9a-f9f2-4517-a0d5-c19b4f14be22
+BaseObjectType: AppProfileElement
+CollectionName: FlowAction
+Description: Flow Action
+Fields:
+  ActionId:
+    Field:
+      _t: TextField
+      DefaultValue: '{{new UUID}}'
+      Description: Action Id
+      IsRequired: true
+      Label: Action Id
+      Name: ActionId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ActionOptionsObjectType:
+    Field:
+      _t: ReferenceField
+      Description: Action Options Object Type
+      IsRequired: false
+      Label: Action Options Object Type
+      Name: ActionOptionsObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - _t: Condition
+          FieldName: BaseObjectType
+          Operator: Eq
+          Value: ActionOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IconName:
+    Field:
+      _t: TextField
+      Description: Icon Name
+      IsRequired: false
+      Label: Icon
+      Name: IconName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  InputObjectTypes:
+    Field:
+      _t: ArrayField
+      Description: Input Object Types
+      IsRequired: false
+      Label: Input Object Types
+      Name: InputObjectTypes
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: ReferenceField
+          IsRequired: false
+          Label: Object Type
+          Name: ObjectType
+          Options:
+            _t: ReferenceFieldOptions
+            AllowUnknown: false
+            AutoComplete: true
+            ForeignFieldName: FullName
+            ObjectType: ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Outputs:
+    Field:
+      _t: DictionaryField
+      Description: Outputs
+      IsRequired: false
+      Label: Outputs
+      Name: Outputs
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: true
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Name: Key
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FlowAction
+IsAbstract: false
+IsEmbedded: false
+Name: FlowAction
+NativeType: PI.Shared.Models.GenericAction
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{ActionOptionsObjectType}}'
+  Label: Action Options Object Type
+  Name: ActionOptionsObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne

@@ -1,0 +1,296 @@
+{
+  "_id" : "ef08f8ae-0b6e-4038-b4e8-0043784079d3",
+  "CollectionName" : "u2.redirection",
+  "Description" : "Short Link Redirection",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    }
+  },
+  "Discriminator" : {
+    "u2.ShareTemplate" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "template"
+        }]
+    },
+    "u2.ShareLink" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "share"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "template" : "Share Link Template",
+            "share" : "Share Link"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Host" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Host",
+        "Label" : "Host",
+        "IsRequired" : true,
+        "DefaultValue" : "go.fci.cloud"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "ShortCode" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ShortCode",
+        "Label" : "Short Code",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Location" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Location",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "MetaValues" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "MetaValues",
+        "Label" : "Meta Data",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "*"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "ViewCount" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "ViewCount",
+        "Label" : "View Count"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "LastAccessedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastAccessedOn",
+        "Label" : "Last Accessed On"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "AccountId" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "AccountId",
+        "Label" : "Account",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{AccountId}}"
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Is Active",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Entity",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "Criteria" : [{
+              "FieldName" : "AccountId",
+              "Operator" : "Eq",
+              "Value" : "{{AccountId}}"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{UserId}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}"
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    }
+  },
+  "Name" : "ShortLinkRedirection",
+  "NativeType" : "PI.U2.Middleware.ShortLinkRedirection",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Tags" : ["System"],
+  "FullName" : "ShortLinkRedirection",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

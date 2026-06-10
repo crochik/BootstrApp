@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishAot>false</PublishAot>
+<!--    <TrimMode>partial</TrimMode>-->
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ical.Net" Version="5.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\NCrontab\NCrontab.csproj" />
+    <ProjectReference Include="..\PI.Shared.Services.FileStorage\PI.Shared.Services.FileStorage.csproj" />
+    <ProjectReference Include="..\PI.Shared.Services\PI.Shared.Services.csproj" />
+    <ProjectReference Include="..\PI.Shared.O365\PI.Shared.O365.csproj" />
+    <ProjectReference Include="..\Handlebars.Net/source/Handlebars/Handlebars.csproj" />    
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Profiles\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="FlowActions\Builders\LMS\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="FlowActions\Builders\LMS\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="FlowActions\Builders\LMS\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="FlowActions\Builders\LMS\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="out\PI.IDP.API.dll.config" />
+    <_ContentIncludedByDefault Remove="out\API.deps.json" />
+    <_ContentIncludedByDefault Remove="out\API.runtimeconfig.json" />
+    <_ContentIncludedByDefault Remove="out\API.staticwebassets.endpoints.json" />
+    <_ContentIncludedByDefault Remove="out\appsettings.Development.json" />
+    <_ContentIncludedByDefault Remove="out\appsettings.json" />
+    <_ContentIncludedByDefault Remove="out\config\B26E3B68-5DE7-4157-931D-DABC16051ADC.json" />
+    <_ContentIncludedByDefault Remove="out\config\FC100000-0000-0000-0000-000000000000.json" />
+    <_ContentIncludedByDefault Remove="out\config\scheduler.json" />
+    <_ContentIncludedByDefault Remove="out\config\template\9a034e46-d4d4-4106-8887-4b38181c4956.json" />
+    <_ContentIncludedByDefault Remove="out\config\template\AppointmentType_AppConfig.json" />
+    <_ContentIncludedByDefault Remove="out\config\template\AppointmentType_LeadType.json" />
+    <_ContentIncludedByDefault Remove="out\lumin-swagger.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+  </PropertyGroup>
+</Project>

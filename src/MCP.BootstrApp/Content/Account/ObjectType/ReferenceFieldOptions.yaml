@@ -1,0 +1,189 @@
+_id: 16dfa94f-10c4-40ec-8130-0f4ac1db6daa
+BaseObjectType: SelectFieldOptions
+CollectionName: CustomObject
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: ReferenceFieldOptions
+Description: 'Options for Reference Field '
+Discriminator:
+  AppointmentFieldOptions:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: AppointmentFieldOptions
+  ChatReferenceFieldOptions:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ChatReferenceFieldOptions
+  MultiReferenceFieldOptions:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: MultiReferenceFieldOptions
+  RemoteFileFieldOptions:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: RemoteFileFieldOptions
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      DefaultValue: ReferenceFieldOptions
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          AppointmentFieldOptions: Appointment Field Options
+          ChatReferenceFieldOptions: Chat Reference Field Options
+          MultiReferenceFieldOptions: Multi Reference Field Options
+          ReferenceFieldOptions: Reference Field Options
+          RemoteFileFieldOptions: Remote File Field Options
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  Actions:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Name: Actions
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: FormAction
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  AutoComplete:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Auto Complete
+      Name: AutoComplete
+    RBAC:
+      Permissions:
+        Admin: 7
+  ContributeUserEvents:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Contribute Events To
+      Name: ContributeUserEvents
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Always: Always
+          Form: Form
+          Never: Never
+          View: View
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Criteria:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Name: Criteria
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Condition
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ForeignFieldName:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Foreign Field Name
+      Name: ForeignFieldName
+    RBAC:
+      Permissions:
+        Admin: 7
+  JoinBehavior:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Join Behavior
+      Name: JoinBehavior
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Exclude: 'Exclude: Apply criteria and filter even when not visible'
+          FilterOnly: 'Filter Only: Filter lookup results but does not exclude'
+          Unsafe: 'Unsafe: lookup without constraints/criteria'
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        Actions:
+        - _t: FormAction
+          Action: '#new'
+          Label: New Object Type
+          Name: '#new'
+        AllowUnknown: false
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  ValueType:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Value Type
+      Name: ValueType
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          ObjectId: MongoDb ObjectId
+          String: String
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ReferenceFieldOptions
+IsEmbedded: true
+Name: ReferenceFieldOptions
+NativeType: PI.Shared.Form.Models.ReferenceFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{ObjectType}}'
+  Label: Object Type
+  Name: ObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- API
+- PI-API
+- System
+- ui

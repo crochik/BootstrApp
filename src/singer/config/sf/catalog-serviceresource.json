@@ -1,0 +1,671 @@
+{
+    "streams": [
+        {
+            "stream": "ServiceResource",
+            "tap_stream_id": "ServiceResource",
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "Id": {
+                        "type": "string"
+                    },
+                    "OwnerId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Name": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "CreatedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "CreatedById": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "LastModifiedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastModifiedById": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "SystemModstamp": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastViewedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastReferencedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "RelatedRecordId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "ResourceType": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "IsActive": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "IsCapacityBased": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "IsOptimizationCapable": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "LastKnownLatitude": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "LastKnownLongitude": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "LastKnownLocation": {
+                        "type": [
+                            "number",
+                            "object",
+                            "null"
+                        ],
+                        "properties": {
+                            "longitude": {
+                                "type": [
+                                    "null",
+                                    "number"
+                                ]
+                            },
+                            "latitude": {
+                                "type": [
+                                    "null",
+                                    "number"
+                                ]
+                            }
+                        }
+                    },
+                    "LastKnownLocationDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LocationId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "ServiceCrewId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "FSL__GanttLabel__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "FSL__Priority__c": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "FSL__Travel_Speed__c": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "INET_IsBranchOwner__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "FSL__Online_Offset__c": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "INET_Resource_Id__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_DeviceID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "FSL__Efficiency__c": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "FSL__Picture_Link__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Can_See_Margin__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "Phone__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Mobile__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Email__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "User_Id__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    }
+                }
+            },
+            "metadata": [
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Id"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "OwnerId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Name"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CreatedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CreatedById"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastModifiedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastModifiedById"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "SystemModstamp"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastViewedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastReferencedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "RelatedRecordId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ResourceType"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "IsActive"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "IsCapacityBased"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "IsOptimizationCapable"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastKnownLatitude"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastKnownLongitude"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastKnownLocation"
+                    ],
+                    "metadata": {
+                        "inclusion": "unsupported",
+                        "unsupported-description": "cannot query compound address fields or geolocations with bulk API"
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastKnownLocationDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LocationId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ServiceCrewId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FSL__GanttLabel__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FSL__Priority__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FSL__Travel_Speed__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_IsBranchOwner__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FSL__Online_Offset__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_Resource_Id__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_DeviceID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FSL__Efficiency__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FSL__Picture_Link__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Can_See_Margin__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Phone__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Mobile__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Email__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "User_Id__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true
+                    }
+                },
+                {
+                    "breadcrumb": [],
+                    "metadata": {
+                        "replication-key": "SystemModstamp",
+                        "replication-method": "INCREMENTAL",
+                        "selected": true,
+                        "table-key-properties": [
+                            "Id"
+                        ],
+                        "valid-replication-keys": [
+                            "SystemModstamp"
+                        ]
+                    }
+                }
+            ],
+            "non-discoverable-metadata-keys": [
+                "selected",
+                "replication-method",
+                "replication-key"
+            ]
+        }
+    ]
+}

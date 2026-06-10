@@ -1,0 +1,36 @@
+_id: 9ff13cba-e9b8-417d-9596-73b68057ac3d
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: EmailField
+Description: Email Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: EmailField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: EmailField
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: EmailField
+IsEmbedded: true
+Name: EmailField
+NativeType: PI.Shared.Models.EmailField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,84 @@
+_id: 576a03a4-1755-4de1-8146-4fcce8d5ff5f
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ChatReferenceFieldOptions
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ChatReferenceFieldOptions
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: ChatReferenceFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  AssistantId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Assistant
+      Name: AssistantId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        ObjectType: ai.Assistant
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectIdToReference:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Object To Reference
+      Name: ObjectIdToReference
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectTypeToReference:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Object Type (To Reference)
+      Name: ObjectTypeToReference
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        ContentType: text/plain
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ChatReferenceFieldOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: ChatReferenceFieldOptions
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

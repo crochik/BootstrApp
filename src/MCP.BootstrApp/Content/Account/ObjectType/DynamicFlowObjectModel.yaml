@@ -1,0 +1,84 @@
+_id: 9b58a3ad-eaf9-47d8-ab2c-69f015913a57
+BaseObjectType: EntityOwnedModel
+CollectionName: '*'
+Description: DynamicFlowObjectModel
+Fields:
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType}}'
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  IsActive:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Active?
+      Name: IsActive
+    InitialValue: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType}}'
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ObjectType:
+    Field:
+      _t: TextField
+      Name: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ObjectTypeId:
+    Field:
+      _t: TextField
+      Name: ObjectTypeId
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DynamicFlowObjectModel
+IsAbstract: true
+IsEmbedded: false
+Name: DynamicFlowObjectModel
+NativeType: PI.Shared.Models.DynamicFlowObjectModel
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

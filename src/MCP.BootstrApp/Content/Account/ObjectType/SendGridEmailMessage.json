@@ -1,0 +1,294 @@
+{
+  "_id" : "26dac491-2fe4-48a4-8689-972b0c443d4e",
+  "Name" : "SendGridEmailMessage",
+  "Description" : "Email Message",
+  "CollectionName" : "sendgrid.Email",
+  "NativeType" : "PI.Shared.Models.SendGridEmailMessage",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["System", "Email"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Message|Subject" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message|Subject",
+        "Label" : "Subject"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Message|From|Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message|From|Name",
+        "Label" : "From"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "Message|From|Email" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message|From|Email",
+        "Label" : "From e-mail"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "Message|To|Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message|To|Name",
+        "Label" : "To"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "Message|To|Email" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message|To|Email",
+        "Label" : "To e-mail"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "Message|HtmlBody" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Message|HtmlBody",
+        "Label" : "Body",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "ContentType" : "text/html"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new ObjectId}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}",
+      "Indexed" : true
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Queued" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Queued",
+        "Label" : "Queued"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Delivered" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Delivered",
+        "Label" : "Delivered"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "DeliveredResponse" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DeliveredResponse",
+        "Label" : "Delivered Response"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Dropped" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Dropped",
+        "Label" : "Dropped"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "DroppedReason" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DroppedReason",
+        "Label" : "Dropped Reason"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "SpamReported" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "SpamReported",
+        "Label" : "Reported Spam"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Opened" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Opened",
+        "Label" : "Opened"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Unsubscribed" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Unsubscribed",
+        "Label" : "Unsubscribed"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Error" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Error",
+        "Label" : "Error"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "TriggerObjectType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TriggerObjectType",
+        "Label" : "Trigger Object Type"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "TriggerObjectId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TriggerObjectId",
+        "Label" : "Trigger Object"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "FullName" : "SendGridEmailMessage",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

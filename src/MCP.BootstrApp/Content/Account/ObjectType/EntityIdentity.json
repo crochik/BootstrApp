@@ -1,0 +1,76 @@
+{
+  "_id" : "84ab8a4c-ddde-4202-baaf-bd25a1b9825c",
+  "CollectionName" : "?",
+  "Description" : "Entity Identity",
+  "Name" : "EntityIdentity",
+  "NativeType" : "PI.Shared.Models.EntityIdentity",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "Manager" : 1
+    }
+  },
+  "Fields" : {
+    "IdentityProviderId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "IdentityProviderId",
+        "Label" : "Provider"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "ExternalId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ExternalId",
+        "Label" : "External Id"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FullName" : "EntityIdentity",
+  "IsEmbedded" : true,
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

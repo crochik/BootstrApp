@@ -1,0 +1,82 @@
+{
+  "_id" : "9e128a1a-f7b2-4628-938b-5dc9186e3414",
+  "Name" : "SpreadsheetRow",
+  "Description" : "Spreasheet Data",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.SpreadsheetRow",
+  "UniqueExternalId" : false,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "Manager" : 1
+    }
+  },
+  "Fields" : {
+    "_id" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "_id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Row" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Row",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "HasErrors" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "HasErrors",
+        "Label" : "Failed",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Errors" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Errors",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "CollectionName" : "filebox.SpreadsheetRow",
+  "Tags" : [],
+  "FullName" : "SpreadsheetRow",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

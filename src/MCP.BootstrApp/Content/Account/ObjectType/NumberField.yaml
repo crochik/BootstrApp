@@ -1,0 +1,42 @@
+_id: dcf93fdd-5ea7-44e7-8648-6c88425f427c
+BaseObjectType: Field
+CollectionName: '?'
+Description: Number Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: NumberField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: NumberField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: NumberFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: NumberField
+IsEmbedded: true
+Name: NumberField
+NativeType: PI.Shared.Models.NumberField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

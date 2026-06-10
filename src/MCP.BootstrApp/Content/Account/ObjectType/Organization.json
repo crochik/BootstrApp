@@ -1,0 +1,1145 @@
+{
+  "_id" : "7c3ffa58-53b0-4e59-ba4f-53f692621f9f",
+  "Name" : "Organization",
+  "Description" : "Organization",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Organization",
+  "UniqueExternalId" : false,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 163,
+      "Manager" : 3,
+      "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 751
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "Organization"
+        }]
+    },
+    "Organization" : {
+      "Conditions" : [{
+          "FieldName" : "_id",
+          "Value" : "{{OrganizationId}}"
+        }]
+    },
+    "077e4ad6-713e-45b3-b466-ae6957c532f0" : {
+      "Conditions" : [{
+          "FieldName" : "IsActive",
+          "Value" : true
+        }]
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "MarketingInfo",
+      "ObjectType" : "fci.MarketingInfo",
+      "Label" : "Marketing Info",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "EntityId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "OrganizationNote",
+      "ObjectType" : "OrganizationNote",
+      "Label" : "Notes",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "Parent|ObjectId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }, {
+      "Name" : "Lead",
+      "ObjectType" : "Lead",
+      "Label" : "Leads",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "EntityId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }, {
+      "Name" : "User",
+      "ObjectType" : "User",
+      "Label" : "Users",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "OrganizationId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }, {
+      "Name" : "ZeeTerritory",
+      "ObjectType" : "ZeeTerritory",
+      "Label" : "Territory",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "EntityId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }, {
+      "Name" : "OrganizationId",
+      "ObjectType" : "Organization",
+      "Label" : "Organization",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{OrganizationId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "BusinessPlanRemoteFileId",
+      "ObjectType" : "RemoteFile",
+      "Label" : "Business Plan 2025",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{BusinessPlanRemoteFileId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "FCI|SFTerritoryId",
+      "ObjectType" : "sf_ServiceTerritory",
+      "Label" : "Sf Organization",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "ExternalId",
+            "Operator" : "Eq",
+            "Value" : "{{FCI|SFTerritoryId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "Properties|UnlayerTemplateId",
+      "ObjectType" : "UnlayerTemplate",
+      "Label" : "Appointment Confirmation Email Template",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{Properties|UnlayerTemplateId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "PrimaryUserId",
+      "ObjectType" : "User",
+      "Label" : "Primary User",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{PrimaryUserId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "Fields" : {
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Public Branch Name",
+        "ApiName" : "description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Email" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Field" : {
+        "_t" : "EmailField",
+        "Name" : "Email",
+        "Label" : "Email",
+        "IsRequired" : false,
+        "ApiName" : "email"
+      }
+    },
+    "Phone" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Field" : {
+        "_t" : "PhoneField",
+        "Name" : "Phone",
+        "Label" : "Phone",
+        "IsRequired" : false,
+        "ApiName" : "phone"
+      }
+    },
+    "Address" : {
+      "Field" : {
+        "_t" : "AddressField",
+        "Name" : "Address",
+        "Label" : "Address",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Address2" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Address2",
+        "Label" : "Suite/Unit",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "City" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "City",
+        "Label" : "City",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "State" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "State",
+        "Label" : "State",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "PostalCode" : {
+      "Field" : {
+        "_t" : "PostalCodeField",
+        "Name" : "PostalCode",
+        "Label" : "Postal Code",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Country" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Country",
+        "Label" : "Country",
+        "IsRequired" : true,
+        "DefaultValue" : "United States"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Location" : {
+      "Field" : {
+        "_t" : "LocationField",
+        "Name" : "Location",
+        "Label" : "Location (Map)",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "LocationFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "LocationDistance" : {
+      "Field" : {
+        "_t" : "LocationDistanceField",
+        "Name" : "LocationDistance",
+        "Label" : "Distance to Location",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "LocationDistanceFieldOptions",
+          "LocationFieldName" : "Location",
+          "_IconFieldName" : "Icon"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "TimeZoneId" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TimeZoneId",
+        "Label" : "Time Zone",
+        "IsRequired" : false,
+        "ApiName" : "timeZone",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      }
+    },
+    "_t" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Account" : "Account",
+            "Organization" : "Organization",
+            "User" : "User"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "Indexed" : true
+    },
+    "OrganizationId" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "OrganizationId",
+        "Label" : "Organization",
+        "IsRequired" : false,
+        "ApiName" : "organizationId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "LinkUrl" : "dataForm://api/v1/CustomObject/Organization({{value}})/View",
+          "AllowUnknown" : false,
+          "ObjectType" : "Organization",
+          "AutoComplete" : true
+        }
+      },
+      "Indexed" : true
+    },
+    "CreatedOn" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created",
+        "IsRequired" : false
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new Date}}"
+    },
+    "LastModifiedOn" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}",
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified",
+        "IsRequired" : false
+      },
+      "Indexed" : true
+    },
+    "IsActive" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active",
+        "IsRequired" : false,
+        "ApiName" : "isActive"
+      },
+      "Indexed" : true
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "page://Organization?id={{id}}",
+          "_LinkUrl" : "page://api/v1/CustomObject/Organization({{id}})"
+        },
+        "ApiName" : "name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Organization"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Organization"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 15
+        }
+      },
+      "Indexed" : true
+    },
+    "BusinessPlanRemoteFileId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "BusinessPlanRemoteFileId",
+        "Label" : "Business Plan 2025",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "RemoteFileFieldOptions",
+          "ObjectType" : "RemoteFile",
+          "Criteria" : [{
+              "FieldName" : "ParentId",
+              "Value" : "891598de-d648-4630-89b4-50f99455b4ff"
+            }, {
+              "FieldName" : "ContentType",
+              "Value" : "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+            }],
+          "Url" : "/files/v1/Folder(891598de-d648-4630-89b4-50f99455b4ff)/Organization({{_id}})/BusinessPlanRemoteFileId",
+          "UploadFileOptions" : {
+            "RemotePath" : "{{Object.Name}}_{{Objects.UploadedFile._id}}.{{Objects.UploadedFile.FileExtension}}",
+            "Name" : "{{Object.Name}}{{Objects.UploadedFile.FileExtension}}",
+            "RemoteFileObjectStatusId" : "3973cda7-96a2-4c16-8a47-de330b63f3bf",
+            "RemoteFileFlowId" : "7fde817d-fde3-471b-ab8f-04b183e9f19d",
+            "Permissions" : {
+              "Manager" : 3,
+              "Admin" : 3
+            }
+          },
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 27,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 27
+        }
+      }
+    },
+    "FCI|SFTerritoryId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FCI|SFTerritoryId",
+        "Label" : "Sf Organization",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "sf_ServiceTerritory",
+          "ForeignFieldName" : "ExternalId",
+          "LinkUrl" : "dataForm://api/v1/CustomObject/sf_ServiceTerritory/View?id={{value}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "FCI|INBranchId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "FCI|INBranchId",
+        "Label" : "Branch #",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        },
+        "ApiName" : "branchNumber"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "FCI|IsPPA" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "FCI|IsPPA",
+        "Label" : "PPA Participant",
+        "IsRequired" : false,
+        "Enable" : ["!FCI|IsPPA"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Indexed" : true
+    },
+    "FCI|IsPPL" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "FCI|IsPPL",
+        "Label" : "PPL",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "Properties|LuminOptOut" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Properties|LuminOptOut",
+        "Label" : "Lumin Opt Out",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "Properties|ConfirmationEmailsOptOut" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Properties|ConfirmationEmailsOptOut",
+        "Label" : "Confirmation Emails Opt Out",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Indexed" : true
+    },
+    "Properties|UnlayerTemplateId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "Properties|UnlayerTemplateId",
+        "Label" : "Appointment Confirmation Email Template",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "UnlayerTemplate",
+          "Criteria" : [{
+              "FieldName" : "IsActive",
+              "Operator" : "Eq",
+              "Value" : true
+            }, {
+              "FieldName" : "Tags",
+              "Operator" : "In",
+              "Value" : ["Appointment"]
+            }],
+          "Actions" : [{
+              "Action" : "#new",
+              "Name" : "#new",
+              "Label" : "Edit"
+            }, {
+              "Action" : "SendTestEmail?Template=Appointment",
+              "Name" : "SendTestEmail",
+              "Label" : "Send Test email"
+            }]
+        },
+        "Visible" : ["!Properties|ConfirmationEmailsOptOut"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Properties|LiftifyOptIn" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Properties|LiftifyOptIn",
+        "Label" : "Produced Customers to Liftify",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Indexed" : true
+    },
+    "Properties|HomeAdvisorId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Properties|HomeAdvisorId",
+        "Label" : "HomeAdvisor Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Indexed" : true
+    },
+    "Properties|TerritoryByDistanceOptOut" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Properties|TerritoryByDistanceOptOut",
+        "Label" : "Territory By Distance Opt Out",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Indexed" : true
+    },
+    "Properties|SendSchedulerSMS" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Properties|SendSchedulerSMS",
+        "Label" : "Send SMS with scheduling link",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "CallcenterInfo" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "CallcenterInfo",
+        "Label" : "Callcenter Info",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "ContentType" : "text/html"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "WhoIsFCI" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "WhoIsFCI",
+        "Label" : "Who Is FCI?",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "LocationInformation" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "LocationInformation",
+        "Label" : "Location Info",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "LabelFieldOptions",
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      }
+    },
+    "Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(Organization)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Identities|Salesforce|Main" : {
+      "Field" : {
+        "Name" : "Identities|Salesforce|Main",
+        "Label" : "Salesforce Service Territory",
+        "_t" : "CalculatedField",
+        "Calculation" : {
+          "_t" : "expression",
+          "Calculations" : [{
+              "_t" : "path",
+              "Path" : "Identities"
+            }, {
+              "_t" : "lookup",
+              "Conditions" : [{
+                  "FieldName" : "IdentityProviderId",
+                  "Value" : "Salesforce"
+                }, {
+                  "FieldName" : "Data",
+                  "Operator" : "Ne",
+                  "Value" : null
+                }]
+            }, {
+              "_t" : "path",
+              "Path" : "ExternalId"
+            }]
+        },
+        "Field" : {
+          "_t" : "ReferenceField",
+          "Options" : {
+            "_t" : "ReferenceFieldOptions",
+            "ObjectType" : "sf_ServiceTerritory",
+            "ForeignFieldName" : "ExternalId",
+            "LinkUrl" : "dataForm://api/v1/CustomObject/sf_ServiceTerritory({{value}})/View"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "Identities|CompanyCam|CompanyId" : {
+      "Field" : {
+        "Name" : "Identities|CompanyCam|CompanyId",
+        "Label" : "CompanyCam Company Id",
+        "_t" : "CalculatedField",
+        "InputFields" : ["Identities"],
+        "Calculation" : {
+          "_t" : "expression",
+          "Calculations" : [{
+              "_t" : "path",
+              "Path" : "Identities"
+            }, {
+              "_t" : "lookup",
+              "Conditions" : [{
+                  "FieldName" : "IdentityProviderId",
+                  "Value" : "CompanyCam"
+                }]
+            }, {
+              "_t" : "path",
+              "Path" : "ExternalId"
+            }]
+        },
+        "Field" : {
+          "_t" : "TextField"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "Identities|Quickbooks|CompanyId" : {
+      "Field" : {
+        "Name" : "Identities|Quickbooks|CompanyId",
+        "Label" : "Quickbooks Company Id",
+        "_t" : "CalculatedField",
+        "InputFields" : ["Identities"],
+        "Calculation" : {
+          "_t" : "expression",
+          "Calculations" : [{
+              "_t" : "path",
+              "Path" : "Identities"
+            }, {
+              "_t" : "lookup",
+              "Conditions" : [{
+                  "FieldName" : "IdentityProviderId",
+                  "Value" : "Quickbooks"
+                }]
+            }, {
+              "_t" : "path",
+              "Path" : "ExternalId"
+            }]
+        },
+        "Field" : {
+          "_t" : "TextField"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "PPATargeting" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "PPATargeting",
+        "Label" : "PPA Leads",
+        "IsRequired" : false,
+        "Visible" : ["FCI|IsPPA"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Indexed" : true
+    },
+    "PPATargets" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "PPATargets",
+        "Label" : "Customize PPA Targeting",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "FCIOrganizationPPATargets"
+        },
+        "Visible" : ["PPATargeting"],
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 7,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Promos" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Promos",
+        "Label" : "Promos",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "OrganizationPromos"
+        },
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "PrimaryUserId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "PrimaryUserId",
+        "Label" : "Primary User",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "User",
+          "LinkUrl" : "dataForm://api/v1/CustomObject/User/View?id={{value}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "BaseObjectType" : "Entity",
+  "CollectionName" : "Entity",
+  "Tags" : ["OTG"],
+  "FullName" : "Organization",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "Label" : "Organization",
+  "LabelPlural" : "Organizations"
+}

@@ -1,0 +1,33 @@
+_id: bf6ffdec-8153-4190-be8e-11cf04c3f059
+BaseObjectType: FormLayout
+CollectionName: '?'
+Description: Grid Form Layout
+Fields:
+  Rows:
+    Field:
+      _t: ChildrenField
+      IsRequired: true
+      Label: Rows
+      Name: Rows
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: GridFormRowLayout
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GridFormLayout
+IsAbstract: false
+IsEmbedded: true
+Name: GridFormLayout
+NativeType: GridFormLayout
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

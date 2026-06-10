@@ -1,0 +1,49 @@
+_id: 7c7b745a-1ae3-463e-a78d-69c33d2ab883
+CollectionName: '?'
+Description: OpenAPI Payload
+Fields:
+  ContentType:
+    Field:
+      _t: TextField
+      Label: Content Type
+      Name: ContentType
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        Actions:
+        - Action: '#new'
+          Label: Create new Object
+          Name: New
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  Type:
+    Field:
+      _t: TextField
+      Name: Type
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.Payload
+IsAbstract: false
+IsEmbedded: true
+Name: Payload
+Namespace: openapi
+NativeType: PI.OpenAPI.Models.OApiPayload
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+RelatedObjectTypes: []
+Tags:
+- openapi

@@ -1,0 +1,2294 @@
+{
+    "streams": [
+        {
+            "stream": "Lead",
+            "tap_stream_id": "Lead",
+            "schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "Id": {
+                        "type": "string"
+                    },
+                    "IsDeleted": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "MasterRecordId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "LastName": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "FirstName": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Salutation": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Name": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Title": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Company": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Street": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "City": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "State": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "PostalCode": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Country": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Latitude": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "Longitude": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "GeocodeAccuracy": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Address": {
+                        "type": [
+                            "null",
+                            "object"
+                        ],
+                        "properties": {
+                            "street": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "state": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "postalCode": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "city": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "country": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            },
+                            "longitude": {
+                                "type": [
+                                    "null",
+                                    "number"
+                                ]
+                            },
+                            "latitude": {
+                                "type": [
+                                    "null",
+                                    "number"
+                                ]
+                            },
+                            "geocodeAccuracy": {
+                                "type": [
+                                    "null",
+                                    "string"
+                                ]
+                            }
+                        }
+                    },
+                    "Phone": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "MobilePhone": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Fax": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Email": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Website": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "PhotoUrl": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "LeadSource": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Status": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Industry": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Rating": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "AnnualRevenue": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "NumberOfEmployees": {
+                        "type": [
+                            "null",
+                            "integer"
+                        ]
+                    },
+                    "OwnerId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "HasOptedOutOfEmail": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "IsConverted": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "ConvertedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "ConvertedAccountId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "ConvertedContactId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "ConvertedOpportunityId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "IsUnreadByOwner": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "CreatedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "CreatedById": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "LastModifiedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastModifiedById": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "SystemModstamp": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastActivityDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "DoNotCall": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "HasOptedOutOfFax": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "LastViewedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastReferencedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "LastTransferDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "Jigsaw": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "JigsawContactId": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "EmailBouncedReason": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "EmailBouncedDate": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "INET_Service_Territory__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "ZipCode__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Is_Imported__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "Additional_Email_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Additional_Email__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Additional_Phone_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Additional_Phone__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Address_Description_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Address_Description__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "PIId__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "City_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Country_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description_Additional_Email_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description_Additional_Email__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description_Additional_Phone_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description_Additional_Phone__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Description_Phone__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Project_Notes__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Email_Description__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Guid__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "How_did_you_hear_about_us__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_BRANCHCODE__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_BRANCHID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_CONSUMERID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_CONSUMER_NOTES__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_LeadSourceUID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_SELECTION_NOTES__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_SELECTION__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_STATUSID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_USERID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_USERLOGIN__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Inet_CustomerID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Email_to_acc__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Name__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Phone_Description__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "ProjectID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "SelectionId__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "State_Province_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Street_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Zip_Postal_Code_2__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Booking_Link__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "E_mail_Instructions_Id__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_Call_Instructions_Id__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "INET_NPS_Instructions_Id__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Referred_by__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Dynamic_Session_Link__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "InspireNET_Status__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Contact__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Design_Associate__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "et4ae5__HasOptedOutOfMobile__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "et4ae5__Mobile_Country_Code__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Estimated_number_of_rooms__c": {
+                        "type": [
+                            "null",
+                            "number"
+                        ]
+                    },
+                    "Preferred_Date__c": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    },
+                    "Preferred_Hour_Range__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Referred_by_Contact__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Notes__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Call_Instructions__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "E_mail_Instructions__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "NPS_Instructions__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "External_Lead__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "Test_Marketing_Cloud__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "Branch_Phone_Number__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Branch_Street__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Marketing_ID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Branch_City__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Branch_State__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Branch_Zip_Code__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Branch_UID__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Branch_Friendly_Name__c": {
+                        "type": [
+                            "null",
+                            "string"
+                        ]
+                    },
+                    "Test__c": {
+                        "type": [
+                            "null",
+                            "boolean"
+                        ]
+                    },
+                    "Lead_changed_to_Dead__c": {
+                        "anyOf": [
+                            {
+                                "type": "string",
+                                "format": "date-time"
+                            },
+                            {
+                                "type": [
+                                    "string",
+                                    "null"
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "metadata": [
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Id"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "IsDeleted"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "MasterRecordId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastName"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "FirstName"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Salutation"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Name"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Title"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Company"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Street"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "City"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "State"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "PostalCode"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Country"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Latitude"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Longitude"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "GeocodeAccuracy"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Address"
+                    ],
+                    "metadata": {
+                        "inclusion": "unsupported",
+                        "unsupported-description": "cannot query compound address fields or geolocations with bulk API"
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Phone"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "MobilePhone"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Fax"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Email"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Website"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "PhotoUrl"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LeadSource"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Status"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Industry"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Rating"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "AnnualRevenue"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "NumberOfEmployees"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "OwnerId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "HasOptedOutOfEmail"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "IsConverted"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ConvertedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ConvertedAccountId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ConvertedContactId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ConvertedOpportunityId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "IsUnreadByOwner"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CreatedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "CreatedById"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastModifiedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastModifiedById"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "SystemModstamp"
+                    ],
+                    "metadata": {
+                        "inclusion": "automatic",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastActivityDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "DoNotCall"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "HasOptedOutOfFax"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastViewedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastReferencedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "LastTransferDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Jigsaw"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "JigsawContactId"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "EmailBouncedReason"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "EmailBouncedDate"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_Service_Territory__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ZipCode__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Is_Imported__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Additional_Email_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Additional_Email__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Additional_Phone_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Additional_Phone__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Address_Description_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Address_Description__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "PIId__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "City_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Country_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description_Additional_Email_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description_Additional_Email__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description_Additional_Phone_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description_Additional_Phone__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Description_Phone__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Project_Notes__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Email_Description__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Guid__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "How_did_you_hear_about_us__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_BRANCHCODE__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_BRANCHID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_CONSUMERID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_CONSUMER_NOTES__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_LeadSourceUID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_SELECTION_NOTES__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_SELECTION__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_STATUSID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_USERID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_USERLOGIN__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Inet_CustomerID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Email_to_acc__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Name__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Phone_Description__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "ProjectID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "SelectionId__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "State_Province_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Street_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Zip_Postal_Code_2__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Booking_Link__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "E_mail_Instructions_Id__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_Call_Instructions_Id__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "INET_NPS_Instructions_Id__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Referred_by__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Dynamic_Session_Link__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "InspireNET_Status__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Contact__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Design_Associate__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "et4ae5__HasOptedOutOfMobile__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "et4ae5__Mobile_Country_Code__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Estimated_number_of_rooms__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Preferred_Date__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Preferred_Hour_Range__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Referred_by_Contact__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Notes__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Call_Instructions__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "E_mail_Instructions__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "NPS_Instructions__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "External_Lead__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Test_Marketing_Cloud__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_Phone_Number__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_Street__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Marketing_ID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_City__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_State__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_Zip_Code__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_UID__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Branch_Friendly_Name__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Test__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [
+                        "properties",
+                        "Lead_changed_to_Dead__c"
+                    ],
+                    "metadata": {
+                        "inclusion": "available",
+                        "selected-by-default": true,
+                        "selected": true
+                    }
+                },
+                {
+                    "breadcrumb": [],
+                    "metadata": {
+                        "replication-key": "SystemModstamp",
+                        "replication-method": "INCREMENTAL",
+                        "selected": true,
+                        "table-key-properties": [
+                            "Id"
+                        ],
+                        "valid-replication-keys": [
+                            "SystemModstamp"
+                        ]
+                    }
+                }
+            ],
+            "non-discoverable-metadata-keys": [
+                "selected",
+                "replication-method",
+                "replication-key"
+            ]
+        }
+    ]
+}

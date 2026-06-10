@@ -1,0 +1,213 @@
+_id: ef08f8ae-0b6e-4038-b4e8-0043784079d3
+CollectionName: u2.redirection
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Short Link Redirection
+Discriminator:
+  u2.ShareLink:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: share
+  u2.ShareTemplate:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: template
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  _t:
+    Field:
+      _t: SelectField
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          share: Share Link
+          template: Share Link Template
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  AccountId:
+    Field:
+      _t: HiddenField
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+    Indexed: true
+    InitialValue: '{{AccountId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Entity
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: AccountId
+          Operator: Eq
+          Value: '{{AccountId}}'
+        ObjectType: Entity
+    Indexed: true
+    InitialValue: '{{UserId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Host:
+    Field:
+      _t: TextField
+      DefaultValue: go.fci.cloud
+      IsRequired: true
+      Label: Host
+      Name: Host
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  IsActive:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Is Active
+      Name: IsActive
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  LastAccessedOn:
+    Field:
+      _t: DateTimeField
+      Label: Last Accessed On
+      Name: LastAccessedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Location:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Location
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  MetaValues:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Meta Data
+      Name: MetaValues
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: '*'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ShortCode:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Short Code
+      Name: ShortCode
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ViewCount:
+    Field:
+      _t: NumberField
+      Label: View Count
+      Name: ViewCount
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ShortLinkRedirection
+Name: ShortLinkRedirection
+NativeType: PI.U2.Middleware.ShortLinkRedirection
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

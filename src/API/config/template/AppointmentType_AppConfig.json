@@ -1,0 +1,84 @@
+{
+    "name": "Scheduler",
+    "initialPage": "Calendar",
+    "forms": [
+        {
+            "name": "Contact",
+            "title": "Enter your Contact Information",
+            "fields": [
+                {
+                    "name": "name",
+                    "label": "Name",
+                    "type": "text",
+                    "isRequired": true
+                },
+                {
+                    "name": "phone",
+                    "label": "Phone Number",
+                    "type": "phone",
+                    "isRequired": true
+                },
+                {
+                    "name": "email",
+                    "label": "E-mail",
+                    "type": "email",
+                    "isRequired": true
+                },
+                {
+                    "label": "Address",
+                    "name": "address",
+                    "type": "address"
+                },
+                {
+                    "label": "Postal Code",
+                    "name": "postalCode",
+                    "type": "postalcode"
+                },
+                {
+                    "label": "City",
+                    "name": "city",
+                    "type": "text"
+                },
+                {
+                    "label": "State",
+                    "name": "state",
+                    "type": "text"
+                },
+                {
+                    "label": "Country",
+                    "name": "country",
+                    "type": "text"
+                }
+            ],
+            "actions": [
+                {
+                    "name": "next",
+                    "action": ".app.schedule",
+                    "label": "Schedule",
+                    "enable": [
+                        "name",
+                        "phone",
+                        "email"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Appointment",
+            "fields": [
+                {
+                    "name": "appointmentTypeId",
+                    "type": "hidden"
+                },
+                {
+                    "name": "start",
+                    "type": "hidden"
+                },
+                {
+                    "name": "end",
+                    "type": "hidden"
+                }
+            ]
+        }
+    ]
+}

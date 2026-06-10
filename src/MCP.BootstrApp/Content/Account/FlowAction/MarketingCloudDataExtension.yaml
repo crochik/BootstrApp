@@ -1,0 +1,10 @@
+_id: d2473520-5b88-4fc8-be49-5a1cfc825b9c
+ActionId: 523912d9-52b9-4e7c-866e-d156dac7627c
+ActionOptionsObjectType: MarketingCloudDataExtensionActionOptions
+Description: Upsert Marketing Cloud Data Extension
+IsActive: true
+Name: MarketingCloudDataExtension
+Outputs:
+  FailedToUpsertEvent: Failed to upsert Row
+  UpsertedEvent: Row Upserted
+Role: Admin

@@ -1,0 +1,13 @@
+{
+  "_id" : "70f42a70-efe3-4d60-a41c-4420feb9f0b5",
+  "Name" : "CompanyCamAddDocument",
+  "Description" : "CompanyCam: Add Document to Project",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "3e31414b-d4cc-4176-aa54-ebe23a935a6f",
+  "ActionOptionsObjectType" : "CompanyCamAddDocumentActionOptions",
+  "Outputs" : {
+    "OnSuccessEvent" : "Added",
+    "OnErrorEvent" : "Failed"
+  }
+}

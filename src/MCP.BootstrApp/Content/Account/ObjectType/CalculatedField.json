@@ -1,0 +1,87 @@
+{
+  "_id" : "c15048e0-a2e8-4572-86a8-e1bce2ec8aa6",
+  "Name" : "CalculatedField",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Enable" : ["false"],
+        "DefaultValue" : "CalculatedField",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "CalculatedField"
+    },
+    "Field" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Field",
+        "Label" : "Field",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Field"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Calculation" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Calculation",
+        "Label" : "Calculation",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Calculation"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "CalculatedField"
+        }]
+    }
+  },
+  "BaseObjectType" : "Field",
+  "Tags" : ["AUTOFIX", "PI-API"],
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "FullName" : "CalculatedField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

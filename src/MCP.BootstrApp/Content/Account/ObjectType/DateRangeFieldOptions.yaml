@@ -1,0 +1,58 @@
+_id: d1539bf8-ef8e-444b-8b4a-c90890cf8a7f
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for DateRange Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: DateRangeFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: DateRangeFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  DateRangePreset:
+    Field:
+      _t: ChildrenField
+      Label: Presets
+      Name: DateRangePreset
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: DateRangePreset
+    RBAC:
+      Permissions:
+        Admin: 7
+  Max:
+    Field:
+      _t: TextField
+      Name: Max
+    RBAC:
+      Permissions:
+        Admin: 7
+  Min:
+    Field:
+      _t: TextField
+      Name: Min
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DateRangeFieldOptions
+IsEmbedded: true
+Name: DateRangeFieldOptions
+NativeType: PI.Shared.Form.Models.DateRangeFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

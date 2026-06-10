@@ -1,0 +1,182 @@
+{
+  "_id" : "8ba0f64c-1060-4d51-a41c-8f2201d7f784",
+  "Name" : "GenerativeAICompletionActionOptions",
+  "Description" : "Assistant Completion Options",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "SystemMessage" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "SystemMessage",
+        "Label" : "Additional System Message (handlebars)",
+        "Description" : "Additional System message to be passed to Assistant.",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true,
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "UserMessage" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "UserMessage",
+        "Label" : "User Message (handlebars)",
+        "Description" : "User message to be passed to Assistant.",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true,
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "AssistantId" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "AssistantId",
+        "Label" : "Assistant",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "ReferenceField",
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "ObjectType" : "ai.Assistant"
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Alias" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Alias",
+        "Label" : "Object Alias for response",
+        "Description" : "Alias to be used for response in Run",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "DefaultValue" : "ChatMessage"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Inputs" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Inputs",
+        "Label" : "Override Input Values",
+        "Description" : "Input Values. Value can be an Expression.",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Label" : "Input",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Label" : "Value (Expression)",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : true,
+              "Multline" : true
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "NewObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "NewObjectType",
+        "Label" : "Response Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "NewObjectFlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "NewObjectFlowId",
+        "Label" : "Response Object Flow",
+        "Visible" : ["NewObjectType"],
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Value" : "{{NewObjectType}}"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "FullName" : "GenerativeAICompletionActionOptions"
+}

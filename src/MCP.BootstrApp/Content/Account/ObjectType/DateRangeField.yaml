@@ -1,0 +1,47 @@
+_id: a308de01-7a01-40d6-8e13-27c2f940e79c
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: DateRangeField
+Description: Date Range Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: DateRangeField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: DateRangeField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: DateRangeFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DateRangeField
+IsEmbedded: true
+Name: DateRangeField
+NativeType: PI.Shared.Models.DateRangeField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,43 @@
+_id: e06f317c-b203-446d-95d1-5bd342d859f7
+BaseObjectType: Page
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LayoutPage
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: LayoutPage
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: LayoutPage
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LayoutPage
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: LayoutPage
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

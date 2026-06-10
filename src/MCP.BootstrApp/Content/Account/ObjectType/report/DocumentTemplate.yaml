@@ -1,0 +1,349 @@
+_id: d868d355-c6e5-4617-9b65-9c1698318724
+CollectionName: report.DocumentTemplate
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Operator: Eq
+      Value: fc100000-0000-0000-0000-000000000000
+Description: Template to render document
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: '{{new UUID}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+        User: 1
+  AccountId:
+    Field:
+      _t: HiddenField
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+    Indexed: true
+    InitialValue: '{{AccountId}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+        User: 1
+  ContentType:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Content Type
+      Name: ContentType
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          application/json: JSON
+          application/schema+json: JSON Schema
+          text/html: Html
+          text/markdown: Markdown
+          text/plain: Text
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      ApiName: createdDate
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      ApiName: description
+      IsRequired: false
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        Multline: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 3
+        Admin: 7
+        User: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      ApiName: entityId
+      DefaultValue: '{{OrganizationId}}'
+      IsRequired: true
+      Label: Entity
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: Entity
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 5
+        User: 1
+  FlowId:
+    Field:
+      _t: ReferenceField
+      ApiName: flowId
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: report.DocumentTemplate
+        ObjectType: Flow
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  Inputs:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Inputs
+      Name: Inputs
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Label: Parameter
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      ApiName: isActive
+      DefaultValue: true
+      IsRequired: true
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 3
+        Admin: 7
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Last Actor
+      Name: LastActor
+    Indexed: false
+    InitialValue: '{{Actor}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      ApiName: name
+      IsRequired: false
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 3
+        Admin: 7
+        User: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      ApiName: objectStatusId
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: report.DocumentTemplate
+        ObjectType: ObjectStatus
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  StoredProcedures:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Stored Procedures
+      Name: StoredProcedures
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Name: Alias
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: ReferenceField
+          IsRequired: false
+          Label: Stored Procedure
+          Name: StoredProcedure
+          Options:
+            _t: ReferenceFieldOptions
+            AllowUnknown: false
+            AutoComplete: true
+            Criteria:
+            - FieldName: _t
+              Operator: Eq
+              Value: Aggregate
+            ForeignFieldName: _id
+            ObjectType: StoredProcedure
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  Template:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Template
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        ContentType: text/html
+        Multline: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 3
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: report.DocumentTemplate
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+IsFullTextSearchable: true
+Label: Document Template
+LabelPlural: Document Templates
+Name: DocumentTemplate
+Namespace: report
+NativeType: DocumentTemplate
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 3
+    Admin: 527
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{EntityId}}'
+  Label: Entity
+  Name: EntityId
+  ObjectType: Entity
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+  RelationType: OneToOne
+Tags:
+- System
+UniqueExternalId: false

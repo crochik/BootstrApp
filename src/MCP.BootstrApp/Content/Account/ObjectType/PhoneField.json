@@ -1,0 +1,59 @@
+{
+  "_id" : "87b739dd-cdab-47a8-ba45-d49c870ee8d2",
+  "Name" : "PhoneField",
+  "Description" : "Phone Field",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.PhoneField",
+  "BaseObjectType" : "Field",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15.0
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Condiitons" : [{
+          "FieldName" : "_t",
+          "Value" : "PhoneField"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "PhoneField",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "PhoneField"
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "PhoneFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "FullName" : "PhoneField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

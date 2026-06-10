@@ -1,0 +1,10 @@
+_id: 44f5d637-b399-4006-a5af-2049d0d88db1
+ActionId: ce1b6a5b-f528-4cd8-ab63-90ed0444d2b7
+ActionOptionsObjectType: ComposeActionOptions
+Description: Render Handlebars Template using FlowRun Context
+IsActive: true
+Name: Compose
+Outputs:
+  ContentCreated: Content Generated
+  FailedToCreateContent: Failed to Generate Content
+Role: Admin

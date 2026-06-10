@@ -1,0 +1,38 @@
+_id: e768a54b-39bd-425a-b92f-6f79b13335e3
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Scheduler Availability Action Options
+Fields:
+  MaxOffset:
+    Field:
+      _t: TextField
+      DefaultValue: 15:00:00:00
+      IsRequired: false
+      Label: Max Offset
+      Name: MaxOffset
+    RBAC:
+      Permissions:
+        Admin: 7
+  MinOffset:
+    Field:
+      _t: TextField
+      DefaultValue: 00:00:00:00
+      IsRequired: false
+      Label: Min Offset
+      Name: MinOffset
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SchedulerAvailabilityActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: SchedulerAvailabilityActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

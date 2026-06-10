@@ -1,0 +1,183 @@
+_id: 526ed428-6d38-4b92-89ce-7cb8dec131d7
+CollectionName: app.DataView.1
+Description: App DataView
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  DataView:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Data View
+      Name: DataView
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: DataView
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: AppDataView
+        ObjectType: Flow
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: AppDataView
+        LinkUrl: dataForm://api/v1/CustomObject/ObjectStatus({{value}})/View
+        ObjectType: ObjectStatus
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: Name
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Role:
+    Field:
+      _t: SelectField
+      Label: Role
+      Name: Role
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Admin: Admin
+          Manager: Manager
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppDataView
+Name: AppDataView
+NativeType: PI.Shared.Models.AppDataView
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 3
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: Name
+      Operator: Eq
+      Value: '{{ObjectType}}'
+  Label: Object Type
+  Name: ObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne

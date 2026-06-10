@@ -1,0 +1,59 @@
+{
+  "_id" : "38b4c340-0924-4982-9944-c4edf326adf7",
+  "Name" : "MultiReferenceField",
+  "Description" : "MultiReference Field",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.MultiReferenceField",
+  "BaseObjectType" : "Field",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15.0
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Condiitons" : [{
+          "FieldName" : "_t",
+          "Value" : "MultiReferenceField"
+        }]
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "MultiReferenceField",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "MultiReferenceField"
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "MultiReferenceFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "FullName" : "MultiReferenceField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

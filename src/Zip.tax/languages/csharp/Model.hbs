@@ -1,0 +1,71 @@
+{{#with Data}}
+using System.Text.Json.Serialization;
+{{#if IsEnum}}
+using System.ComponentModel;
+{{/if}}
+
+namespace {{Namespace}};
+
+{{#if Description}}
+/// <summary>
+{{docComment Description "/// "}}
+/// </summary>
+{{/if}}
+{{#if IsDeprecated}}
+[Obsolete]
+{{/if}}
+{{#if IsEnum}}
+public enum {{ClassName}}
+{
+{{#each EnumValueDetails}}
+{{#if Description}}
+    /// <summary>
+    /// {{Description}}
+    /// </summary>
+{{/if}}
+    [Description("{{OriginalValue}}")]
+    {{Name}}{{#unless @last}},{{/unless}}
+{{/each}}
+}
+{{else}}
+{{#if IsPolymorphic}}
+[JsonConverter(typeof({{ClassName}}Converter))]
+{{/if}}
+public class {{ClassName}}{{#if BaseClass}} : {{BaseClass}}{{/if}}
+{
+{{#if IsDerivedType}}
+    /// <summary>
+    /// Gets the discriminator value for this derived type
+    /// </summary>
+    public override string GetDiscriminatorValue()
+    {
+        return "{{DiscriminatorValue}}";
+    }
+
+{{/if}}
+{{#each Properties}}
+{{#if Description}}
+    /// <summary>
+{{docComment Description "    /// "}}
+    /// </summary>
+{{/if}}
+    [JsonPropertyName("{{JsonName}}")]
+{{#if IsRequired}}
+    public required {{{Type}}} {{Name}} { get; set; }
+{{else}}
+    public {{{Type}}} {{Name}} { get; set; }
+{{/if}}
+
+{{/each}}
+{{#if IsPolymorphic}}
+    /// <summary>
+    /// Gets the discriminator value for this instance
+    /// </summary>
+    public virtual string GetDiscriminatorValue()
+    {
+        return "{{ClassName}}";
+    }
+{{/if}}
+}
+{{/if}}
+{{/with}}

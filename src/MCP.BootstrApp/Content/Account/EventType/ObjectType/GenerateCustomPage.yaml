@@ -1,0 +1,8 @@
+_id: 8ba23d0a-086b-4488-9760-a84dba6265f6
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: GenerateCustomPage
+ObjectType: ObjectType
+Trigger:
+  _t: User
+  Name: Generate Custom Page
+  NextUrl: dataForm:/api/v1/ObjectType({{Object._id}})/BuildPage

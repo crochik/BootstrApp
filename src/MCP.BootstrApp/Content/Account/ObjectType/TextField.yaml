@@ -1,0 +1,55 @@
+_id: e9c11013-5dd7-4b84-9940-a8cbcb9d3f7a
+BaseObjectType: Field
+CollectionName: '?'
+Description: Text Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: TextField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: TextField
+    RBAC:
+      Permissions:
+        Admin: 5
+  DefaultValue:
+    Field:
+      _t: TextField
+      Label: Default Value
+      Name: DefaultValue
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Options:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TextField
+IsEmbedded: true
+Name: TextField
+NativeType: PI.Shared.Models.TextField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

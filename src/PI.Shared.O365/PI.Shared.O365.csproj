@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Graph" Version="4.13.0"/>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <ProjectReference Include="..\PI.Shared.Data.Mongo\PI.Shared.Data.Mongo.csproj"/>
+  </ItemGroup>
+</Project>

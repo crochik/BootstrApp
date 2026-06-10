@@ -1,0 +1,29 @@
+{
+  "_id" : "bc61f0f7-d63b-4e51-aac9-0a19cb124f75",
+  "Name" : "RemoteFolder",
+  "Description" : "Remote Folder",
+  "CollectionName" : "file.Item",
+  "NativeType" : "PI.Shared.Models.Files.RemoteFolder",
+  "BaseObjectType" : "RemoteItem",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "folder"
+        }]
+    }
+  },
+  "Tags" : ["Files"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : { },
+  "RelatedObjectTypes" : [],
+  "FullName" : "RemoteFolder",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

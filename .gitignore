@@ -1,0 +1,22 @@
+**/obj
+**/bin
+**/out
+.vs
+.vscode
+tag.version
+rke_darwin-amd64
+test.sh
+secrets/
+src/PI.Singer/output
+client_secret_*.json
+*.832
+MongoMigrate/mongoexport
+MongoMigrate/mongoimport
+PI.Reports/ViewerStorages
+**/.DS_Store
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.userdo
+**.csproj.user
+src/PI.Google/credentials.json

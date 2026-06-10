@@ -1,0 +1,6 @@
+{
+    "disable_collection": true,
+    "url": "amqp://host.docker.internal",
+    "exchange": "ppa",
+    "routing_key": "singer.adf59834-9cca-47cb-bdbf-53be06b76b99.{}.{}"
+}

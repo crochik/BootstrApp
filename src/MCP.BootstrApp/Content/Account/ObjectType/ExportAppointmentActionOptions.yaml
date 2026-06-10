@@ -1,0 +1,188 @@
+_id: aef79a26-5d1e-4503-ab60-fdaada704cf2
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Export Appointment Options
+Fields:
+  Address:
+    Field:
+      _t: TextField
+      Description: Location Address
+      Label: Address (expression)
+      Name: Address
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  City:
+    Field:
+      _t: TextField
+      Description: Location City
+      Label: City (expression)
+      Name: City
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Address
+    RBAC:
+      Permissions:
+        Admin: 7
+  Content:
+    Field:
+      _t: TextField
+      Description: Handlebars Template to render body
+      IsRequired: true
+      Label: Body Content (Handlebars template)
+      Name: Content
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        Multline: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ContentType:
+    Field:
+      _t: SelectField
+      Description: Content type for body.
+      IsRequired: true
+      Label: Body Content Type
+      Name: ContentType
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          text/html: HTML
+          text/plain: Plain
+    RBAC:
+      Permissions:
+        Admin: 7
+  Country:
+    Field:
+      _t: TextField
+      Description: Location Country
+      Label: Country (expression)
+      Name: Country
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Address
+    RBAC:
+      Permissions:
+        Admin: 7
+  End:
+    Field:
+      _t: ExpressionField
+      DefaultValue: '{{Objects.Appointment.End}}'
+      Description: End of appointment
+      IsRequired: true
+      Label: End
+      Name: End
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: DateTimeField
+    RBAC:
+      Permissions:
+        Admin: 7
+  LinkUrl:
+    Field:
+      _t: TextField
+      Description: Link Url
+      Label: Link Url (expression)
+      Name: LinkUrl
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - false
+    RBAC:
+      Permissions:
+        Admin: 7
+  PostalCode:
+    Field:
+      _t: TextField
+      Description: Location Postal Code
+      Label: Postal Code (expression)
+      Name: PostalCode
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Address
+    RBAC:
+      Permissions:
+        Admin: 7
+  Start:
+    Field:
+      _t: ExpressionField
+      DefaultValue: '{{Objects.Appointment.Start}}'
+      Description: Start of appointment
+      IsRequired: true
+      Label: Start
+      Name: Start
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: DateTimeField
+    RBAC:
+      Permissions:
+        Admin: 7
+  State:
+    Field:
+      _t: TextField
+      Description: Location State
+      Label: State (expression)
+      Name: State
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Address
+    RBAC:
+      Permissions:
+        Admin: 7
+  Subject:
+    Field:
+      _t: TextField
+      DefaultValue: '{{Objects.Appointment.Name}}'
+      Description: Subject
+      IsRequired: true
+      Label: Subject (expression)
+      Name: Subject
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        Multline: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  UserId:
+    Field:
+      _t: TextField
+      DefaultValue: '{{Objects.Appointment.EntityId}}'
+      Description: User's calendar
+      IsRequired: true
+      Label: User (expression)
+      Name: UserId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ExportAppointmentActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: ExportAppointmentActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

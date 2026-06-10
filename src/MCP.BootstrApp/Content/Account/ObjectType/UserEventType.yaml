@@ -1,0 +1,188 @@
+_id: d802866c-cae1-4976-8a29-3c2f5ad39446
+BaseObjectType: EventType
+CollectionName: EventType
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: Trigger|_t
+      Value: User
+Description: Event type with user trigger
+Fields:
+  EntityId:
+    Field:
+      _t: ReferenceField
+      DefaultValue: '{{OrganizationId}}'
+      IsRequired: true
+      Label: Entity
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Items:
+          fc100000-0000-0000-0000-000000000000: Global
+        ObjectType: Organization
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|AllowMultiple:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Allow Multiple
+      Name: Trigger|AllowMultiple
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|AllowNone:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Allow None
+      Name: Trigger|AllowNone
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Conditions:
+    Field:
+      _t: ChildrenField
+      Description: Conditions
+      IsRequired: false
+      Label: Conditions
+      Name: Trigger|Conditions
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Condition
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Form:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Form
+      Name: Trigger|Form
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Form
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Icon:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Icon
+      Name: Trigger|Icon
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|IsHidden:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Hidden
+      Name: Trigger|IsHidden
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Message:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Message
+      Name: Trigger|Message
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        ContentType: text/plain
+        Multline: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Trigger Name
+      Name: Trigger|Name
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|NextUrl:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Next Url
+      Name: Trigger|NextUrl
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|ProfileIds:
+    Field:
+      _t: MultiReferenceField
+      IsRequired: false
+      Label: Profiles
+      Name: Trigger|ProfileIds
+      Options:
+        _t: MultiReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        ObjectType: AppProfile
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Trigger|Role:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: 'Role '
+      Name: Trigger|Role
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Admin: '[Admin]'
+          Manager: '[Manager]'
+          User: '[User]'
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UserEventType
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+Name: UserEventType
+NativeType: PI.Shared.Models.EventType
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{EntityId}}'
+  Label: Entity
+  Name: EntityId
+  ObjectType: Organization
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- System
+UniqueExternalId: false

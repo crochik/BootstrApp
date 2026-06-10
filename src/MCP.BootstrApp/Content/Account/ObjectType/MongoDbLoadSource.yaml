@@ -1,0 +1,28 @@
+_id: cc5d79e5-5636-4a62-b827-cfa2507717b8
+BaseObjectType: LoadSource
+CollectionName: '*'
+Description: MongoDb Source for Data Sources
+Fields:
+  StoredProcedure:
+    Field:
+      _t: ObjectField
+      Name: StoredProcedure
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: StoredProcedure
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: MongoDbLoadSource
+IsAbstract: false
+IsEmbedded: true
+Name: MongoDbLoadSource
+NativeType: PI.Shared.Models.Dashboards.MongoDbLoadSource
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- bi
+- System

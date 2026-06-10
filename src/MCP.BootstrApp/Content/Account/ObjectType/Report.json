@@ -1,0 +1,129 @@
+{
+  "_id" : "ee7ef7f5-9a7d-4aff-826d-696625cb08c9",
+  "ObjectType" : "ObjectType",
+  "CollectionName" : "app.Report",
+  "Description" : "Report",
+  "Name" : "Report",
+  "NativeType" : "PI.Shared.Models.AppReport",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "UniqueExternalId" : false,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 3,
+      "Manager" : 1
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    },
+    "Organization" : {
+      "Conditions" : [{
+          "FieldName" : "MinRole",
+          "Value" : "Manager"
+        }]
+    }
+  },
+  "Fields" : {
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "page://Report?id={{id}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "page://Report?id={{id}}"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "MinRole" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "MinRole",
+        "Label" : "Min Role",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Admin" : "Administrator",
+            "Manager" : "Manager",
+            "User" : "User"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(Report)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "Tags" : [],
+  "FullName" : "Report",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

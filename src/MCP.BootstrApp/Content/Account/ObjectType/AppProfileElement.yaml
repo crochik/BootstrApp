@@ -1,0 +1,129 @@
+_BaseObjectType: AppElement
+_id: e3843c4d-d89d-46e8-84bf-7fa584914ed7
+CollectionName: '*'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{context "AccountId"}}'
+Description: Element Assigned to Profiles/Role
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  AccountId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: Account
+    Indexed: true
+    InitialValue: '{{context "AccountId"}}'
+    RBAC:
+      Permissions: {}
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    InitialValue: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  ProfileIds:
+    Field:
+      _t: MultiReferenceField
+      Label: Profiles
+      Name: ProfileIds
+      Options:
+        _t: MultiReferenceFieldOptions
+        ObjectType: AppProfile
+      Visible:
+      - '!Role'
+    RBAC:
+      Permissions:
+        Admin: 7
+  Role:
+    Field:
+      _t: SelectField
+      Name: Role
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Admin: Admin
+          Manager: Manager
+          User: User
+      Visible:
+      - '!ProfileIds'
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppProfileElement
+IsAbstract: true
+IsEmbedded: false
+Name: AppProfileElement
+NativeType: PI.Shared.Models.AppProfileElement
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System
+UniqueExternalId: false

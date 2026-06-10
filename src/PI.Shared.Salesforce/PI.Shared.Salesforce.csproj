@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Crochik\Crochik.csproj" />
+    <ProjectReference Include="..\PI.Shared\PI.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- <PackageReference Include="DeveloperForce.Force" Version="2.1.0"/> -->
+    <ProjectReference Include="..\NetCoreForce\src\NetCoreForce.Client\NetCoreForce.Client.csproj" />
+    <ProjectReference Include="..\NetCoreForce\src\NetCoreForce.Models\NetCoreForce.Models.csproj" />
+  </ItemGroup>
+  
+</Project>

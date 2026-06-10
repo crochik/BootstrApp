@@ -1,0 +1,11 @@
+_id: 400d2796-ea23-4415-8144-8dbe453be7b4
+ActionId: 1d1430a0-a6c8-4dbc-b073-aef699b0b36a
+ActionOptionsObjectType: ExportToQuickbooksActionOptions
+Description: Export to Quickbooks
+IsActive: true
+Name: ExportToQuickbooks
+Outputs:
+  Duplicate: Already Exists
+  OnErrorEvent: Failed
+  OnSuccessEvent: Succeeded
+Role: Admin

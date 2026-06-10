@@ -1,0 +1,80 @@
+_id: 809c38e1-c5ef-42c5-b449-4f7a4c0d169f
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Lookup Object Options
+Fields:
+  Criteria:
+    Field:
+      _t: ObjectField
+      Description: Fields to be modified. Value can be an Expression.
+      IsRequired: true
+      Label: Fields
+      Name: Criteria
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Criteria
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectNickname:
+    Field:
+      _t: TextField
+      Description: Alias to be used for Object found
+      IsRequired: false
+      Label: Object Alias
+      Name: ObjectNickname
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      Description: Object Type to be updated. If empty, it will be flow Target Object Type
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  OrderBy:
+    Field:
+      _t: TextField
+      Description: Order to sort the results
+      IsRequired: false
+      Label: Order By
+      Name: OrderBy
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ReverseOrder:
+    Field:
+      _t: CheckboxField
+      Description: Whether to reverse the order (e.g. use descending order)
+      IsRequired: false
+      Label: Reverse Order
+      Name: ReverseOrder
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LookupObjectActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: LookupObjectActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

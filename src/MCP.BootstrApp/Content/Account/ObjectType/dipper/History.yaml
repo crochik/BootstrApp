@@ -1,0 +1,167 @@
+_id: cb8da62d-3b44-4694-9022-15012dae86e1
+BaseObjectType: AppElement
+CollectionName: Dipper.History
+Description: Editing History for user
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: '{{new UUID}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Collection:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Collection
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    InitialValue: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Namespace:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Namespace
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Pipeline:
+    Field:
+      _t: ArrayField
+      IsRequired: true
+      Name: Pipeline
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: true
+          Name: Stage
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  UserId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: User
+      Name: UserId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: User
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: dipper.History
+IsAbstract: false
+IsEmbedded: false
+Label: Editor History
+LabelPlural: Editor History
+Name: History
+Namespace: dipper
+NativeType: Models.AggregationHistory
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 0
+    d33d2dda-5180-44a5-9e63-77494f57646a: 7
+Tags: []

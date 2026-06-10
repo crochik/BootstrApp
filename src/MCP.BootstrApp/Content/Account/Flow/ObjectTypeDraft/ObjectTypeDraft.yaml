@@ -1,0 +1,16 @@
+_id: 32ce0d87-023b-4a64-b5fc-64f65517809e
+Description: Object Type Draft
+IsActive: true
+Name: ObjectTypeDraft
+ObjectType: ObjectTypeDraft
+Steps:
+- _id: 7b47451e-c269-4405-bf8d-8af07d9e85bd
+  ActionId: c400abf1-3965-45b9-a77b-7d77dd050d22
+  Description: No Operation
+  EventIdTrigger: cfbcb7bb-9017-4ddb-abf7-2cff03a3773c
+  Options:
+    _t: GenericActionOptions
+    Output: []
+    Raw: {}
+Tags:
+- System

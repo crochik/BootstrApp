@@ -1,0 +1,247 @@
+{
+  "_id" : "498ffd68-5ab7-4911-9919-1b661699d81f",
+  "Name" : "Snapshot",
+  "Description" : "Data Snapshot",
+  "CollectionName" : "Snapshot",
+  "NativeType" : "PI.Shared.Models.Snapshot",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Discriminator" : {
+    "BulkEmail" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "BulkEmail"
+        }]
+    }
+  },
+  "Tags" : ["System"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "dataGrid://api/v1/Snapshot({{id}})"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "CollectionName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "CollectionName",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "SnapshotData"
+    },
+    "DatabaseName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DatabaseName"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Snapshot"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Snapshot"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "CreatedById" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "CreatedById",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Start" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Start",
+        "Label" : "Snapshot Started"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "End" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "End",
+        "Label" : "Snapshot Ended"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "ExpiresOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "ExpiresOn"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "AppDataViewId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "AppDataViewId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppDataView"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Count" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Count",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "Error" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Error"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "InitialFlowId" : "3e8f682a-ed51-4449-9584-8e75bf20df11",
+  "InitialObjectStatusId" : "7f5dd8fb-d7b5-43a3-b019-c4ca1dd9f23e",
+  "RelatedObjectTypes" : [],
+  "FullName" : "Snapshot",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

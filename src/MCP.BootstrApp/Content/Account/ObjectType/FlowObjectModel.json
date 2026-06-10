@@ -1,0 +1,271 @@
+{
+  "_id" : "516f27a7-9749-4216-91e3-d896dfb12e64",
+  "Name" : "FlowObjectModel",
+  "Description" : "Flow Object Model (Template)",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : false,
+        "ApiName" : "name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "User" : 1
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "IsRequired" : false,
+        "ApiName" : "description",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "User" : 1
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "AccountId" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "AccountId",
+        "Label" : "Account",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "User" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{AccountId}}",
+      "IsFinal" : false
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Entity",
+        "DefaultValue" : "{{OrganizationId}}",
+        "IsRequired" : true,
+        "ApiName" : "entityId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "User" : 1
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "User" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new UUID}}",
+      "IsFinal" : false
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}",
+      "IsFinal" : false
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created",
+        "IsRequired" : false,
+        "ApiName" : "createdDate"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false,
+      "CalculatedValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "ApiName" : "flowId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "{{ObjectType}}"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "DefaultValue" : true,
+        "IsRequired" : false,
+        "ApiName" : "isActive"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "ApiName" : "objectStatusId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "{{ObjectType}}"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Operator" : "Eq",
+          "Value" : "fc100000-0000-0000-0000-000000000000"
+        }]
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "EntityId",
+      "ObjectType" : "Entity",
+      "Label" : "Entity",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{EntityId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "Tags" : ["System"],
+  "IsEmbedded" : false,
+  "IsAbstract" : true,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "PI.Shared.Models.FlowObjectModel",
+  "FullName" : "FlowObjectModel",
+  "Label" : "Flow Object Model",
+  "LabelPlural" : "Flow Object Models"
+}

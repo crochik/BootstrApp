@@ -1,0 +1,42 @@
+{
+  "version": "2026-04",
+  "scopes": [
+    {
+      "name": "instance",
+      "description": "Action operates on a single subject row of the target class.",
+      "inputClassRequiredField": {
+        "name": "id",
+        "schema": { "type": "string", "format": "uuid" },
+        "required": true,
+        "documentation": "title + description on the property are required."
+      },
+      "examples": ["submitOrder", "cancelReservation", "recalculateInvoiceTotals"]
+    },
+    {
+      "name": "bulk",
+      "description": "Action operates on several rows of the target class atomically.",
+      "inputClassRequiredField": {
+        "name": "ids",
+        "schema": {
+          "type": "array",
+          "items": { "type": "string", "format": "uuid" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "required": true,
+        "documentation": "title + description on the property are required."
+      },
+      "examples": ["approveExpenses", "archiveProjects", "assignTickets"],
+      "guidance": "When the caller wants to act on rows matching a filter, they resolve IDs via the filter endpoint client-side and pass them as ids — that is still a bulk action, not a class action."
+    },
+    {
+      "name": "class",
+      "description": "Class-level work that does not key on specific existing rows.",
+      "inputClassRequiredField": null,
+      "constraint": "Input class must declare NEITHER id nor ids.",
+      "examples": ["importCustomersCsv", "generateMonthlyReport", "resetTenantSessions"],
+      "guidance": "Use sparingly; most workflows have a natural instance or bulk scope."
+    }
+  ],
+  "selectionRule": "Pick the smallest scope that fits the operation."
+}

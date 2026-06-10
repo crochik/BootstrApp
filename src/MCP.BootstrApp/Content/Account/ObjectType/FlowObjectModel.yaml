@@ -1,0 +1,208 @@
+_id: 516f27a7-9749-4216-91e3-d896dfb12e64
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Operator: Eq
+      Value: fc100000-0000-0000-0000-000000000000
+Description: Flow Object Model (Template)
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: '{{new UUID}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        User: 1
+  AccountId:
+    Field:
+      _t: HiddenField
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+    Indexed: true
+    InitialValue: '{{AccountId}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        User: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      ApiName: createdDate
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      ApiName: description
+      IsRequired: false
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        Multline: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        User: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      ApiName: entityId
+      DefaultValue: '{{OrganizationId}}'
+      IsRequired: true
+      Label: Entity
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: Entity
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 5
+        User: 1
+  FlowId:
+    Field:
+      _t: ReferenceField
+      ApiName: flowId
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType}}'
+        ObjectType: Flow
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      ApiName: isActive
+      DefaultValue: true
+      IsRequired: false
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Last Actor
+      Name: LastActor
+    Indexed: false
+    InitialValue: '{{Actor}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      ApiName: name
+      IsRequired: false
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+        User: 1
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      ApiName: objectStatusId
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: '{{ObjectType}}'
+        ObjectType: ObjectStatus
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FlowObjectModel
+IsAbstract: true
+IsActive: true
+IsEmbedded: false
+IsFullTextSearchable: true
+Label: Flow Object Model
+LabelPlural: Flow Object Models
+Name: FlowObjectModel
+NativeType: PI.Shared.Models.FlowObjectModel
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{EntityId}}'
+  Label: Entity
+  Name: EntityId
+  ObjectType: Entity
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- System
+UniqueExternalId: false

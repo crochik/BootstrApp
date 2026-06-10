@@ -1,0 +1,51 @@
+{
+  "_id" : "e808acb3-8feb-41f9-8c3d-cb5a4c12fb46",
+  "Name" : "SelectField",
+  "Description" : "Select Field",
+  "CollectionName" : "?",
+  "BaseObjectType" : "Field",
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "SelectField",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "SelectField"
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "SelectFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "IsEmbedded" : true,
+  "NativeType" : "PI.Shared.Models.SelectField",
+  "FullName" : "SelectField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,10 @@
+_id: db07966d-9bba-4291-be13-68f086528e99
+ActionId: 7aa67a07-1cf6-4a98-b377-28a1deeb6bc2
+ActionOptionsObjectType: salesforce.UpdateSalesforceObjectActionOptions
+Description: Update Salesforce Object
+IsActive: true
+Name: UpdateSalesforceObject
+Outputs:
+  FailedToUpdateObjectEvent: Failed to update Object
+  ObjectUpdatedEvent: Object Updated
+Role: Admin

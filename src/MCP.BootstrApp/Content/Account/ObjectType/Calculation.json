@@ -1,0 +1,47 @@
+{
+  "_id" : "e37835b9-d4a0-4862-b01d-c11f97e816f4",
+  "Name" : "Calculation",
+  "Description" : "Calculation (for CalculatedField)",
+  "CollectionName" : "?",
+  "NativeType" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : true,
+  "Tags" : ["System", "PI-API"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "Calculation",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "expression" : "Expression Calculation",
+            "switch" : "Switch Calculation",
+            "index" : "Index Calculation",
+            "default" : "Default Calculation",
+            "lookup" : "Lookup Calculation",
+            "path" : "Path Calculation",
+            "evaluate" : "Evaluate Expression Calculation"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019"
+}

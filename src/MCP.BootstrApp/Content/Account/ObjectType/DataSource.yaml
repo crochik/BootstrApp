@@ -1,0 +1,90 @@
+_id: d88fc4fa-1c65-464e-8010-4ba770490457
+BaseObjectType: Model
+CollectionName: bi.DataSource
+Description: Reports Data Source
+Fields:
+  AutoRefreshInterval:
+    Field:
+      _t: TextField
+      Label: Auto Refresh Interval (dd:hh:mm:ss)
+      Name: AutoRefreshInterval
+    RBAC:
+      Permissions:
+        Admin: 7
+  BeforeLoad:
+    Field:
+      _t: SelectField
+      Label: Before Load
+      Name: BeforeLoad
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          DoNothing: Do Nothing
+          Drop: Drop Table
+          Truncate: Truncate Table
+    RBAC:
+      Permissions:
+        Admin: 7
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  Group:
+    Field:
+      _t: TextField
+      Name: Group
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      Label: Active?
+      Name: IsActive
+    RBAC:
+      Permissions:
+        Admin: 7
+  LastRefreshedOn:
+    Field:
+      _t: DateTimeField
+      Label: Last Refreshed
+      Name: LastRefreshedOn
+    RBAC:
+      Permissions:
+        Admin: 7
+  LoadSource:
+    Field:
+      _t: ObjectField
+      Label: Load Source
+      Name: LoadSource
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: LoadSource
+    RBAC:
+      Permissions:
+        Admin: 7
+  NextRefreshOn:
+    Field:
+      _t: DateTimeField
+      Label: Next Refresh On
+      Name: NextRefreshOn
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DataSource
+IsAbstract: false
+IsEmbedded: false
+Name: DataSource
+NativeType: PI.Shared.Models.Dashboards.DataSource
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- bi
+- System

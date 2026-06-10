@@ -1,0 +1,112 @@
+{
+  "_id" : "e3bfdf94-5b8a-427e-a4a4-49e905ae6204",
+  "Namespace" : "openapi",
+  "Name" : "Response",
+  "Description" : "OpenAPI Operation Response",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Models.OApiResponse",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["openapi"],
+  "FullName" : "openapi.Response",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7.0
+    }
+  },
+  "Fields" : {
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "HeaderObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "HeaderObjectType",
+        "Label" : "Header Object",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName",
+          "Actions" : [{
+              "Name" : "New",
+              "Action" : "#new",
+              "Label" : "Create new Object"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "Payloads" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Payloads",
+        "Label" : "Payload",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "KeyType" : "string",
+          "ObjectType" : "openapi.Payload",
+          "KeyField" : {
+            "_t" : "SelectField",
+            "Name" : "Key",
+            "Label" : "Content Type",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "application/json" : "application/json"
+              },
+              "AllowUnknown" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "Responses",
+      "ObjectType" : "openapi.Operation",
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "Embedded"
+    }, {
+      "Name" : "HeaderObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Header Object",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{HeaderObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

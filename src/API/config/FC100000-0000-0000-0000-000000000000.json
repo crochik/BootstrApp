@@ -1,0 +1,26 @@
+[
+    {
+        "label": "Name",
+        "name": "name",
+        "type": "Text",
+        "source": "Consumer"
+    },
+    {
+        "label": "Project #",
+        "name": "selectionId",
+        "type": "Number",
+        "source": "Uid"
+    },
+    {
+        "label": "User",
+        "name": "user",
+        "type": "Text",
+        "source": "User"
+    },
+    {
+        "label": "Branch",
+        "name": "branch",
+        "type": "Text",
+        "source": "Branch"
+    }
+]

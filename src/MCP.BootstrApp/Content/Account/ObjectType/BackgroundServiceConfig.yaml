@@ -1,0 +1,187 @@
+_BaseObjectType: DynamicFlowObjectModel
+_id: 27c5b9fa-3a6b-44f9-b337-b73e09f56da1
+CollectionName: job.Service
+Constraints:
+  077e4ad6-713e-45b3-b466-ae6957c532f0:
+    Conditions:
+    - FieldName: IsActive
+      Value: true
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Background Service Config
+Fields:
+  _id:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 5
+  AvailableInstances:
+    Field:
+      _t: NumberField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Available Instances
+      Name: AvailableInstances
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    RBAC:
+      Permissions:
+        Admin: 1
+  CurrentInstances:
+    Field:
+      _t: NumberField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Running Instances
+      Name: CurrentInstances
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  EndedOn:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Ended
+      Name: EndedOn
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  ExternalId:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Code
+      Name: ExternalId
+      Options:
+        _t: TextFieldOptions
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: BackgroundServiceConfig
+        ObjectType: Flow
+    RBAC:
+      Permissions:
+        Admin: 7
+  LastError:
+    Field:
+      _t: TextField
+      Label: Last Error
+      Name: LastError
+    RBAC:
+      Permissions:
+        Admin: 1
+  LastTransactionId:
+    Field:
+      _t: TextField
+      Label: Last Transaction
+      Name: LastTransactionId
+    RBAC:
+      Permissions:
+        Admin: 1
+  MaxConcurrentInstances:
+    Field:
+      _t: NumberField
+      DefaultValue: 1
+      IsRequired: true
+      Label: Max Instances
+      Name: MaxConcurrentInstances
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: BackgroundServiceConfig
+        ObjectType: ObjectStatus
+    RBAC:
+      Permissions:
+        Admin: 7
+  StartedOn:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Started
+      Name: StartedOn
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: BackgroundServiceConfig
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+Name: BackgroundServiceConfig
+NativeType: PI.Shared.Models.BackgroundServiceConfig
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System
+UniqueExternalId: true
+UniqueIndices:
+- Fields:
+  - ExternalId
+  Name: Job Name
+  Upsert: true

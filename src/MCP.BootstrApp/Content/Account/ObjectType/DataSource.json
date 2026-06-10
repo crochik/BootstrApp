@@ -1,0 +1,128 @@
+{
+  "_id" : "d88fc4fa-1c65-464e-8010-4ba770490457",
+  "Name" : "DataSource",
+  "Description" : "Reports Data Source",
+  "CollectionName" : "bi.DataSource",
+  "NativeType" : "PI.Shared.Models.Dashboards.DataSource",
+  "BaseObjectType" : "Model",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["bi", "System"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Group" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Group"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "AutoRefreshInterval" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "AutoRefreshInterval",
+        "Label" : "Auto Refresh Interval (dd:hh:mm:ss)"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "NextRefreshOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "NextRefreshOn",
+        "Label" : "Next Refresh On"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "LastRefreshedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastRefreshedOn",
+        "Label" : "Last Refreshed"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "BeforeLoad" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "BeforeLoad",
+        "Label" : "Before Load",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "DoNothing" : "Do Nothing",
+            "Truncate" : "Truncate Table",
+            "Drop" : "Drop Table"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "LoadSource" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "LoadSource",
+        "Label" : "Load Source",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "LoadSource"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "FullName" : "DataSource",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

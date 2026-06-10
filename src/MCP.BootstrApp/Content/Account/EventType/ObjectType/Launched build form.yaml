@@ -1,0 +1,8 @@
+_id: db6b5733-58e9-413e-9968-00296f471c5c
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: Launched build form
+ObjectType: ObjectType
+Trigger:
+  _t: User
+  Name: Generate Custom Form
+  NextUrl: dataForm:/api/v1/ObjectType({{Object._id}})/BuildForm

@@ -1,0 +1,5 @@
+_id: eded7e06-8bba-4968-9e5e-284702c5a099
+_ObjectType: Lead
+Name: Object Status Changed
+Trigger:
+  _t: System

@@ -1,0 +1,61 @@
+{
+  "_id" : "b2310507-7c1d-4f7b-a961-fe557eb25a43",
+  "Name" : "LoadSource",
+  "Description" : "Load Source for Data Source",
+  "CollectionName" : "*",
+  "NativeType" : "PI.Shared.Models.Dashboards.LoadSource",
+  "IsEmbedded" : true,
+  "IsAbstract" : true,
+  "Discriminator" : {
+    "MongoDbLoadSource" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "mongodb"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "mongodb" : "Mongo Db"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Order" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Order"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "Tags" : ["bi", "System"],
+  "FullName" : "LoadSource",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

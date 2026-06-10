@@ -1,0 +1,59 @@
+_id: a26417ba-0c09-49bd-bc3b-a55f3eb7753f
+CollectionName: '?'
+Description: Form Layout
+Discriminator:
+  GridFormLayout:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: GridFormLayout
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      DefaultValue: GridFormLayout
+      IsRequired: true
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          GridFormLayout: Grid
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Breakpoint:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Breakpoint
+      Name: Breakpoint
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          ExtraLarge: Extra Large (xl)
+          ExtraSmall: Extra Small (xs)
+          Large: Large (lg)
+          Medium: Medium (md)
+          Small: Small (sm)
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FormLayout
+IsAbstract: true
+IsEmbedded: true
+Name: FormLayout
+NativeType: FormLayout
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

@@ -1,0 +1,111 @@
+_id: 064e85d9-d8a8-44b4-886c-afb912da3e0a
+CollectionName: '?'
+Description: DataForm Action Response
+Fields:
+  Action:
+    Field:
+      _t: TextField
+      ApiName: Action
+      Description: Requested Action
+      IsRequired: true
+      Label: Action
+      Name: Action
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Ids:
+    Field:
+      _t: ArrayField
+      ApiName: Ids
+      Description: Object Ids affected by action
+      IsRequired: false
+      Label: Object Ids
+      Name: Ids
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: Id
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+            Format: uuid
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Message:
+    Field:
+      _t: TextField
+      ApiName: Message
+      Description: Result summary or error message
+      IsRequired: false
+      Label: Message
+      Name: Message
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  NextUrl:
+    Field:
+      _t: TextField
+      ApiName: NextUrl
+      Description: Suggested Next Url
+      IsRequired: false
+      Label: NextUrl
+      Name: NextUrl
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RunId:
+    Field:
+      _t: TextField
+      ApiName: RunId
+      IsRequired: false
+      Label: Run Id
+      Name: RunId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Success:
+    Field:
+      _t: CheckboxField
+      ApiName: Success
+      Description: 'Whether the operation successful '
+      IsRequired: true
+      Label: 'Operation successful '
+      Name: Success
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DataFormActionResponse
+IsAbstract: false
+IsEmbedded: true
+Name: DataFormActionResponse
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

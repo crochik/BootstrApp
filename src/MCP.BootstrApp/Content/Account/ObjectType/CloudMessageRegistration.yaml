@@ -1,0 +1,127 @@
+_id: 06229ef3-23ec-459a-828c-14c5101ead96
+CollectionName: google.CloudMessageRegistration
+Description: FCM registration for push notification
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new ObjectId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ClientId:
+    Field:
+      _t: TextField
+      Label: Client
+      Name: ClientId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: User
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  IsActive:
+    Field:
+      _t: CheckboxField
+      Label: Active?
+      Name: IsActive
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  Token:
+    Field:
+      _t: TextField
+      Label: Token
+      Name: Token
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: CloudMessageRegistration
+Name: CloudMessageRegistration
+NativeType: PI.Google.Models.CloudMessageRegistration
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 3
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{EntityId}}'
+  Label: User
+  Name: EntityId
+  ObjectType: User
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- Notifications

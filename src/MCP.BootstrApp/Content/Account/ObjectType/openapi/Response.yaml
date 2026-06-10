@@ -1,0 +1,84 @@
+_id: e3bfdf94-5b8a-427e-a4a4-49e905ae6204
+CollectionName: '?'
+Description: OpenAPI Operation Response
+Fields:
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  HeaderObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Header Object
+      Name: HeaderObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        Actions:
+        - Action: '#new'
+          Label: Create new Object
+          Name: New
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Payloads:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Payload
+      Name: Payloads
+      Options:
+        _t: ChildrenFieldOptions
+        KeyField:
+          _t: SelectField
+          IsRequired: true
+          Label: Content Type
+          Name: Key
+          Options:
+            _t: SelectFieldOptions
+            AllowUnknown: false
+            Items:
+              application/json: application/json
+        KeyType: string
+        ObjectType: openapi.Payload
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.Response
+IsAbstract: false
+IsEmbedded: true
+Name: Response
+Namespace: openapi
+NativeType: PI.Shared.Models.OApiResponse
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 7
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{HeaderObjectType}}'
+  Label: Header Object
+  Name: HeaderObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Name: Responses
+  ObjectType: openapi.Operation
+  RBAC:
+    Permissions: {}
+  RelationType: Embedded
+Tags:
+- openapi

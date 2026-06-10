@@ -1,0 +1,172 @@
+{
+  "_id" : "0f1b9b0b-0da6-46d3-ab16-8d70a48927be",
+  "Namespace" : "idp",
+  "Name" : "MagicAuthenticationCode",
+  "Description" : "Magic Authentication Code",
+  "CollectionName" : "idp.MagicAuthenticationCode",
+  "NativeType" : "???",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["OTG"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "idp.MagicAuthenticationCode",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ClientId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ClientId",
+        "Label" : "Client",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppClient",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Code" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Code",
+        "Label" : "Code",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "DefaultValue" : true,
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "ProfileId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ProfileId",
+        "Label" : "Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppProfile",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Signature" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Signature",
+        "Label" : "Signature",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Entity",
+        "DefaultValue" : "{{OrganizationId}}",
+        "IsRequired" : true,
+        "ApiName" : "entityId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Manager" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "RelatedObjectTypes" : [{
+      "Name" : "ClientId",
+      "ObjectType" : "AppClient",
+      "Label" : "Client",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ClientId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ProfileId",
+      "ObjectType" : "AppProfile",
+      "Label" : "Profile",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ProfileId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }]
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2026-04",
+  "issuer": "https://idp.fci.cloud",
+  "discoveryEndpoint": "https://idp.fci.cloud/.well-known/openid-configuration",
+  "grant": {
+    "type": "Authorization Code with PKCE",
+    "appliesTo": "every platform (web, mobile, desktop, CLI)",
+    "deprecated": ["Implicit grant"]
+  },
+  "scopes": {
+    "request": ["openid"],
+    "rejected": ["email", "profile", "offline_access"],
+    "rationale": "User profile claims (id, name, email, group membership) are embedded in the access-token JWT. Decode the token instead of asking for extra scopes or calling a userinfo endpoint."
+  },
+  "clientId": {
+    "typescript": {
+      "rule": "client_id is the app name itself — the same snake_case identifier that anchors app.<app_name>.",
+      "loadFromEnv": false
+    },
+    "other": {
+      "rule": "Load client_id from env.",
+      "loadFromEnv": true,
+      "platforms": ["Flutter", "iOS", "Android", "desktop", "CLI"]
+    }
+  },
+  "tokenStorage": "platform-appropriate secure storage (browser: in-memory or secure cookie; mobile: Keychain/Keystore; desktop: OS credential store; CLI: file with restrictive perms).",
+  "platformClasses": {
+    "User":  { "fields": ["id", "name", "email", "groupId"], "note": "id is a UUID. Belongs to exactly one Group." },
+    "Group": { "fields": ["id", "name"] },
+    "rule": "Never redefine User or Group in any app.<app_name> namespace. Reference users by storing their UUID on a *Id field; record the link in the References registry as pointing to User._id."
+  },
+  "authorization": {
+    "model": "group-based",
+    "enforcement": "backend, on every object, action, and view",
+    "rule": "Do not reimplement policy on the client. Surface backend authorization rejections in the UI rather than gating actions client-side."
+  },
+  "ux": {
+    "rule": "Always include a user-initiated entry point to the login flow (Login button, sign-in screen, login subcommand). An unauthenticated user must never be stuck without an obvious way to start authenticating."
+  }
+}

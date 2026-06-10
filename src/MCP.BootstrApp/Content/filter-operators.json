@@ -1,0 +1,21 @@
+{
+  "version": "2026-04",
+  "conditionShape": "{ field: string, operator: Operator, value?: any }",
+  "combinator": "AND",
+  "fieldConstraint": "field must be a property declared on the target class (recursing through extends) AND must appear on the class's indexedFields list. Filtering on non-indexed fields is rejected server-side.",
+  "operators": [
+    { "name": "Eq",     "valueRule": "scalar matching field's JSON Schema type" },
+    { "name": "Ne",     "valueRule": "scalar matching field's JSON Schema type" },
+    { "name": "Gt",     "valueRule": "scalar matching field's JSON Schema type" },
+    { "name": "Gte",    "valueRule": "scalar matching field's JSON Schema type" },
+    { "name": "Lt",     "valueRule": "scalar matching field's JSON Schema type" },
+    { "name": "Lte",    "valueRule": "scalar matching field's JSON Schema type" },
+    { "name": "In",     "valueRule": "array whose element type matches field's JSON Schema type" },
+    { "name": "Exists", "valueRule": "value MUST be omitted entirely" }
+  ],
+  "filterEndpoint": {
+    "requestBody": "{ conditions: Condition[], fields: string[] }",
+    "fieldsContract": "fields is required. The backend returns only the listed top-level properties (plus _id, always). Naming a field that does not exist on the target class is rejected. Embedded sub-trees come back whole when their parent field is listed; no per-leaf projection inside an embedded class.",
+    "availableOn": "top-level classes only — embedded classes are not independently queryable"
+  }
+}

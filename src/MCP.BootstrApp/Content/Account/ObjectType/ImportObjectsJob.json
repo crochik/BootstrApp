@@ -1,0 +1,183 @@
+{
+  "_id" : "09116902-6867-458d-a8f2-e8e7a6c39898",
+  "Name" : "ImportObjectsJob",
+  "Description" : "Import Objects from file",
+  "CollectionName" : "job.ImportObjects",
+  "NativeType" : "PI.Shared.Models.ImportObjectsJob",
+  "BaseObjectType" : "EntityOwnedModel",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "Fields" : {
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "ImportObjectsJob"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "ImportObjectsJob"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Mapping" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Mapping",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : true,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Property"
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "SourceRemoteFileId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "SourceRemoteFileId",
+        "Label" : "Source File",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "RemoteFile",
+          "AutoComplete" : true,
+          "LinkUrl" : "action://file/v1/File({{value}})?action=Redirect"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "OutputRemoteFileId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "OutputRemoteFileId",
+        "Label" : "Log File",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "RemoteFile",
+          "AutoComplete" : true,
+          "LinkUrl" : "action://file/v1/File({{value}})?action=Redirect"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      }
+    },
+    "TargetObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "TargetObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "Name",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "StartedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "StartedOn",
+        "Label" : "Started On"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "EndedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "EndedOn",
+        "Label" : "Ended On"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "InitialFlowId" : "9debae15-57e6-4f94-ae9b-681a33e2ea0d",
+  "InitialObjectStatusId" : "c24ad8f0-4416-485a-b701-79b3525044fa",
+  "FullName" : "ImportObjectsJob",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

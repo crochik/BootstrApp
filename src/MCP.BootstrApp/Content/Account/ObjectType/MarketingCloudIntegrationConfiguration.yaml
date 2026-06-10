@@ -1,0 +1,52 @@
+_id: 7fbc1b00-3b98-4e7b-8336-701c9f485233
+BaseObjectType: IntegrationConfiguration
+CollectionName: IntegrationConfiguration
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: IntegrationId
+      Value: 7660d3fd-1304-4c63-a002-8062aecf5991
+Description: Salesforce Marketing Cloud Integration
+Fields:
+  ClientId:
+    Field:
+      _t: TextField
+      Label: Client Id
+      Name: ClientId
+    RBAC:
+      Permissions:
+        Admin: 7
+  ClientSecret:
+    Field:
+      _t: PasswordField
+      Label: Client Secret
+      Name: ClientSecret
+      Options:
+        _t: PasswordFieldOptions
+        DataDataProtection:
+          _t: ms-data-protection
+          Purpose: EntityIntegration.MarketingCloud
+    RBAC:
+      Permissions:
+        Admin: 6
+  Subdomain:
+    Field:
+      _t: TextField
+      Label: Subdomain
+      Name: Subdomain
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: MarketingCloudIntegrationConfiguration
+IsAbstract: false
+IsEmbedded: false
+Name: MarketingCloudIntegrationConfiguration
+NativeType: PI.Salesforce.MarketingCloud.MarketingCloudIntegrationConfiguration
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- Integration
+- System

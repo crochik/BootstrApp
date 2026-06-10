@@ -1,0 +1,89 @@
+_id: 48d20f72-5a8b-4ac3-9911-7127568b8273
+CollectionName: '?'
+Description: Field Template
+Fields:
+  CalculatedValue:
+    Field:
+      _t: GenericField
+      Label: Calculated Value
+      Name: CalculatedValue
+    RBAC:
+      Permissions:
+        Admin: 7
+  Field:
+    Field:
+      _t: ObjectField
+      Description: Field
+      IsRequired: true
+      Name: Field
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Field
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Indexed:
+    Field:
+      _t: CheckboxField
+      Label: Indexed
+      Name: Indexed
+    RBAC:
+      Permissions:
+        Admin: 7
+  InitialValue:
+    Field:
+      _t: GenericField
+      IsRequired: false
+      Label: Initial Value
+      Name: InitialValue
+    RBAC:
+      Permissions:
+        Admin: 7
+  RBAC|Permissions:
+    Field:
+      _t: DictionaryField
+      IsRequired: true
+      Label: Permissions
+      Name: RBAC|Permissions
+      Options:
+        _t: DictionaryFieldOptions
+        KeyField:
+          _t: ReferenceField
+          IsRequired: true
+          Label: Profile/Role
+          Name: Key
+          Options:
+            _t: ReferenceFieldOptions
+            Items:
+              Account: '[Account]'
+              Admin: '[Admin]'
+              Manager: '[Manager]'
+              Organization: '[Organization]'
+              User: '[User]'
+            ObjectType: AppProfile
+        ValueField:
+          _t: BitwiseFlagField
+          Name: Permissions
+          Options:
+            _t: BitwiseFlagFieldOptions
+            Items:
+              1: Read
+              16: Create On Demand
+              2: Update
+              4: Create
+              8: Unset
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FieldTemplate
+IsAbstract: false
+IsEmbedded: true
+Name: FieldTemplate
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

@@ -1,0 +1,42 @@
+{
+  "_id" : "bab47711-1478-4c70-b682-481ed26a5c29",
+  "Name" : "FormPage",
+  "Description" : "Form Page",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.FormPage",
+  "BaseObjectType" : "Page",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "FormPage"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Form" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Form",
+        "Label" : "Form Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    }
+  },
+  "Tags" : ["ui", "System", "PI-API"],
+  "FullName" : "FormPage",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

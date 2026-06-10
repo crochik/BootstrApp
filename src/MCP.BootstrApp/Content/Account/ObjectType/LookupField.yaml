@@ -1,0 +1,47 @@
+_id: b31b4172-8b2e-41e1-94db-baba07d6b7e5
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: LookupField
+Description: Lookup Field (DEPRECATED)
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: LookupField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: LookupField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: LookupFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LookupField
+IsEmbedded: true
+Name: LookupField
+NativeType: PI.Shared.Form.Models.LookupField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

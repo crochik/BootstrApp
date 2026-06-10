@@ -1,0 +1,375 @@
+{
+  "_id" : "fb34bf27-6837-499b-942d-2050b0d29e9e",
+  "Namespace" : "openapitools",
+  "Name" : "DartSettings",
+  "BaseObjectType" : "openapi.ClientGeneratorSettings",
+  "Description" : "OpenApiTools Generator Dart",
+  "CollectionName" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["openapi"],
+  "FullName" : "openapitools.DartSettings",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "Name" : "_t",
+        "Label" : "Type",
+        "_t" : "TextField",
+        "DefaultValue" : "DartSettings",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "allowUnicodeIdentifiers" : {
+      "Field" : {
+        "Description" : "toggles whether unicode identifiers are allowed in names or not",
+        "IsRequired" : false,
+        "Name" : "allowUnicodeIdentifiers",
+        "Label" : "Allow Unicode Identifiers",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "dateLibrary" : {
+      "Field" : {
+        "Options" : {
+          "Items" : {
+            "core" : "core",
+            "timemachine" : "timemachine"
+          },
+          "_t" : "SelectFieldOptions"
+        },
+        "Description" : "Specify Date library. Time Machine is date and time library for Flutter, Web, and Server with support for timezones, calendars, cultures, formatting and parsing.",
+        "Name" : "dateLibrary",
+        "Label" : "Date Library",
+        "_t" : "SelectField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "disallowAdditionalPropertiesIfNotPresent" : {
+      "Field" : {
+        "DefaultValue" : true,
+        "Description" : "If false, the 'additionalProperties' implementation (set to true by default) is compliant with the OAS and JSON schema specifications. If true (default), keep the old (incorrect) behavor that 'additionalProperties' is set to false by default.",
+        "Name" : "disallowAdditionalPropertiesIfNotPresent",
+        "Label" : "Disallow Additional Properties If Not Present",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ensureUniqueParams" : {
+      "Field" : {
+        "DefaultValue" : true,
+        "Description" : "Whether to ensure parameter names are unique in an operation (rename parameters that are not).",
+        "Name" : "ensureUniqueParams",
+        "Label" : "Ensure Unique Params",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "enumUnknownDefaultCase" : {
+      "Field" : {
+        "Description" : "If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.",
+        "Name" : "enumUnknownDefaultCase",
+        "Label" : "Enum Unknown Default Case",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "equalityCheckMethod" : {
+      "Field" : {
+        "Options" : {
+          "Items" : {
+            "default" : "Built in hash code generation method",
+            "equatable" : "Uses equatable library for equality checking"
+          },
+          "_t" : "SelectFieldOptions"
+        },
+        "Description" : "Specify equality check method. Takes effect only in case if serializationLibrary is json_serializable.\t",
+        "Name" : "equalityCheckMethod",
+        "Label" : "Equality Check Method",
+        "_t" : "SelectField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "finalProperties" : {
+      "Field" : {
+        "DefaultValue" : true,
+        "Description" : "Whether properties are marked as final when using Json Serializable for serialization\t",
+        "Name" : "finalProperties",
+        "Label" : "Final Properties",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "legacyDiscriminatorBehavior" : {
+      "Field" : {
+        "Description" : "Set to false for generators with better support for discriminators. If true, the mapping in the discriminator includes descendent schemas that allOf inherit from self and the discriminator mapping schemas in the OAS document. If false, the mapping in the discriminator includes any descendent schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.",
+        "Name" : "legacyDiscriminatorBehavior",
+        "Label" : "Legacy Discriminator Behavior",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "prependFormOrBodyParameters" : {
+      "Field" : {
+        "Description" : "Add form or body parameters to the beginning of the parameter list.",
+        "Name" : "prependFormOrBodyParameters",
+        "Label" : "Prepend Form Or Body Parameters",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubAuthor" : {
+      "Field" : {
+        "Options" : {
+          "AllowExpressions" : false,
+          "_t" : "TextFieldOptions"
+        },
+        "Description" : "Author name in generated pubspec",
+        "IsRequired" : false,
+        "Name" : "pubAuthor",
+        "Label" : "Pub Author",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubAuthorEmail" : {
+      "Field" : {
+        "Description" : "Email address of the author in generated pubspec",
+        "Name" : "pubAuthorEmail",
+        "Label" : "Pub Author's Email",
+        "_t" : "EmailField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubDescription" : {
+      "Field" : {
+        "Options" : {
+          "Multline" : true,
+          "ContentType" : "text/plain",
+          "_t" : "TextFieldOptions"
+        },
+        "Description" : "Description in generated pubspec",
+        "Name" : "pubDescription",
+        "Label" : "Pub Description",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubHomepage" : {
+      "Field" : {
+        "Description" : "Homepage in generated pubspec\t",
+        "Name" : "pubHomepage",
+        "Label" : "Pub Homepage",
+        "_t" : "UrlField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubLibrary" : {
+      "Field" : {
+        "DefaultValue" : "openapi.api",
+        "Description" : "Library name in generated code",
+        "Name" : "pubLibrary",
+        "Label" : "Pub Library",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubName" : {
+      "Field" : {
+        "DefaultValue" : "openapi",
+        "Description" : "Name in generated pubspec",
+        "Name" : "pubName",
+        "Label" : "Pub Name",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubPublishTo" : {
+      "Field" : {
+        "Description" : "Publish_to in generated pubspec",
+        "Name" : "pubPublishTo",
+        "Label" : "Pub Publish To",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubRepository" : {
+      "Field" : {
+        "Description" : "Repository in generated pubspec",
+        "Name" : "pubRepository",
+        "Label" : "Pub Repository",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "pubVersion" : {
+      "Field" : {
+        "DefaultValue" : "1.0.0",
+        "Description" : "Version in generated pubspec",
+        "Name" : "pubVersion",
+        "Label" : "Pub Version",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "serializationLibrary" : {
+      "Field" : {
+        "Options" : {
+          "Items" : {
+            "built_value" : "built_value",
+            "json_serializable" : "json_serializable"
+          },
+          "_t" : "SelectFieldOptions"
+        },
+        "Description" : "Specify serialization library",
+        "Name" : "serializationLibrary",
+        "Label" : "Serialization Library",
+        "_t" : "SelectField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "sortModelPropertiesByRequiredFlag" : {
+      "Field" : {
+        "DefaultValue" : true,
+        "Description" : "Sort model properties to place required parameters before optional parameters.",
+        "Name" : "sortModelPropertiesByRequiredFlag",
+        "Label" : "Sort Model Properties By Required Flag",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "sortParamsByRequiredFlag" : {
+      "Field" : {
+        "DefaultValue" : true,
+        "Description" : "Sort method arguments to place required parameters before optional parameters.",
+        "Name" : "sortParamsByRequiredFlag",
+        "Label" : "Sort Params By Required Flag",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "sourceFolder" : {
+      "Field" : {
+        "DefaultValue" : "src",
+        "Description" : "source folder for generated code",
+        "Name" : "sourceFolder",
+        "Label" : "Source Folder",
+        "_t" : "TextField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "useEnumExtension" : {
+      "Field" : {
+        "Description" : "Allow the 'x-enum-values' extension for enums",
+        "Name" : "useEnumExtension",
+        "Label" : "Use Enum Extension",
+        "_t" : "CheckboxField"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

@@ -1,0 +1,6 @@
+{
+    "library": "restsharp",
+    "targetFramework": "net6.0",
+    "netCoreProjectFile": true, 
+    "packageName": "PI.CompanyCam"
+}

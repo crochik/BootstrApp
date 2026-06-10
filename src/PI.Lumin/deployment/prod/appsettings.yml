@@ -1,0 +1,47 @@
+# Configuration for API 
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lumin
+  namespace: production
+  labels:
+    name: lumin
+    env: production
+data:
+  appsettings.json: |-
+    {
+      "ConnectionStrings": {
+        "Default": "Server=inspirenet.cfhubs2ytjpi.us-east-2.rds.amazonaws.com;Database=PI;Trusted_Connection=False;MultipleActiveResultSets=true;User=api;Password=fEf20eW6&w30iL*HOtfd"
+      },
+      "DataProtection": {
+        "KeysPath": "/pi/dataprotection"
+      },
+      "MessageQueue": {
+        "Url": "amqp://fci.cloud:%J38HVVJDbD7uLe%gRrI@rabbitmq:5672/",
+        "ExchangeName": "prod_o365",
+        "ExchangeType": "topic"
+      },  
+      "ELK": {
+        "UseForLogging": true,
+        "Url": "http://elasticsearch:9200",
+        "IndexFormat": "prod-lumin-{0:yyyy.MM.dd}"
+      },
+      "MonitorService":  {
+        "QueueName": "prod_lumin",
+        "Bindings": [
+          "lead.*.add"
+        ],
+        "IntegrationId": "30d3973d-4204-4395-93c0-d3be21d0e279"
+      },
+      "LuminService": {
+        "Url": "https://appt-tstx-fci-dot-pivotal-valve-130817.appspot-preview.com/lead/fci-pi",
+        "Key": "ctvBoVdTSMCvbt8Vtls3K5NWQOtBpb+EZDQzMQAz9f7/RoL4XB++V1fCCMKKKG8v4ezVEzpdFu2c7S4Bh2bIJQ=="
+      },  
+      "Logging": {
+        "LogLevel": {
+          "Default": "Debug",
+          "System": "Information",
+          "Microsoft": "Information"
+        }
+      }
+    }

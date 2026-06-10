@@ -1,0 +1,463 @@
+﻿@page "/salesforce/v1/Reports/InstallationMap({redirectionId})"
+@using PI.Salesforce.Models
+@model PI.Salesforce.Pages.InstallationMap
+
+@{
+    Layout = null;
+
+    void BuildRoom(Room item)
+    {
+        <div class="room">
+            <h3>@item.Name</h3>
+
+            @if (item.StairsType == null || item.ExternalLinks?.Length > 0)
+            {
+                <div class="images">
+                    @if (item.StairsType == null || item.Info?.StairsTypeId == "a0TUJ000005KUBv2AO")
+                    {
+                        <div class="card">
+                            <a href="@item.RoomImageUrl" target="_blank">
+                                <img alt="floor plan" src="@item.RoomImageUrl"/>
+                            </a>
+                        </div>
+                    }
+                    @if (item.ExternalLinks != null)
+                    {
+                        @foreach (var el in item.ExternalLinks)
+                        {
+                            <div class="card">
+                                <a href="@el.Url" target="_blank">
+                                    <img alt="@el.Name" src="@el.Url"/><br/>
+                                </a>
+                                @el.Name
+                            </div>
+                        }
+                    }
+                </div>
+            }
+
+            @if (item.Info?.StairsTypeId == "a0TUJ000005KUBv2AO")
+            {
+                @* @item.ExternalId *@
+
+                <div class="stairs">
+                    @foreach (var flight in item.Info.StairCase.Flights)
+                    {
+                        <div class="flight">
+                            <h4>@flight.Name</h4>
+                            <div>
+                                <span class="label">Stairs Type: </span>@flight.StairSubType @flight.StairType
+                            </div>
+                            <div>
+                                <span class="label">Number of Stairs: </span>@flight.NumberOfStairs
+                            </div>
+                            <div>
+                                <span class="label">Riser: </span>@flight.Riser.ToFtAndInches()
+                            </div>
+                            <div>
+                                <span class="label">Tread: </span>@flight.Tread.ToFtAndInches()
+                                @if (flight.AddStarterTread)
+                                {
+                                    <span>&nbsp;(Starter Added)</span>
+                                }
+                            </div>
+                            <div>
+                                <span class="label">Width: </span>@flight.WidthString
+                            </div>
+                            <div>
+                                <span class="label">Current Flooring: </span>@flight.CurrentFlooring
+                            </div>
+                            @if (!string.IsNullOrWhiteSpace(flight.Notes))
+                            {
+                                <div>
+                                    <span class="label">Notes: </span>@flight.Notes
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            else if (item.StairsType != null)
+            {
+                <div>
+                    <span class="label">Stairs Type: </span>@item.Info.StairsType
+                </div>
+                <div>
+                    <span class="label">Number of Stairs: </span>@item.Info.NumberOfStairs
+                </div>
+                <div>
+                    <span class="label">Riser: </span>@item.Info.StairsRiserFt' @item.Info.StairsRiserInch"
+                </div>
+                <div>
+                    <span class="label">Tread: </span>@item.Info.StairsThreadFt' @item.Info.StairsThreadInch'
+                </div>
+                <div>
+                    <span class="label">Width: </span>@item.Info.StairsWidthFt' @item.Info.StairsWidthInch"
+                </div>
+            }
+
+            @if (item.Info?.Doors?.Length > 0)
+            {
+                <div>
+                    <span class="label">Openings:</span><br/>
+                    <ul>
+                        @foreach (var door in item.Info.Doors)
+                        {
+                            <li>
+                                <span>@door.Name</span>
+                                @if (door.Tags != null)
+                                {
+                                    <span>&nbsp;@door.Tags</span>
+                                }
+                                :
+                                <span class="label">Width: </span>
+                                <span>@door.Width</span>
+                                @if (door.Pivot != null)
+                                {
+                                    <span class="label">&nbsp;Starting</span>
+                                    <span>@door.DistanceFromCorner</span>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(item.Info?.SpaceInformation?.SubfloorDescription))
+            {
+                <div>
+                    <span class="label">Subfloor Type: </span>@item.Info.SpaceInformation.SubfloorDescription
+                </div>
+            }
+            @if (!string.IsNullOrEmpty(item.Info?.SpaceInformation?.RemovingDescription))
+            {
+                <div>
+                    <span class="label">Removing: </span>@item.Info.SpaceInformation.RemovingDescription
+                </div>
+            }
+
+            @if (item.FurnitureToMove != null)
+            {
+                <div>
+                    <span class="label">Furniture to Move: </span>@item.FurnitureToMove
+                </div>
+            }
+            @if (item.NumberOfAppliances != null)
+            {
+                <div>
+                    <span class="label">Appliances to Move: </span>@item.NumberOfAppliances
+                </div>
+            }
+            @if (item.NumberOfHeavyItems != null)
+            {
+                <div>
+                    <span class="label">Heavy Items to Move: </span>@item.NumberOfHeavyItems
+                </div>
+            }
+            @if (item.NumberOfOtherItemsToMove != null)
+            {
+                <div>
+                    <span class="label">Other items to Move: </span>@item.NumberOfOtherItemsToMove
+                </div>
+            }
+
+            @if (item.Notes != null)
+            {
+                <div>
+                    <span class="label">Notes: </span>@item.Notes
+                </div>
+            }
+        </div>
+    }
+}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Installation Plan</title>
+    <style>
+        body {
+            font-family: Roboto, Helvetica, Arial, sans-serif;
+            background: #ccc;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+        
+        div.container{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        div.icon {
+            display: flex;
+            justify-content: center;
+            justify-items: center;
+            padding: 24px;
+            }
+        div.icon img {
+            max-width: 300px;
+            }
+        div.body {
+            width: 1024px;
+            padding: 0;
+            margin: 0;
+        }
+
+        div.header {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        }
+        
+        div.links {
+            /*margin-top: 24px;*/
+            /*margin-bottom: 24px;*/
+            padding-top: 24px;
+            padding-bottom: 24px;
+        }
+        div.floorplan {
+            margin-top: 24px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+            background: black;
+        }
+
+        div.floorplan img {
+            max-width: 800px;
+            max-height: 800px;
+        }
+
+        div.images {
+            width: 100%;
+            padding: 12px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            position: relative;
+            background: #eee;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+            margin-bottom: 24px;
+        }
+
+        div.card {
+            margin: 6px;
+            border: 1px solid #ccc;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        }
+
+        div.stairs {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        div.flight {
+            min-width: 400px;
+            border: 1px solid #ccc;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            justify-content: start;
+            background: #eee;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+        }
+        
+        div.card img {
+            max-width: 300px;
+            max-height: 300px;
+        }
+
+        div.sections {
+            margin-top: 24px;
+            margin-bottom: 24px;
+        }
+
+        div.section {
+            margin-top: 24px;
+            margin-bottom: 24px;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;
+            background: white;
+        }
+
+        div.rooms {
+            width: 100%;
+            margin-top: 24px;
+        }
+
+        div.room {
+            margin-top: 36px;
+            margin-bottom: 12px;
+        }
+
+        div.products {
+            margin-top: 12px;
+            margin-bottom:  12px;
+            padding: 24px;
+            /*border-radius: 8px;*/
+            border: 1px solid #777;
+            /*background: #eee;*/
+            /*box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px -1px, rgba(0, 0, 0, 0.14) 0px 4px 5px 0px, rgba(0, 0, 0, 0.12) 0px 1px 10px 0px;*/
+        }
+        .label {
+            color: #777;
+            line-height: 150%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="body">
+        <div class="icon">
+            <img src="https://fci-email.s3.us-east-2.amazonaws.com/fc100000-0000-0000-0000-000000000000/5eb9c61a65af4a508d3e4d64260b8021.png" alt="logo"/>
+        </div>
+        <div class="header">
+            <h1>@Model.Model.Option.Name - @Model.Model.WorkOrder?.Name</h1>
+            <div>
+                <span class="label">Customer: </span>@Model.Model.Option.CustomerName
+            </div>
+            <div>
+                <span class="label">Design Associate: </span>@Model.Model.Option.DesignAssociate
+            </div>
+            @* @if (Model.Option.Notes != null) *@
+            @* { *@
+            @*     <div> *@
+            @*         <span class="label">Notes: </span>@Model.Option.Notes *@
+            @*     </div> *@
+            @* } *@
+            <div>
+                <span class="label">Address: </span>@Model.Model.WorkOrder?.Street, @Model.Model.WorkOrder?.City, @Model.Model.WorkOrder?.PostalCode - @Model.Model.WorkOrder?.State, @Model.Model.WorkOrder?.Country
+            </div>
+
+            @if (Model.Model.ExternalLinks?.Length > 0)
+            {
+                <div class="links">
+                    <span class="label">External Links:</span><br/>
+                    <ul>
+                        @foreach (var el in Model.Model.ExternalLinks)
+                        {
+                            <li>
+                                <a href="@el.Url" target="_blank">@el.Name</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+
+        @if (Model.Model.WorkOrder?.Floorplan?.ImageUrl != null)
+        {
+            <div class="floorplan">
+                <a href="@Model.Model.WorkOrder.Floorplan.ImageUrl" target="_blank">
+                    <img alt="floorPlan" src="@Model.Model.WorkOrder.Floorplan.ImageUrl"/>
+                </a>
+            </div>
+        }
+
+        <div class="sections">
+            @foreach (var s in Model.Model.Sections)
+            {
+                <div class="section">
+                    <h2>
+                        @s.Name
+                    </h2>
+
+                    @if (s.ProductType != null)
+                    {
+                        <div class="product-type">
+                            <span class="label">ProductType:</span> @s.ProductType
+                        </div>
+                    }
+                    @if (s.InstallType != null)
+                    {
+                        <div class="install-type">
+                            <span class="label">Install Type:</span> @s.InstallType
+                        </div>
+                    }
+                    @if (s.PatternType != null)
+                    {
+                        <div class="pattern-type">
+                            <span class="label">Pattern Type:</span> @s.PatternType
+                        </div>
+                    }
+                    @if (s.Underlayment != null)
+                    {
+                        <div class="underlayment">
+                            <span class="label">Underlayment/Cushion:</span> @s.Underlayment
+                        </div>
+                    }
+                    @if (s.SubfloorType != null)
+                    {
+                        <div class="subfloor-type">
+                            <span class="label">Subfloor Work to do:</span> @s.SubfloorType
+                        </div>
+                    }
+                    @if (s.TrimWork != null)
+                    {
+                        <div class="trim-work">
+                            <span class="label">Trim Work:</span> @s.TrimWork
+                        </div>
+                    }
+                    @if (s.SectionLineItems?.Length > 0)
+                    {
+                        <div class="products">
+                            <h4>Items</h4>
+                            <div>
+                                <ul>
+                                    @foreach (var item in s.SectionLineItems)
+                                    {
+                                        <li>
+                                            @item.Description
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                    @if (s.Rooms?.Length > 0)
+                    {
+                        <div class="rooms">
+                            @foreach (var item in s.Rooms)
+                            {
+                                BuildRoom(item);
+                            }
+                        </div>
+                    }
+                </div>
+            }
+            @if (Model.Model.OtherRooms?.Length > 0)
+            {
+                <div class="section">
+                    <div class="rooms">
+                        @foreach (var item in Model.Model.OtherRooms)
+                        {
+                            BuildRoom(item);
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+</body>
+</html>

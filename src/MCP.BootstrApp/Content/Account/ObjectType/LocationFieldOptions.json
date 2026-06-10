@@ -1,0 +1,52 @@
+{
+  "_id" : "e2a56eb9-ffe7-47c9-9d59-6017ff9a6c76",
+  "Name" : "LocationFieldOptions",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "Enable" : ["false"],
+        "DefaultValue" : "LocationFieldOptions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "LocationFieldOptions"
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "LocationFieldOptions"
+        }]
+    }
+  },
+  "BaseObjectType" : "FieldOptions",
+  "Tags" : ["AUTOFIX", "PI-API"],
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "FullName" : "LocationFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

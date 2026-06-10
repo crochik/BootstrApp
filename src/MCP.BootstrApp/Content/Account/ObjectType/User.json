@@ -1,0 +1,498 @@
+{
+  "_id" : "c0e2b0ac-0816-4bb7-9417-40bc1579a636",
+  "Name" : "User",
+  "Description" : "User",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.User",
+  "UniqueExternalId" : false,
+  "Discriminator" : {
+    "UserManager" : {
+      "Conditions" : [{
+          "FieldName" : "UserRoleId",
+          "Operator" : "Eq",
+          "Value" : "Manager"
+        }]
+    },
+    "UserAdmin" : {
+      "Conditions" : [{
+          "FieldName" : "UserRoleId",
+          "Operator" : "Eq",
+          "Value" : "Admin"
+        }]
+    },
+    "UserDesignAssociate" : {
+      "Conditions" : [{
+          "FieldName" : "UserRoleId",
+          "Operator" : "Eq",
+          "Value" : "User"
+        }]
+    },
+    "UserProfile" : {
+      "Conditions" : [{
+          "FieldName" : "UserRoleId",
+          "Operator" : "Eq",
+          "Value" : "Profile"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 33,
+      "Manager" : 1,
+      "User" : 1,
+      "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 47
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "User"
+        }]
+    },
+    "Organization" : {
+      "Conditions" : [{
+          "FieldName" : "OrganizationId",
+          "Value" : "{{OrganizationId}}"
+        }]
+    },
+    "User" : {
+      "Conditions" : [{
+          "FieldName" : "_id",
+          "Value" : "{{UserId}}"
+        }]
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "Messages",
+      "ObjectType" : "Notification",
+      "Label" : "Messages",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "Refs|v",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToMany"
+    }, {
+      "Name" : "Organization",
+      "ObjectType" : "Organization",
+      "Label" : "Organization",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{OrganizationId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "RelationType" : "OneToOne",
+      "ApiName" : "organization"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "AppProfiles|PI",
+      "ObjectType" : "AppProfile",
+      "Label" : "PI Profile",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{AppProfiles|PI}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "AppProfiles|PLM",
+      "ObjectType" : "AppProfile",
+      "Label" : "PLM Profile",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{AppProfiles|PLM}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "AppProfiles|OTG",
+      "ObjectType" : "AppProfile",
+      "Label" : "OTG Profile",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{AppProfiles|OTG}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "Fields" : {
+    "OrganizationId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "OrganizationId",
+        "Label" : "Organization",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Organization",
+          "AutoComplete" : true,
+          "LinkUrl" : "dataForm://api/v1/CustomObject/Organization({{value}})/View",
+          "Criteria" : [{
+              "FieldName" : "IsActive",
+              "Value" : true
+            }]
+        },
+        "ApiName" : "organizationId"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "_Options" : {
+          "_t" : "TextFieldOptions",
+          "LinkUrl" : "page://User?id={{id}}"
+        },
+        "ApiName" : "name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "UserRoleId" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "UserRoleId",
+        "Label" : "Role",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "User" : "User",
+            "Manager" : "Manager",
+            "Admin" : "Admin",
+            "Profile" : "Limited Profile"
+          }
+        },
+        "ApiName" : "role"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "LinkUrl" : "dataForm://api/v1/CustomObject/Flow({{value}})/View",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "User"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "User"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Identities|Salesforce|Main" : {
+      "Field" : {
+        "Name" : "Identities|Salesforce|Main",
+        "Label" : "Salesforce User",
+        "_t" : "CalculatedField",
+        "Calculation" : {
+          "_t" : "expression",
+          "Calculations" : [{
+              "_t" : "path",
+              "Path" : "Identities"
+            }, {
+              "_t" : "lookup",
+              "Conditions" : [{
+                  "FieldName" : "IdentityProviderId",
+                  "Value" : "Salesforce"
+                }, {
+                  "FieldName" : "Data",
+                  "Operator" : "Ne",
+                  "Value" : null
+                }]
+            }, {
+              "_t" : "path",
+              "Path" : "ExternalId"
+            }]
+        },
+        "Field" : {
+          "_t" : "ReferenceField",
+          "Options" : {
+            "_t" : "ReferenceFieldOptions",
+            "ObjectType" : "sf_User",
+            "ForeignFieldName" : "ExternalId",
+            "LinkUrl" : "dataForm://api/v1/CustomObject/sf_User({{value}})/View"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "Identities|Salesforce|ServiceResource" : {
+      "Field" : {
+        "Name" : "Identities|Salesforce|ServiceResource",
+        "Label" : "Salesforce Service Resource",
+        "_t" : "CalculatedField",
+        "Calculation" : {
+          "_t" : "expression",
+          "Calculations" : [{
+              "_t" : "path",
+              "Path" : "Identities"
+            }, {
+              "_t" : "lookup",
+              "Conditions" : [{
+                  "FieldName" : "IdentityProviderId",
+                  "Value" : "Salesforce"
+                }, {
+                  "FieldName" : "Name",
+                  "Value" : "ServiceResource"
+                }]
+            }, {
+              "_t" : "path",
+              "Path" : "ExternalId"
+            }]
+        },
+        "Field" : {
+          "_t" : "ReferenceField",
+          "Options" : {
+            "_t" : "ReferenceFieldOptions",
+            "ObjectType" : "sf_ServiceResource",
+            "ForeignFieldName" : "ExternalId",
+            "LinkUrl" : "dataForm://api/v1/CustomObject/sf_ServiceResource({{value}})/View"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    },
+    "AppProfiles|PI" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "AppProfiles|PI",
+        "Label" : "PI Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppProfile"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "AppProfiles|PLM" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "AppProfiles|PLM",
+        "Label" : "PLM Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppProfile"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "AppProfiles|OTG" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "AppProfiles|OTG",
+        "Label" : "OTG Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppProfile"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "AppProfiles" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "AppProfiles",
+        "Label" : "Profiles",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "*"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    }
+  },
+  "CollectionName" : "Entity",
+  "BaseObjectType" : "Entity",
+  "Tags" : ["OTG"],
+  "FullName" : "User",
+  "Label" : "User",
+  "LabelPlural" : "Users",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

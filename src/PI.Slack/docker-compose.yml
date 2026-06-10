@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  slack:
+    image: docker2.fci.cloud/slack:20200411.3
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://0.0.0.0:5003"
+      MessageQueue__Url: "amqp://pi:pi@host.docker.internal:5672/"
+      MessageQueue__Hosts__0": "host.docker.internal"
+
+      MessageQueue__ExchangeName: "ppa"
+      MessageQueue__ExchangeType: "topic"
+      SlackIntegrationService__QueueName: "staging_slack"
+
+      MongoConnection__ConnectionString: "mongodb://host.docker.internal:27017/PI"
+      UsesMongo: "true"
+      DataProtection__KeysPath: "/app/.dataprotection-keys"
+      ELK__UseForLogging: "false"
+      PI__Authority: "http://host.docker.internal:5000"
+      PI__ApiName: "Sched.Onl"
+    volumes:
+      - ./Identity/appsettings.Development.json:/app/appsettings.Development.json
+      - /Users/felipecrochik/.dataprotection-keys:/app/.dataprotection-keys
+    ports:
+      - "5003:5003"

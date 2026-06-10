@@ -1,0 +1,69 @@
+routes:
+#  - name: API
+#    prefix: /api/
+#    host: localhost:5002
+#  - name: APP
+#    prefix: /app/
+#    host: localhost:5002
+  - name: Productcatalog
+    prefix: /productcatalog/
+    host: localhost:5009
+#  - name: Dipper
+#    prefix: /dipper/
+#    host: localhost:5007
+#  - name: lms
+#    prefix: /lms/
+#    host: localhost:5023
+# - name: Singer
+#   prefix: /singer/
+#   host: localhost:5002
+#  - name: Sendgrid
+#    prefix: /sendgrid/
+#    host: localhost:5004
+#  - name: Salesforce
+#    prefix: /salesforce/
+#    host: localhost:5005
+# - name: O365
+#   prefix: /o365/
+#   host: localhost:5010
+#  - name: Files
+#    prefix: /files/
+#    host: localhost:5022
+#  - name: Reports
+#    prefix: /reports/
+#    host: localhost:5012
+#  - name: BI
+#    prefix: /bi/
+#    host: localhost:5012
+#  - name: Typeform
+#    prefix: /typeform/
+#    host: localhost:5024
+#  - name: OpenAPI
+#    prefix: /openapi/
+#    host: localhost:5025
+#  - name: ComanyCam
+#    prefix: /companycam/
+#    host: localhost:5025
+#  - name: Quickbooks
+#    prefix: /quickbooks/
+#    host: localhost:5025
+#  - name: Langchain
+#    prefix: /langchain/
+#    host: localhost:5025
+#  - name: Google
+#    prefix: /google/
+#    host: api.fci.cloud
+#    scheme: https
+  # - name: IME
+  #   prefix: /ime/
+  #   host: localhost:5013
+  #  - name: Lumin
+  #    prefix: /lumin/
+  #    host: localhost:5014
+  #  - name: IDP
+  #    prefix: /idp/
+  #    host: localhost:5004
+  - name: api.fci.cloud
+    prefix: /
+    host: api.fci.cloud
+    scheme: https

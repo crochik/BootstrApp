@@ -1,0 +1,29 @@
+_id: 4ff778b7-00df-4b33-ab16-85c324f22146
+BaseObjectType: SelectFieldOptions
+CollectionName: '?'
+Description: 'Options for MultiSelect Field '
+Fields:
+  _t:
+    Field:
+      _t: HiddenField
+      Label: Type
+      Name: _t
+    InitialValue: MultiSelectFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 0
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: MultiSelectFieldOptions
+IsEmbedded: true
+Name: MultiSelectFieldOptions
+NativeType: PI.Shared.Form.Models.MultiSelectFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

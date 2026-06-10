@@ -1,0 +1,66 @@
+_id: e2d647c7-fc20-4013-8973-46c94325f9f0
+CollectionName: '?'
+Description: Reference Value
+Fields:
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 1
+  Id:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Id
+      Name: Id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  ImageUrl:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Image Url
+      Name: ImageUrl
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Value:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Value
+      Name: Value
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ReferenceValue
+IsAbstract: false
+IsEmbedded: true
+Label: Reference Value
+LabelPlural: Reference Values
+Name: ReferenceValue
+NativeType: ReferenceValue
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 1
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

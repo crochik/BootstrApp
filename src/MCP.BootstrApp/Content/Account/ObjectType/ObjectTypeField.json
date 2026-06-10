@@ -1,0 +1,137 @@
+{
+  "_id" : "3d740403-7e78-48ed-9ecb-d832d65c2cf1",
+  "Name" : "ObjectTypeField",
+  "Description" : "Field",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "DefaultSort" : "Field|Name",
+  "Constraints" : { },
+  "Fields" : {
+    "Field|_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Field|_t",
+        "Label" : "Type"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Field|Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Field|Name",
+        "Label" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Field|Label" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Field|Label",
+        "Label" : "Label"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Field|IsRequired" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Field|IsRequired",
+        "Label" : "Required?"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "RBAC|Permissions|Admin" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "RBAC|Permissions|Admin",
+        "Label" : "Admin",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "1" : "Read",
+            "2" : "Update",
+            "3" : "RU",
+            "4" : "Create",
+            "5" : "CR",
+            "6" : "CU",
+            "7" : "CRU",
+            "8" : "Delete",
+            "9" : "RD",
+            "10" : "WD",
+            "11" : "RWD",
+            "12" : "CD",
+            "13" : "CRD",
+            "14" : "CD",
+            "15" : "CRUD"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "RBAC|Permissions|Manager" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "RBAC|Permissions|Manager",
+        "Label" : "Manager",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "1" : "Read",
+            "2" : "Update",
+            "3" : "RU",
+            "4" : "Create",
+            "5" : "CR",
+            "6" : "CU",
+            "7" : "CRU",
+            "8" : "Delete",
+            "9" : "RD",
+            "10" : "WD",
+            "11" : "RWD",
+            "12" : "CD",
+            "13" : "CRD",
+            "14" : "CD",
+            "15" : "CRUD"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "Tags" : [],
+  "CollectionName" : "CustomObject",
+  "RelatedObjectTypes" : [],
+  "FullName" : "ObjectTypeField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

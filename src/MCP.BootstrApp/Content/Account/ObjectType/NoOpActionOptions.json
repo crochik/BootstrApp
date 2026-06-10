@@ -1,0 +1,18 @@
+{
+  "_id" : "66cd414d-dd6e-4622-b6a4-e83cc1d758e4",
+  "Name" : "NoOpActionOptions",
+  "Description" : "No Operation Action Options",
+  "CollectionName" : "?",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "NoOpActionOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : { },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019"
+}

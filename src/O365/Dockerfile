@@ -1,0 +1,5 @@
+FROM mcr.microsoft.com/dotnet/aspnet:10.0.2
+WORKDIR /app
+COPY ./out .
+
+ENTRYPOINT ["dotnet", "O365.dll"]

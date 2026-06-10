@@ -1,0 +1,184 @@
+_id: bab12bb4-311e-464c-b765-b8b135330c32
+ApiName: EntityAvailability
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Operator: Eq
+      Value: fc100000-0000-0000-0000-000000000000
+Description: EntityOwnedModel
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    InitialValue: '{{new UUID}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+        User: 1
+  AccountId:
+    Field:
+      _t: HiddenField
+      IsRequired: true
+      Label: Account
+      Name: AccountId
+    Indexed: true
+    InitialValue: '{{AccountId}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+        User: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      ApiName: createdDate
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      ApiName: description
+      IsRequired: false
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        Multline: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        User: 1
+  EntityId:
+    Field:
+      _t: ReferenceField
+      ApiName: entityId
+      DefaultValue: '{{context "UserId"}}'
+      IsRequired: true
+      Label: Entity
+      Name: EntityId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: Entity
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 5
+        Admin: 5
+        User: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Last Actor
+      Name: LastActor
+    Indexed: false
+    InitialValue: '{{Actor}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 0
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      ApiName: name
+      IsRequired: false
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        User: 1
+  Slots:
+    Field:
+      _t: ChildrenField
+      ApiName: slots
+      IsRequired: true
+      Label: Slots
+      Name: Slots
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: AvailabilitySlot
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: EntityAvailability
+IsAbstract: true
+IsActive: true
+IsEmbedded: false
+IsFullTextSearchable: true
+Label: Availability
+LabelPlural: Availability
+Name: EntityAvailability
+NativeType: ???
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 15
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{EntityId}}'
+  Label: Entity
+  Name: EntityId
+  ObjectType: Entity
+  RBAC:
+    Permissions:
+      33d883d8-c153-44b2-9094-d4fd158e767d: 0
+  RelationType: OneToOne
+Tags:
+- OTG
+- System
+UniqueExternalId: false

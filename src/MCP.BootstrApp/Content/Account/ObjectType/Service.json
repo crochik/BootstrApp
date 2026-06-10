@@ -1,0 +1,209 @@
+{
+  "_id" : "28d70107-aa2f-4a37-a137-b13a627b1e47",
+  "Name" : "Service",
+  "Description" : "PI Service (Deprecated...use BackgroundServiceConfig instead)",
+  "IsActive" : true,
+  "UniqueExternalId" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ExternalId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ExternalId",
+        "Label" : "Code",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      }
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Properties|MaxConcurrentInstances" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Properties|MaxConcurrentInstances",
+        "Label" : "Max Instances",
+        "DefaultValue" : 1,
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      }
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "/api/v1/ObjectType(Flow)",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Service"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3
+        }
+      }
+    },
+    "Properties|CurrentInstances" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Properties|CurrentInstances",
+        "Label" : "Running Instances",
+        "Enable" : ["false"],
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Properties|AvailableInstances" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Properties|AvailableInstances",
+        "Label" : "Available Instances",
+        "Enable" : ["false"],
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Properties|StartedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Properties|StartedOn",
+        "Label" : "Started",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Properties|EndedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Properties|EndedOn",
+        "Label" : "Ended",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Properties|Error" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Properties|Error",
+        "Label" : "Last Error"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Properties|LastTransactionId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Properties|LastTransactionId",
+        "Label" : "Last Transaction"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "CollectionName" : "CustomObject",
+  "Tags" : [],
+  "IsAbstract" : false,
+  "IsEmbedded" : false,
+  "FullName" : "Service",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

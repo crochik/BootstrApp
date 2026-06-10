@@ -1,0 +1,268 @@
+_id: fb34bf27-6837-499b-942d-2050b0d29e9e
+BaseObjectType: openapi.ClientGeneratorSettings
+CollectionName: '?'
+Description: OpenApiTools Generator Dart
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: DartSettings
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    RBAC:
+      Permissions:
+        Admin: 7
+  allowUnicodeIdentifiers:
+    Field:
+      _t: CheckboxField
+      Description: toggles whether unicode identifiers are allowed in names or not
+      IsRequired: false
+      Label: Allow Unicode Identifiers
+      Name: allowUnicodeIdentifiers
+    RBAC:
+      Permissions:
+        Admin: 7
+  dateLibrary:
+    Field:
+      _t: SelectField
+      Description: Specify Date library. Time Machine is date and time library for Flutter, Web, and Server with support for timezones, calendars, cultures, formatting and parsing.
+      Label: Date Library
+      Name: dateLibrary
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          core: core
+          timemachine: timemachine
+    RBAC:
+      Permissions:
+        Admin: 7
+  disallowAdditionalPropertiesIfNotPresent:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      Description: If false, the 'additionalProperties' implementation (set to true by default) is compliant with the OAS and JSON schema specifications. If true (default), keep the old (incorrect) behavor that 'additionalProperties' is set to false by default.
+      Label: Disallow Additional Properties If Not Present
+      Name: disallowAdditionalPropertiesIfNotPresent
+    RBAC:
+      Permissions:
+        Admin: 7
+  ensureUniqueParams:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      Description: Whether to ensure parameter names are unique in an operation (rename parameters that are not).
+      Label: Ensure Unique Params
+      Name: ensureUniqueParams
+    RBAC:
+      Permissions:
+        Admin: 7
+  enumUnknownDefaultCase:
+    Field:
+      _t: CheckboxField
+      Description: If the server adds new enum cases, that are unknown by an old spec/client, the client will fail to parse the network response.With this option enabled, each enum will have a new case, 'unknown_default_open_api', so that when the server sends an enum case that is not known by the client/spec, they can safely fallback to this case.
+      Label: Enum Unknown Default Case
+      Name: enumUnknownDefaultCase
+    RBAC:
+      Permissions:
+        Admin: 7
+  equalityCheckMethod:
+    Field:
+      _t: SelectField
+      Description: Specify equality check method. Takes effect only in case if serializationLibrary is json_serializable.	
+      Label: Equality Check Method
+      Name: equalityCheckMethod
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          default: Built in hash code generation method
+          equatable: Uses equatable library for equality checking
+    RBAC:
+      Permissions:
+        Admin: 7
+  finalProperties:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      Description: Whether properties are marked as final when using Json Serializable for serialization	
+      Label: Final Properties
+      Name: finalProperties
+    RBAC:
+      Permissions:
+        Admin: 7
+  legacyDiscriminatorBehavior:
+    Field:
+      _t: CheckboxField
+      Description: Set to false for generators with better support for discriminators. If true, the mapping in the discriminator includes descendent schemas that allOf inherit from self and the discriminator mapping schemas in the OAS document. If false, the mapping in the discriminator includes any descendent schemas that allOf inherit from self, any oneOf schemas, any anyOf schemas, any x-discriminator-values, and the discriminator mapping schemas in the OAS document AND Codegen validates that oneOf and anyOf schemas contain the required discriminator and throws an error if the discriminator is missing.
+      Label: Legacy Discriminator Behavior
+      Name: legacyDiscriminatorBehavior
+    RBAC:
+      Permissions:
+        Admin: 7
+  prependFormOrBodyParameters:
+    Field:
+      _t: CheckboxField
+      Description: Add form or body parameters to the beginning of the parameter list.
+      Label: Prepend Form Or Body Parameters
+      Name: prependFormOrBodyParameters
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubAuthor:
+    Field:
+      _t: TextField
+      Description: Author name in generated pubspec
+      IsRequired: false
+      Label: Pub Author
+      Name: pubAuthor
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubAuthorEmail:
+    Field:
+      _t: EmailField
+      Description: Email address of the author in generated pubspec
+      Label: Pub Author's Email
+      Name: pubAuthorEmail
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubDescription:
+    Field:
+      _t: TextField
+      Description: Description in generated pubspec
+      Label: Pub Description
+      Name: pubDescription
+      Options:
+        _t: TextFieldOptions
+        ContentType: text/plain
+        Multline: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubHomepage:
+    Field:
+      _t: UrlField
+      Description: Homepage in generated pubspec	
+      Label: Pub Homepage
+      Name: pubHomepage
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubLibrary:
+    Field:
+      _t: TextField
+      DefaultValue: openapi.api
+      Description: Library name in generated code
+      Label: Pub Library
+      Name: pubLibrary
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubName:
+    Field:
+      _t: TextField
+      DefaultValue: openapi
+      Description: Name in generated pubspec
+      Label: Pub Name
+      Name: pubName
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubPublishTo:
+    Field:
+      _t: TextField
+      Description: Publish_to in generated pubspec
+      Label: Pub Publish To
+      Name: pubPublishTo
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubRepository:
+    Field:
+      _t: TextField
+      Description: Repository in generated pubspec
+      Label: Pub Repository
+      Name: pubRepository
+    RBAC:
+      Permissions:
+        Admin: 7
+  pubVersion:
+    Field:
+      _t: TextField
+      DefaultValue: 1.0.0
+      Description: Version in generated pubspec
+      Label: Pub Version
+      Name: pubVersion
+    RBAC:
+      Permissions:
+        Admin: 7
+  serializationLibrary:
+    Field:
+      _t: SelectField
+      Description: Specify serialization library
+      Label: Serialization Library
+      Name: serializationLibrary
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          built_value: built_value
+          json_serializable: json_serializable
+    RBAC:
+      Permissions:
+        Admin: 7
+  sortModelPropertiesByRequiredFlag:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      Description: Sort model properties to place required parameters before optional parameters.
+      Label: Sort Model Properties By Required Flag
+      Name: sortModelPropertiesByRequiredFlag
+    RBAC:
+      Permissions:
+        Admin: 7
+  sortParamsByRequiredFlag:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      Description: Sort method arguments to place required parameters before optional parameters.
+      Label: Sort Params By Required Flag
+      Name: sortParamsByRequiredFlag
+    RBAC:
+      Permissions:
+        Admin: 7
+  sourceFolder:
+    Field:
+      _t: TextField
+      DefaultValue: src
+      Description: source folder for generated code
+      Label: Source Folder
+      Name: sourceFolder
+    RBAC:
+      Permissions:
+        Admin: 7
+  useEnumExtension:
+    Field:
+      _t: CheckboxField
+      Description: Allow the 'x-enum-values' extension for enums
+      Label: Use Enum Extension
+      Name: useEnumExtension
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapitools.DartSettings
+IsAbstract: false
+IsEmbedded: true
+Name: DartSettings
+Namespace: openapitools
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- openapi

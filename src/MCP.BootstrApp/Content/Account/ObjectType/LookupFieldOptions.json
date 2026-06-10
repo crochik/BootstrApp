@@ -1,0 +1,36 @@
+{
+  "_id" : "4d1cded3-e7f4-4a56-af72-8782ab4e9af3",
+  "Name" : "LookupFieldOptions",
+  "Description" : "Options for Lookup Field (DEPRECATED)",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.LookupFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "LookupFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "LookupFieldOptions"
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "LookupFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

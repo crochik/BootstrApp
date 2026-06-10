@@ -1,0 +1,176 @@
+_id: 6c376735-713a-4135-bdf7-1ef9983caf01
+CollectionName: '?'
+Description: OpenAPI Operation Request
+Fields:
+  Method:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: HTTP Method
+      Name: Method
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          DELETE: Delete
+          GET: Get
+          HEAD: Head
+          OPTIONS: Options
+          PATCH: Patch
+          POST: Post
+          PUT: Put
+          TRACE: Trace
+    RBAC:
+      Permissions:
+        Admin: 7
+  Parameters:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Parameters
+      Name: Parameters
+      Options:
+        _t: ChildrenFieldOptions
+        KeyField:
+          _t: TextField
+          IsRequired: true
+          Label: Field Name
+          Name: Key
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        KeyType: string
+        ObjectType: Field
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ParametersObjectType:
+    Field:
+      _t: ReferenceField
+      Label: Parameters
+      Name: ParametersObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        Actions:
+        - Action: '#new'
+          Label: Create new Object
+          Name: New
+        ForeignFieldName: FullName
+        LinkLabel: Edit Object
+        LinkUrl: dataform:/api/v1/CustomObject/ObjectType({{value}})/Edit
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  ParametersPlacement:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Parameters Placement
+      Name: ParametersPlacement
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: true
+        KeyField:
+          _t: TextField
+          IsRequired: true
+          Label: Parameter Name
+          Name: Key
+        ValueField:
+          _t: SelectField
+          IsRequired: true
+          Label: Placement
+          Name: Value
+          Options:
+            _t: SelectFieldOptions
+            AllowUnknown: false
+            Items:
+              Cookie: Cookie
+              Header: Header
+              Path: Path
+              Query: Query
+    RBAC:
+      Permissions:
+        Admin: 7
+  Path:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Path
+      Name: Path
+    RBAC:
+      Permissions:
+        Admin: 7
+  Payloads:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Payload
+      Name: Payloads
+      Options:
+        _t: ChildrenFieldOptions
+        KeyField:
+          _t: SelectField
+          IsRequired: false
+          Label: MIME Content Type
+          Name: Key
+          Options:
+            _t: SelectFieldOptions
+            AllowUnknown: false
+            Items:
+              application/json: JSON (application/json)
+        KeyType: string
+        ObjectType: openapi.Payload
+    RBAC:
+      Permissions:
+        Admin: 7
+  Payloads|application/json|ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Payload
+      Name: Payloads|application/json|ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.Request
+IsAbstract: false
+IsEmbedded: true
+Name: Request
+Namespace: openapi
+NativeType: PI.OpenAPI.Models.OApiRequest
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{ParametersObjectType}}'
+  Label: Parameters
+  Name: ParametersObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: FullName
+      Operator: Eq
+      Value: '{{Payloads|application/json|ObjectType}}'
+  Label: Payload
+  Name: Payloads|application/json|ObjectType
+  ObjectType: ObjectType
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+Tags:
+- openapi

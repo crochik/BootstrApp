@@ -1,0 +1,70 @@
+{
+  "_id" : "60e840fe-af9b-4109-a521-aaf3e08c48e8",
+  "Name" : "PhoneFieldOptions",
+  "Description" : "Options for Phone Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.PhoneFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "PhoneFieldOptions"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "PhoneFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "PhoneFieldOptions",
+      "Indexed" : true
+    },
+    "AutoFormat" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "AutoFormat",
+        "Label" : "Format Automatically",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "None" : "None",
+            "National" : "National",
+            "International" : "International"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "PhoneFieldOptions",
+  "Label" : "PhoneField Options",
+  "LabelPlural" : "PhoneField Options",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

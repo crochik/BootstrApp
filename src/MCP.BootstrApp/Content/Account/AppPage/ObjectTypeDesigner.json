@@ -1,0 +1,10 @@
+{
+  "_id" : "d9fe7405-87db-474b-b8a9-3afeb22ddd3d",
+  "Name" : "ObjectTypeDesigner",
+  "Page" : {
+    "_t" : "CustomPage",
+    "Name" : "ObjectTypeDesigner",
+    "Label" : "Object Type Designer",
+    "ComponentName" : "ObjectTypeDesigner"
+  }
+}

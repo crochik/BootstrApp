@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <ItemGroup>
+    <ProjectReference Include="../PI.Shared.App/PI.Shared.App.csproj" />
+    <ProjectReference Include="../PI.Shared.Services/PI.Shared.Services.csproj" />
+    <ProjectReference Include="../PI.Shared.Services.FileStorage/PI.Shared.Services.FileStorage.csproj" />
+    <ProjectReference Include="..\Zip.tax\output\ZipTax.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Handlebars.Net/source/Handlebars/Handlebars.csproj" />
+  </ItemGroup>
+<!--  <ItemGroup>-->
+<!--    <PackageReference Include="CompareNETObjects" Version="4.67.0" />-->
+<!--  </ItemGroup>-->
+  <ItemGroup>
+    <Folder Include="Estimate\" />
+    <Folder Include="Models\Catalog\" />
+    <Folder Include="temp\" />
+  </ItemGroup>
+</Project>

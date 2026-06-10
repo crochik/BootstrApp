@@ -1,0 +1,12 @@
+_id: cfbcb7bb-9017-4ddb-abf7-2cff03a3773c
+Description: Design
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: Design
+ObjectType: ObjectTypeDraft
+Trigger:
+  _t: User
+  Name: Design
+  NextUrl: page:/ObjectTypeDesigner?id={{Object.Name}}
+  ObjectStatusId: 55359d4e-d38e-4172-b11f-b153caf60036
+  ProfileIds:
+  - d33d2dda-5180-44a5-9e63-77494f57646a

@@ -1,0 +1,139 @@
+_id: 332c1180-64c6-4693-8398-d0456c0007ce
+CollectionName: job.ScheduledTask
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Scheduled Task
+Discriminator:
+  PostEventScheduledTask:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: postEvent
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          postEvent: Post Event
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  AutoReschedule:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Schedule (Crontab)
+      Name: AutoReschedule
+    RBAC:
+      Permissions:
+        Admin: 7
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Error:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Error
+    RBAC:
+      Permissions:
+        Admin: 1
+  Finished:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Name: Finished
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  Started:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Name: Started
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Tag:
+    Field:
+      _t: TextField
+      Name: Tag
+    RBAC:
+      Permissions:
+        Admin: 7
+  Time:
+    Field:
+      _t: DateTimeField
+      IsRequired: true
+      Name: Time
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ScheduledTask
+IsAbstract: true
+IsEmbedded: false
+Name: ScheduledTask
+NativeType: PI.Shared.Models.ScheduledTask
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- job
+- System

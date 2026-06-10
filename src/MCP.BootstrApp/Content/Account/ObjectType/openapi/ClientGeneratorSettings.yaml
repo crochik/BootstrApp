@@ -1,0 +1,35 @@
+_id: 9f87d558-a1e3-4073-bf50-a3c2d83adf06
+CollectionName: '?'
+Description: API Generator Settings
+Discriminator:
+  openapitools.DartSettings:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: openapitools.DartSettings
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          openapitools.DartSettings: OpenAPI Genertor - Dart Settings
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: openapi.ClientGeneratorSettings
+IsAbstract: true
+IsEmbedded: true
+Name: ClientGeneratorSettings
+Namespace: openapi
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- openapi

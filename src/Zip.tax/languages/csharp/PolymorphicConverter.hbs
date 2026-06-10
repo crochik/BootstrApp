@@ -1,0 +1,29 @@
+{{#with Data}}
+{{#if IsPolymorphic}}
+using System.Text.Json;
+using System.Text.Json.Serialization;
+
+namespace {{Namespace}};
+
+/// <summary>
+/// JSON converter for polymorphic type {{ClassName}} using discriminator property "{{Discriminator.PropertyName}}"
+/// </summary>
+public class {{ClassName}}Converter : JsonConverter<{{ClassName}}>
+{
+    public override {{ClassName}}? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    {
+        // Read the JSON into a JsonDocument to inspect the discriminator
+        using var doc = JsonDocument.ParseValue(ref reader);
+
+        // Use the serializer's explicit discriminator-based deserialization
+        return {{ClassName}}Serializer.DeserializeFromElement(doc.RootElement);
+    }
+
+    public override void Write(Utf8JsonWriter writer, {{ClassName}} value, JsonSerializerOptions options)
+    {
+        // Serialize using JsonSerializer with the actual runtime type
+        JsonSerializer.Serialize(writer, value, value.GetType(), options);
+    }
+}
+{{/if}}
+{{/with}}

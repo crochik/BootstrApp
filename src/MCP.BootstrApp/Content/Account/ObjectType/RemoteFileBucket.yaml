@@ -1,0 +1,64 @@
+_id: f895a8f9-2c2e-48fb-9c09-73f07147fbfb
+BaseObjectType: EntityOwnedModel
+CollectionName: file.Bucket
+Description: Remote File Bucket
+Discriminator:
+  S3RemoteFileBucket:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: s3
+  SftpRemoteFileBucket:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: sftp
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          s3: AWS S3 Bucket
+          sftp: SFTP Connection
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        LinkUrl: dataGrid://api/v1/CustomObject(RemoteFolder)?BucketId={{id}}&ParentId={{NULL}}
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RemoteFileBucket
+IsAbstract: true
+IsEmbedded: false
+Name: RemoteFileBucket
+NativeType: PI.Shared.Models.Files.RemoteFileBucket
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: BucketId
+      Operator: Eq
+      Value: '{{_id}}'
+    - FieldName: ParentId
+  Label: Folders
+  Name: Folders
+  ObjectType: RemoteFolder
+  RBAC:
+    Permissions:
+      Admin: 1
+Tags:
+- Files

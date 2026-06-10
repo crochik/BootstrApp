@@ -1,0 +1,61 @@
+{
+  "_id" : "3a742e84-40bf-4212-bef0-30face0997e0",
+  "Name" : "ArrayFieldOptions",
+  "Description" : "Options for Array Field",
+  "CollectionName" : "?",
+  "BaseObjectType" : "FieldOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "ArrayFieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ValueField" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "ValueField",
+        "Label" : "Value",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Field"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "ArrayFieldOptions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        },
+        "Enable" : ["false"],
+        "IsReadOnly" : true
+      },
+      "Indexed" : true,
+      "InitialValue" : "ArrayFieldOptions",
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

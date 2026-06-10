@@ -1,0 +1,41 @@
+_id: e081b21c-ad5c-42cf-8f27-f3153e8fd4af
+BaseObjectType: AppProfileElement
+CollectionName: app.Form.1
+Description: AppForm
+Fields:
+  Form:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Form Definition
+      Name: Form
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Form
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: TextField
+      Name: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppForm
+IsAbstract: false
+IsEmbedded: false
+Name: AppForm
+NativeType: PI.Shared.Models.AppForm
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System
+- ui

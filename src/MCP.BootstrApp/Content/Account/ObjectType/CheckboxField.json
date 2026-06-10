@@ -1,0 +1,66 @@
+{
+  "_id" : "0146668a-a555-4277-a760-30b6088a75b0",
+  "Name" : "CheckboxField",
+  "Description" : "Checkbox Field",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Models.CheckboxField",
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "CheckboxField",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "CheckboxField"
+    },
+    "DefaultValue" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "DefaultValue",
+        "Label" : "Default Value",
+        "Options" : {
+          "_t" : "CheckboxFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Options" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Options",
+        "Label" : "Options",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "CheckboxFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "BaseObjectType" : "Field",
+  "IsEmbedded" : true,
+  "FullName" : "CheckboxField",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

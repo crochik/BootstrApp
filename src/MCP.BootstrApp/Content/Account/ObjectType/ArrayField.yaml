@@ -1,0 +1,44 @@
+_id: 6a0ec6fd-80b8-434e-9aa4-9aa9c1db505e
+BaseObjectType: Field
+CollectionName: '?'
+Description: Array Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ArrayField
+      Enable:
+      - false
+      IsReadOnly: true
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: ArrayField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: ArrayFieldOptions
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ArrayField
+IsAbstract: false
+IsEmbedded: true
+Name: ArrayField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System

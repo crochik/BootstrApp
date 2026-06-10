@@ -1,0 +1,158 @@
+_id: 1339c416-c6d0-418a-98ee-e2384e2a4f35
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Trusted Form Options
+Fields:
+  AlwaysFireNextEvent:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      Description: When set it will always continue even if it can't validate/retain certificate.
+      IsRequired: false
+      Label: Ignore Error(s) and Continue
+      Name: AlwaysFireNextEvent
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Certificate:
+    Field:
+      _t: TextField
+      DefaultValue: '{{Object.ParsedInput.TrustedFormCert}}'
+      Description: Certificate Url. It can be an Expression.
+      IsRequired: false
+      Label: Certificate (expression)
+      Name: Certificate
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Email:
+    Field:
+      _t: TextField
+      DefaultValue: '{{Object.ParsedInput.Email}}'
+      Description: Email associated with certificate. It can be an Expression.
+      IsRequired: false
+      Label: Email (expression)
+      Name: Email
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Insights:
+    Field:
+      _t: DictionaryField
+      Description: Insights to capture. Key is the path to target property in the run
+      IsRequired: false
+      Label: Insights
+      Name: Insights
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Label: Target Property
+          Name: Target
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: SelectField
+          IsRequired: false
+          Label: Insight
+          Name: Insight
+          Options:
+            _t: SelectFieldOptions
+            Items:
+              age_seconds: Age in Seconds
+              approx_ip_geo: Approximate Location
+              domain: Domain
+              form_input_method: Input Method
+              ip: IP Address
+              seconds_on_page: Seconds in Page
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Phone:
+    Field:
+      _t: TextField
+      DefaultValue: '{{Object.ParsedInput.Phone}}'
+      Description: Phone number associated with certificate. It can be an Expression.
+      IsRequired: false
+      Label: Phone (expression)
+      Name: Phone
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Retain
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Retain:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      Description: Whether to retain certificate or not.
+      IsRequired: true
+      Label: Retain Certificate
+      Name: Retain
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Vendor:
+    Field:
+      _t: TextField
+      DefaultValue: LeadsPiper.com
+      Description: Vendor to be associated with retained certificate. It can be an Expression.
+      IsRequired: false
+      Label: Vendor
+      Name: Vendor
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Retain
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  VendorId:
+    Field:
+      _t: TextField
+      Description: Id to be associated with retained certificate. It can be an Expression.
+      IsRequired: false
+      Label: Vendor Id
+      Name: VendorId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+      Visible:
+      - Retain
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TrustedFormCertActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: TrustedFormCertActionOptions
+NativeType: '?'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

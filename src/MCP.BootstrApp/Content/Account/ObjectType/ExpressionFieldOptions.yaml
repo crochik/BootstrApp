@@ -1,0 +1,42 @@
+_id: cb5c8aa5-58ff-4dc7-bcb5-213781960647
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ExpressionFieldOptions
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ExpressionFieldOptions
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: ExpressionFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ExpressionFieldOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: ExpressionFieldOptions
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

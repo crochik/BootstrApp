@@ -1,0 +1,10 @@
+_id: 799f7ccd-45dd-49e3-985c-dd3464d057f2
+ActionId: 40bec386-71f9-4fc7-81bf-9de3aea40a9d
+ActionOptionsObjectType: UpdateObjectActionOptions
+Description: Update Object
+IsActive: true
+Name: UpdateObject
+Outputs:
+  FailedToUpdateObjectEvent: Failed to update Object
+  ObjectUpdatedEvent: Object Updated
+Role: Admin

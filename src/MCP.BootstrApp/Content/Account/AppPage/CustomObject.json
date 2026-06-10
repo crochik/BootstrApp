@@ -1,0 +1,10 @@
+{
+  "_id" : "d36e716d-1bd8-442e-b534-3a81dbef02cc",
+  "Name" : "CustomObject",
+  "Page" : {
+    "_t" : "CustomPage",
+    "Name" : "CustomObject",
+    "Label" : "Custom Object",
+    "ComponentName" : "CustomObject"
+  }
+}

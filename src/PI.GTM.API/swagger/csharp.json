@@ -1,0 +1,7 @@
+{
+	"packageName": "PI.GTM.API",
+	"pachageVersion": "0.0.1",
+	"sourceFolder": "csharp",
+	"targetFramework": "v5.0",
+	"netCoreProjectFile": true
+}

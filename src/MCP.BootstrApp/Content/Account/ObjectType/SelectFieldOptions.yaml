@@ -1,0 +1,69 @@
+_id: 82084d0d-ae82-4349-95ad-a929bbd57ba3
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: Options for Select Field
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      DefaultValue: SelectFieldOptions
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          AppointmentFieldOptions: Appointment Field Options
+          ChatReferenceFieldOptions: Chat Reference Field Options
+          MultiReferenceFieldOptions: Multi Reference Field Options
+          MultiSelectFieldOptions: Multi Select Field Options
+          ReferenceFieldOptions: Reference Field Options
+          RemoteFileFieldOptions: Remote File Field Options
+          SelectFieldOptions: Select Field Options
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  AllowUnknown:
+    Field:
+      _t: CheckboxField
+      Description: Allow setting Unknown value
+      IsRequired: false
+      Label: Allow Unknown
+      Name: AllowUnknown
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 7
+  Items:
+    Field:
+      _t: DictionaryField
+      Label: Items
+      Name: Items
+      Options:
+        _t: DictionaryFieldOptions
+        KeyField:
+          _t: TextField
+          Name: Key
+        ValueField:
+          _t: TextField
+          Name: Value
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SelectFieldOptions
+IsAbstract: false
+IsEmbedded: true
+Name: SelectFieldOptions
+NativeType: PI.Shared.Form.Models.SelectFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

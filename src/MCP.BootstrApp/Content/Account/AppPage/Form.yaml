@@ -1,0 +1,8 @@
+_id: ea628318-4135-4586-99fd-75ea35814b81
+Description: Edit Form
+Name: Form
+Page:
+  _t: CustomPage
+  ComponentName: Form
+  Icon: test
+  Name: Edit Form

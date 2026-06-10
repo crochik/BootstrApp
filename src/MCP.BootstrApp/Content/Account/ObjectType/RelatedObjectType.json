@@ -1,0 +1,205 @@
+{
+  "_id" : "723efe36-c062-46c4-ad4d-4a36fa679baf",
+  "Name" : "RelatedObjectType",
+  "Description" : "Related Object Type",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Models.RelatedObjectType",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "FullName" : "RelatedObjectType",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Conditions" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Conditions",
+        "Label" : "Availability Conditions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Condition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Criteria" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Criteria",
+        "Label" : "Relation Conditions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Criteria"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Label" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Label",
+        "Label" : "Label",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName",
+          "JoinBehavior" : "Unsafe"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RelationType" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "RelationType",
+        "Label" : "Relation Type",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Extended" : "Extended By",
+            "Referenced" : "Referenced By",
+            "OneToMany" : "One To Many",
+            "OneToOne" : "One To One",
+            "Embedded" : "Embedded In"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RBAC|Permissions" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "RBAC|Permissions",
+        "Label" : "Permissions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "ReferenceField",
+            "Name" : "Key",
+            "Label" : "Profile/Role",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "Items" : {
+                "Organization" : "[Organization]",
+                "Account" : "[Account]",
+                "Manager" : "[Manager]",
+                "User" : "[User]",
+                "Admin" : "[Admin]"
+              },
+              "AllowUnknown" : false,
+              "ObjectType" : "AppProfile",
+              "AutoComplete" : true
+            }
+          },
+          "ValueField" : {
+            "_t" : "BitwiseFlagField",
+            "Name" : "Value",
+            "Label" : "Permissions",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "BitwiseFlagFieldOptions",
+              "Items" : {
+                "0" : "None",
+                "1" : "Read"
+              }
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ApiName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ApiName",
+        "Label" : "API Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Label" : "Relationship",
+  "LabelPlural" : "Relationships",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,72 @@
+{
+  "_id" : "7fbc1b00-3b98-4e7b-8336-701c9f485233",
+  "Name" : "MarketingCloudIntegrationConfiguration",
+  "Description" : "Salesforce Marketing Cloud Integration",
+  "CollectionName" : "IntegrationConfiguration",
+  "NativeType" : "PI.Salesforce.MarketingCloud.MarketingCloudIntegrationConfiguration",
+  "BaseObjectType" : "IntegrationConfiguration",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["System", "Integration"],
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "IntegrationId",
+          "Value" : "7660d3fd-1304-4c63-a002-8062aecf5991"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Subdomain" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Subdomain",
+        "Label" : "Subdomain"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ClientId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ClientId",
+        "Label" : "Client Id"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ClientSecret" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "ClientSecret",
+        "Label" : "Client Secret",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "EntityIntegration.MarketingCloud"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 6
+        }
+      }
+    }
+  },
+  "FullName" : "MarketingCloudIntegrationConfiguration",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

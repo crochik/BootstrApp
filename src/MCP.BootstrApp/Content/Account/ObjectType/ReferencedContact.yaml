@@ -1,0 +1,55 @@
+_id: d007cd05-8f78-4bc8-b636-f7f30691abb4
+CollectionName: '?'
+Description: Referenced Object
+Fields:
+  ObjectId:
+    Field:
+      _t: ReferenceField
+      ApiName: objectId
+      IsRequired: true
+      Label: Contact
+      Name: ObjectId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        ObjectType: Contact
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 5
+        Admin: 5
+        Manager: 5
+        User: 5
+  ObjectType:
+    Field:
+      _t: HiddenField
+      ApiName: objectType
+      IsRequired: true
+      Label: Object Type
+      Name: ObjectType
+    Indexed: true
+    InitialValue: Contact
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ReferencedContact
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Label: Referenced Contact
+LabelPlural: Referenced Contacts
+Name: ReferencedContact
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 7
+    Admin: 15
+    Manager: 7
+RelatedObjectTypes: []
+Tags:
+- OTG
+- System
+UniqueExternalId: false

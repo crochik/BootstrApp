@@ -1,0 +1,37 @@
+_id: 66ef01a2-1ce8-4b05-9464-413afa83158a
+BaseObjectType: ScheduledTask
+CollectionName: job.ScheduledTask
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: postEvent
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Post Event Scheduled Task
+Fields:
+  Event:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Name: Event
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: FlowEvent
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PostEventScheduledTask
+IsAbstract: false
+IsEmbedded: false
+Name: PostEventScheduledTask
+NativeType: PI.Shared.Models.PostEventScheduledTask
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- job
+- System

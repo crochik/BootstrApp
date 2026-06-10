@@ -1,0 +1,33 @@
+_id: ef643a7a-0885-4bbd-97a3-e4c0c38995a9
+CollectionName: '?'
+Description: Augmented Tag
+Fields:
+  Tag:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Tag
+      Name: Tag
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AugmentedTag
+IsAbstract: false
+IsEmbedded: true
+Label: Tag
+LabelPlural: Tags
+Name: AugmentedTag
+NativeType: AugmentedTag
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 1
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

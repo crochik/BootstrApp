@@ -1,0 +1,94 @@
+{
+  "_id" : "ad4cdf55-d595-41de-ac6a-6b8a91c3775a",
+  "Namespace" : "u2",
+  "Name" : "ShareTemplate",
+  "Description" : "Template to create anonymous shares",
+  "CollectionName" : "u2.redirection",
+  "NativeType" : "?",
+  "BaseObjectType" : "ShortLinkRedirection",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "FullName" : "u2.ShareTemplate",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "template"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "MetaValues|ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "MetaValues|ObjectType",
+        "Label" : "Object Type (Meta)",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "ForeignFieldName" : "FullName"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MetaValues|ObjectId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "MetaValues|ObjectId",
+        "Label" : "Object Id (expression)",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MetaValues|ShareId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "MetaValues|ShareId",
+        "Label" : "Share Id (expression)",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MetaValues|FieldName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "MetaValues|FieldName",
+        "Label" : "Field Name (expression)",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

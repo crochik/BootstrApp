@@ -1,0 +1,59 @@
+{
+  "_id" : "09aabcce-c781-4b13-8719-81fb975d1ab3",
+  "Name" : "BitwiseFlagFieldOptions",
+  "Description" : "Bitwise Flag Field Options",
+  "CollectionName" : "?",
+  "BaseObjectType" : "FieldOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "BitwiseFlagFieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "BitwiseFlagFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "BitwiseFlagFieldOptions"
+    },
+    "Items" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Items",
+        "Label" : "Items",
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Key"
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

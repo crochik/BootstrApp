@@ -1,0 +1,1 @@
+docker run -v ${PWD}/Api:/app/output -v ${PWD}/openapi.yml:/app/openapi.yaml mcr.microsoft.com/openapi/kiota generate --language csharp -n DocuSeal

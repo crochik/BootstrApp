@@ -1,0 +1,226 @@
+_id: 560f0da6-f517-463c-a9c4-a94c7753fe3d
+CollectionName: Dipper.StoredProcedures
+Description: Stored Procedure
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      DefaultValue: '{{new ObjectId}}'
+      IsRequired: true
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 5
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Aggregate: Aggregate
+          Macro: Macro
+          Update: Update
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Body:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Body
+      Name: Body
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        ContentType: text/plain
+        Multline: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Collection:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Collection
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  DatabaseName:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: DatabaseName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  IsActive:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Active?
+      Name: IsActive
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Last Actor
+      Name: LastActor
+    Indexed: false
+    InitialValue: '{{Actor}}'
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 0
+        d33d2dda-5180-44a5-9e63-77494f57646a: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Modified
+      Name: LastModifiedOn
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  LastUpdatedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      IsRequired: false
+      Label: Last Updated On (Obsolete)
+      Name: LastUpdatedOn
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Namespace:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Namespace
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+  Version:
+    Field:
+      _t: NumberField
+      IsRequired: false
+      Name: Version
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+        Style: Default
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 1
+        d33d2dda-5180-44a5-9e63-77494f57646a: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: dipper.StoredProcedure
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+IsFullTextSearchable: true
+Label: Stored Procedure
+LabelPlural: Stored Procedures
+LookupFields:
+  Key: _id
+  Name: _id
+Name: StoredProcedure
+Namespace: dipper
+NativeType: Crochik.Dipper.StoredProcedure
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 1
+    d33d2dda-5180-44a5-9e63-77494f57646a: 7
+RelatedObjectTypes: []
+UniqueExternalId: false

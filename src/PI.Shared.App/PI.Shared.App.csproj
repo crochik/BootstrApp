@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Filters" Version="10.0.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Newtonsoft" Version="10.1.1" />
+<!--    <PackageReference Include="AspNetCore.HealthChecks.Rabbitmq" Version="9.0.0" />-->
+    <PackageReference Include="CsvHelper" Version="12.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Amazon.Extensions.Configuration.SystemsManager" Version="7.0.1" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\PI.Shared\PI.Shared.csproj" />
+    <ProjectReference Include="..\PI.Shared.Data.Mongo\PI.Shared.Data.Mongo.csproj" />
+  </ItemGroup>
+</Project>

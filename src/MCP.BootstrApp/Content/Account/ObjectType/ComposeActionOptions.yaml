@@ -1,0 +1,61 @@
+_id: eae1d160-03c2-44bc-9779-266b3420ae81
+BaseObjectType: ActionOptions
+CollectionName: ???
+Description: Compose Action Options
+Fields:
+  Alias:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Alias to be used (Event.MetaValues.[...])
+      Name: Alias
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ContentType:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Content Type
+      Name: ContentType
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Template:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Handlebars Template
+      Name: Template
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        ContentType: text/plain
+        Multline: true
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ComposeActionOptions
+IsAbstract: false
+IsEmbedded: true
+Label: Compose Action Options
+LabelPlural: Compose Action Options
+Name: ComposeActionOptions
+NativeType: ComposeActionOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15

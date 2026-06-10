@@ -1,0 +1,26 @@
+_id: cbf8b46b-ecdd-46e0-bd80-59a9d127ff5c
+BaseObjectType: User
+CollectionName: Entity
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: User
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+    - FieldName: UserRoleId
+      Value: Admin
+Description: Admin User
+Fields: {}
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: UserAdmin
+IsActive: true
+Name: UserAdmin
+NativeType: PI.Shared.Models.User
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 3
+RelatedObjectTypes: []
+Tags: []
+UniqueExternalId: false

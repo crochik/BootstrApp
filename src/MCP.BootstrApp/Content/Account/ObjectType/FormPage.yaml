@@ -1,0 +1,33 @@
+_id: bab47711-1478-4c70-b682-481ed26a5c29
+BaseObjectType: Page
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: FormPage
+Description: Form Page
+Fields:
+  Form:
+    Field:
+      _t: TextField
+      Label: Form Name
+      Name: Form
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FormPage
+IsAbstract: false
+IsEmbedded: true
+Name: FormPage
+NativeType: PI.Shared.Form.Models.FormPage
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System
+- ui

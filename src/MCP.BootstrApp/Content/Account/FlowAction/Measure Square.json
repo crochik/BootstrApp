@@ -1,0 +1,15 @@
+{
+  "_id" : "f8325623-dce7-4432-97e5-60d27c4cb31d",
+  "ActionId" : "f8325623-dce7-4432-97e5-60d27c4cb31d",
+  "IsActive" : true,
+  "Description" : "Measure Square - Calculate Seams",
+  "IconName" : "design_services",
+  "Name" : "Measure Square",
+  "Outputs" : {
+    "Failed" : "Failed",
+    "Success" : "Success"
+  },
+  "Role" : "Admin",
+  "InputObjectTypes" : ["otg.Estimate"],
+  "ActionOptionsObjectType" : "m2.CalculateSeamsActionOptions"
+}

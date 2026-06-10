@@ -1,0 +1,54 @@
+{
+  "_id" : "af93e4f7-b8ee-4fca-b2d1-96f4dfcfed5f",
+  "Name" : "TagsFieldOptions",
+  "Description" : "Options for Tags Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.TagsFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "TagsFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "TagsFieldOptions"
+    },
+    "Url" : {
+      "Field" : {
+        "_t" : "UrlField",
+        "Name" : "Url",
+        "Description" : "Lookup url. \"id\" will be replaced with parent id",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "URLFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "TagsFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

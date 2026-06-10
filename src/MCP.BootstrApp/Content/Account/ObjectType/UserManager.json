@@ -1,0 +1,339 @@
+{
+  "_id" : "4ae9bca5-dae2-446c-894a-ceaeebec3c5b",
+  "Name" : "UserManager",
+  "Description" : "Manager",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.User",
+  "UniqueExternalId" : false,
+  "CollectionName" : "Entity",
+  "BaseObjectType" : "User",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 3,
+      "Manager" : 1,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 15
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }, {
+          "FieldName" : "_t",
+          "Value" : "User"
+        }, {
+          "FieldName" : "UserRoleId",
+          "Value" : "Manager"
+        }]
+    }
+  },
+  "Fields" : {
+    "Description" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "ApiName" : "description",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      }
+    },
+    "Email" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Field" : {
+        "_t" : "EmailField",
+        "Name" : "Email",
+        "Label" : "Email",
+        "IsRequired" : false,
+        "ApiName" : "email"
+      }
+    },
+    "Phone" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 3,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Field" : {
+        "_t" : "PhoneField",
+        "Name" : "Phone",
+        "Label" : "Phone",
+        "IsRequired" : false,
+        "ApiName" : "phone"
+      }
+    },
+    "TimeZoneId" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TimeZoneId",
+        "Label" : "Time Zone",
+        "IsRequired" : false,
+        "ApiName" : "timeZone",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      }
+    },
+    "_t" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "User" : "User",
+            "Organization" : "Organization",
+            "Account" : "Account"
+          }
+        }
+      },
+      "Indexed" : true
+    },
+    "CreatedOn" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created",
+        "IsRequired" : false
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new Date}}"
+    },
+    "LastModifiedOn" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}",
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified",
+        "IsRequired" : false
+      },
+      "Indexed" : true
+    },
+    "IsActive" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      },
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active",
+        "IsRequired" : false,
+        "ApiName" : "isActive"
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new UUID}}"
+    },
+    "Name" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true,
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "ApiName" : "name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      }
+    },
+    "UserRoleId" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "UserRoleId",
+        "Label" : "Role",
+        "IsRequired" : false,
+        "ApiName" : "role",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "User" : "User",
+            "Manager" : "Manager",
+            "Admin" : "Admin",
+            "Profile" : "Limited Profile"
+          }
+        }
+      }
+    },
+    "OrganizationId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "OrganizationId",
+        "Label" : "Organization",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Organization",
+          "AutoComplete" : true,
+          "LinkUrl" : "dataForm://api/v1/CustomObject/Organization({{value}})/View",
+          "JoinBehavior" : "Exclude"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "AppProfiles|PLM" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "AppProfiles|PLM",
+        "Label" : "PLM Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "6c501464-a6e0-4469-9b28-3198c3045763" : "PLM Default",
+            "b78c5bb6-5603-4d51-8a20-e0f1ff8f25bb" : "PLM Corporate Product Selector"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    },
+    "AppProfiles|InspireNetMobile_ProductSelector" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "AppProfiles|InspireNetMobile_ProductSelector",
+        "Label" : "IM Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "134ddab0-da6c-4f1d-8de5-362db0b50324" : "IM Default",
+            "e89f08d4-db31-46ff-a451-15c78b391e3a" : "IM Corporate Product Selector"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 3
+        }
+      }
+    }
+  },
+  "Tags" : [],
+  "FullName" : "UserManager",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "Label" : "Manager",
+  "LabelPlural" : "Managers",
+  "RelatedObjectTypes" : [{
+      "Name" : "OrganizationId",
+      "ObjectType" : "Organization",
+      "Label" : "Organization",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{OrganizationId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }]
+}

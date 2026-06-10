@@ -1,0 +1,56 @@
+_id: 19b4bad8-6377-42ce-95cf-4f26b10d246d
+CollectionName: '?'
+Description: Referenced Object
+Fields:
+  ObjectId:
+    Field:
+      _t: TextField
+      ApiName: objectId
+      IsRequired: true
+      Label: Object
+      Name: ObjectId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        Manager: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      ApiName: objectType
+      IsRequired: true
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        Manager: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ReferencedObject
+IsAbstract: false
+IsEmbedded: true
+Label: Referenced Object
+LabelPlural: Referenced Objects
+Name: ReferencedObject
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 7
+    Admin: 15
+    Manager: 7
+RelatedObjectTypes: []
+Tags:
+- OTG
+- System

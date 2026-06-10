@@ -1,0 +1,188 @@
+{
+  "_id" : "002493c2-c011-489a-9d64-8e101344df10",
+  "CollectionName" : "?",
+  "Description" : "Form",
+  "Name" : "Form",
+  "NativeType" : "PI.Shared.Form.Models.Form",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Title" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Title"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "IsReadOnly" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsReadOnly",
+        "Label" : "Read Only"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "Fields" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Fields",
+        "Label" : "Fields",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Field",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "Menu" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Menu",
+        "Label" : "Menu",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "Menu"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      }
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    },
+    "Layouts" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Layouts",
+        "Label" : "Layouts",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "FormLayout",
+          "KeyType" : "string",
+          "KeyField" : {
+            "_t" : "SelectField",
+            "Name" : "Key",
+            "Label" : "Breakpoint",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "Medium" : "Medium (md)",
+                "Large" : "Large (lg)",
+                "ExtraSmall" : "Extra Small (xs)",
+                "ExtraLarge" : "Extra Large (xl)",
+                "Small" : "Small (sm)"
+              },
+              "AllowUnknown" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Actions" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Actions",
+        "Label" : "Actions",
+        "Description" : "Actions",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "FormAction",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsAbstract" : false,
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "Form",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

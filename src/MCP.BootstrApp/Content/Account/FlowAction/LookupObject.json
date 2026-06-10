@@ -1,0 +1,14 @@
+{
+  "_id" : "4cedd452-dfa5-4601-9f83-8d38749821a7",
+  "Name" : "LookupObject",
+  "Description" : "Lookup Object",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "217eb167-dfc1-4ffe-98a4-3ed50f431f54",
+  "ActionOptionsObjectType" : "LookupObjectActionOptions",
+  "Outputs" : {
+    "ObjectFoundEvent" : "Object found",
+    "ObjectNotFoundEvent" : "Object not found",
+    "MoreThanOneObjectFoundEvent" : "More than one object found"
+  }
+}

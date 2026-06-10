@@ -1,0 +1,164 @@
+_id: cf8beaf7-621d-461f-96b7-d0de602d1bc7
+BaseObjectType: EntityOwnedModel
+CollectionName: file.Item
+Description: Remote Item
+Discriminator:
+  RemoteFile:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: file
+  RemoteFolder:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: folder
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          file: File
+          folder: Folder
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+  AbsoluteUri:
+    Field:
+      _t: TextField
+      Label: Uri
+      Name: AbsoluteUri
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 5
+        Manager: 1
+  BucketId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Bucket
+      Name: BucketId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria: []
+        ObjectType: RemoteFileBucket
+    Indexed: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+        Manager: 1
+  CreatedBy:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Created By
+      Name: CreatedBy
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria: []
+        ObjectType: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+        Manager: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        LinkUrl: dataGrid://api/v1/CustomObject(RemoteItem)?ParentId={{id}}
+    Indexed: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 7
+  ParentId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Parent
+      Name: ParentId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria: []
+        LinkUrl: dataGrid://api/v1/CustomObject(RemoteItem)?ParentId={{value}}
+        ObjectType: RemoteFolder
+    Indexed: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+        Manager: 1
+  RelativePath:
+    Field:
+      _t: TextField
+      Label: Relative Path
+      Name: RelativePath
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 5
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RemoteItem
+IsAbstract: true
+IsEmbedded: false
+Name: RemoteItem
+NativeType: PI.Shared.Models.Files.RemoteItem
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Account: 15
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{BucketId}}'
+  Label: Bucket
+  Name: BucketId
+  ObjectType: RemoteFileBucket
+  RBAC:
+    Permissions:
+      Account: 1
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{CreatedBy}}'
+  Label: Created By
+  Name: CreatedBy
+  ObjectType: User
+  RBAC:
+    Permissions:
+      Account: 1
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ParentId}}'
+  Label: Parent
+  Name: ParentId
+  ObjectType: RemoteFolder
+  RBAC:
+    Permissions:
+      Account: 1
+  RelationType: OneToOne
+Tags:
+- Files

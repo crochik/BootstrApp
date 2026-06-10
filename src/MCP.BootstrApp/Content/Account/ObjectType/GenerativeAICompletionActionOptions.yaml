@@ -1,0 +1,136 @@
+_id: 8ba0f64c-1060-4d51-a41c-8f2201d7f784
+BaseObjectType: ActionOptions
+CollectionName: '*'
+Description: Assistant Completion Options
+Fields:
+  Alias:
+    Field:
+      _t: TextField
+      DefaultValue: ChatMessage
+      Description: Alias to be used for response in Run
+      IsRequired: false
+      Label: Object Alias for response
+      Name: Alias
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  AssistantId:
+    Field:
+      _t: ExpressionField
+      IsRequired: false
+      Label: Assistant
+      Name: AssistantId
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: ReferenceField
+          Options:
+            _t: ReferenceFieldOptions
+            ObjectType: ai.Assistant
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Inputs:
+    Field:
+      _t: DictionaryField
+      Description: Input Values. Value can be an Expression.
+      IsRequired: false
+      Label: Override Input Values
+      Name: Inputs
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: TextField
+          IsRequired: false
+          Label: Input
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: Value (Expression)
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: true
+            Multline: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  NewObjectFlowId:
+    Field:
+      _t: ReferenceField
+      Label: Response Object Flow
+      Name: NewObjectFlowId
+      Options:
+        _t: ReferenceFieldOptions
+        Criteria:
+        - FieldName: ObjectType
+          Value: '{{NewObjectType}}'
+        ObjectType: Flow
+      Visible:
+      - NewObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  NewObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Response Object Type
+      Name: NewObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  SystemMessage:
+    Field:
+      _t: TextField
+      Description: Additional System message to be passed to Assistant.
+      IsRequired: false
+      Label: Additional System Message (handlebars)
+      Name: SystemMessage
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        Multline: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  UserMessage:
+    Field:
+      _t: TextField
+      Description: User message to be passed to Assistant.
+      IsRequired: false
+      Label: User Message (handlebars)
+      Name: UserMessage
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+        Multline: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FullName: GenerativeAICompletionActionOptions
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: GenerativeAICompletionActionOptions
+NativeType: '?'
+RBAC:
+  Permissions:
+    Admin: 15
+UniqueExternalId: false

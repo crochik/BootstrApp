@@ -1,0 +1,64 @@
+_id: 9dca3e38-b8e2-48c3-99b6-36596a64c356
+ApiName: Point
+CollectionName: ???
+Description: Point coordinates
+Fields:
+  X:
+    Field:
+      _t: NumberField
+      ApiName: x
+      IsRequired: true
+      Name: X
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+  Y:
+    Field:
+      _t: NumberField
+      ApiName: y
+      IsRequired: true
+      Name: Y
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+  Z:
+    Field:
+      _t: NumberField
+      ApiName: z
+      IsRequired: false
+      Name: Z
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Point
+IsAbstract: false
+IsEmbedded: true
+Label: Point
+LabelPlural: Points
+Name: Point
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 15
+    Admin: 15
+Tags:
+- OTG

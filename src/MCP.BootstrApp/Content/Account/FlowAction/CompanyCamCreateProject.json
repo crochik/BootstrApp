@@ -1,0 +1,13 @@
+{
+  "_id" : "8fe54dcc-bb49-4be0-9445-552db7cd9e95",
+  "Name" : "CompanyCamCreateProject",
+  "Description" : "CompanyCam: Create Project",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "b42ae26a-d364-4871-824d-59ec36906f23",
+  "ActionOptionsObjectType" : "companycam.CreateProjectActionOptions",
+  "Outputs" : {
+    "OnSuccessEvent" : "Created",
+    "OnErrorEvent" : "Failed"
+  }
+}

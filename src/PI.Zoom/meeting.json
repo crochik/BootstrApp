@@ -1,0 +1,59 @@
+{
+  "uuid": "uzEz9lFEQ0OWl9Mxgy13Jg==",
+  "id": 254472906,
+  "host_id": "Q_D2ms7-Sd6aSj-IBS2Ceg",
+  "topic": "Meeting",
+  "type": 2,
+  "status": "waiting",
+  "start_time": "2019-01-18T01:08:50Z",
+  "duration": 60,
+  "timezone": "America/New_York",
+  "created_at": "2019-01-17T20:09:04Z",
+  "start_url": "https://zoom.us/s/254472906?zak=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjbGllbnQiLCJ1aWQiOiJRX0QybXM3LVNkNmFTai1JQlMyQ2VnIiwiaXNzIjoid2ViIiwic3R5IjoxMDAsIndjZCI6ImF3MSIsImNsdCI6MCwic3RrIjoiYjBlMXRnT1M0Y3IwR1l5NU1Yd1FrZTVZZWZEVWpQQzFZWGFLM21zalFPNC5CZ1VZYlRaUmExcExNemQwWVdNemVGRnpUbGhrWTBjNVFUMDlRRGRtWVRsbE1tSTNNalZoTURJeE1EVTBZell3WkRVNFpEaGhOVGd5T0RjMU9USTFNV0psWldFNU9XVTBZVGsyTjJRNFptSTNOR1JoT0RFMVpUUmhZbU1BRERORFFrRjFiMmxaVXpOelBRQURZWGN4IiwiZXhwIjoxNTQ3NzYyOTQ1LCJpYXQiOjE1NDc3NTU3NDUsImFpZCI6ImVuclN6TWRSUXpPUG1WZzBzeEk0b1EiLCJjaWQiOiIifQ.Vza0yfMsoCmViAxz_WDCbY8tCr_CNQoUMRz7jT9i94E",
+  "join_url": "https://zoom.us/j/254472906",
+  "settings": {
+    "host_video": false,
+    "participant_video": false,
+    "cn_meeting": false,
+    "in_meeting": false,
+    "join_before_host": false,
+    "mute_upon_entry": false,
+    "watermark": false,
+    "use_pmi": false,
+    "approval_type": 2,
+    "audio": "both",
+    "auto_recording": "none",
+    "enforce_login": false,
+    "enforce_login_domains": "",
+    "alternative_hosts": "",
+    "close_registration": false,
+    "registrants_confirmation_email": true,
+    "waiting_room": false,
+    "global_dial_in_countries": [
+      "US"
+    ]
+  }
+}
+
+{
+    "invitation": "Felipe C is inviting you to a scheduled Zoom meeting.\\r\\n\\r\\nTopic: Meeting\\r\\nTime: Jan 17, 2019 8:24 PM Eastern Time (US and Canada)\\r\\n\\r\\nJoin Zoom Meeting\\r\\nhttps://zoom.us/j/565442711\\r\\n\\r\\nOne tap mobile\\r\\n+16465588656,,565442711# US (New York)\\r\\n+14086380968,,565442711# US (San Jose)\\r\\n\\r\\nDial by your location\\r\\n        +1 646 558 8656 US (New York)\\r\\n        +1 408 638 0968 US (San Jose)\\r\\nMeeting ID: 565 442 711\\r\\nFind your local number: https://zoom.us/u/aIkUNy5bT\\r\\n"
+}
+
+
+Felipe C is inviting you to a scheduled Zoom meeting.
+
+Topic: Meeting
+Time: Jan 17, 2019 8:24 PM Eastern Time (US and Canada)
+
+Join Zoom Meeting
+https://zoom.us/j/565442711
+
+One tap mobile
++16465588656,,565442711# US (New York)
++14086380968,,565442711# US (San Jose)
+
+Dial by your location
+        +1 646 558 8656 US (New York)
+        +1 408 638 0968 US (San Jose)
+Meeting ID: 565 442 711
+Find your local number: https://zoom.us/u/aIkUNy5bT

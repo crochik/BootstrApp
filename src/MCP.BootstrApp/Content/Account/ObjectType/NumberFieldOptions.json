@@ -1,0 +1,145 @@
+{
+  "_id" : "4bff0ab9-bd05-43ed-8c0c-9c6970a5b9f3",
+  "Name" : "NumberFieldOptions",
+  "Description" : "Options for Number Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Models.NumberFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "NumberFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "NumberFieldOptions"
+    },
+    "DecimalPlaces" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "DecimalPlaces",
+        "Label" : "Decimal Places",
+        "DefaultValue" : 0,
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Minimum" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Minimum",
+        "Label" : "Minimum",
+        "Options" : {
+          "_t" : "NumberFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Maximum" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Maximum",
+        "Label" : "Maximum",
+        "Options" : {
+          "_t" : "NumberFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ExcludeMaximum" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ExcludeMaximum",
+        "Label" : "Exclude Maximum"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ExcludeMinimum" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "ExcludeMinimum",
+        "Label" : "Exclude Minimum"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MultipleOf" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "MultipleOf",
+        "Label" : "Multiple Of",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Minimum" : 0,
+          "ExcludeMinimum" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Style" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Style",
+        "Label" : "Style",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Default" : "Default",
+            "Currency" : "Currency",
+            "Rating" : "Rating",
+            "Price" : "Price"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "NumberFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

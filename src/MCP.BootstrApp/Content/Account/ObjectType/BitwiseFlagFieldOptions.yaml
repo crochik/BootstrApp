@@ -1,0 +1,46 @@
+_id: 09aabcce-c781-4b13-8719-81fb975d1ab3
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: Bitwise Flag Field Options
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: BitwiseFlagFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: BitwiseFlagFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  Items:
+    Field:
+      _t: DictionaryField
+      Label: Items
+      Name: Items
+      Options:
+        _t: DictionaryFieldOptions
+        KeyField:
+          _t: TextField
+          Name: Key
+        ValueField:
+          _t: TextField
+          Name: Value
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: BitwiseFlagFieldOptions
+IsAbstract: false
+IsEmbedded: true
+Name: BitwiseFlagFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

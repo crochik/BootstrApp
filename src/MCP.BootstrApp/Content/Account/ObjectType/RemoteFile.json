@@ -1,0 +1,257 @@
+{
+  "_id" : "09f1e000-30dc-4731-9d8a-061f6e6dc3af",
+  "Name" : "RemoteFile",
+  "Description" : "Remote File",
+  "CollectionName" : "file.Item",
+  "NativeType" : "PI.Shared.Models.Files.RemoteFile",
+  "BaseObjectType" : "RemoteItem",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["Files"],
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "file"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "Account" : 15
+    }
+  },
+  "Fields" : {
+    "ContentType" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ContentType",
+        "Label" : "Content Type"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Account" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Size" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Size",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Account" : 1
+        }
+      }
+    },
+    "PublicUrl" : {
+      "Field" : {
+        "_t" : "UrlField",
+        "Name" : "PublicUrl",
+        "Label" : "Public Url"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Account" : 1
+        }
+      }
+    },
+    "AllowAnonymousDownload" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "AllowAnonymousDownload",
+        "Label" : "Allow Anonymous Download"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Account" : 7
+        }
+      }
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "RemoteFile"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "RemoteFile"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RBAC|Permissions" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "RBAC|Permissions",
+        "Label" : "RBAC",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : true,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Key",
+            "Label" : "EntityId, ProfileId or Role",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          },
+          "ValueField" : {
+            "_t" : "BitwiseFlagField",
+            "Name" : "Value",
+            "Label" : "Permissions",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "BitwiseFlagFieldOptions",
+              "Items" : {
+                "1" : "Read",
+                "2" : "Update",
+                "4" : "Overwrite",
+                "8" : "Delete",
+                "16" : "Upload"
+              }
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "RemoteFileId",
+      "ObjectType" : "openapi.Document",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "RemoteFileId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 0
+        }
+      },
+      "RelationType" : "Referenced"
+    }, {
+      "Name" : "SourceRemoteFileId",
+      "ObjectType" : "ImportObjectsJob",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "SourceRemoteFileId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 0
+        }
+      },
+      "RelationType" : "Referenced"
+    }, {
+      "Name" : "BusinessPlanRemoteFileId",
+      "ObjectType" : "Organization",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "BusinessPlanRemoteFileId",
+            "Operator" : "Eq",
+            "Value" : "{{_id}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 0
+        }
+      },
+      "RelationType" : "Referenced"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FullName" : "RemoteFile"
+}

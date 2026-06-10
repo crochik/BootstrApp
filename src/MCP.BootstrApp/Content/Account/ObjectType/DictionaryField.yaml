@@ -1,0 +1,47 @@
+_id: dba8f74b-64e8-418e-988c-64dfa8ffa516
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: DictionaryField
+Description: Dictionary Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: DictionaryField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: DictionaryField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: DictionaryFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DictionaryField
+IsEmbedded: true
+Name: DictionaryField
+NativeType: PI.Shared.Models.DictionaryField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

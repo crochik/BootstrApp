@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access Denied - Login Error</title>
+
+    <style>
+        /* Base styles, replacing external dependencies */
+        body {
+            /* Web-safe sans-serif stack instead of Inter */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #f7fafc; /* Light gray background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem; /* p-4 */
+        }
+
+        /* Error Card Styles */
+        .card {
+            background-color: #fff;
+            max-width: 512px; /* max-w-lg */
+            width: 100%; /* w-full */
+            padding: 2rem; /* p-8 */
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl */
+            border-radius: 1rem; /* rounded-2xl */
+            border-top: 8px solid #dc2626; /* border-t-8 border-red-600 */
+            transition: all 300ms ease;
+        }
+        .card:hover {
+            box-shadow: 0 35px 60px -15px rgba(0, 0, 0, 0.3); /* hover:shadow-3xl effect */
+            transform: translateY(-2px);
+        }
+
+        /* Responsive padding for card (sm:p-10) */
+        @media (min-width: 640px) {
+            .card {
+                padding: 2.5rem;
+            }
+        }
+
+        /* Header and Icon Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .icon {
+            width: 4rem; /* w-16 */
+            height: 4rem; /* h-16 */
+            color: #dc2626; /* text-red-600 */
+            margin: 0 auto 1rem; /* mx-auto mb-4 */
+        }
+        .title {
+            font-size: 1.875rem; /* text-3xl */
+            font-weight: 800; /* font-extrabold */
+            color: #111827; /* text-gray-900 */
+            margin-bottom: 0.5rem; /* mb-2 */
+        }
+        .subtitle {
+            font-size: 1.125rem; /* text-lg */
+            color: #6b7280; /* text-gray-500 */
+        }
+
+        /* Alert Box Styles */
+        .alert-box {
+            background-color: #fef2f2; /* bg-red-50 */
+            border-left: 4px solid #f87171; /* border-l-4 border-red-400 */
+            padding: 1rem; /* p-4 */
+            border-radius: 0.5rem; /* rounded-lg */
+            margin-bottom: 2rem; /* mb-8 */
+        }
+        .alert-content {
+            display: flex; /* flex */
+            align-items: flex-start; /* items-start */
+        }
+        .alert-icon-container {
+            flex-shrink: 0; /* flex-shrink-0 */
+            color: #b91c1c; /* text-red-700 */
+            margin-right: 0.75rem; /* Equivalent to ml-3 in content container */
+        }
+        .alert-icon {
+            width: 1.25rem; /* w-5 h-5 */
+            height: 1.25rem;
+        }
+        .alert-body {
+            margin-left: 0.75rem; /* ml-3 */
+        }
+        .alert-heading {
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* font-semibold */
+            color: #991b1b; /* text-red-800 */
+        }
+        .alert-text-container {
+            margin-top: 0.25rem; /* mt-1 */
+            font-size: 0.875rem; /* text-sm */
+            color: #b91c1c; /* text-red-700 */
+        }
+
+        /* Primary Suggestion/Actions Styles */
+        .actions {
+            text-align: center;
+            /* space-y-4 is handled by margin on children */
+        }
+        .actions h2 {
+            font-size: 1.25rem; /* text-xl */
+            font-weight: 600; /* font-semibold */
+            color: #1f2937; /* text-gray-800 */
+            margin-bottom: 1rem;
+        }
+        .actions p {
+            color: #4b5563; /* text-gray-600 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+
+        /* Action Button Styles */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; /* w-full */
+            padding: 0.75rem 1.5rem; /* px-6 py-3 */
+            border: 1px solid transparent; /* border border-transparent */
+            font-size: 1rem; /* text-base */
+            font-weight: 500; /* font-medium */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            color: #fff; /* text-white */
+            background-color: #dc2626; /* bg-red-600 */
+            transition: background-color 150ms ease-in-out; /* transition duration-150 ease-in-out */
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #b91c1c; /* hover:bg-red-700 */
+        }
+        .button:focus {
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.5); /* focus:ring-2 focus:ring-red-500 */
+        }
+        .button-icon {
+            width: 1.25rem; /* w-5 h-5 */
+            height: 1.25rem;
+            margin-right: 0.5rem; /* mr-2 */
+        }
+
+        /* Responsive button width (sm:w-auto) */
+        @media (min-width: 640px) {
+            .button {
+                width: auto;
+            }
+        }
+
+        /* Secondary Link Styles */
+        .secondary-link {
+            display: block; /* block */
+            font-size: 0.875rem; /* text-sm */
+            color: #6b7280; /* text-gray-500 */
+            padding-top: 0.5rem; /* pt-2 */
+            text-decoration: none;
+            transition: color 150ms ease-in-out;
+        }
+        .secondary-link:hover {
+            color: #dc2626; /* hover:text-red-600 */
+        }
+
+        /* Footer Styles */
+        .footer-id {
+            font-size: 0.75rem; /* text-xs */
+            color: #9ca3af; /* text-gray-400 */
+            margin-top: 2rem; /* mt-8 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Error Card Container -->
+<div class="card">
+
+    <!-- Icon and Header -->
+    <div class="header">
+        <!-- Icon for Error (X in a circle) using inline SVG for maximum compatibility -->
+        <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+        <h1 class="title">
+            Access Denied
+        </h1>
+        <p class="subtitle">
+            A critical error occurred during login.
+        </p>
+    </div>
+
+    <!-- Detail Message -->
+    <div class="alert-box">
+        <div class="alert-content">
+            <div class="alert-icon-container">
+                <svg class="alert-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="alert-body">
+                <div class="alert-text-container">
+                    <p>Your login attempt failed. This could be due to a temporary lockout, incorrect credentials, or an issue with your user permissions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Primary Suggestion: Contact Administrator -->
+    <div class="actions">
+        <h2>
+            Need Immediate Help?
+        </h2>
+        <p>
+            Please contact your Account Administrator for system access review or to reset your credentials.
+        </p>
+
+        <!--
+        <a href="mailto:admin@yourcompany.com?subject=Urgent%20Login%20Error"
+           class="button">
+            <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            Contact Administrator
+        </a>
+        -->
+
+    </div>
+</div>
+
+</body>
+</html>

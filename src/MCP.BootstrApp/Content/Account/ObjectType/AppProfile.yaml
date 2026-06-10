@@ -1,0 +1,113 @@
+_id: d41db42a-cc40-4ecb-83ef-4fe397da0279
+CollectionName: app.Profile
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: App Profile
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    Indexed: true
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  InitialMenu:
+    Field:
+      _t: TextField
+      Label: Initial Menu
+      Name: InitialMenu
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  InitialPage:
+    Field:
+      _t: TextField
+      Label: Initial Page
+      Name: InitialPage
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    CalculatedValue: '{{new Date}}'
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  OtherProfileIds:
+    Field:
+      _t: MultiReferenceField
+      ApiName: otherProfileIds
+      IsRequired: false
+      Label: Other Profiles
+      Name: OtherProfileIds
+      Options:
+        _t: MultiReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: AppProfile
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppProfile
+Name: AppProfile
+NativeType: PI.Shared.Models.AppProfile
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

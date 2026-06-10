@@ -1,0 +1,68 @@
+_id: 8f4772eb-68e9-457e-9ef8-f59b7cb26aae
+CollectionName: '*'
+Constraints: {}
+Description: Filter Condition
+Fields:
+  FieldName:
+    Field:
+      _t: ExpressionField
+      IsRequired: true
+      Label: Field Name
+      Name: FieldName
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: TextField
+    RBAC:
+      Permissions:
+        Admin: 7
+  Operator:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Operator
+      Name: Operator
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Eq: Equals
+          Gt: Greater Than
+          Gte: Greater or Equal
+          In: In
+          Lt: Less Than
+          Lte: Less Than or Equal
+          Ne: Not Equal
+          Nin: Not In
+    RBAC:
+      Permissions:
+        Admin: 7
+  Value:
+    Field:
+      _t: ExpressionField
+      IsRequired: true
+      Label: Value
+      Name: Value
+      Options:
+        _t: ExpressionFieldOptions
+        ValueField:
+          _t: GenericField
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Condition
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+Name: Condition
+NativeType: PI.Shared.Models.Expressions.Condition
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+UniqueExternalId: false

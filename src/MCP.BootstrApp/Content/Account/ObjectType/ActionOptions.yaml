@@ -1,0 +1,17 @@
+_id: 224d5f12-dd52-4fc7-8c8f-9e7d0eb190c5
+CollectionName: '*'
+Description: Action Options
+Fields: {}
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ActionOptions
+IsAbstract: true
+IsEmbedded: false
+Name: ActionOptions
+NativeType: '?'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

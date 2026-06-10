@@ -1,0 +1,9 @@
+version: "3"
+
+services:
+    singer:
+        image: crochik/singer
+        volumes: 
+            - ./config/sf:/app:rw
+        command: 
+            sh -c "./run.sh"

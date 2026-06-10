@@ -1,0 +1,27 @@
+{
+  "_id" : "83bb62dd-4e0b-4f82-bc2c-8d579b195a39",
+  "Name" : "Account",
+  "Description" : "Account",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Account",
+  "BaseObjectType" : "Entity",
+  "UniqueExternalId" : false,
+  "Fields" : { },
+  "RBAC" : {
+    "Permissions" : { }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "Account"
+        }]
+    }
+  },
+  "CollectionName" : "Entity",
+  "Tags" : [],
+  "FullName" : "Account",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

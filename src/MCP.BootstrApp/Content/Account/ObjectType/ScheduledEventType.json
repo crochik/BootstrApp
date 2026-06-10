@@ -1,0 +1,111 @@
+{
+  "_id" : "d6b4db58-cc68-48e3-a1e2-3d070a189210",
+  "Name" : "ScheduledEventType",
+  "Description" : "Scheduled Event",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.EventType",
+  "UniqueExternalId" : false,
+  "BaseObjectType" : "EventType",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "Trigger|_t",
+          "Value" : "Scheduled"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Trigger|Start" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Trigger|Start",
+        "Label" : "Start",
+        "IsRequired" : true,
+        "DefaultValue" : "{{new Date}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|Schedule" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Trigger|Schedule",
+        "Label" : "Schedule",
+        "IsRequired" : false,
+        "DefaultValue" : "0 * * * *"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|Criteria" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Trigger|Criteria",
+        "Label" : "Criteria",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Condition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Trigger|IsActive",
+        "Label" : "Active?"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Trigger|FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "Trigger|FlowId",
+        "Label" : "Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Value" : "{{ObjectType}}"
+            }]
+        },
+        "Visible" : ["ObjectType"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      }
+    }
+  },
+  "CollectionName" : "EventType",
+  "Tags" : ["System"],
+  "IsAbstract" : false,
+  "IsEmbedded" : false,
+  "FullName" : "ScheduledEventType",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

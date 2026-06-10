@@ -1,0 +1,75 @@
+{
+  "_id" : "d1539bf8-ef8e-444b-8b4a-c90890cf8a7f",
+  "Name" : "DateRangeFieldOptions",
+  "Description" : "Options for DateRange Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.DateRangeFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "DateRangeFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "DateRangeFieldOptions"
+    },
+    "Min" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Min"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Max" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Max"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "DateRangePreset" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "DateRangePreset",
+        "Label" : "Presets",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "DateRangePreset",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "DateRangeFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

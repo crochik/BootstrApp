@@ -1,0 +1,33 @@
+_id: 2651151a-d09e-4897-88e3-f90126a7431b
+BaseObjectType: Page
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: CustomPage
+Description: Custom (Component) Page
+Fields:
+  ComponentName:
+    Field:
+      _t: TextField
+      Label: Component
+      Name: ComponentName
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: CustomPage
+IsAbstract: false
+IsEmbedded: true
+Name: CustomPage
+NativeType: PI.Shared.Form.Models.CustomPage
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System
+- ui

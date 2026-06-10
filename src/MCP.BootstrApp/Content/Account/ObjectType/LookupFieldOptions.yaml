@@ -1,0 +1,32 @@
+_id: 4d1cded3-e7f4-4a56-af72-8782ab4e9af3
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: Options for Lookup Field (DEPRECATED)
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: LookupFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: LookupFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LookupFieldOptions
+IsEmbedded: true
+Name: LookupFieldOptions
+NativeType: PI.Shared.Form.Models.LookupFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

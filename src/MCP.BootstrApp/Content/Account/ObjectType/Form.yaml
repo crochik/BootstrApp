@@ -1,0 +1,143 @@
+_id: 002493c2-c011-489a-9d64-8e101344df10
+CollectionName: '?'
+Description: Form
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Actions:
+    Field:
+      _t: ChildrenField
+      Description: Actions
+      IsRequired: false
+      Label: Actions
+      Name: Actions
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: FormAction
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Fields:
+    Field:
+      _t: ChildrenField
+      Label: Fields
+      Name: Fields
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Field
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  IsReadOnly:
+    Field:
+      _t: CheckboxField
+      Label: Read Only
+      Name: IsReadOnly
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Layouts:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Layouts
+      Name: Layouts
+      Options:
+        _t: ChildrenFieldOptions
+        KeyField:
+          _t: SelectField
+          IsRequired: false
+          Label: Breakpoint
+          Name: Key
+          Options:
+            _t: SelectFieldOptions
+            AllowUnknown: false
+            Items:
+              ExtraLarge: Extra Large (xl)
+              ExtraSmall: Extra Small (xs)
+              Large: Large (lg)
+              Medium: Medium (md)
+              Small: Small (sm)
+        KeyType: string
+        ObjectType: FormLayout
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Menu:
+    Field:
+      _t: ObjectField
+      Label: Menu
+      Name: Menu
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Menu
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 3
+        Manager: 1
+  Title:
+    Field:
+      _t: TextField
+      Name: Title
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Form
+IsAbstract: false
+IsEmbedded: true
+Name: Form
+NativeType: PI.Shared.Form.Models.Form
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

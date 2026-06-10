@@ -1,0 +1,391 @@
+_id: c4ca1364-fc03-489a-9cf1-c379254f2cb1
+CollectionName: '?'
+Description: Form Field
+Discriminator:
+  AddressField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: AddressField
+  ArrayField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ArrayField
+  BitwiseFlagField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: BitwiseFlagField
+  CalculatedField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: CalculatedField
+  CheckboxField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: CheckboxField
+  ChildrenField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ChildrenField
+  DateField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: DateField
+  DateRangeField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: DateRangeField
+  DateTimeField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: DateTimeField
+  DictionaryField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: DictionaryField
+  EmailField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: EmailField
+  ExpressionField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ExpressionField
+  FileField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: FileField
+  GenericField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: GenericField
+  HiddenField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: HiddenField
+  ImageField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ImageField
+  LabelField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LabelField
+  LocationDistanceField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LocationDistanceField
+  LocationField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LocationField
+  LookupField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LookupField
+  MultiReferenceField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: MultiReferenceField
+  MultiSelectField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: MultiSelectField
+  NumberField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: NumberField
+  ObjectField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ObjectField
+  PasswordField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: PasswordField
+  PhoneField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: PhoneField
+  PostalCodeField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: PostalCodeField
+  ReferenceField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: ReferenceField
+  RelatedObjectsField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: RelatedObjectsField
+  SelectField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: SelectField
+  TagsField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: TagsField
+  TextField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: TextField
+  TimeField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: TimeField
+  UrlField:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: UrlField
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          AddressField: Address
+          ArrayField: Array
+          BitwiseFlagField: Bitwise Flag
+          CalculatedField: Calculated
+          CheckboxField: Checkbox
+          ChildrenField: Children
+          DateField: Date
+          DateRangeField: DateRange
+          DateTimeField: DateTime
+          DictionaryField: Dictionary
+          EmailField: Email
+          ExpressionField: Expression
+          FileField: File
+          GenericField: Generic
+          HiddenField: Hidden
+          ImageField: Image
+          LabelField: Label
+          LocationDistanceField: Location Distance
+          LocationField: Location
+          LookupField: Lookup
+          MultiReferenceField: Multi Reference
+          MultiSelectField: Multi Select
+          NumberField: Number
+          ObjectField: Object
+          PasswordField: Password
+          PhoneField: Phone
+          PostalCodeField: Postal Code
+          ReferenceField: Reference
+          RelatedObjectsField: Related Objects
+          SelectField: Select
+          TagsField: Tags
+          TextField: Text
+          TimeField: Time
+          UrlField: Url
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  ApiName:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: ApiName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  DefaultValue:
+    Field:
+      _t: GenericField
+      IsRequired: false
+      Label: Default Value
+      Name: DefaultValue
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+        ContentType: text/plain
+        Multline: true
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Enable:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Enable
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsReadOnly:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Read Only?
+      Name: IsReadOnly
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  IsRequired:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Required?
+      Name: IsRequired
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsVisible:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Visible?
+      Name: IsVisible
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 1
+  Label:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Label
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  Options:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: FieldOptions
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Style:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Style
+      Name: Style
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Visible:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Name: Visible
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Field
+IsAbstract: true
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: Field
+NativeType: PI.Shared.Form.Models.FormField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 7
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui
+UniqueExternalId: false

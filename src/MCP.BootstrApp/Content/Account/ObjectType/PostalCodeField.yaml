@@ -1,0 +1,47 @@
+_id: 1083bdb6-d059-4930-b72f-cd94b0c3fc11
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: PostalCodeField
+Description: PostalCode Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: PostalCodeField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: PostalCodeField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: PostalCodeFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PostalCodeField
+IsEmbedded: true
+Name: PostalCodeField
+NativeType: PI.Shared.Form.Models.PostalCodeField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

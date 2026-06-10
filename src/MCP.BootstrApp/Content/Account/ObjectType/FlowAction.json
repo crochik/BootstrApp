@@ -1,0 +1,171 @@
+{
+  "_id" : "694bee9a-f9f2-4517-a0d5-c19b4f14be22",
+  "Name" : "FlowAction",
+  "Description" : "Flow Action",
+  "CollectionName" : "FlowAction",
+  "NativeType" : "PI.Shared.Models.GenericAction",
+  "BaseObjectType" : "AppProfileElement",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "FlowAction",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ActionId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ActionId",
+        "Label" : "Action Id",
+        "Description" : "Action Id",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        },
+        "DefaultValue" : "{{new UUID}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ActionOptionsObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ActionOptionsObjectType",
+        "Label" : "Action Options Object Type",
+        "Description" : "Action Options Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "FullName",
+          "Criteria" : [{
+              "_t" : "Condition",
+              "FieldName" : "BaseObjectType",
+              "Operator" : "Eq",
+              "Value" : "ActionOptions"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "IconName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "IconName",
+        "Label" : "Icon",
+        "Description" : "Icon Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "InputObjectTypes" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "InputObjectTypes",
+        "Label" : "Input Object Types",
+        "Description" : "Input Object Types",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "ReferenceField",
+            "Name" : "ObjectType",
+            "Label" : "Object Type",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "AllowUnknown" : false,
+              "ObjectType" : "ObjectType",
+              "AutoComplete" : true,
+              "ForeignFieldName" : "FullName"
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Outputs" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Outputs",
+        "Label" : "Outputs",
+        "Description" : "Outputs",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : true,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Key",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "RelatedObjectTypes" : [{
+      "Name" : "ActionOptionsObjectType",
+      "ObjectType" : "ObjectType",
+      "Label" : "Action Options Object Type",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "FullName",
+            "Operator" : "Eq",
+            "Value" : "{{ActionOptionsObjectType}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }]
+}

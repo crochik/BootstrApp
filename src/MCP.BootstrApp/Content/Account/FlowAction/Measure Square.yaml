@@ -1,0 +1,13 @@
+_id: f8325623-dce7-4432-97e5-60d27c4cb31d
+ActionId: f8325623-dce7-4432-97e5-60d27c4cb31d
+ActionOptionsObjectType: m2.CalculateSeamsActionOptions
+Description: Measure Square - Calculate Seams
+IconName: design_services
+InputObjectTypes:
+- otg.Estimate
+IsActive: true
+Name: Measure Square
+Outputs:
+  Failed: Failed
+  Success: Success
+Role: Admin

@@ -1,0 +1,84 @@
+_id: 2bc63260-31ac-4c9a-b328-d6f6c0650818
+BaseObjectType: ReferenceFieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: RemoteFileFieldOptions
+Description: Options for Remote File Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: RemoteFileFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  ContentTypes:
+    Field:
+      _t: ArrayField
+      IsRequired: true
+      Label: Content Types
+      Name: ContentTypes
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: Value
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  UploadFileOptions:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Upload File Options
+      Name: UploadFileOptions
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: UploadFileOptions
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Url:
+    Field:
+      _t: TextField
+      Description: Relative path to post file (will automatically add "/RemoteFile/Upload" Suffix)
+      IsRequired: false
+      Label: Url
+      Name: Url
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RemoteFileFieldOptions
+IsAbstract: false
+IsEmbedded: true
+Name: RemoteFileFieldOptions
+NativeType: PI.Shared.Form.Models.RemoteFileFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

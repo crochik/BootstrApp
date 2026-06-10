@@ -1,0 +1,38 @@
+_id: e37835b9-d4a0-4862-b01d-c11f97e816f4
+CollectionName: '?'
+Description: Calculation (for CalculatedField)
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          default: Default Calculation
+          evaluate: Evaluate Expression Calculation
+          expression: Expression Calculation
+          index: Index Calculation
+          lookup: Lookup Calculation
+          path: Path Calculation
+          switch: Switch Calculation
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Calculation
+IsAbstract: true
+IsEmbedded: true
+Name: Calculation
+NativeType: '?'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System

@@ -1,0 +1,51 @@
+{
+  "_id" : "e768a54b-39bd-425a-b92f-6f79b13335e3",
+  "Name" : "SchedulerAvailabilityActionOptions",
+  "FullName" : "SchedulerAvailabilityActionOptions",
+  "Description" : "Scheduler Availability Action Options",
+  "IsActive" : true,
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "MinOffset" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "MinOffset",
+        "Label" : "Min Offset",
+        "IsRequired" : false,
+        "DefaultValue" : "00:00:00:00"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MaxOffset" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "MaxOffset",
+        "Label" : "Max Offset",
+        "IsRequired" : false,
+        "DefaultValue" : "15:00:00:00"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

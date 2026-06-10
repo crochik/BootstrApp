@@ -1,0 +1,188 @@
+_id: 09f1e000-30dc-4731-9d8a-061f6e6dc3af
+BaseObjectType: RemoteItem
+CollectionName: file.Item
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: file
+Description: Remote File
+Fields:
+  AllowAnonymousDownload:
+    Field:
+      _t: CheckboxField
+      Label: Allow Anonymous Download
+      Name: AllowAnonymousDownload
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 7
+  ContentType:
+    Field:
+      _t: TextField
+      Label: Content Type
+      Name: ContentType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 7
+  FlowId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Flow
+      Name: FlowId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: RemoteFile
+        ObjectType: Flow
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Status
+      Name: ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        Criteria:
+        - FieldName: ObjectType
+          Operator: Eq
+          Value: RemoteFile
+        ObjectType: ObjectStatus
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  PublicUrl:
+    Field:
+      _t: UrlField
+      Label: Public Url
+      Name: PublicUrl
+    RBAC:
+      Permissions:
+        Account: 1
+        Admin: 1
+  RBAC|Permissions:
+    Field:
+      _t: DictionaryField
+      IsRequired: true
+      Label: RBAC
+      Name: RBAC|Permissions
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: true
+        KeyField:
+          _t: TextField
+          IsRequired: true
+          Label: EntityId, ProfileId or Role
+          Name: Key
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        ValueField:
+          _t: BitwiseFlagField
+          IsRequired: true
+          Label: Permissions
+          Name: Value
+          Options:
+            _t: BitwiseFlagFieldOptions
+            Items:
+              1: Read
+              16: Upload
+              2: Update
+              4: Overwrite
+              8: Delete
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Size:
+    Field:
+      _t: NumberField
+      Name: Size
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+    RBAC:
+      Permissions:
+        Account: 1
+        Admin: 1
+FullName: RemoteFile
+IsAbstract: false
+IsEmbedded: false
+Name: RemoteFile
+NativeType: PI.Shared.Models.Files.RemoteFile
+RBAC:
+  Permissions:
+    Account: 15
+    Admin: 15
+RelatedObjectTypes:
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{FlowId}}'
+  Label: Flow
+  Name: FlowId
+  ObjectType: Flow
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: _id
+      Operator: Eq
+      Value: '{{ObjectStatusId}}'
+  Label: Status
+  Name: ObjectStatusId
+  ObjectType: ObjectStatus
+  RBAC:
+    Permissions: {}
+  RelationType: OneToOne
+- Criteria:
+    Conditions:
+    - FieldName: BusinessPlanRemoteFileId
+      Operator: Eq
+      Value: '{{_id}}'
+  Name: BusinessPlanRemoteFileId
+  ObjectType: Organization
+  RBAC:
+    Permissions:
+      Account: 0
+  RelationType: Referenced
+- Criteria:
+    Conditions:
+    - FieldName: RemoteFileId
+      Operator: Eq
+      Value: '{{_id}}'
+  Name: RemoteFileId
+  ObjectType: openapi.Document
+  RBAC:
+    Permissions:
+      Account: 0
+  RelationType: Referenced
+- Criteria:
+    Conditions:
+    - FieldName: SourceRemoteFileId
+      Operator: Eq
+      Value: '{{_id}}'
+  Name: SourceRemoteFileId
+  ObjectType: ImportObjectsJob
+  RBAC:
+    Permissions:
+      Account: 0
+  RelationType: Referenced
+Tags:
+- Files

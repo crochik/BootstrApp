@@ -1,0 +1,57 @@
+_id: 60e840fe-af9b-4109-a521-aaf3e08c48e8
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: PhoneFieldOptions
+Description: 'Options for Phone Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: PhoneFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    Indexed: true
+    InitialValue: PhoneFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  AutoFormat:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Label: Format Automatically
+      Name: AutoFormat
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          International: International
+          National: National
+          None: None
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PhoneFieldOptions
+IsEmbedded: true
+Label: PhoneField Options
+LabelPlural: PhoneField Options
+Name: PhoneFieldOptions
+NativeType: PI.Shared.Form.Models.PhoneFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

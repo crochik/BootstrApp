@@ -1,0 +1,42 @@
+_id: 55c5e816-fa8a-4133-843f-d339887843d1
+CollectionName: '?'
+Description: Google Places Search Result
+Fields:
+  Description:
+    Field:
+      _t: TextField
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: Id
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: google.Place
+IsAbstract: false
+IsEmbedded: true
+Name: Place
+Namespace: google
+NativeType: '*'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15

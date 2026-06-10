@@ -1,0 +1,32 @@
+_id: 7b22d72b-4696-470b-ab67-7647789148e9
+BaseObjectType: AppProfileElement
+CollectionName: app.Menu.1
+Description: Client Menus
+Fields:
+  Menu:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Menu
+      Name: Menu
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Menu
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: AppMenu
+IsAbstract: false
+IsEmbedded: false
+Label: Menu
+LabelPlural: Menus
+Name: AppMenu
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

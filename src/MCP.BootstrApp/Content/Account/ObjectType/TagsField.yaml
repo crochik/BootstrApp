@@ -1,0 +1,47 @@
+_id: 420632c6-f308-435d-b6e0-735e583c966d
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: TagsField
+Description: Tags Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: TagsField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: TagsField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: TagsFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TagsField
+IsEmbedded: true
+Name: TagsField
+NativeType: PI.Shared.Form.Models.TagsField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

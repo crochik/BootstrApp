@@ -1,0 +1,98 @@
+_id: effc5b38-4f03-45ad-813f-149e355ffda2
+CollectionName: filebox.EmailReceived
+Description: Emails received
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Id
+      Name: _id
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  Body:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Message
+      Name: Body
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  CreatedOn:
+    Field:
+      _t: DateField
+      IsRequired: false
+      Label: On
+      Name: CreatedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  From:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: From
+      Name: From
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  From|Name:
+    Field:
+      _t: TextField
+      Enable:
+      - false
+      IsRequired: false
+      Label: From
+      Name: From|Name
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  Name:
+    Field:
+      _t: TextField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Subject
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+  Plain:
+    Field:
+      _t: TextField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Message
+      Name: Plain
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: EmailReceived
+IsActive: true
+Name: EmailReceived
+NativeType: PI.Shared.Models.EmailReceived
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 11
+Tags: []
+UniqueExternalId: false

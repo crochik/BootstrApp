@@ -1,0 +1,75 @@
+{
+  "_id" : "136ec46d-dc23-48f2-890f-d386065ce5f4",
+  "Name" : "UserDesignAssociate",
+  "Description" : "Design Associate",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.User",
+  "UniqueExternalId" : false,
+  "BaseObjectType" : "User",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 3
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }, {
+          "FieldName" : "_t",
+          "Value" : "User"
+        }, {
+          "FieldName" : "UserRoleId",
+          "Value" : "User"
+        }]
+    }
+  },
+  "Fields" : {
+    "AppProfiles|PLM" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "AppProfiles|PLM",
+        "Label" : "PLM Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "0b0cea4a-9a95-460a-9091-90c1d238aa7b" : "Default",
+            "7a486c90-74c2-4170-b9b4-4b484b744786" : "Corporate Product Selector"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3
+        }
+      }
+    },
+    "AppProfiles|InspireNetMobile_ProductSelector" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "AppProfiles|InspireNetMobile_ProductSelector",
+        "Label" : "IM Profile",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "134ddab0-da6c-4f1d-8de5-362db0b50324" : "Default",
+            "e89f08d4-db31-46ff-a451-15c78b391e3a" : "Corporate Product Selector"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 3
+        }
+      }
+    }
+  },
+  "CollectionName" : "Entity",
+  "Tags" : [],
+  "FullName" : "UserDesignAssociate",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

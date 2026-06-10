@@ -1,0 +1,70 @@
+{
+  "_id" : "4dd73d5d-7a7e-49bb-a167-ad73b372c327",
+  "Namespace" : "openapi",
+  "Name" : "Schema",
+  "Description" : "OpenAPI Schema",
+  "CollectionName" : "openapi.Schema",
+  "NativeType" : "PI.OpenAPI.Models.OApiSchema",
+  "BaseObjectType" : "Model",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["openapi"],
+  "FullName" : "openapi.Schema",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7.0
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "FullName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "FullName",
+        "Label" : "Full Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Namespace" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Namespace",
+        "Label" : "Namespace"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Reference" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Reference",
+        "Label" : "Reference"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

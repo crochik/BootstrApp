@@ -1,0 +1,89 @@
+_id: 77d7604d-df9e-42c3-b9a2-5744a7774ead
+CollectionName: ObjectStatus
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: AccountId
+      Value: '{{AccountId}}'
+Description: Object Status
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new UUID}}'
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 1
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+        User: 1
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 7
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+        User: 1
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 7
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+        User: 1
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+        Admin: 5
+        e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectStatus
+IsActive: true
+Name: ObjectStatus
+NativeType: PI.Shared.Models.ObjectStatus
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    077e4ad6-713e-45b3-b466-ae6957c532f0: 1
+    Admin: 15
+    e7018742-c2a6-43de-9a25-8e42a1c47a2a: 1
+    Manager: 1
+    User: 1
+RelatedObjectTypes: []
+Tags:
+- System
+UniqueExternalId: false

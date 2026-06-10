@@ -1,0 +1,85 @@
+_id: 674f96f7-a4f3-4e21-b5ee-d1846fdffd12
+ApiName: PhoneNumber
+CollectionName: '?'
+Description: Phone Number
+Fields:
+  Description:
+    Field:
+      _t: SelectField
+      ApiName: description
+      IsRequired: true
+      Label: Label
+      Name: Description
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: true
+        Items:
+          Home: Home
+          Mobile: Mobile
+          School: School
+          Work: Work
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        Manager: 7
+        User: 7
+  PhoneNumber:
+    Field:
+      _t: PhoneField
+      ApiName: phoneNumber
+      IsRequired: true
+      Label: Phone Number
+      Name: PhoneNumber
+      Options:
+        _t: PhoneFieldOptions
+        AutoFormat: International
+    Indexed: true
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        Manager: 7
+        User: 7
+  Type:
+    Field:
+      _t: SelectField
+      ApiName: type
+      IsRequired: true
+      Label: Type
+      Name: Type
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Fax: Fax
+          Fixed: Fixed
+          Mobile: Mobile
+          Satelite: Satelite
+          VoIP: Voice over IP
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 7
+        Admin: 7
+        Manager: 7
+        User: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PhoneNumber
+IsAbstract: false
+IsEmbedded: true
+Label: Phone Number
+LabelPlural: Phone Numbers
+Name: PhoneNumber
+NativeType: '?'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 15
+    Admin: 15
+    Manager: 15
+    User: 15
+Tags:
+- OTG
+- System

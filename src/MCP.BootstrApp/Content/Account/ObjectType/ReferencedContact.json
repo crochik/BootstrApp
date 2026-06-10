@@ -1,0 +1,67 @@
+{
+  "_id" : "d007cd05-8f78-4bc8-b636-f7f30691abb4",
+  "Name" : "ReferencedContact",
+  "Description" : "Referenced Object",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 7,
+      "Manager" : 7
+    }
+  },
+  "Fields" : {
+    "ObjectId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectId",
+        "Label" : "Contact",
+        "IsRequired" : true,
+        "ApiName" : "objectId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "Contact",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 5,
+          "Manager" : 5,
+          "User" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : true,
+        "ApiName" : "objectType"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "Contact"
+    }
+  },
+  "CollectionName" : "?",
+  "RelatedObjectTypes" : [],
+  "Tags" : ["System", "OTG"],
+  "Label" : "Referenced Contact",
+  "LabelPlural" : "Referenced Contacts",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "FullName" : "ReferencedContact",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

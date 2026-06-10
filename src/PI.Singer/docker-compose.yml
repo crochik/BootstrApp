@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  singer:
+    image: docker2.fci.cloud/singer:20200502.5
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "http://0.0.0.0:5006"
+      MessageQueue__Url: "amqp://pi:pi@host.docker.internal:5672/"
+      MessageQueue__Hosts__0": "host.docker.internal"
+      MessageQueue__ExchangeName: "ppa"
+      MessageQueue__ExchangeType: "topic"
+      _MongoConnection__ConnectionString: "mongodb://host.docker.internal:27017/PI"
+      MongoConnection__ConnectionString: "mongodb://host.docker.internal:27017/PPA"
+      UsesMongo: "true"
+      DataProtection__KeysPath: "/app/.dataprotection-keys"
+      # ELK__UseForLogging: "false"
+      # PI__Authority: "http://host.docker.internal:5000"
+      # PI__ApiName: "Sched.Onl"
+      # GCP
+      _GOOGLE_APPLICATION_CREDENTIALS: "/app/secrets/schedonl-8b3763c92c48.json"
+      _ExtractService__Bucket: "singer-config"
+      # AWS
+      AWS_ACCESS_KEY_ID: ...
+      AWS_SECRET_ACCESS_KEY: ...
+      AWS__Region: "us-east-2"
+      ExtractService__Bucket: "pi-singer-config"
+      #
+      RabbitMqLoadService__QueueName: "staging.singer.extract"
+      ExtractService__LocalPath: "/var/tmp/Sched.Onl"
+
+    volumes:
+      - ./output:/var/tmp/Sched.Onl
+      - ./secrets/schedonl-8b3763c92c48.json:/app/schedonl-8b3763c92c48.json
+      - /Users/felipecrochik/.dataprotection-keys:/app/.dataprotection-keys
+    ports:
+      - "5006:5006"

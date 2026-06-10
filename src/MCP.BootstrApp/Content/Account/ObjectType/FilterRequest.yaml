@@ -1,0 +1,105 @@
+_id: 39dec135-6531-403a-a630-39b24006f65b
+CollectionName: '?'
+Description: Filter Request
+Fields:
+  Criteria:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Filter Criteria
+      Name: Criteria
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: FilterCondition
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Fields:
+    Field:
+      _t: ArrayField
+      IsRequired: false
+      Label: Field Names
+      Name: Fields
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: false
+          Label: Field Name
+          Name: Value
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  OrderBy:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Order By Field Name
+      Name: OrderBy
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ReverseOrder:
+    Field:
+      _t: CheckboxField
+      ApiName: Reverse Sort Order
+      IsRequired: false
+      Name: ReverseOrder
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Skip:
+    Field:
+      _t: NumberField
+      IsRequired: false
+      Label: Skip
+      Name: Skip
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+        Style: Default
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Top:
+    Field:
+      _t: NumberField
+      IsRequired: false
+      Label: Top
+      Name: Top
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+        Style: Default
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: FilterRequest
+IsAbstract: false
+IsEmbedded: true
+Label: Filter Request
+LabelPlural: Filter Requests
+Name: FilterRequest
+NativeType: FilterRequest
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- PI-API
+- System

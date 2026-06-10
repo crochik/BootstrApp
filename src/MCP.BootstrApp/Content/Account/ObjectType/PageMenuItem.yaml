@@ -1,0 +1,56 @@
+_id: 66401368-e760-4836-aa9b-c453c23257e3
+BaseObjectType: MenuItem
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: PageMenuItem
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: PageMenuItem
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: PageMenuItem
+    RBAC:
+      Permissions:
+        Admin: 1
+  Page:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Page
+      Name: Page
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: PageMenuItem
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: PageMenuItem
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

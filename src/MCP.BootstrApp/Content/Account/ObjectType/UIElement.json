@@ -1,0 +1,122 @@
+{
+  "_id" : "41aa45ec-48a0-4cbc-91f2-11e1b6f88626",
+  "CollectionName" : "?",
+  "Description" : "UI Element",
+  "Name" : "UIElement",
+  "NativeType" : "PI.Shared.Form.Models.UIElement",
+  "ObjectType" : "ObjectType",
+  "ObjectTypeId" : "e95a5e18-f7b7-40cd-baea-3a64dbb9105f",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "IsAbstract" : true,
+  "IsEmbedded" : true,
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Label" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Label",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "IsReadOnly" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "IsReadOnly",
+        "Label" : "Read Only?"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "IsVisible" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "IsVisible",
+        "Label" : "Visible?"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Enable" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Enable",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Visible" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "Visible",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["ui"],
+  "RelatedObjectTypes" : [],
+  "FullName" : "UIElement",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

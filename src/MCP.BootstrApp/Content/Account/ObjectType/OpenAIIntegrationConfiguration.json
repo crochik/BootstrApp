@@ -1,0 +1,50 @@
+{
+  "_id" : "13817356-60aa-4674-822a-b2c93857aeb3",
+  "Name" : "OpenAIIntegrationConfiguration",
+  "Description" : "Integration Configuration for OpenAI",
+  "CollectionName" : "IntegrationConfiguration",
+  "NativeType" : "*",
+  "BaseObjectType" : "IntegrationConfiguration",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "IntegrationId",
+          "Value" : "1da3422f-80e5-44ed-ad54-7d9ed3108a11"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Account" : 7,
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "APIKey" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "APIKey",
+        "Label" : "API Key",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "EntityIntegration.OpenAI"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 6
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "Integration"],
+  "FullName" : "OpenAIIntegrationConfiguration",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,50 @@
+_id: b7cf385c-3560-48ad-a8e4-f059aeef9d75
+ApiName: Match
+CollectionName: '?'
+Description: Text fragment (Search)
+Fields:
+  type:
+    Field:
+      _t: SelectField
+      IsRequired: false
+      Name: type
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          hit: Hit
+          text: Text
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  value:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: value
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SearchHighlightText
+IsAbstract: false
+IsEmbedded: true
+Label: Match (Search)
+LabelPlural: Matches
+Name: SearchHighlightText
+NativeType: '?'
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    33d883d8-c153-44b2-9094-d4fd158e767d: 1
+    Admin: 1
+Tags:
+- OTG
+- System

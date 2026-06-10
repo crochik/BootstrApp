@@ -1,0 +1,23 @@
+_id: bc61f0f7-d63b-4e51-aac9-0a19cb124f75
+BaseObjectType: RemoteItem
+CollectionName: file.Item
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: folder
+Description: Remote Folder
+Fields: {}
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RemoteFolder
+IsAbstract: false
+IsEmbedded: false
+Name: RemoteFolder
+NativeType: PI.Shared.Models.Files.RemoteFolder
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- Files

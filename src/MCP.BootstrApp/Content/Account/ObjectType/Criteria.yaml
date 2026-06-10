@@ -1,0 +1,33 @@
+_id: b4ff5c1d-4b32-4aa6-90df-a5bf8d9072ca
+CollectionName: '*'
+Constraints: {}
+Description: Filter Criteria
+Fields:
+  Conditions:
+    Field:
+      _t: ChildrenField
+      IsRequired: true
+      Label: Conditions
+      Name: Conditions
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Condition
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: Criteria
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+Name: Criteria
+NativeType: PI.Shared.Models.Criteria
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System
+UniqueExternalId: false

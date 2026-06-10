@@ -1,0 +1,441 @@
+{
+  "_id" : "8ef2610d-e32a-44b1-9123-1d8db763b014",
+  "Name" : "Entity",
+  "Description" : "Entity",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Entity",
+  "UniqueExternalId" : false,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "Manager" : 1,
+      "User" : 1,
+      "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+      "d33d2dda-5180-44a5-9e63-77494f57646a" : 15
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }]
+    }
+  },
+  "Fields" : {
+    "AccountId" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "AccountId",
+        "Label" : "Account",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{AccountId}}"
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        },
+        "ApiName" : "name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        },
+        "ApiName" : "description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}",
+      "Indexed" : true
+    },
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "User" : "User",
+            "Account" : "Account",
+            "Organization" : "Organization"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Email" : {
+      "Field" : {
+        "_t" : "EmailField",
+        "Name" : "Email",
+        "Label" : "Email",
+        "IsRequired" : false,
+        "ApiName" : "email"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "Phone" : {
+      "Field" : {
+        "_t" : "PhoneField",
+        "Name" : "Phone",
+        "Label" : "Phone",
+        "IsRequired" : false,
+        "ApiName" : "phone"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "TimeZoneId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "TimeZoneId",
+        "Label" : "Time Zone",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        },
+        "ApiName" : "timeZone"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      }
+    },
+    "OrganizationId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "OrganizationId",
+        "Label" : "Organization",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Organization",
+          "AutoComplete" : true,
+          "LinkUrl" : "dataForm://api/v1/CustomObject/Organization({{value}})/View"
+        },
+        "ApiName" : "organizationId"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active",
+        "IsRequired" : false,
+        "ApiName" : "isActive"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1,
+          "077e4ad6-713e-45b3-b466-ae6957c532f0" : 1,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "FlowId",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "_Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Entity"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectStatusId",
+        "Label" : "Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "Entity"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}",
+      "Indexed" : true
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}",
+      "Indexed" : true
+    },
+    "Identities" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Identities",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "EntityIdentity",
+          "KeyType" : "int",
+          "Url" : "/api/v1/CustomObject/Entity({{id}})/Identities"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0,
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 1
+        }
+      }
+    }
+  },
+  "CollectionName" : "Entity",
+  "Discriminator" : {
+    "Organization" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "Organization"
+        }]
+    },
+    "User" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "User"
+        }]
+    },
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "Account"
+        }]
+    }
+  },
+  "Tags" : ["OTG"],
+  "RelatedObjectTypes" : [{
+      "Name" : "OrganizationId",
+      "ObjectType" : "Organization",
+      "Label" : "Organization",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{OrganizationId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "FlowId",
+      "ObjectType" : "Flow",
+      "Label" : "FlowId",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{FlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "ObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{ObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "d33d2dda-5180-44a5-9e63-77494f57646a" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FullName" : "Entity",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "Label" : "Entity",
+  "LabelPlural" : "Entities"
+}

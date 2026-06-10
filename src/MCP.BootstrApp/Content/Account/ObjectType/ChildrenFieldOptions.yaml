@@ -1,0 +1,154 @@
+_id: d8cbc249-072b-4a27-8646-3f6d7d573254
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: ChildrenFieldOptions
+Description: 'Options for Children Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ChildrenFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    Indexed: true
+    InitialValue: ChildrenFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  AddFormUrls:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Add Form Urls
+      Name: AddFormUrls
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: ReferenceField
+          IsRequired: true
+          Label: Object Type
+          Name: Key
+          Options:
+            _t: ReferenceFieldOptions
+            AllowUnknown: false
+            AutoComplete: true
+            ForeignFieldName: FullName
+            ObjectType: ObjectType
+        ValueField:
+          _t: TagsField
+          IsRequired: true
+          Label: Data Form Path
+          Name: Value
+          Options:
+            _t: TagsFieldOptions
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  Criteria:
+    Field:
+      _t: ChildrenField
+      Label: Criteria
+      Name: Criteria
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Condition
+    RBAC:
+      Permissions:
+        Admin: 7
+  EditForms:
+    Field:
+      _t: ChildrenField
+      Description: Calculated by backend
+      IsRequired: false
+      Label: Edit Forms
+      Name: EditForms
+      Options:
+        _t: ChildrenFieldOptions
+        KeyField:
+          _t: TextField
+          IsRequired: true
+          Label: Key
+          Name: Key
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+        KeyType: string
+        ObjectType: Form
+    Indexed: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+  KeyField:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Key Field
+      Name: KeyField
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Field
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  KeyType:
+    Field:
+      _t: SelectField
+      Label: Key Type
+      Name: KeyType
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          int: Array
+          string: Dictionary
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Admin: 7
+  Url:
+    Field:
+      _t: TextField
+      Label: Url
+      Name: Url
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ChildrenFieldOptions
+IsEmbedded: true
+Name: ChildrenFieldOptions
+NativeType: PI.Shared.Form.Models.ChildrenFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

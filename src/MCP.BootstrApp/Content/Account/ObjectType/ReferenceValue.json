@@ -1,0 +1,88 @@
+{
+  "_id" : "e2d647c7-fc20-4013-8973-46c94325f9f0",
+  "Name" : "ReferenceValue",
+  "Description" : "Reference Value",
+  "CollectionName" : "?",
+  "NativeType" : "ReferenceValue",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "ReferenceValue",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "Fields" : {
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Id",
+        "Label" : "Id",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "ImageUrl" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ImageUrl",
+        "Label" : "Image Url",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "Value" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Value",
+        "Label" : "Value",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Label" : "Reference Value",
+  "LabelPlural" : "Reference Values",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,139 @@
+{
+  "_id" : "acafc0d5-4015-4ce7-b217-e0f659a34e04",
+  "Name" : "TypeformIntegrationConfiguration",
+  "Description" : "Integration Configuration for Typeform.com",
+  "CollectionName" : "IntegrationConfiguration",
+  "NativeType" : "*",
+  "BaseObjectType" : "IntegrationConfiguration",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "IntegrationId",
+          "Value" : "27d9a7a4-2d31-4c05-b226-1a7d529b042f"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Account" : 7,
+      "Admin" : 3
+    }
+  },
+  "Fields" : {
+    "Alias" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Alias"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 1
+        }
+      }
+    },
+    "Email" : {
+      "Field" : {
+        "_t" : "EmailField",
+        "Name" : "Email"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 1
+        }
+      }
+    },
+    "UserId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "UserId",
+        "Label" : "User Id"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 1
+        }
+      }
+    },
+    "Token|AccessToken" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "Token|AccessToken",
+        "Label" : "Access Token",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "EntityIntegration.TypeForm"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 0
+        }
+      }
+    },
+    "Token|RefreshToken" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "Token|RefreshToken",
+        "Label" : "Refresh Token",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "EntityIntegration.TypeForm"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 0
+        }
+      }
+    },
+    "Token|ExpiresOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "Token|ExpiresOn",
+        "Label" : "Expires On"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Account" : 7,
+          "Admin" : 1
+        }
+      }
+    },
+    "PersonalAccessToken" : {
+      "Field" : {
+        "_t" : "PasswordField",
+        "Name" : "PersonalAccessToken",
+        "Label" : "Personal Access Token",
+        "Options" : {
+          "_t" : "PasswordFieldOptions",
+          "DataDataProtection" : {
+            "_t" : "ms-data-protection",
+            "Purpose" : "EntityIntegration.TypeForm"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "Integration"],
+  "FullName" : "TypeformIntegrationConfiguration",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

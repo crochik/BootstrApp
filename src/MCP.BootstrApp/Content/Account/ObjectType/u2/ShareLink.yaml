@@ -1,0 +1,70 @@
+_id: 142dcebf-8736-4075-87ba-b64ff925a449
+BaseObjectType: ShortLinkRedirection
+CollectionName: u2.redirection
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: share
+Description: Anonymous Object Share
+Fields:
+  MetaValues|FieldName:
+    Field:
+      _t: TextField
+      Label: Field Name
+      Name: MetaValues|FieldName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+  MetaValues|ObjectId:
+    Field:
+      _t: TextField
+      Label: Object Id
+      Name: MetaValues|ObjectId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+  MetaValues|ObjectType:
+    Field:
+      _t: ReferenceField
+      Label: Object Type
+      Name: MetaValues|ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+  MetaValues|ShareId:
+    Field:
+      _t: TextField
+      Label: Share Id
+      Name: MetaValues|ShareId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: true
+    RBAC:
+      Permissions:
+        Account: 7
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: u2.ShareLink
+IsAbstract: false
+IsEmbedded: false
+Name: ShareLink
+Namespace: u2
+NativeType: '*'
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15

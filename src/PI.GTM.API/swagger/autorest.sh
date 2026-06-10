@@ -1,0 +1,1 @@
+autorest --csharp --input-file=swagger.json --output-folder=./src

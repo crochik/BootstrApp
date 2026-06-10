@@ -1,0 +1,97 @@
+_id: 5f5b2f5b-10e6-4b67-8acb-a3f9fb707c56
+CollectionName: u2.request
+Constraints: {}
+Description: Redirection Request (U2)
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new ObjectId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  IpAddress:
+    Field:
+      _t: TextField
+      Label: IP Address
+      Name: IpAddress
+    RBAC:
+      Permissions:
+        Admin: 1
+  Location:
+    Field:
+      _t: TextField
+      Name: Location
+    RBAC:
+      Permissions:
+        Admin: 1
+  Query:
+    Field:
+      _t: DictionaryField
+      Name: Query
+    RBAC:
+      Permissions:
+        Admin: 1
+  RedirectionId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Redirection
+      Name: RedirectionId
+      Options:
+        _t: ReferenceFieldOptions
+        AutoComplete: true
+        Criteria: []
+        ObjectType: ShortLinkRedirection
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  RequestId:
+    Field:
+      _t: TextField
+      Label: Request Id
+      Name: RequestId
+    RBAC:
+      Permissions:
+        Admin: 1
+  Url:
+    Field:
+      _t: TextField
+      Name: Url
+    RBAC:
+      Permissions:
+        Admin: 1
+  UserAgent:
+    Field:
+      _t: TextField
+      Label: User Agent
+      Name: UserAgent
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RedirectionRequest
+IsAbstract: false
+IsEmbedded: false
+Name: RedirectionRequest
+NativeType: PI.Shared.Models.U2.RedirectionRequest
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 1
+Tags:
+- System

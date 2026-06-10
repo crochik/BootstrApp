@@ -1,0 +1,46 @@
+_id: 6372c286-5701-4245-9a0f-f9b869c6115f
+CollectionName: ObjectTag
+Description: Tags for objects
+Fields:
+  _id:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 5
+  Description:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Description
+      Name: Description
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Name
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectTag
+IsActive: true
+Name: ObjectTag
+NativeType: PI.Shared.Models.ObjectTag
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 15
+Tags: []
+UniqueExternalId: false

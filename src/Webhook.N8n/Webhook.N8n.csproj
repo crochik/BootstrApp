@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Webhook.N8n</RootNamespace>
+    <AssemblyName>Webhook.N8n</AssemblyName>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Webhook.N8n.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Shared discovery/catalog, subscription bridge, API-key gate and durable
+         delivery (via Webhook.Publisher). This project adds only the n8n API. -->
+    <ProjectReference Include="..\Webhook.Integrations.Core\Webhook.Integrations.Core.csproj" />
+  </ItemGroup>
+
+</Project>

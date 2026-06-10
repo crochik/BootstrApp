@@ -1,0 +1,4 @@
+out/appsettings.*.json
+output/
+secrets/
+README.md

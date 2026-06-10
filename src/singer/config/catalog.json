@@ -1,0 +1,448 @@
+{
+  "streams": [
+    {
+      "table_name": "LeadStatus",
+      "stream": "LeadStatus",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 6,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": true,
+            "replication-method": "INCREMENTAL",
+            "replication-key": "_id",
+            "tap-mongodb.projection": "{\"Name\": \"1\", \"CreatedOn\": \"1\"}"  
+          }
+        }
+      ],
+      "tap_stream_id": "PI-LeadStatus",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "Lead",
+      "stream": "Lead",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 5,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": true,
+            "replication-method": "INCREMENTAL",
+            "replication-key": "_id",
+            "tap-mongodb.projection": "{\"Name\": \"1\", \"CreatedOn\": \"1\"}"
+          }
+        }
+      ],
+      "tap_stream_id": "PI-Lead",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "UIConfig",
+      "stream": "UIConfig",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 1,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-UIConfig",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "ScheduledTask",
+      "stream": "ScheduledTask",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 8,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-ScheduledTask",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "O365Tenant",
+      "stream": "O365Tenant",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 1,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-O365Tenant",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "LeadEvent",
+      "stream": "LeadEvent",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 43,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-LeadEvent",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "AppointmentType",
+      "stream": "AppointmentType",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 1,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-AppointmentType",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "Flow",
+      "stream": "Flow",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 6,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-Flow",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "Entity",
+      "stream": "Entity",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 6,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-Entity",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "PersistedGrant",
+      "stream": "PersistedGrant",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 5,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-PersistedGrant",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "EntityMetadata",
+      "stream": "EntityMetadata",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 2,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-EntityMetadata",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "EventType",
+      "stream": "EventType",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 33,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-EventType",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "IdentityResource",
+      "stream": "IdentityResource",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 2,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-IdentityResource",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "Client",
+      "stream": "Client",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 2,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-Client",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "LeadType",
+      "stream": "LeadType",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 2,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-LeadType",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "Appointment",
+      "stream": "Appointment",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 10,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ],
+            "selected": true,
+            "replication-method": "INCREMENTAL",
+            "replication-key": "_id",
+            "tap-mongodb.projection": "{\"Name\": \"1\", \"CreatedOn\": \"1\"}"
+          }
+        }
+      ],
+      "tap_stream_id": "PI-Appointment",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "O365User",
+      "stream": "O365User",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 1,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-O365User",
+      "schema": {
+        "type": "object"
+      }
+    },
+    {
+      "table_name": "ApiResource",
+      "stream": "ApiResource",
+      "metadata": [
+        {
+          "breadcrumb": [],
+          "metadata": {
+            "table-key-properties": [
+              "_id"
+            ],
+            "database-name": "PI",
+            "row-count": 1,
+            "is-view": false,
+            "valid-replication-keys": [
+              "_id"
+            ]
+          }
+        }
+      ],
+      "tap_stream_id": "PI-ApiResource",
+      "schema": {
+        "type": "object"
+      }
+    }
+  ]
+}

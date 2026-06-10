@@ -1,0 +1,11 @@
+_id: ee7237d3-80d0-48a4-9d84-f92ffa1d0990
+ActionId: 3b9aab03-a8b4-4a2e-825e-1032203d9c03
+ActionOptionsObjectType: TrustedFormCertActionOptions
+Description: Validate/Retain Trusted Form Certificate
+IsActive: true
+Name: TrustedFormCert
+Outputs:
+  DuplicateEvent: Certificate has been retained before
+  ErrorEvent: Failed Certificate Operation
+  SuccessEvent: Certificate Operation Successful
+Role: Admin

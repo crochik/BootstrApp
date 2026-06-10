@@ -1,0 +1,107 @@
+_id: 4bff0ab9-bd05-43ed-8c0c-9c6970a5b9f3
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for Number Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: NumberFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: NumberFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  DecimalPlaces:
+    Field:
+      _t: NumberField
+      DefaultValue: 0
+      Label: Decimal Places
+      Name: DecimalPlaces
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+    RBAC:
+      Permissions:
+        Admin: 7
+  ExcludeMaximum:
+    Field:
+      _t: CheckboxField
+      Label: Exclude Maximum
+      Name: ExcludeMaximum
+    RBAC:
+      Permissions:
+        Admin: 7
+  ExcludeMinimum:
+    Field:
+      _t: CheckboxField
+      Label: Exclude Minimum
+      Name: ExcludeMinimum
+    RBAC:
+      Permissions:
+        Admin: 7
+  Maximum:
+    Field:
+      _t: NumberField
+      Label: Maximum
+      Name: Maximum
+      Options:
+        _t: NumberFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  Minimum:
+    Field:
+      _t: NumberField
+      Label: Minimum
+      Name: Minimum
+      Options:
+        _t: NumberFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+  MultipleOf:
+    Field:
+      _t: NumberField
+      Label: Multiple Of
+      Name: MultipleOf
+      Options:
+        _t: NumberFieldOptions
+        ExcludeMinimum: true
+        Minimum: 0
+    RBAC:
+      Permissions:
+        Admin: 7
+  Style:
+    Field:
+      _t: SelectField
+      Label: Style
+      Name: Style
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Currency: Currency
+          Default: Default
+          Price: Price
+          Rating: Rating
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: NumberFieldOptions
+IsEmbedded: true
+Name: NumberFieldOptions
+NativeType: PI.Shared.Models.NumberFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

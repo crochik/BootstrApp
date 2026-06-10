@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Service", "src\Webhook.Service\Webhook.Service.csproj", "{1A1B1C1D-1111-2222-3333-444455556666}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Service.Tests", "tests\Webhook.Service.Tests\Webhook.Service.Tests.csproj", "{2A2B2C2D-1111-2222-3333-444455556666}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{8F33C0C7-CC5D-41FE-A5D6-FDCD147B453D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Publisher", "src\Webhook.Publisher\Webhook.Publisher.csproj", "{11C3844E-5E42-48F0-9DB4-2B818EDEE983}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{79B679E0-9DC5-4935-B843-97ECD36E3D2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Publisher.Tests", "tests\Webhook.Publisher.Tests\Webhook.Publisher.Tests.csproj", "{72B13E5E-5D31-47E9-9CF5-87FA5C7FA395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Zapier", "src\Webhook.Zapier\Webhook.Zapier.csproj", "{3C4D5E6F-1111-2222-3333-444455556666}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Webhook.Zapier.Tests", "tests\Webhook.Zapier.Tests\Webhook.Zapier.Tests.csproj", "{4D5E6F70-1111-2222-3333-444455556666}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A1B1C1D-1111-2222-3333-444455556666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A1B1C1D-1111-2222-3333-444455556666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A1B1C1D-1111-2222-3333-444455556666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A1B1C1D-1111-2222-3333-444455556666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A2B2C2D-1111-2222-3333-444455556666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A2B2C2D-1111-2222-3333-444455556666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A2B2C2D-1111-2222-3333-444455556666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A2B2C2D-1111-2222-3333-444455556666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11C3844E-5E42-48F0-9DB4-2B818EDEE983}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11C3844E-5E42-48F0-9DB4-2B818EDEE983}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11C3844E-5E42-48F0-9DB4-2B818EDEE983}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11C3844E-5E42-48F0-9DB4-2B818EDEE983}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72B13E5E-5D31-47E9-9CF5-87FA5C7FA395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72B13E5E-5D31-47E9-9CF5-87FA5C7FA395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72B13E5E-5D31-47E9-9CF5-87FA5C7FA395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72B13E5E-5D31-47E9-9CF5-87FA5C7FA395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C4D5E6F-1111-2222-3333-444455556666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C4D5E6F-1111-2222-3333-444455556666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C4D5E6F-1111-2222-3333-444455556666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C4D5E6F-1111-2222-3333-444455556666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D5E6F70-1111-2222-3333-444455556666}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D5E6F70-1111-2222-3333-444455556666}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D5E6F70-1111-2222-3333-444455556666}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D5E6F70-1111-2222-3333-444455556666}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{11C3844E-5E42-48F0-9DB4-2B818EDEE983} = {8F33C0C7-CC5D-41FE-A5D6-FDCD147B453D}
+		{72B13E5E-5D31-47E9-9CF5-87FA5C7FA395} = {79B679E0-9DC5-4935-B843-97ECD36E3D2E}
+		{3C4D5E6F-1111-2222-3333-444455556666} = {8F33C0C7-CC5D-41FE-A5D6-FDCD147B453D}
+		{4D5E6F70-1111-2222-3333-444455556666} = {79B679E0-9DC5-4935-B843-97ECD36E3D2E}
+	EndGlobalSection
+EndGlobal

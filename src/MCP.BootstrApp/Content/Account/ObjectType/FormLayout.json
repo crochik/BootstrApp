@@ -1,0 +1,77 @@
+{
+  "_id" : "a26417ba-0c09-49bd-bc3b-a55f3eb7753f",
+  "Name" : "FormLayout",
+  "Description" : "Form Layout",
+  "CollectionName" : "?",
+  "NativeType" : "FormLayout",
+  "IsEmbedded" : true,
+  "IsAbstract" : true,
+  "Discriminator" : {
+    "GridFormLayout" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Operator" : "Eq",
+          "Value" : "GridFormLayout"
+        }]
+    }
+  },
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "FormLayout",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Breakpoint" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Breakpoint",
+        "Label" : "Breakpoint",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "ExtraLarge" : "Extra Large (xl)",
+            "ExtraSmall" : "Extra Small (xs)",
+            "Large" : "Large (lg)",
+            "Medium" : "Medium (md)",
+            "Small" : "Small (sm)"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "_t" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "GridFormLayout",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "GridFormLayout" : "Grid"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

@@ -1,0 +1,8 @@
+_id: 6c419065-1c7c-40af-bc17-45afbe14e92c
+ActionId: c400abf1-3965-45b9-a77b-7d77dd050d22
+ActionOptionsObjectType: NoOpActionOptions
+Description: No Operation
+IsActive: true
+Name: NoOp
+Outputs: {}
+Role: Admin

@@ -1,0 +1,33 @@
+{{#with Data}}
+using {{Namespace}}.Models;
+
+namespace {{Namespace}};
+
+{{#if Description}}
+/// <summary>
+{{docComment Description "/// "}}
+/// </summary>
+{{/if}}
+public interface {{InterfaceName}}
+{
+{{#each Operations}}
+
+{{#if Summary}}
+    /// <summary>
+{{docComment Summary "    /// "}}
+    /// </summary>
+{{/if}}
+{{#each Parameters}}
+{{#if Description}}
+    /// <param name="{{Name}}">{{singleLine Description}}</param>
+{{/if}}
+{{/each}}
+    /// <param name="additionalHeaders">Optional additional headers to include in the request</param>
+    /// <param name="cancellationToken">Cancellation token</param>
+{{#if IsDeprecated}}
+    [Obsolete]
+{{/if}}
+    {{{ReturnType}}} {{MethodName}}({{#each Parameters}}{{{Type}}} {{Name}}{{#if DefaultValue}} = {{DefaultValue}}{{/if}}, {{/each}}Dictionary<string, string>? additionalHeaders = null, CancellationToken cancellationToken = default);
+{{/each}}
+}
+{{/with}}

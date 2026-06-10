@@ -1,0 +1,10 @@
+_id: d01abb30-461e-43e7-bf51-30f1ca3a5374
+ActionId: 1d5f47f3-1880-4f3c-8297-5e1f60e40cd6
+ActionOptionsObjectType: salesforce.CreateSalesforceObjectActionOptions
+Description: Create Salesforce Object
+IsActive: true
+Name: CreateSalesforceObject
+Outputs:
+  FailedToCreateObjectEvent: Failed to create Object
+  ObjectCreatedEvent: Object Created
+Role: Admin

@@ -1,0 +1,12 @@
+{
+  "_id" : "9478adf3-2518-4910-b71e-7ddeafcedf1a",
+  "EntityId" : "fc100000-0000-0000-0000-000000000000",
+  "Trigger" : {
+    "Name" : "Add As Data Source",
+    "NextUrl" : "action:/reports/v1/DataSource/ObjectType({{Object.FullName}})/Postgres",
+    "_t" : "User"
+  },
+  "ObjectType" : "ObjectType",
+  "Name" : "AddDataSource",
+  "Description" : "Add Postgres Data Source"
+}

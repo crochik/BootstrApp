@@ -1,0 +1,76 @@
+_id: c3dd0de7-0685-4a1d-b759-e52da4b7e5ff
+BaseObjectType: EntityOwnedModel
+CollectionName: EventType
+Description: Event types that can be triggered
+Discriminator:
+  ScheduledEventType:
+    Conditions:
+    - FieldName: Trigger|_t
+      Value: Scheduled
+  UserEventType:
+    Conditions:
+    - FieldName: Trigger|_t
+      Value: User
+Fields:
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        ForeignFieldName: FullName
+        ObjectType: ObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  Trigger|_t:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Trigger Type
+      Name: Trigger|_t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          Error: Error
+          Scheduled: Scheduled
+          System: System
+          Trigger: Side Effect
+          User: User
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  Trigger|ObjectStatusId:
+    Field:
+      _t: ReferenceField
+      IsRequired: false
+      Label: Trigger Object Status
+      Name: Trigger|ObjectStatusId
+      Options:
+        _t: ReferenceFieldOptions
+        Criteria:
+        - FieldName: ObjectType
+          Value: '{{ObjectType}}'
+        ObjectType: ObjectStatus
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: EventType
+IsAbstract: false
+IsActive: true
+IsEmbedded: false
+Name: EventType
+NativeType: PI.Shared.Models.EventType
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System
+UniqueExternalId: false

@@ -1,0 +1,44 @@
+_id: a540304e-b623-40ac-a826-4bf33e1adadc
+BaseObjectType: Field
+CollectionName: '?'
+Description: Object Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ObjectField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    Indexed: true
+    InitialValue: ObjectField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      IsRequired: true
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: ObjectFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ObjectField
+IsEmbedded: true
+Name: ObjectField
+NativeType: PI.Shared.Form.Models.ObjectField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

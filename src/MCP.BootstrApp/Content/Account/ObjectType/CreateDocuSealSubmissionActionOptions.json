@@ -1,0 +1,209 @@
+{
+  "_id" : "710a9c71-297f-4e08-903b-b47eed5f823c",
+  "Name" : "CreateDocuSealSubmissionActionOptions",
+  "Description" : "Options for Create DocuSeal Submission Action",
+  "CollectionName" : "???",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System"],
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FullName" : "CreateDocuSealSubmissionActionOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "ObjectId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ObjectId",
+        "Label" : "Object Id",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "ReferenceField",
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "ObjectType" : "ObjectType",
+              "AutoComplete" : true,
+              "ForeignFieldName" : "FullName"
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "SubmitterEmail" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "SubmitterEmail",
+        "Label" : "Submitter Email",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "SubmitterName" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "SubmitterName",
+        "Label" : "Submitter Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "SubmitterRole" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "SubmitterRole",
+        "Label" : "Submitter Role",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "TemplateId" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "TemplateId",
+        "Label" : "Template",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "ReferenceField",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "ObjectType" : "report.DocumentTemplate",
+              "AutoComplete" : true
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "Inputs" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Inputs",
+        "Label" : "Inputs",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Input",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Value",
+            "Label" : "Value (Expression)",
+            "IsRequired" : true,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : true
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "Label" : "Create DocuSeal Submissions",
+  "LabelPlural" : "Create DocuSeal Submissions"
+}

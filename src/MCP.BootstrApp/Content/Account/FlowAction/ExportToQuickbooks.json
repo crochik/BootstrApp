@@ -1,0 +1,14 @@
+{
+  "_id" : "400d2796-ea23-4415-8144-8dbe453be7b4",
+  "Name" : "ExportToQuickbooks",
+  "Description" : "Export to Quickbooks",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "1d1430a0-a6c8-4dbc-b073-aef699b0b36a",
+  "ActionOptionsObjectType" : "ExportToQuickbooksActionOptions",
+  "Outputs" : {
+    "OnSuccessEvent" : "Succeeded",
+    "OnErrorEvent" : "Failed",
+    "Duplicate" : "Already Exists"
+  }
+}

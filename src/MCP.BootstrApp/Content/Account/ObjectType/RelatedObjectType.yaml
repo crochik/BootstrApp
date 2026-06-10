@@ -1,0 +1,155 @@
+_id: 723efe36-c062-46c4-ad4d-4a36fa679baf
+CollectionName: '?'
+Description: Related Object Type
+Fields:
+  ApiName:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: API Name
+      Name: ApiName
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Conditions:
+    Field:
+      _t: ChildrenField
+      IsRequired: false
+      Label: Availability Conditions
+      Name: Conditions
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Condition
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Criteria:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Relation Conditions
+      Name: Criteria
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Criteria
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Label:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Label: Label
+      Name: Label
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  ObjectType:
+    Field:
+      _t: ReferenceField
+      IsRequired: true
+      Label: Object Type
+      Name: ObjectType
+      Options:
+        _t: ReferenceFieldOptions
+        AllowUnknown: false
+        AutoComplete: true
+        ForeignFieldName: FullName
+        JoinBehavior: Unsafe
+        ObjectType: ObjectType
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RBAC|Permissions:
+    Field:
+      _t: DictionaryField
+      IsRequired: false
+      Label: Permissions
+      Name: RBAC|Permissions
+      Options:
+        _t: DictionaryFieldOptions
+        ExpandAllKeys: false
+        KeyField:
+          _t: ReferenceField
+          IsRequired: false
+          Label: Profile/Role
+          Name: Key
+          Options:
+            _t: ReferenceFieldOptions
+            AllowUnknown: false
+            AutoComplete: true
+            Items:
+              Account: '[Account]'
+              Admin: '[Admin]'
+              Manager: '[Manager]'
+              Organization: '[Organization]'
+              User: '[User]'
+            ObjectType: AppProfile
+        ValueField:
+          _t: BitwiseFlagField
+          IsRequired: false
+          Label: Permissions
+          Name: Value
+          Options:
+            _t: BitwiseFlagFieldOptions
+            Items:
+              0: None
+              1: Read
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  RelationType:
+    Field:
+      _t: SelectField
+      IsRequired: true
+      Label: Relation Type
+      Name: RelationType
+      Options:
+        _t: SelectFieldOptions
+        AllowUnknown: false
+        Items:
+          Embedded: Embedded In
+          Extended: Extended By
+          OneToMany: One To Many
+          OneToOne: One To One
+          Referenced: Referenced By
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: RelatedObjectType
+IsAbstract: false
+IsEmbedded: true
+Label: Relationship
+LabelPlural: Relationships
+Name: RelatedObjectType
+NativeType: PI.Shared.Models.RelatedObjectType
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

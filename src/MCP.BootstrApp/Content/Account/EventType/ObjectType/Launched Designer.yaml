@@ -1,0 +1,8 @@
+_id: e0904855-ab29-4902-a0fe-9f20d5e39ba4
+EntityId: fc100000-0000-0000-0000-000000000000
+Name: Launched Designer
+ObjectType: ObjectType
+Trigger:
+  _t: User
+  Name: Design
+  NextUrl: page:/ObjectTypeDesigner?id={{Object.FullName}}

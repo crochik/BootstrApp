@@ -1,0 +1,9 @@
+db.createCollection('Appointment.Snapshot',
+{
+    collation: {
+        locale: 'en_US',
+        strength:1,
+        caseLevel: false
+    }
+}
+)

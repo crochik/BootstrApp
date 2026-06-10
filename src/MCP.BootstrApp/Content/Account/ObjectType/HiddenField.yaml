@@ -1,0 +1,47 @@
+_id: e6b15fff-4f81-4eca-97ee-7cc5052bf0c2
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: HiddenField
+Description: Hidden Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: HiddenField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: HiddenField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: HiddenFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: HiddenField
+IsEmbedded: true
+Name: HiddenField
+NativeType: PI.Shared.Form.Models.HiddenField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,5 @@
+out/lumin-swagger.json
+out/README.md
+out/kubernetes.ps1
+out/config/**
+out/appsettings.*.json

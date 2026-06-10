@@ -1,0 +1,64 @@
+{
+  "_id" : "47b8e716-deda-4991-b4e3-8b108d08d080",
+  "Name" : "SearchMetaData",
+  "Description" : "Meta Data for search result",
+  "CollectionName" : "?",
+  "NativeType" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "OTG"],
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "FullName" : "SearchMetaData",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+    }
+  },
+  "Fields" : {
+    "Score" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "Score",
+        "Label" : "Score (Search)",
+        "IsRequired" : false,
+        "ApiName" : "score",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "Style" : "Default",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "Highlights" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Highlights",
+        "IsRequired" : false,
+        "ApiName" : "highlights",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "SearchHighlights",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "Label" : "Meta Data (Search)",
+  "LabelPlural" : "Meta Data (Search)"
+}

@@ -1,0 +1,36 @@
+{
+  "_id" : "2b798cab-6c26-4c16-bbeb-b442a7d06dd5",
+  "Name" : "RelatedObjectsFieldOptions",
+  "Description" : "Options for RelatedObjects Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.RelatedObjectsFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "RelatedObjectsFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "RelatedObjectsFieldOptions"
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "RelatedObjectsFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

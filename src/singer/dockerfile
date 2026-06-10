@@ -1,0 +1,28 @@
+FROM python:3.7-alpine
+ARG version
+RUN apk add build-base
+RUN pip install -U pip setuptools
+
+RUN python3 -m venv ~/.virtualenvs/tap-mongodb
+RUN source ~/.virtualenvs/tap-mongodb/bin/activate
+RUN pip install tap-mongodb 
+# RUN deactivate
+
+RUN python3 -m venv ~/.virtualenvs/target-csv
+RUN source ~/.virtualenvs/target-csv/bin/activate
+RUN pip install target-csv
+# RUN deactivate
+
+RUN python3 -m venv ~/.virtualenvs/tap-salesforce
+RUN source ~/.virtualenvs/tap-salesforce/bin/activate
+RUN pip install tap-salesforce
+# RUN deactivate
+
+RUN python3 -m venv ~/.virtualenvs/target-rabbitmq
+RUN source ~/.virtualenvs/target-rabbitmq/bin/activate
+RUN pip install pika
+COPY ./config/target-rabbitmq/dist/target-rabbitmq-0.1.0.tar.gz /root/target-rabbitmq-0.1.0.tar.gz
+RUN pip install /root/target-rabbitmq-0.1.0.tar.gz
+# RUN deactivate
+
+WORKDIR /app

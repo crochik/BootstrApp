@@ -1,0 +1,177 @@
+{
+  "_id" : "e3843c4d-d89d-46e8-84bf-7fa584914ed7",
+  "Name" : "AppProfileElement",
+  "Description" : "Element Assigned to Profiles/Role",
+  "CollectionName" : "*",
+  "NativeType" : "PI.Shared.Models.AppProfileElement",
+  "_BaseObjectType" : "AppElement",
+  "UniqueExternalId" : false,
+  "IsEmbedded" : false,
+  "IsAbstract" : true,
+  "FullName" : "AppProfileElement",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{context \"AccountId\"}}"
+        }]
+    }
+  },
+  "Fields" : {
+    "AccountId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "AccountId",
+        "Label" : "Account",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Account"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{context \"AccountId\"}}"
+    },
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ProfileIds" : {
+      "Field" : {
+        "_t" : "MultiReferenceField",
+        "Name" : "ProfileIds",
+        "Label" : "Profiles",
+        "Options" : {
+          "_t" : "MultiReferenceFieldOptions",
+          "ObjectType" : "AppProfile"
+        },
+        "Visible" : ["!Role"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Role" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Role",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Admin" : "Admin",
+            "Manager" : "Manager",
+            "User" : "User"
+          }
+        },
+        "Visible" : ["!ProfileIds"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new UUID}}"
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0
+        }
+      },
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}"
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "CalculatedValue" : "{{new Date}}"
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : true,
+      "Indexed" : true
+    }
+  },
+  "Tags" : ["System"],
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

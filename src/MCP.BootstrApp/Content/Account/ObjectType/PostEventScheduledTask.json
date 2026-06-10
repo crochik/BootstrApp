@@ -1,0 +1,49 @@
+{
+  "_id" : "66ef01a2-1ce8-4b05-9464-413afa83158a",
+  "Name" : "PostEventScheduledTask",
+  "Description" : "Post Event Scheduled Task",
+  "CollectionName" : "job.ScheduledTask",
+  "NativeType" : "PI.Shared.Models.PostEventScheduledTask",
+  "BaseObjectType" : "ScheduledTask",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Value" : "{{AccountId}}"
+        }, {
+          "FieldName" : "_t",
+          "Value" : "postEvent"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Event" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Event",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "FlowEvent"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "Tags" : ["job", "System"],
+  "FullName" : "PostEventScheduledTask",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

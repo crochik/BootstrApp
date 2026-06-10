@@ -1,0 +1,156 @@
+        [
+            {
+                "$match": {
+                    "LastActor.JobId": "{{{Parameters.JobId}}}",
+                    "LastActor._t": "SingerSyncActor"
+                }
+            },
+            {
+                "$sort": {
+                    "CreatedOn": 1
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "Appointment.Snapshot",
+                    "localField": "AppointmentId",
+                    "foreignField": "_id",
+                    "as": "Appointment"
+                }
+            },
+            {
+                "$unwind": "$Appointment"
+            },
+            {
+                "$set": {
+                    "PPAItems": {
+                        "$switch": {
+                            "branches": [
+                                {
+                                    "case": {
+                                        "$and": [
+                                            {
+                                                "$eq": [
+                                                    "$Appointment.FCI.IsPPA",
+                                                    true
+                                                ]
+                                            },
+                                            {
+                                                "$in": [
+                                                    "$Appointment.FCI.LeadSource",
+                                                    [
+                                                        "1800Remodel",
+                                                        "CraftJack",
+                                                        "Porch",
+                                                        "ServiceMagic",
+                                                        "Home Expert",
+                                                        "Three Ships",
+                                                        "Gannett",
+                                                        "Social PPA",
+                                                        "Brand PPA",
+                                                        "Home Install Experts",
+                                                        "Housemaster PPA",
+                                                        "Media Bids NP PPA",
+                                                        "Media Bids NP (2025)",
+                                                        "Branded ThreeShips",
+                                                        "Bear Alley NP"
+                                                    ]
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    "then": [
+                                        "cffe361a-6dc4-44c4-890c-403816710ee4"
+                                    ]
+                                }
+                            ],
+                            "default": []
+                        }
+                    },
+                    "ToolItemIds": {
+                        "$switch": {
+                            "branches": [
+                                {
+                                    "case": {
+                                        "$eq": [
+                                            "$Appointment.Tool",
+                                            "Callcenter"
+                                        ]
+                                    },
+                                    "then": [
+                                        "86f9d753-5806-4a06-a285-5fc37e558fcb"
+                                    ]
+                                },
+                                {
+                                    "case": {
+                                        "$eq": [
+                                            "$Appointment.Tool",
+                                            "Lumin"
+                                        ]
+                                    },
+                                    "then": [
+                                        "8ccc7877-5927-49e0-827a-05f0d2565b34"
+                                    ]
+                                }
+                            ],
+                            "default": []
+                        }
+                    }
+                }
+            },
+            {
+                "$set": {
+                    "BillableItemIds": {
+                        "$concatArrays": [
+                            "$PPAItems",
+                            "$ToolItemIds"
+                        ]
+                    }
+                }
+            },
+            {
+                "$lookup": {
+                    "from": "bill.Item",
+                    "localField": "BillableItemIds",
+                    "foreignField": "_id",
+                    "as": "Items"
+                }
+            },
+            {
+                "$project": {
+                    "_id": 1,
+                    "_t": "Invoice",
+                    "ExternalId": "$_id",
+                    "ReferenceDate": "$Appointment.CreatedOn",
+                    "AccountId": "$Appointment.AccountId",
+                    "OrganizationId": "$Appointment.OrganizationId",
+                    "EntityId": "$Appointment.OrganizationId",
+                    "Name": "$Appointment.Lead",
+                    "Items": 1,
+                    "LastActor": 1,
+                    "Refs": [
+                        {
+                            "Type": "Appointment",
+                            "_id": "$Appointment._id",
+                            "Tag": "$Appointment.Tool"
+                        },
+                        {
+                            "Type": "Lead",
+                            "_id": "$_id"
+                        }
+                    ],
+                    "Total": {
+                        "$reduce": {
+                            "input": "$Items",
+                            "initialValue": 0,
+                            "in": {
+                                "$subtract": [
+                                    "$$value",
+                                    "$$this.Value"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        ]

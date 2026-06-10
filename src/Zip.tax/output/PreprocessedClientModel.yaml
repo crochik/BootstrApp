@@ -1,0 +1,4813 @@
+InterfaceName: IZipTax
+Version: 6.0.0
+BaseUrl: https://api.zip-tax.com
+Operations: []
+AllOperations:
+- OperationId: getTaxRatesV60
+  MethodName: GetTaxRatesV60Async
+  HttpMethod: GET
+  Path: /request/v60
+  Summary: Get Tax Rates (v6.0)
+  Description: Returns tax rates in a structured format with separate base rates, service/shipping taxability, sourcing rules, and tax summaries. Requires an address or lat/lng coordinates to resolve a single tax jurisdiction.
+  IsDeprecated: false
+  Group: TaxRates
+  ReturnType: Task<V60Response>
+  ResponseType: V60Response
+  HasReturnValue: true
+  ResponseIsList: false
+  ResponseIsPrimitive: false
+  ResponseBaseType: V60Response
+  Parameters:
+  - OriginalName: key
+    IsEnum: false
+    Name: key
+    LocalVariableName: key
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: API key for authentication
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - key
+  - OriginalName: address
+    IsEnum: false
+    Name: address
+    LocalVariableName: address
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Street address for geocoding. Provide a full or partial US street address (e.g. "200 Spectrum Center Dr, Irvine, CA 92618").
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - address
+  - OriginalName: lat
+    IsEnum: false
+    Name: lat
+    LocalVariableName: lat
+    Type: double?
+    NonNullableType: double
+    BaseTypeName: double
+    Description: Latitude coordinate. Use with `lng` as an alternative to `address`.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - lat
+  - OriginalName: lng
+    IsEnum: false
+    Name: lng
+    LocalVariableName: lng
+    Type: double?
+    NonNullableType: double
+    BaseTypeName: double
+    Description: Longitude coordinate. Use with `lat` as an alternative to `address`.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - lng
+  - OriginalName: countryCode
+    IsEnum: true
+    Name: countryCode
+    LocalVariableName: countryCode
+    Type: GetTaxRatesV60CountryCode?
+    NonNullableType: GetTaxRatesV60CountryCode
+    BaseTypeName: GetTaxRatesV60CountryCode
+    Description: Country code
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - country
+    - code
+  - OriginalName: format
+    IsEnum: true
+    Name: format
+    LocalVariableName: format
+    Type: GetTaxRatesV60Format?
+    NonNullableType: GetTaxRatesV60Format
+    BaseTypeName: GetTaxRatesV60Format
+    Description: Response format
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - format
+  - OriginalName: sat_item_total
+    IsEnum: false
+    Name: satItemTotal
+    LocalVariableName: satItemTotal
+    Type: double?
+    NonNullableType: double
+    BaseTypeName: double
+    Description: Single Article Tax item total for Tennessee
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - sat
+    - item
+    - total
+  - OriginalName: historical
+    IsEnum: false
+    Name: historical
+    LocalVariableName: historical
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Historical date for rates in YYYY-MM format
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - historical
+  - OriginalName: taxabilityCode
+    IsEnum: false
+    Name: taxabilityCode
+    LocalVariableName: taxabilityCode
+    Type: long?
+    NonNullableType: long
+    BaseTypeName: long
+    Description: Product taxability code (TIC). When provided, the response includes a `productDetail` section with product-specific rate rules. Requires the `product_rates` entitlement.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - taxability
+    - code
+  - OriginalName: addressDetailExtended
+    IsEnum: true
+    Name: addressDetailExtended
+    LocalVariableName: addressDetailExtended
+    Type: GetTaxRatesV60AddressDetailExtended?
+    NonNullableType: GetTaxRatesV60AddressDetailExtended
+    BaseTypeName: GetTaxRatesV60AddressDetailExtended
+    Description: When set to `true` or `1`, the `addressDetail` section includes a nested `address` object with individual address components.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - address
+    - detail
+    - extended
+  PathParameters: []
+  QueryParameters:
+  - OriginalName: key
+    IsEnum: false
+    Name: key
+    LocalVariableName: key
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: API key for authentication
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - key
+  - OriginalName: address
+    IsEnum: false
+    Name: address
+    LocalVariableName: address
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Street address for geocoding. Provide a full or partial US street address (e.g. "200 Spectrum Center Dr, Irvine, CA 92618").
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - address
+  - OriginalName: lat
+    IsEnum: false
+    Name: lat
+    LocalVariableName: lat
+    Type: double?
+    NonNullableType: double
+    BaseTypeName: double
+    Description: Latitude coordinate. Use with `lng` as an alternative to `address`.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - lat
+  - OriginalName: lng
+    IsEnum: false
+    Name: lng
+    LocalVariableName: lng
+    Type: double?
+    NonNullableType: double
+    BaseTypeName: double
+    Description: Longitude coordinate. Use with `lat` as an alternative to `address`.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - lng
+  - OriginalName: countryCode
+    IsEnum: true
+    Name: countryCode
+    LocalVariableName: countryCode
+    Type: GetTaxRatesV60CountryCode?
+    NonNullableType: GetTaxRatesV60CountryCode
+    BaseTypeName: GetTaxRatesV60CountryCode
+    Description: Country code
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - country
+    - code
+  - OriginalName: format
+    IsEnum: true
+    Name: format
+    LocalVariableName: format
+    Type: GetTaxRatesV60Format?
+    NonNullableType: GetTaxRatesV60Format
+    BaseTypeName: GetTaxRatesV60Format
+    Description: Response format
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - format
+  - OriginalName: sat_item_total
+    IsEnum: false
+    Name: satItemTotal
+    LocalVariableName: satItemTotal
+    Type: double?
+    NonNullableType: double
+    BaseTypeName: double
+    Description: Single Article Tax item total for Tennessee
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - sat
+    - item
+    - total
+  - OriginalName: historical
+    IsEnum: false
+    Name: historical
+    LocalVariableName: historical
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Historical date for rates in YYYY-MM format
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - historical
+  - OriginalName: taxabilityCode
+    IsEnum: false
+    Name: taxabilityCode
+    LocalVariableName: taxabilityCode
+    Type: long?
+    NonNullableType: long
+    BaseTypeName: long
+    Description: Product taxability code (TIC). When provided, the response includes a `productDetail` section with product-specific rate rules. Requires the `product_rates` entitlement.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - taxability
+    - code
+  - OriginalName: addressDetailExtended
+    IsEnum: true
+    Name: addressDetailExtended
+    LocalVariableName: addressDetailExtended
+    Type: GetTaxRatesV60AddressDetailExtended?
+    NonNullableType: GetTaxRatesV60AddressDetailExtended
+    BaseTypeName: GetTaxRatesV60AddressDetailExtended
+    Description: When set to `true` or `1`, the `addressDetail` section includes a nested `address` object with individual address components.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: null
+    NameWords:
+    - address
+    - detail
+    - extended
+  HeaderParameters: []
+  BodyParameter: 
+  HasPathParameters: false
+  HasQueryParameters: true
+  HasHeaderParameters: false
+  HasBodyParameter: false
+  RequestBodyIsPrimitive: false
+  ContentType: 
+  Dependencies:
+  - GetTaxRatesV60AddressDetailExtended
+  - GetTaxRatesV60CountryCode
+  - GetTaxRatesV60Format
+  - V60Response
+  NameWords:
+  - get
+  - tax
+  - rates
+  - v
+  - 60
+Models:
+- SchemaName: V60Response
+  FileNameWithoutExtension: V60Response
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: metadata
+    IsReadOnly: false
+    SerializerName: MetadataV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Metadata
+    LocalVariableName: metadata
+    Type: MetadataV60
+    NonNullableType: MetadataV60
+    BaseTypeName: MetadataV60
+    Description: Response metadata including API version and response status
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - metadata
+  - JsonName: baseRates
+    IsReadOnly: false
+    SerializerName: BaseRateV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: BaseRates
+    LocalVariableName: baseRates
+    Type: List<BaseRateV60>
+    NonNullableType: List<BaseRateV60>
+    BaseTypeName: BaseRateV60
+    Description: Base tax rates broken down by jurisdiction
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - base
+    - rates
+  - JsonName: service
+    IsReadOnly: false
+    SerializerName: ServiceV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Service
+    LocalVariableName: service
+    Type: ServiceV60
+    NonNullableType: ServiceV60
+    BaseTypeName: ServiceV60
+    Description: Service (labor) taxability for the jurisdiction
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - service
+  - JsonName: shipping
+    IsReadOnly: false
+    SerializerName: ShippingV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Shipping
+    LocalVariableName: shipping
+    Type: ShippingV60
+    NonNullableType: ShippingV60
+    BaseTypeName: ShippingV60
+    Description: Shipping/freight taxability for the jurisdiction
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - shipping
+  - JsonName: sourcingRules
+    IsReadOnly: false
+    SerializerName: OriginDestinationV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: SourcingRules
+    LocalVariableName: sourcingRules
+    Type: OriginDestinationV60
+    NonNullableType: OriginDestinationV60
+    BaseTypeName: OriginDestinationV60
+    Description: Sourcing rules indicating origin-based or destination-based taxation
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - sourcing
+    - rules
+  - JsonName: taxSummaries
+    IsReadOnly: false
+    SerializerName: TaxSummaryV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: TaxSummaries
+    LocalVariableName: taxSummaries
+    Type: List<TaxSummaryV60>
+    NonNullableType: List<TaxSummaryV60>
+    BaseTypeName: TaxSummaryV60
+    Description: Aggregated tax rate summaries (sales tax and use tax totals)
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - tax
+    - summaries
+  - JsonName: productDetail
+    IsReadOnly: false
+    SerializerName: ProductDetailV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: ProductDetail
+    LocalVariableName: productDetail
+    Type: ProductDetailV60?
+    NonNullableType: ProductDetailV60
+    BaseTypeName: ProductDetailV60
+    Description: Product-specific taxability detail. Present only when `taxabilityCode` is provided in the request.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - product
+    - detail
+  - JsonName: addressDetail
+    IsReadOnly: false
+    SerializerName: AddressDetailV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: AddressDetail
+    LocalVariableName: addressDetail
+    Type: AddressDetailV60
+    NonNullableType: AddressDetailV60
+    BaseTypeName: AddressDetailV60
+    Description: Geocoded address information for the resolved location
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - address
+    - detail
+  AllProperties:
+  - JsonName: metadata
+    IsReadOnly: false
+    SerializerName: MetadataV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Metadata
+    LocalVariableName: metadata
+    Type: MetadataV60
+    NonNullableType: MetadataV60
+    BaseTypeName: MetadataV60
+    Description: Response metadata including API version and response status
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - metadata
+  - JsonName: baseRates
+    IsReadOnly: false
+    SerializerName: BaseRateV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: BaseRates
+    LocalVariableName: baseRates
+    Type: List<BaseRateV60>
+    NonNullableType: List<BaseRateV60>
+    BaseTypeName: BaseRateV60
+    Description: Base tax rates broken down by jurisdiction
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - base
+    - rates
+  - JsonName: service
+    IsReadOnly: false
+    SerializerName: ServiceV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Service
+    LocalVariableName: service
+    Type: ServiceV60
+    NonNullableType: ServiceV60
+    BaseTypeName: ServiceV60
+    Description: Service (labor) taxability for the jurisdiction
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - service
+  - JsonName: shipping
+    IsReadOnly: false
+    SerializerName: ShippingV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Shipping
+    LocalVariableName: shipping
+    Type: ShippingV60
+    NonNullableType: ShippingV60
+    BaseTypeName: ShippingV60
+    Description: Shipping/freight taxability for the jurisdiction
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - shipping
+  - JsonName: sourcingRules
+    IsReadOnly: false
+    SerializerName: OriginDestinationV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: SourcingRules
+    LocalVariableName: sourcingRules
+    Type: OriginDestinationV60
+    NonNullableType: OriginDestinationV60
+    BaseTypeName: OriginDestinationV60
+    Description: Sourcing rules indicating origin-based or destination-based taxation
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - sourcing
+    - rules
+  - JsonName: taxSummaries
+    IsReadOnly: false
+    SerializerName: TaxSummaryV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: TaxSummaries
+    LocalVariableName: taxSummaries
+    Type: List<TaxSummaryV60>
+    NonNullableType: List<TaxSummaryV60>
+    BaseTypeName: TaxSummaryV60
+    Description: Aggregated tax rate summaries (sales tax and use tax totals)
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - tax
+    - summaries
+  - JsonName: productDetail
+    IsReadOnly: false
+    SerializerName: ProductDetailV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: ProductDetail
+    LocalVariableName: productDetail
+    Type: ProductDetailV60?
+    NonNullableType: ProductDetailV60
+    BaseTypeName: ProductDetailV60
+    Description: Product-specific taxability detail. Present only when `taxabilityCode` is provided in the request.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - product
+    - detail
+  - JsonName: addressDetail
+    IsReadOnly: false
+    SerializerName: AddressDetailV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: AddressDetail
+    LocalVariableName: addressDetail
+    Type: AddressDetailV60
+    NonNullableType: AddressDetailV60
+    BaseTypeName: AddressDetailV60
+    Description: Geocoded address information for the resolved location
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - address
+    - detail
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - AddressDetailV60
+  - BaseRateV60
+  - MetadataV60
+  - OriginDestinationV60
+  - ProductDetailV60
+  - ServiceV60
+  - ShippingV60
+  - TaxSummaryV60
+  DependencyFileNames:
+  - AddressDetailV60.cs
+  - BaseRateV60.cs
+  - MetadataV60.cs
+  - OriginDestinationV60.cs
+  - ProductDetailV60.cs
+  - ServiceV60.cs
+  - ShippingV60.cs
+  - TaxSummaryV60.cs
+  ClassName: V60Response
+  FileName: V60Response.cs
+  Namespace: ZipTax.Models
+  Description: v6.0 structured tax rate response
+  NameWords:
+  - v
+  - 60
+  - response
+- SchemaName: MetadataV60
+  FileNameWithoutExtension: MetadataV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: version
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Version
+    LocalVariableName: version
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: API version identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - version
+  - JsonName: response
+    IsReadOnly: false
+    SerializerName: ResponseInfoV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Response
+    LocalVariableName: response
+    Type: ResponseInfoV60
+    NonNullableType: ResponseInfoV60
+    BaseTypeName: ResponseInfoV60
+    Description: Structured response status information
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - response
+  AllProperties:
+  - JsonName: version
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Version
+    LocalVariableName: version
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: API version identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - version
+  - JsonName: response
+    IsReadOnly: false
+    SerializerName: ResponseInfoV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Response
+    LocalVariableName: response
+    Type: ResponseInfoV60
+    NonNullableType: ResponseInfoV60
+    BaseTypeName: ResponseInfoV60
+    Description: Structured response status information
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - response
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - ResponseInfoV60
+  DependencyFileNames:
+  - ResponseInfoV60.cs
+  ClassName: MetadataV60
+  FileName: MetadataV60.cs
+  Namespace: ZipTax.Models
+  Description: Response metadata including API version and response status
+  NameWords:
+  - metadata
+  - v
+  - 60
+- SchemaName: ResponseInfoV60
+  FileNameWithoutExtension: ResponseInfoV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: code
+    IsReadOnly: false
+    SerializerName: int
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Code
+    LocalVariableName: code
+    Type: int
+    NonNullableType: int
+    BaseTypeName: int
+    Description: Numeric response code. 100 indicates success; other values indicate specific error conditions.
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - code
+  - JsonName: name
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Name
+    LocalVariableName: name
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Machine-readable response code name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - name
+  - JsonName: message
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Message
+    LocalVariableName: message
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable response message
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - message
+  - JsonName: definition
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Definition
+    LocalVariableName: definition
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Optional extended definition or URL for the response code
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - definition
+  AllProperties:
+  - JsonName: code
+    IsReadOnly: false
+    SerializerName: int
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Code
+    LocalVariableName: code
+    Type: int
+    NonNullableType: int
+    BaseTypeName: int
+    Description: Numeric response code. 100 indicates success; other values indicate specific error conditions.
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - code
+  - JsonName: name
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Name
+    LocalVariableName: name
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Machine-readable response code name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - name
+  - JsonName: message
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Message
+    LocalVariableName: message
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable response message
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - message
+  - JsonName: definition
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Definition
+    LocalVariableName: definition
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Optional extended definition or URL for the response code
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - definition
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: ResponseInfoV60
+  FileName: ResponseInfoV60.cs
+  Namespace: ZipTax.Models
+  Description: Structured response status information
+  NameWords:
+  - response
+  - info
+  - v
+  - 60
+- SchemaName: BaseRateV60
+  FileNameWithoutExtension: BaseRateV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: rate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Rate
+    LocalVariableName: rate
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Tax rate as a decimal (e.g. 0.06 = 6%)
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+  - JsonName: jurType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurType
+    LocalVariableName: jurType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: 
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - jur
+    - type
+  - JsonName: jurName
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurName
+    LocalVariableName: jurName
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: 
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - jur
+    - name
+  - JsonName: jurDescription
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurDescription
+    LocalVariableName: jurDescription
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable jurisdiction description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - jur
+    - description
+  - JsonName: jurTaxCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurTaxCode
+    LocalVariableName: jurTaxCode
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Tax code for the jurisdiction. Null when no specific code applies.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - jur
+    - tax
+    - code
+  AllProperties:
+  - JsonName: rate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Rate
+    LocalVariableName: rate
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Tax rate as a decimal (e.g. 0.06 = 6%)
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+  - JsonName: jurType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurType
+    LocalVariableName: jurType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: 
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - jur
+    - type
+  - JsonName: jurName
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurName
+    LocalVariableName: jurName
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: 
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - jur
+    - name
+  - JsonName: jurDescription
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurDescription
+    LocalVariableName: jurDescription
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable jurisdiction description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - jur
+    - description
+  - JsonName: jurTaxCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurTaxCode
+    LocalVariableName: jurTaxCode
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Tax code for the jurisdiction. Null when no specific code applies.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - jur
+    - tax
+    - code
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: BaseRateV60
+  FileName: BaseRateV60.cs
+  Namespace: ZipTax.Models
+  Description: Individual tax rate for a single jurisdiction
+  NameWords:
+  - base
+  - rate
+  - v
+  - 60
+- SchemaName: ServiceV60
+  FileNameWithoutExtension: ServiceV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: adjustmentType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: AdjustmentType
+    LocalVariableName: adjustmentType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Adjustment type identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - adjustment
+    - type
+  - JsonName: taxable
+    IsReadOnly: false
+    SerializerName: ServiceV60Taxable
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Taxable
+    LocalVariableName: taxable
+    Type: ServiceV60Taxable
+    NonNullableType: ServiceV60Taxable
+    BaseTypeName: ServiceV60Taxable
+    Description: Whether services are taxable
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - taxable
+  - JsonName: description
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Description
+    LocalVariableName: description
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable taxability description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - description
+  AllProperties:
+  - JsonName: adjustmentType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: AdjustmentType
+    LocalVariableName: adjustmentType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Adjustment type identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - adjustment
+    - type
+  - JsonName: taxable
+    IsReadOnly: false
+    SerializerName: ServiceV60Taxable
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Taxable
+    LocalVariableName: taxable
+    Type: ServiceV60Taxable
+    NonNullableType: ServiceV60Taxable
+    BaseTypeName: ServiceV60Taxable
+    Description: Whether services are taxable
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - taxable
+  - JsonName: description
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Description
+    LocalVariableName: description
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable taxability description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - description
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - ServiceV60Taxable
+  DependencyFileNames:
+  - ServiceV60Taxable.cs
+  ClassName: ServiceV60
+  FileName: ServiceV60.cs
+  Namespace: ZipTax.Models
+  Description: Service (labor) taxability for the jurisdiction
+  NameWords:
+  - service
+  - v
+  - 60
+- SchemaName: ShippingV60
+  FileNameWithoutExtension: ShippingV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: adjustmentType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: AdjustmentType
+    LocalVariableName: adjustmentType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Adjustment type identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - adjustment
+    - type
+  - JsonName: taxable
+    IsReadOnly: false
+    SerializerName: ShippingV60Taxable
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Taxable
+    LocalVariableName: taxable
+    Type: ShippingV60Taxable
+    NonNullableType: ShippingV60Taxable
+    BaseTypeName: ShippingV60Taxable
+    Description: Whether shipping is taxable
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - taxable
+  - JsonName: description
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Description
+    LocalVariableName: description
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable taxability description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - description
+  AllProperties:
+  - JsonName: adjustmentType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: AdjustmentType
+    LocalVariableName: adjustmentType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Adjustment type identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - adjustment
+    - type
+  - JsonName: taxable
+    IsReadOnly: false
+    SerializerName: ShippingV60Taxable
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Taxable
+    LocalVariableName: taxable
+    Type: ShippingV60Taxable
+    NonNullableType: ShippingV60Taxable
+    BaseTypeName: ShippingV60Taxable
+    Description: Whether shipping is taxable
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - taxable
+  - JsonName: description
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Description
+    LocalVariableName: description
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable taxability description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - description
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - ShippingV60Taxable
+  DependencyFileNames:
+  - ShippingV60Taxable.cs
+  ClassName: ShippingV60
+  FileName: ShippingV60.cs
+  Namespace: ZipTax.Models
+  Description: Shipping/freight taxability for the jurisdiction
+  NameWords:
+  - shipping
+  - v
+  - 60
+- SchemaName: OriginDestinationV60
+  FileNameWithoutExtension: OriginDestinationV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: adjustmentType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: AdjustmentType
+    LocalVariableName: adjustmentType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Adjustment type identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - adjustment
+    - type
+  - JsonName: description
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Description
+    LocalVariableName: description
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable sourcing rule description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - description
+  - JsonName: value
+    IsReadOnly: false
+    SerializerName: OriginDestinationV60Value
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Value
+    LocalVariableName: value
+    Type: OriginDestinationV60Value
+    NonNullableType: OriginDestinationV60Value
+    BaseTypeName: OriginDestinationV60Value
+    Description: O = Origin-based, D = Destination-based
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - value
+  AllProperties:
+  - JsonName: adjustmentType
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: AdjustmentType
+    LocalVariableName: adjustmentType
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Adjustment type identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - adjustment
+    - type
+  - JsonName: description
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Description
+    LocalVariableName: description
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable sourcing rule description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - description
+  - JsonName: value
+    IsReadOnly: false
+    SerializerName: OriginDestinationV60Value
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Value
+    LocalVariableName: value
+    Type: OriginDestinationV60Value
+    NonNullableType: OriginDestinationV60Value
+    BaseTypeName: OriginDestinationV60Value
+    Description: O = Origin-based, D = Destination-based
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - value
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - OriginDestinationV60Value
+  DependencyFileNames:
+  - OriginDestinationV60Value.cs
+  ClassName: OriginDestinationV60
+  FileName: OriginDestinationV60.cs
+  Namespace: ZipTax.Models
+  Description: Sourcing rules indicating origin-based or destination-based taxation
+  NameWords:
+  - origin
+  - destination
+  - v
+  - 60
+- SchemaName: TaxSummaryV60
+  FileNameWithoutExtension: TaxSummaryV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: rate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Rate
+    LocalVariableName: rate
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Combined tax rate for this summary
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+  - JsonName: taxType
+    IsReadOnly: false
+    SerializerName: TaxSummaryV60TaxType
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: TaxType
+    LocalVariableName: taxType
+    Type: TaxSummaryV60TaxType
+    NonNullableType: TaxSummaryV60TaxType
+    BaseTypeName: TaxSummaryV60TaxType
+    Description: Tax type category
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - tax
+    - type
+  - JsonName: summaryName
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: SummaryName
+    LocalVariableName: summaryName
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable summary label
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - summary
+    - name
+  - JsonName: displayRates
+    IsReadOnly: false
+    SerializerName: DisplayRate
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: DisplayRates
+    LocalVariableName: displayRates
+    Type: List<DisplayRate>
+    NonNullableType: List<DisplayRate>
+    BaseTypeName: DisplayRate
+    Description: Breakdown of individual rates contributing to this summary
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - display
+    - rates
+  AllProperties:
+  - JsonName: rate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Rate
+    LocalVariableName: rate
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Combined tax rate for this summary
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+  - JsonName: taxType
+    IsReadOnly: false
+    SerializerName: TaxSummaryV60TaxType
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: TaxType
+    LocalVariableName: taxType
+    Type: TaxSummaryV60TaxType
+    NonNullableType: TaxSummaryV60TaxType
+    BaseTypeName: TaxSummaryV60TaxType
+    Description: Tax type category
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - tax
+    - type
+  - JsonName: summaryName
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: SummaryName
+    LocalVariableName: summaryName
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable summary label
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - summary
+    - name
+  - JsonName: displayRates
+    IsReadOnly: false
+    SerializerName: DisplayRate
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: DisplayRates
+    LocalVariableName: displayRates
+    Type: List<DisplayRate>
+    NonNullableType: List<DisplayRate>
+    BaseTypeName: DisplayRate
+    Description: Breakdown of individual rates contributing to this summary
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - display
+    - rates
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - DisplayRate
+  - TaxSummaryV60TaxType
+  DependencyFileNames:
+  - DisplayRate.cs
+  - TaxSummaryV60TaxType.cs
+  ClassName: TaxSummaryV60
+  FileName: TaxSummaryV60.cs
+  Namespace: ZipTax.Models
+  Description: Aggregated tax rate summary (e.g. total sales tax, total use tax)
+  NameWords:
+  - tax
+  - summary
+  - v
+  - 60
+- SchemaName: DisplayRate
+  FileNameWithoutExtension: DisplayRate
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: name
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Name
+    LocalVariableName: name
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Jurisdiction label (e.g. "State", "County", "District")
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - name
+  - JsonName: rate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Rate
+    LocalVariableName: rate
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Tax rate as a decimal
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+  AllProperties:
+  - JsonName: name
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Name
+    LocalVariableName: name
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Jurisdiction label (e.g. "State", "County", "District")
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - name
+  - JsonName: rate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Rate
+    LocalVariableName: rate
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Tax rate as a decimal
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: DisplayRate
+  FileName: DisplayRate.cs
+  Namespace: ZipTax.Models
+  Description: Individual rate contributing to a tax summary
+  NameWords:
+  - display
+  - rate
+- SchemaName: AddressDetailV60
+  FileNameWithoutExtension: AddressDetailV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: normalizedAddress
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: NormalizedAddress
+    LocalVariableName: normalizedAddress
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Normalized full address returned by the geocoder
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - normalized
+    - address
+  - JsonName: incorporated
+    IsReadOnly: false
+    SerializerName: AddressDetailV60Incorporated
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Incorporated
+    LocalVariableName: incorporated
+    Type: AddressDetailV60Incorporated
+    NonNullableType: AddressDetailV60Incorporated
+    BaseTypeName: AddressDetailV60Incorporated
+    Description: Whether the location is within an incorporated area
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - incorporated
+  - JsonName: geoLat
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: GeoLat
+    LocalVariableName: geoLat
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Geocoded latitude
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - geo
+    - lat
+  - JsonName: geoLng
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: GeoLng
+    LocalVariableName: geoLng
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Geocoded longitude
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - geo
+    - lng
+  - JsonName: address
+    IsReadOnly: false
+    SerializerName: AddressComponentsV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Address
+    LocalVariableName: address
+    Type: AddressComponentsV60?
+    NonNullableType: AddressComponentsV60
+    BaseTypeName: AddressComponentsV60
+    Description: Extended address components. Present only when `addressDetailExtended=true` is passed in the request.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - address
+  AllProperties:
+  - JsonName: normalizedAddress
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: NormalizedAddress
+    LocalVariableName: normalizedAddress
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Normalized full address returned by the geocoder
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - normalized
+    - address
+  - JsonName: incorporated
+    IsReadOnly: false
+    SerializerName: AddressDetailV60Incorporated
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: true
+    IsPrimitive: false
+    IsComplexType: false
+    Name: Incorporated
+    LocalVariableName: incorporated
+    Type: AddressDetailV60Incorporated
+    NonNullableType: AddressDetailV60Incorporated
+    BaseTypeName: AddressDetailV60Incorporated
+    Description: Whether the location is within an incorporated area
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - incorporated
+  - JsonName: geoLat
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: GeoLat
+    LocalVariableName: geoLat
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Geocoded latitude
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - geo
+    - lat
+  - JsonName: geoLng
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: GeoLng
+    LocalVariableName: geoLng
+    Type: float
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Geocoded longitude
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - geo
+    - lng
+  - JsonName: address
+    IsReadOnly: false
+    SerializerName: AddressComponentsV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: Address
+    LocalVariableName: address
+    Type: AddressComponentsV60?
+    NonNullableType: AddressComponentsV60
+    BaseTypeName: AddressComponentsV60
+    Description: Extended address components. Present only when `addressDetailExtended=true` is passed in the request.
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - address
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - AddressComponentsV60
+  - AddressDetailV60Incorporated
+  DependencyFileNames:
+  - AddressComponentsV60.cs
+  - AddressDetailV60Incorporated.cs
+  ClassName: AddressDetailV60
+  FileName: AddressDetailV60.cs
+  Namespace: ZipTax.Models
+  Description: Geocoded address information for the resolved location
+  NameWords:
+  - address
+  - detail
+  - v
+  - 60
+- SchemaName: AddressComponentsV60
+  FileNameWithoutExtension: AddressComponentsV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: countryCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: CountryCode
+    LocalVariableName: countryCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: ISO country code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - country
+    - code
+  - JsonName: countryName
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: CountryName
+    LocalVariableName: countryName
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Full country name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - country
+    - name
+  - JsonName: stateCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: StateCode
+    LocalVariableName: stateCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Two-letter state abbreviation
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - state
+    - code
+  - JsonName: state
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: State
+    LocalVariableName: state
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Full state name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - state
+  - JsonName: county
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: County
+    LocalVariableName: county
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: County name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - county
+  - JsonName: city
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: City
+    LocalVariableName: city
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: City name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - city
+  - JsonName: street
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Street
+    LocalVariableName: street
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Street name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - street
+  - JsonName: postalCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: PostalCode
+    LocalVariableName: postalCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Postal code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - postal
+    - code
+  - JsonName: houseNumber
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: HouseNumber
+    LocalVariableName: houseNumber
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: House or building number
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - house
+    - number
+  AllProperties:
+  - JsonName: countryCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: CountryCode
+    LocalVariableName: countryCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: ISO country code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - country
+    - code
+  - JsonName: countryName
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: CountryName
+    LocalVariableName: countryName
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Full country name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - country
+    - name
+  - JsonName: stateCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: StateCode
+    LocalVariableName: stateCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Two-letter state abbreviation
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - state
+    - code
+  - JsonName: state
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: State
+    LocalVariableName: state
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Full state name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - state
+  - JsonName: county
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: County
+    LocalVariableName: county
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: County name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - county
+  - JsonName: city
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: City
+    LocalVariableName: city
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: City name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - city
+  - JsonName: street
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Street
+    LocalVariableName: street
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Street name
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - street
+  - JsonName: postalCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: PostalCode
+    LocalVariableName: postalCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Postal code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - postal
+    - code
+  - JsonName: houseNumber
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: HouseNumber
+    LocalVariableName: houseNumber
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: House or building number
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - house
+    - number
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: AddressComponentsV60
+  FileName: AddressComponentsV60.cs
+  Namespace: ZipTax.Models
+  Description: Individual address components parsed from the geocoded result
+  NameWords:
+  - address
+  - components
+  - v
+  - 60
+- SchemaName: ProductDetailV60
+  FileNameWithoutExtension: ProductDetailV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: taxabilityCode
+    IsReadOnly: false
+    SerializerName: TaxabilityCodeV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: TaxabilityCode
+    LocalVariableName: taxabilityCode
+    Type: TaxabilityCodeV60
+    NonNullableType: TaxabilityCodeV60
+    BaseTypeName: TaxabilityCodeV60
+    Description: Taxability code details and rate rules
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - taxability
+    - code
+  AllProperties:
+  - JsonName: taxabilityCode
+    IsReadOnly: false
+    SerializerName: TaxabilityCodeV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: TaxabilityCode
+    LocalVariableName: taxabilityCode
+    Type: TaxabilityCodeV60
+    NonNullableType: TaxabilityCodeV60
+    BaseTypeName: TaxabilityCodeV60
+    Description: Taxability code details and rate rules
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - taxability
+    - code
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - TaxabilityCodeV60
+  DependencyFileNames:
+  - TaxabilityCodeV60.cs
+  ClassName: ProductDetailV60
+  FileName: ProductDetailV60.cs
+  Namespace: ZipTax.Models
+  Description: Product-specific taxability information based on the requested taxability code
+  NameWords:
+  - product
+  - detail
+  - v
+  - 60
+- SchemaName: TaxabilityCodeV60
+  FileNameWithoutExtension: TaxabilityCodeV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: id
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Id
+    LocalVariableName: id
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Taxability code identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - id
+  - JsonName: stateFIPS
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: StateFips
+    LocalVariableName: stateFips
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: State FIPS code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - state
+    - fips
+  - JsonName: countyFIPS
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: CountyFips
+    LocalVariableName: countyFips
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: County FIPS code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - county
+    - fips
+  - JsonName: title
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Title
+    LocalVariableName: title
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Taxability code title
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - title
+  - JsonName: label
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Label
+    LocalVariableName: label
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Taxability code label
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - label
+  - JsonName: rateActionCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: RateActionCode
+    LocalVariableName: rateActionCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Rate action code indicating how the rate should be applied
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+    - action
+    - code
+  - JsonName: rateActionMessage
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: RateActionMessage
+    LocalVariableName: rateActionMessage
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable rate action description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+    - action
+    - message
+  - JsonName: rateRules
+    IsReadOnly: false
+    SerializerName: RateRuleV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: RateRules
+    LocalVariableName: rateRules
+    Type: List<RateRuleV60>
+    NonNullableType: List<RateRuleV60>
+    BaseTypeName: RateRuleV60
+    Description: Jurisdiction-specific rate rules for this taxability code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+    - rules
+  AllProperties:
+  - JsonName: id
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Id
+    LocalVariableName: id
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Taxability code identifier
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - id
+  - JsonName: stateFIPS
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: StateFips
+    LocalVariableName: stateFips
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: State FIPS code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - state
+    - fips
+  - JsonName: countyFIPS
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: CountyFips
+    LocalVariableName: countyFips
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: County FIPS code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - county
+    - fips
+  - JsonName: title
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Title
+    LocalVariableName: title
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Taxability code title
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - title
+  - JsonName: label
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: Label
+    LocalVariableName: label
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Taxability code label
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - label
+  - JsonName: rateActionCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: RateActionCode
+    LocalVariableName: rateActionCode
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Rate action code indicating how the rate should be applied
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+    - action
+    - code
+  - JsonName: rateActionMessage
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: RateActionMessage
+    LocalVariableName: rateActionMessage
+    Type: string
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Human-readable rate action description
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+    - action
+    - message
+  - JsonName: rateRules
+    IsReadOnly: false
+    SerializerName: RateRuleV60
+    SerializerIsPrimitive: false
+    IsDictionary: false
+    IsList: true
+    IsEnum: false
+    IsPrimitive: false
+    IsComplexType: true
+    Name: RateRules
+    LocalVariableName: rateRules
+    Type: List<RateRuleV60>
+    NonNullableType: List<RateRuleV60>
+    BaseTypeName: RateRuleV60
+    Description: Jurisdiction-specific rate rules for this taxability code
+    IsRequired: true
+    IsNullable: false
+    DefaultValue: 
+    NameWords:
+    - rate
+    - rules
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies:
+  - RateRuleV60
+  DependencyFileNames:
+  - RateRuleV60.cs
+  ClassName: TaxabilityCodeV60
+  FileName: TaxabilityCodeV60.cs
+  Namespace: ZipTax.Models
+  Description: Taxability code details and rate rules
+  NameWords:
+  - taxability
+  - code
+  - v
+  - 60
+- SchemaName: RateRuleV60
+  FileNameWithoutExtension: RateRuleV60
+  IsDeprecated: false
+  IsSynthetic: false
+  IsEnum: false
+  EnumValues: []
+  EnumValueDetails: []
+  BaseClass: 
+  BaseClassFileName: 
+  Properties:
+  - JsonName: jurTaxCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurTaxCode
+    LocalVariableName: jurTaxCode
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Jurisdiction tax code
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - jur
+    - tax
+    - code
+  - JsonName: effectiveDt
+    IsReadOnly: false
+    SerializerName: long
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: EffectiveDt
+    LocalVariableName: effectiveDt
+    Type: long?
+    NonNullableType: long
+    BaseTypeName: long
+    Description: Effective date as Unix timestamp
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - effective
+    - dt
+  - JsonName: expiresDt
+    IsReadOnly: false
+    SerializerName: long
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: ExpiresDt
+    LocalVariableName: expiresDt
+    Type: long?
+    NonNullableType: long
+    BaseTypeName: long
+    Description: Expiration date as Unix timestamp
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - expires
+    - dt
+  - JsonName: effectiveTaxRate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: EffectiveTaxRate
+    LocalVariableName: effectiveTaxRate
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Effective tax rate for this rule
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - effective
+    - tax
+    - rate
+  - JsonName: percentTaxable
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: PercentTaxable
+    LocalVariableName: percentTaxable
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Percentage of the item that is taxable
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - percent
+    - taxable
+  - JsonName: exemptUnder
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: ExemptUnder
+    LocalVariableName: exemptUnder
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Exempt if item total is under this amount
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - exempt
+    - under
+  - JsonName: exemptOver
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: ExemptOver
+    LocalVariableName: exemptOver
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Exempt if item total is over this amount
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - exempt
+    - over
+  - JsonName: taxablePortionOver
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: TaxablePortionOver
+    LocalVariableName: taxablePortionOver
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Only the portion of the item over this amount is taxable
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - taxable
+    - portion
+    - over
+  - JsonName: isDestinationTaxType
+    IsReadOnly: false
+    SerializerName: bool
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: IsDestinationTaxType
+    LocalVariableName: isDestinationTaxType
+    Type: bool?
+    NonNullableType: bool
+    BaseTypeName: bool
+    Description: Whether this rule applies under destination-based sourcing
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - is
+    - destination
+    - tax
+    - type
+  - JsonName: isFoodDrug
+    IsReadOnly: false
+    SerializerName: bool
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: IsFoodDrug
+    LocalVariableName: isFoodDrug
+    Type: bool?
+    NonNullableType: bool
+    BaseTypeName: bool
+    Description: Whether this rule applies to food and drug items
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - is
+    - food
+    - drug
+  AllProperties:
+  - JsonName: jurTaxCode
+    IsReadOnly: false
+    SerializerName: string
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: JurTaxCode
+    LocalVariableName: jurTaxCode
+    Type: string?
+    NonNullableType: string
+    BaseTypeName: string
+    Description: Jurisdiction tax code
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - jur
+    - tax
+    - code
+  - JsonName: effectiveDt
+    IsReadOnly: false
+    SerializerName: long
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: EffectiveDt
+    LocalVariableName: effectiveDt
+    Type: long?
+    NonNullableType: long
+    BaseTypeName: long
+    Description: Effective date as Unix timestamp
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - effective
+    - dt
+  - JsonName: expiresDt
+    IsReadOnly: false
+    SerializerName: long
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: ExpiresDt
+    LocalVariableName: expiresDt
+    Type: long?
+    NonNullableType: long
+    BaseTypeName: long
+    Description: Expiration date as Unix timestamp
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - expires
+    - dt
+  - JsonName: effectiveTaxRate
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: EffectiveTaxRate
+    LocalVariableName: effectiveTaxRate
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Effective tax rate for this rule
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - effective
+    - tax
+    - rate
+  - JsonName: percentTaxable
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: PercentTaxable
+    LocalVariableName: percentTaxable
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Percentage of the item that is taxable
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - percent
+    - taxable
+  - JsonName: exemptUnder
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: ExemptUnder
+    LocalVariableName: exemptUnder
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Exempt if item total is under this amount
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - exempt
+    - under
+  - JsonName: exemptOver
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: ExemptOver
+    LocalVariableName: exemptOver
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Exempt if item total is over this amount
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - exempt
+    - over
+  - JsonName: taxablePortionOver
+    IsReadOnly: false
+    SerializerName: float
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: TaxablePortionOver
+    LocalVariableName: taxablePortionOver
+    Type: float?
+    NonNullableType: float
+    BaseTypeName: float
+    Description: Only the portion of the item over this amount is taxable
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - taxable
+    - portion
+    - over
+  - JsonName: isDestinationTaxType
+    IsReadOnly: false
+    SerializerName: bool
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: IsDestinationTaxType
+    LocalVariableName: isDestinationTaxType
+    Type: bool?
+    NonNullableType: bool
+    BaseTypeName: bool
+    Description: Whether this rule applies under destination-based sourcing
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - is
+    - destination
+    - tax
+    - type
+  - JsonName: isFoodDrug
+    IsReadOnly: false
+    SerializerName: bool
+    SerializerIsPrimitive: true
+    IsDictionary: false
+    IsList: false
+    IsEnum: false
+    IsPrimitive: true
+    IsComplexType: false
+    Name: IsFoodDrug
+    LocalVariableName: isFoodDrug
+    Type: bool?
+    NonNullableType: bool
+    BaseTypeName: bool
+    Description: Whether this rule applies to food and drug items
+    IsRequired: false
+    IsNullable: true
+    DefaultValue: 
+    NameWords:
+    - is
+    - food
+    - drug
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: RateRuleV60
+  FileName: RateRuleV60.cs
+  Namespace: ZipTax.Models
+  Description: Individual rate rule for a taxability code within a jurisdiction
+  NameWords:
+  - rate
+  - rule
+  - v
+  - 60
+- SchemaName: BaseRateV60JurType
+  FileNameWithoutExtension: BaseRateV60JurType
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - UsStateSalesTax
+  - UsStateUseTax
+  - UsCountySalesTax
+  - UsCountyUseTax
+  - UsCitySalesTax
+  - UsCityUseTax
+  - UsDistrictSalesTax
+  - UsDistrictUseTax
+  EnumValueDetails:
+  - OriginalValue: US_STATE_SALES_TAX
+    Name: UsStateSalesTax
+    Description: 
+  - OriginalValue: US_STATE_USE_TAX
+    Name: UsStateUseTax
+    Description: 
+  - OriginalValue: US_COUNTY_SALES_TAX
+    Name: UsCountySalesTax
+    Description: 
+  - OriginalValue: US_COUNTY_USE_TAX
+    Name: UsCountyUseTax
+    Description: 
+  - OriginalValue: US_CITY_SALES_TAX
+    Name: UsCitySalesTax
+    Description: 
+  - OriginalValue: US_CITY_USE_TAX
+    Name: UsCityUseTax
+    Description: 
+  - OriginalValue: US_DISTRICT_SALES_TAX
+    Name: UsDistrictSalesTax
+    Description: 
+  - OriginalValue: US_DISTRICT_USE_TAX
+    Name: UsDistrictUseTax
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: BaseRateV60JurType
+  FileName: BaseRateV60JurType.cs
+  Namespace: ZipTax.Models
+  Description: Jurisdiction tax type
+  NameWords:
+  - base
+  - rate
+  - v
+  - 60
+  - jur
+  - type
+- SchemaName: BaseRateV60JurName
+  FileNameWithoutExtension: BaseRateV60JurName
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - UsState
+  - UsCounty
+  - UsCity
+  - UsDistrict
+  EnumValueDetails:
+  - OriginalValue: US_STATE
+    Name: UsState
+    Description: 
+  - OriginalValue: US_COUNTY
+    Name: UsCounty
+    Description: 
+  - OriginalValue: US_CITY
+    Name: UsCity
+    Description: 
+  - OriginalValue: US_DISTRICT
+    Name: UsDistrict
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: BaseRateV60JurName
+  FileName: BaseRateV60JurName.cs
+  Namespace: ZipTax.Models
+  Description: Jurisdiction level name
+  NameWords:
+  - base
+  - rate
+  - v
+  - 60
+  - jur
+  - name
+- SchemaName: ServiceV60Taxable
+  FileNameWithoutExtension: ServiceV60Taxable
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - Y
+  - N
+  EnumValueDetails:
+  - OriginalValue: Y
+    Name: Y
+    Description: 
+  - OriginalValue: N
+    Name: N
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: ServiceV60Taxable
+  FileName: ServiceV60Taxable.cs
+  Namespace: ZipTax.Models
+  Description: Whether services are taxable
+  NameWords:
+  - service
+  - v
+  - 60
+  - taxable
+- SchemaName: ShippingV60Taxable
+  FileNameWithoutExtension: ShippingV60Taxable
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - Y
+  - N
+  EnumValueDetails:
+  - OriginalValue: Y
+    Name: Y
+    Description: 
+  - OriginalValue: N
+    Name: N
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: ShippingV60Taxable
+  FileName: ShippingV60Taxable.cs
+  Namespace: ZipTax.Models
+  Description: Whether shipping is taxable
+  NameWords:
+  - shipping
+  - v
+  - 60
+  - taxable
+- SchemaName: OriginDestinationV60Value
+  FileNameWithoutExtension: OriginDestinationV60Value
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - O
+  - D
+  EnumValueDetails:
+  - OriginalValue: O
+    Name: O
+    Description: 
+  - OriginalValue: D
+    Name: D
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: OriginDestinationV60Value
+  FileName: OriginDestinationV60Value.cs
+  Namespace: ZipTax.Models
+  Description: O = Origin-based, D = Destination-based
+  NameWords:
+  - origin
+  - destination
+  - v
+  - 60
+  - value
+- SchemaName: TaxSummaryV60TaxType
+  FileNameWithoutExtension: TaxSummaryV60TaxType
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - SalesTax
+  - UseTax
+  EnumValueDetails:
+  - OriginalValue: SALES_TAX
+    Name: SalesTax
+    Description: 
+  - OriginalValue: USE_TAX
+    Name: UseTax
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: TaxSummaryV60TaxType
+  FileName: TaxSummaryV60TaxType.cs
+  Namespace: ZipTax.Models
+  Description: Tax type category
+  NameWords:
+  - tax
+  - summary
+  - v
+  - 60
+  - tax
+  - type
+- SchemaName: AddressDetailV60Incorporated
+  FileNameWithoutExtension: AddressDetailV60Incorporated
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - True
+  - False
+  EnumValueDetails:
+  - OriginalValue: true
+    Name: True
+    Description: 
+  - OriginalValue: false
+    Name: False
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: AddressDetailV60Incorporated
+  FileName: AddressDetailV60Incorporated.cs
+  Namespace: ZipTax.Models
+  Description: Whether the location is within an incorporated area
+  NameWords:
+  - address
+  - detail
+  - v
+  - 60
+  - incorporated
+- SchemaName: GetTaxRatesV60CountryCode
+  FileNameWithoutExtension: GetTaxRatesV60CountryCode
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - Usa
+  - Can
+  EnumValueDetails:
+  - OriginalValue: USA
+    Name: Usa
+    Description: 
+  - OriginalValue: CAN
+    Name: Can
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: GetTaxRatesV60CountryCode
+  FileName: GetTaxRatesV60CountryCode.cs
+  Namespace: ZipTax.Models
+  Description: 
+  NameWords:
+  - get
+  - tax
+  - rates
+  - v
+  - 60
+  - country
+  - code
+- SchemaName: GetTaxRatesV60Format
+  FileNameWithoutExtension: GetTaxRatesV60Format
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - Json
+  - Xml
+  EnumValueDetails:
+  - OriginalValue: json
+    Name: Json
+    Description: 
+  - OriginalValue: xml
+    Name: Xml
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: GetTaxRatesV60Format
+  FileName: GetTaxRatesV60Format.cs
+  Namespace: ZipTax.Models
+  Description: 
+  NameWords:
+  - get
+  - tax
+  - rates
+  - v
+  - 60
+  - format
+- SchemaName: GetTaxRatesV60AddressDetailExtended
+  FileNameWithoutExtension: GetTaxRatesV60AddressDetailExtended
+  IsDeprecated: false
+  IsSynthetic: true
+  IsEnum: true
+  EnumValues:
+  - True
+  - False
+  - _1
+  - _0
+  EnumValueDetails:
+  - OriginalValue: true
+    Name: True
+    Description: 
+  - OriginalValue: false
+    Name: False
+    Description: 
+  - OriginalValue: 1
+    Name: _1
+    Description: 
+  - OriginalValue: 0
+    Name: _0
+    Description: 
+  BaseClass: 
+  BaseClassFileName: 
+  Properties: []
+  AllProperties: []
+  BaseProperties: []
+  Discriminator: 
+  DerivedTypes: []
+  DerivedTypeFileNames: []
+  DiscriminatorValue: 
+  IsPolymorphic: false
+  HasDerivedTypes: false
+  IsDerivedType: false
+  Dependencies: []
+  DependencyFileNames: []
+  ClassName: GetTaxRatesV60AddressDetailExtended
+  FileName: GetTaxRatesV60AddressDetailExtended.cs
+  Namespace: ZipTax.Models
+  Description: 
+  NameWords:
+  - get
+  - tax
+  - rates
+  - v
+  - 60
+  - address
+  - detail
+  - extended
+Groups:
+- TaxRates
+GroupedOperations:
+- GroupName: TaxRates
+  InterfaceName: ITaxRates
+  BaseUrl: https://api.zip-tax.com
+  Operations:
+  - OperationId: getTaxRatesV60
+    MethodName: GetTaxRatesV60Async
+    HttpMethod: GET
+    Path: /request/v60
+    Summary: Get Tax Rates (v6.0)
+    Description: Returns tax rates in a structured format with separate base rates, service/shipping taxability, sourcing rules, and tax summaries. Requires an address or lat/lng coordinates to resolve a single tax jurisdiction.
+    IsDeprecated: false
+    Group: TaxRates
+    ReturnType: Task<V60Response>
+    ResponseType: V60Response
+    HasReturnValue: true
+    ResponseIsList: false
+    ResponseIsPrimitive: false
+    ResponseBaseType: V60Response
+    Parameters:
+    - OriginalName: key
+      IsEnum: false
+      Name: key
+      LocalVariableName: key
+      Type: string
+      NonNullableType: string
+      BaseTypeName: string
+      Description: API key for authentication
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - key
+    - OriginalName: address
+      IsEnum: false
+      Name: address
+      LocalVariableName: address
+      Type: string?
+      NonNullableType: string
+      BaseTypeName: string
+      Description: Street address for geocoding. Provide a full or partial US street address (e.g. "200 Spectrum Center Dr, Irvine, CA 92618").
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - address
+    - OriginalName: lat
+      IsEnum: false
+      Name: lat
+      LocalVariableName: lat
+      Type: double?
+      NonNullableType: double
+      BaseTypeName: double
+      Description: Latitude coordinate. Use with `lng` as an alternative to `address`.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - lat
+    - OriginalName: lng
+      IsEnum: false
+      Name: lng
+      LocalVariableName: lng
+      Type: double?
+      NonNullableType: double
+      BaseTypeName: double
+      Description: Longitude coordinate. Use with `lat` as an alternative to `address`.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - lng
+    - OriginalName: countryCode
+      IsEnum: true
+      Name: countryCode
+      LocalVariableName: countryCode
+      Type: GetTaxRatesV60CountryCode?
+      NonNullableType: GetTaxRatesV60CountryCode
+      BaseTypeName: GetTaxRatesV60CountryCode
+      Description: Country code
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - country
+      - code
+    - OriginalName: format
+      IsEnum: true
+      Name: format
+      LocalVariableName: format
+      Type: GetTaxRatesV60Format?
+      NonNullableType: GetTaxRatesV60Format
+      BaseTypeName: GetTaxRatesV60Format
+      Description: Response format
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - format
+    - OriginalName: sat_item_total
+      IsEnum: false
+      Name: satItemTotal
+      LocalVariableName: satItemTotal
+      Type: double?
+      NonNullableType: double
+      BaseTypeName: double
+      Description: Single Article Tax item total for Tennessee
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - sat
+      - item
+      - total
+    - OriginalName: historical
+      IsEnum: false
+      Name: historical
+      LocalVariableName: historical
+      Type: string?
+      NonNullableType: string
+      BaseTypeName: string
+      Description: Historical date for rates in YYYY-MM format
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - historical
+    - OriginalName: taxabilityCode
+      IsEnum: false
+      Name: taxabilityCode
+      LocalVariableName: taxabilityCode
+      Type: long?
+      NonNullableType: long
+      BaseTypeName: long
+      Description: Product taxability code (TIC). When provided, the response includes a `productDetail` section with product-specific rate rules. Requires the `product_rates` entitlement.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - taxability
+      - code
+    - OriginalName: addressDetailExtended
+      IsEnum: true
+      Name: addressDetailExtended
+      LocalVariableName: addressDetailExtended
+      Type: GetTaxRatesV60AddressDetailExtended?
+      NonNullableType: GetTaxRatesV60AddressDetailExtended
+      BaseTypeName: GetTaxRatesV60AddressDetailExtended
+      Description: When set to `true` or `1`, the `addressDetail` section includes a nested `address` object with individual address components.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - address
+      - detail
+      - extended
+    PathParameters: []
+    QueryParameters:
+    - OriginalName: key
+      IsEnum: false
+      Name: key
+      LocalVariableName: key
+      Type: string
+      NonNullableType: string
+      BaseTypeName: string
+      Description: API key for authentication
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - key
+    - OriginalName: address
+      IsEnum: false
+      Name: address
+      LocalVariableName: address
+      Type: string?
+      NonNullableType: string
+      BaseTypeName: string
+      Description: Street address for geocoding. Provide a full or partial US street address (e.g. "200 Spectrum Center Dr, Irvine, CA 92618").
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - address
+    - OriginalName: lat
+      IsEnum: false
+      Name: lat
+      LocalVariableName: lat
+      Type: double?
+      NonNullableType: double
+      BaseTypeName: double
+      Description: Latitude coordinate. Use with `lng` as an alternative to `address`.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - lat
+    - OriginalName: lng
+      IsEnum: false
+      Name: lng
+      LocalVariableName: lng
+      Type: double?
+      NonNullableType: double
+      BaseTypeName: double
+      Description: Longitude coordinate. Use with `lat` as an alternative to `address`.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - lng
+    - OriginalName: countryCode
+      IsEnum: true
+      Name: countryCode
+      LocalVariableName: countryCode
+      Type: GetTaxRatesV60CountryCode?
+      NonNullableType: GetTaxRatesV60CountryCode
+      BaseTypeName: GetTaxRatesV60CountryCode
+      Description: Country code
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - country
+      - code
+    - OriginalName: format
+      IsEnum: true
+      Name: format
+      LocalVariableName: format
+      Type: GetTaxRatesV60Format?
+      NonNullableType: GetTaxRatesV60Format
+      BaseTypeName: GetTaxRatesV60Format
+      Description: Response format
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - format
+    - OriginalName: sat_item_total
+      IsEnum: false
+      Name: satItemTotal
+      LocalVariableName: satItemTotal
+      Type: double?
+      NonNullableType: double
+      BaseTypeName: double
+      Description: Single Article Tax item total for Tennessee
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - sat
+      - item
+      - total
+    - OriginalName: historical
+      IsEnum: false
+      Name: historical
+      LocalVariableName: historical
+      Type: string?
+      NonNullableType: string
+      BaseTypeName: string
+      Description: Historical date for rates in YYYY-MM format
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - historical
+    - OriginalName: taxabilityCode
+      IsEnum: false
+      Name: taxabilityCode
+      LocalVariableName: taxabilityCode
+      Type: long?
+      NonNullableType: long
+      BaseTypeName: long
+      Description: Product taxability code (TIC). When provided, the response includes a `productDetail` section with product-specific rate rules. Requires the `product_rates` entitlement.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - taxability
+      - code
+    - OriginalName: addressDetailExtended
+      IsEnum: true
+      Name: addressDetailExtended
+      LocalVariableName: addressDetailExtended
+      Type: GetTaxRatesV60AddressDetailExtended?
+      NonNullableType: GetTaxRatesV60AddressDetailExtended
+      BaseTypeName: GetTaxRatesV60AddressDetailExtended
+      Description: When set to `true` or `1`, the `addressDetail` section includes a nested `address` object with individual address components.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: null
+      NameWords:
+      - address
+      - detail
+      - extended
+    HeaderParameters: []
+    BodyParameter: 
+    HasPathParameters: false
+    HasQueryParameters: true
+    HasHeaderParameters: false
+    HasBodyParameter: false
+    RequestBodyIsPrimitive: false
+    ContentType: 
+    Dependencies:
+    - GetTaxRatesV60AddressDetailExtended
+    - GetTaxRatesV60CountryCode
+    - GetTaxRatesV60Format
+    - V60Response
+    NameWords:
+    - get
+    - tax
+    - rates
+    - v
+    - 60
+  Models:
+  - SchemaName: V60Response
+    FileNameWithoutExtension: V60Response
+    IsDeprecated: false
+    IsSynthetic: false
+    IsEnum: false
+    EnumValues: []
+    EnumValueDetails: []
+    BaseClass: 
+    BaseClassFileName: 
+    Properties:
+    - JsonName: metadata
+      IsReadOnly: false
+      SerializerName: MetadataV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: Metadata
+      LocalVariableName: metadata
+      Type: MetadataV60
+      NonNullableType: MetadataV60
+      BaseTypeName: MetadataV60
+      Description: Response metadata including API version and response status
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - metadata
+    - JsonName: baseRates
+      IsReadOnly: false
+      SerializerName: BaseRateV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: true
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: BaseRates
+      LocalVariableName: baseRates
+      Type: List<BaseRateV60>
+      NonNullableType: List<BaseRateV60>
+      BaseTypeName: BaseRateV60
+      Description: Base tax rates broken down by jurisdiction
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - base
+      - rates
+    - JsonName: service
+      IsReadOnly: false
+      SerializerName: ServiceV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: Service
+      LocalVariableName: service
+      Type: ServiceV60
+      NonNullableType: ServiceV60
+      BaseTypeName: ServiceV60
+      Description: Service (labor) taxability for the jurisdiction
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - service
+    - JsonName: shipping
+      IsReadOnly: false
+      SerializerName: ShippingV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: Shipping
+      LocalVariableName: shipping
+      Type: ShippingV60
+      NonNullableType: ShippingV60
+      BaseTypeName: ShippingV60
+      Description: Shipping/freight taxability for the jurisdiction
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - shipping
+    - JsonName: sourcingRules
+      IsReadOnly: false
+      SerializerName: OriginDestinationV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: SourcingRules
+      LocalVariableName: sourcingRules
+      Type: OriginDestinationV60
+      NonNullableType: OriginDestinationV60
+      BaseTypeName: OriginDestinationV60
+      Description: Sourcing rules indicating origin-based or destination-based taxation
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - sourcing
+      - rules
+    - JsonName: taxSummaries
+      IsReadOnly: false
+      SerializerName: TaxSummaryV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: true
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: TaxSummaries
+      LocalVariableName: taxSummaries
+      Type: List<TaxSummaryV60>
+      NonNullableType: List<TaxSummaryV60>
+      BaseTypeName: TaxSummaryV60
+      Description: Aggregated tax rate summaries (sales tax and use tax totals)
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - tax
+      - summaries
+    - JsonName: productDetail
+      IsReadOnly: false
+      SerializerName: ProductDetailV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: ProductDetail
+      LocalVariableName: productDetail
+      Type: ProductDetailV60?
+      NonNullableType: ProductDetailV60
+      BaseTypeName: ProductDetailV60
+      Description: Product-specific taxability detail. Present only when `taxabilityCode` is provided in the request.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: 
+      NameWords:
+      - product
+      - detail
+    - JsonName: addressDetail
+      IsReadOnly: false
+      SerializerName: AddressDetailV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: AddressDetail
+      LocalVariableName: addressDetail
+      Type: AddressDetailV60
+      NonNullableType: AddressDetailV60
+      BaseTypeName: AddressDetailV60
+      Description: Geocoded address information for the resolved location
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - address
+      - detail
+    AllProperties:
+    - JsonName: metadata
+      IsReadOnly: false
+      SerializerName: MetadataV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: Metadata
+      LocalVariableName: metadata
+      Type: MetadataV60
+      NonNullableType: MetadataV60
+      BaseTypeName: MetadataV60
+      Description: Response metadata including API version and response status
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - metadata
+    - JsonName: baseRates
+      IsReadOnly: false
+      SerializerName: BaseRateV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: true
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: BaseRates
+      LocalVariableName: baseRates
+      Type: List<BaseRateV60>
+      NonNullableType: List<BaseRateV60>
+      BaseTypeName: BaseRateV60
+      Description: Base tax rates broken down by jurisdiction
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - base
+      - rates
+    - JsonName: service
+      IsReadOnly: false
+      SerializerName: ServiceV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: Service
+      LocalVariableName: service
+      Type: ServiceV60
+      NonNullableType: ServiceV60
+      BaseTypeName: ServiceV60
+      Description: Service (labor) taxability for the jurisdiction
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - service
+    - JsonName: shipping
+      IsReadOnly: false
+      SerializerName: ShippingV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: Shipping
+      LocalVariableName: shipping
+      Type: ShippingV60
+      NonNullableType: ShippingV60
+      BaseTypeName: ShippingV60
+      Description: Shipping/freight taxability for the jurisdiction
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - shipping
+    - JsonName: sourcingRules
+      IsReadOnly: false
+      SerializerName: OriginDestinationV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: SourcingRules
+      LocalVariableName: sourcingRules
+      Type: OriginDestinationV60
+      NonNullableType: OriginDestinationV60
+      BaseTypeName: OriginDestinationV60
+      Description: Sourcing rules indicating origin-based or destination-based taxation
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - sourcing
+      - rules
+    - JsonName: taxSummaries
+      IsReadOnly: false
+      SerializerName: TaxSummaryV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: true
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: TaxSummaries
+      LocalVariableName: taxSummaries
+      Type: List<TaxSummaryV60>
+      NonNullableType: List<TaxSummaryV60>
+      BaseTypeName: TaxSummaryV60
+      Description: Aggregated tax rate summaries (sales tax and use tax totals)
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - tax
+      - summaries
+    - JsonName: productDetail
+      IsReadOnly: false
+      SerializerName: ProductDetailV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: ProductDetail
+      LocalVariableName: productDetail
+      Type: ProductDetailV60?
+      NonNullableType: ProductDetailV60
+      BaseTypeName: ProductDetailV60
+      Description: Product-specific taxability detail. Present only when `taxabilityCode` is provided in the request.
+      IsRequired: false
+      IsNullable: true
+      DefaultValue: 
+      NameWords:
+      - product
+      - detail
+    - JsonName: addressDetail
+      IsReadOnly: false
+      SerializerName: AddressDetailV60
+      SerializerIsPrimitive: false
+      IsDictionary: false
+      IsList: false
+      IsEnum: false
+      IsPrimitive: false
+      IsComplexType: true
+      Name: AddressDetail
+      LocalVariableName: addressDetail
+      Type: AddressDetailV60
+      NonNullableType: AddressDetailV60
+      BaseTypeName: AddressDetailV60
+      Description: Geocoded address information for the resolved location
+      IsRequired: true
+      IsNullable: false
+      DefaultValue: 
+      NameWords:
+      - address
+      - detail
+    BaseProperties: []
+    Discriminator: 
+    DerivedTypes: []
+    DerivedTypeFileNames: []
+    DiscriminatorValue: 
+    IsPolymorphic: false
+    HasDerivedTypes: false
+    IsDerivedType: false
+    Dependencies:
+    - AddressDetailV60
+    - BaseRateV60
+    - MetadataV60
+    - OriginDestinationV60
+    - ProductDetailV60
+    - ServiceV60
+    - ShippingV60
+    - TaxSummaryV60
+    DependencyFileNames:
+    - AddressDetailV60.cs
+    - BaseRateV60.cs
+    - MetadataV60.cs
+    - OriginDestinationV60.cs
+    - ProductDetailV60.cs
+    - ServiceV60.cs
+    - ShippingV60.cs
+    - TaxSummaryV60.cs
+    ClassName: V60Response
+    FileName: V60Response.cs
+    Namespace: ZipTax.Models
+    Description: v6.0 structured tax rate response
+    NameWords:
+    - v
+    - 60
+    - response
+  - SchemaName: GetTaxRatesV60CountryCode
+    FileNameWithoutExtension: GetTaxRatesV60CountryCode
+    IsDeprecated: false
+    IsSynthetic: true
+    IsEnum: true
+    EnumValues:
+    - Usa
+    - Can
+    EnumValueDetails:
+    - OriginalValue: USA
+      Name: Usa
+      Description: 
+    - OriginalValue: CAN
+      Name: Can
+      Description: 
+    BaseClass: 
+    BaseClassFileName: 
+    Properties: []
+    AllProperties: []
+    BaseProperties: []
+    Discriminator: 
+    DerivedTypes: []
+    DerivedTypeFileNames: []
+    DiscriminatorValue: 
+    IsPolymorphic: false
+    HasDerivedTypes: false
+    IsDerivedType: false
+    Dependencies: []
+    DependencyFileNames: []
+    ClassName: GetTaxRatesV60CountryCode
+    FileName: GetTaxRatesV60CountryCode.cs
+    Namespace: ZipTax.Models
+    Description: 
+    NameWords:
+    - get
+    - tax
+    - rates
+    - v
+    - 60
+    - country
+    - code
+  - SchemaName: GetTaxRatesV60Format
+    FileNameWithoutExtension: GetTaxRatesV60Format
+    IsDeprecated: false
+    IsSynthetic: true
+    IsEnum: true
+    EnumValues:
+    - Json
+    - Xml
+    EnumValueDetails:
+    - OriginalValue: json
+      Name: Json
+      Description: 
+    - OriginalValue: xml
+      Name: Xml
+      Description: 
+    BaseClass: 
+    BaseClassFileName: 
+    Properties: []
+    AllProperties: []
+    BaseProperties: []
+    Discriminator: 
+    DerivedTypes: []
+    DerivedTypeFileNames: []
+    DiscriminatorValue: 
+    IsPolymorphic: false
+    HasDerivedTypes: false
+    IsDerivedType: false
+    Dependencies: []
+    DependencyFileNames: []
+    ClassName: GetTaxRatesV60Format
+    FileName: GetTaxRatesV60Format.cs
+    Namespace: ZipTax.Models
+    Description: 
+    NameWords:
+    - get
+    - tax
+    - rates
+    - v
+    - 60
+    - format
+  - SchemaName: GetTaxRatesV60AddressDetailExtended
+    FileNameWithoutExtension: GetTaxRatesV60AddressDetailExtended
+    IsDeprecated: false
+    IsSynthetic: true
+    IsEnum: true
+    EnumValues:
+    - True
+    - False
+    - _1
+    - _0
+    EnumValueDetails:
+    - OriginalValue: true
+      Name: True
+      Description: 
+    - OriginalValue: false
+      Name: False
+      Description: 
+    - OriginalValue: 1
+      Name: _1
+      Description: 
+    - OriginalValue: 0
+      Name: _0
+      Description: 
+    BaseClass: 
+    BaseClassFileName: 
+    Properties: []
+    AllProperties: []
+    BaseProperties: []
+    Discriminator: 
+    DerivedTypes: []
+    DerivedTypeFileNames: []
+    DiscriminatorValue: 
+    IsPolymorphic: false
+    HasDerivedTypes: false
+    IsDerivedType: false
+    Dependencies: []
+    DependencyFileNames: []
+    ClassName: GetTaxRatesV60AddressDetailExtended
+    FileName: GetTaxRatesV60AddressDetailExtended.cs
+    Namespace: ZipTax.Models
+    Description: 
+    NameWords:
+    - get
+    - tax
+    - rates
+    - v
+    - 60
+    - address
+    - detail
+    - extended
+  ClassName: TaxRatesClient
+  FileName: TaxRatesClient.cs
+  Namespace: ZipTax.Clients
+  Description: Client for TaxRates operations
+  NameWords:
+  - tax
+  - rates
+ClassName: ZipTax
+FileName: ZipTax.cs
+Namespace: ZipTax
+Description: RESTful service for US sales tax data lookup by address or coordinates.
+NameWords:
+- zip
+- tax

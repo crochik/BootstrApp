@@ -1,0 +1,42 @@
+_id: 3ba525a1-3dd9-4fde-8501-fc973231ddff
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: LocationField
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: LocationField
+      Enable:
+      - false
+      IsRequired: false
+      Label: Type
+      Name: _t
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    InitialValue: LocationField
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LocationField
+IsAbstract: false
+IsActive: true
+IsEmbedded: true
+IsFullTextSearchable: true
+Name: LocationField
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 7
+Tags:
+- AUTOFIX
+- PI-API
+UniqueExternalId: false

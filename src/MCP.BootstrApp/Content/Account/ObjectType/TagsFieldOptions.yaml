@@ -1,0 +1,45 @@
+_id: af93e4f7-b8ee-4fca-b2d1-96f4dfcfed5f
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for Tags Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: TagsFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: TagsFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  Url:
+    Field:
+      _t: UrlField
+      Description: Lookup url. "id" will be replaced with parent id
+      IsRequired: false
+      Name: Url
+      Options:
+        _t: URLFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TagsFieldOptions
+IsEmbedded: true
+Name: TagsFieldOptions
+NativeType: PI.Shared.Form.Models.TagsFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

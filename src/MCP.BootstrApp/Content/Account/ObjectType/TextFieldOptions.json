@@ -1,0 +1,107 @@
+{
+  "_id" : "ffdf1efb-a895-47d1-8566-c84da90a3d72",
+  "Name" : "TextFieldOptions",
+  "Description" : "Options for Text Field ",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Models.TextFieldOptions",
+  "BaseObjectType" : "FieldOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "DefaultValue" : "TextFieldOptions",
+        "Enable" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "InitialValue" : "TextFieldOptions"
+    },
+    "Multline" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Multline",
+        "Label" : "Multiple Lines"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ContentType" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "ContentType",
+        "Label" : "Content Type",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "text/plain" : "Plain",
+            "text/html" : "HTML"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Format" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Format",
+        "Label" : "Format"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "MaxLength" : {
+      "Field" : {
+        "_t" : "NumberField",
+        "Name" : "MaxLength",
+        "Label" : "Max Length",
+        "Options" : {
+          "_t" : "NumberFieldOptions",
+          "DecimalPlaces" : 0
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "AllowExpressions" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "AllowExpressions",
+        "Label" : "Allow Expressions"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "TextFieldOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

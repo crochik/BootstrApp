@@ -1,0 +1,42 @@
+{
+  "_id" : "b3cf0331-aeed-4793-b741-fbbc5f9e910b",
+  "Trigger" : {
+    "Name" : "Duplicate...",
+    "Form" : {
+      "Name" : "LaunchFormLayoutEditor",
+      "Title" : "Duplicate Object Type",
+      "Fields" : [{
+          "_t" : "HiddenField",
+          "Name" : "ObjectType",
+          "DefaultValue" : "{{Object.FullName}}"
+        }, {
+          "_t" : "LabelField",
+          "Name" : "ObjectTypeLbl",
+          "Label" : "Duplicate {{coalesce Object.Label? Object.Description? Object.Name?}}"
+        }, {
+          "_t" : "TextField",
+          "Name" : "Namespace",
+          "Label" : "New Namespace"
+        }, {
+          "_t" : "TextField",
+          "Name" : "Name",
+          "Label" : "New Name"
+        }, {
+          "_t" : "CheckboxField",
+          "Name" : "KeepBaseObjectType",
+          "Label" : "Keep Base Object"
+        }],
+      "Actions" : [{
+          "Name" : "Duplicate",
+          "Action" : "action://api/v1/ObjectTypeDesigner/Duplicate",
+          "Label" : "Duplicate"
+        }]
+    },
+    "_NextUrl" : "action://api/v1/ObjectTypeDesigner/{{Object.FullName}}/Duplicate",
+    "_t" : "User",
+    "Role" : "Admin"
+  },
+  "ObjectType" : "ObjectType",
+  "Name" : "DuplicateObjectType",
+  "EntityId" : "fc100000-0000-0000-0000-000000000000"
+}

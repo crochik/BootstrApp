@@ -1,0 +1,251 @@
+{
+  "_id" : "aef79a26-5d1e-4503-ab60-fdaada704cf2",
+  "Name" : "ExportAppointmentActionOptions",
+  "FullName" : "ExportAppointmentActionOptions",
+  "Description" : "Export Appointment Options",
+  "IsActive" : true,
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "UserId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "UserId",
+        "Label" : "User (expression)",
+        "Description" : "User's calendar",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "DefaultValue" : "{{Objects.Appointment.EntityId}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Subject" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Subject",
+        "Label" : "Subject (expression)",
+        "Description" : "Subject",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true,
+          "Multline" : true
+        },
+        "DefaultValue" : "{{Objects.Appointment.Name}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Start" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "Start",
+        "Label" : "Start",
+        "Description" : "Start of appointment",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "DateTimeField"
+          }
+        },
+        "DefaultValue" : "{{Objects.Appointment.Start}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "End" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "End",
+        "Label" : "End",
+        "Description" : "End of appointment",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "DateTimeField"
+          }
+        },
+        "DefaultValue" : "{{Objects.Appointment.End}}"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ContentType" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "ContentType",
+        "Label" : "Body Content Type",
+        "Description" : "Content type for body.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "text/plain" : "Plain",
+            "text/html" : "HTML"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Content" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Content",
+        "Label" : "Body Content (Handlebars template)",
+        "Description" : "Handlebars Template to render body",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true,
+          "Multline" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Address" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Address",
+        "Label" : "Address (expression)",
+        "Description" : "Location Address",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "City" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "City",
+        "Label" : "City (expression)",
+        "Description" : "Location City",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "Visible" : ["Address"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "State" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "State",
+        "Label" : "State (expression)",
+        "Description" : "Location State",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "Visible" : ["Address"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "PostalCode" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "PostalCode",
+        "Label" : "Postal Code (expression)",
+        "Description" : "Location Postal Code",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "Visible" : ["Address"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Country" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Country",
+        "Label" : "Country (expression)",
+        "Description" : "Location Country",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "Visible" : ["Address"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "LinkUrl" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "LinkUrl",
+        "Label" : "Link Url (expression)",
+        "Description" : "Link Url",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        },
+        "Visible" : ["false"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

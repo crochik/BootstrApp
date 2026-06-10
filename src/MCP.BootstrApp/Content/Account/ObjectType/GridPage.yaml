@@ -1,0 +1,33 @@
+_id: b46991c7-42c6-46f2-9ea3-c1de23316135
+BaseObjectType: Page
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: GridPage
+Description: Grid Page
+Fields:
+  Grid:
+    Field:
+      _t: TextField
+      Label: Data Grid Name
+      Name: Grid
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GridPage
+IsAbstract: false
+IsEmbedded: true
+Name: GridPage
+NativeType: PI.Shared.Form.Models.GridPage
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System
+- ui

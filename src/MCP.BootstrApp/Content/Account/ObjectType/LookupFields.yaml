@@ -1,0 +1,59 @@
+_id: 8b85c2ba-8139-4f13-a83b-7640815512d7
+CollectionName: '?'
+Description: Lookup Fields for ObjectType
+Fields:
+  Description:
+    Field:
+      _t: TextField
+      Label: Description Field
+      Name: Description
+    RBAC:
+      Permissions:
+        Admin: 7
+  ImageUrl:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Image Url Field
+      Name: ImageUrl
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Key:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Key Field
+      Name: Key
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      Label: Name Field
+      Name: Name
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LookupFields
+IsAbstract: false
+IsEmbedded: true
+Name: LookupFields
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- System

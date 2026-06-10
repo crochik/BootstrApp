@@ -1,0 +1,32 @@
+_id: f38a18b4-98ef-4d94-97f3-dca2a79aa8be
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for Generic Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: GenericFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: GenericFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GenericFieldOptions
+IsEmbedded: true
+Name: GenericFieldOptions
+NativeType: PI.Shared.Form.Models.GenericFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

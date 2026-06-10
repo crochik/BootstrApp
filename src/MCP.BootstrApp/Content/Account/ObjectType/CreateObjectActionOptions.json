@@ -1,0 +1,84 @@
+{
+  "_id" : "b0f8da44-01e9-4445-ae02-68a69a177dec",
+  "Name" : "CreateObjectActionOptions",
+  "Description" : "Create Object Options",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "ObjectType" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "ObjectType",
+        "Label" : "Object Type",
+        "Description" : "Object Type to be created.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectType",
+          "AutoComplete" : true,
+          "ForeignFieldName" : "Name"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Mapping" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Mapping",
+        "Label" : "Fields",
+        "Visible" : ["ObjectType"],
+        "Description" : "Fields to be modified. Value can be an Expression.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "ReferenceField",
+            "Name" : "FieldName",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "ReferenceFieldOptions",
+              "ObjectType" : "/api/v1/CustomObject/{{ObjectType}}/Fields",
+              "AutoComplete" : true,
+              "AllowUnknown" : true
+            }
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Expression",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : true
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "FullName" : "CreateObjectActionOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

@@ -1,0 +1,113 @@
+# OpenAPI Client Generator Configuration - C#
+# This file configures the C# code generation
+#
+# Usage:
+#   dotnet run --project src/OpenApiClientGenerator.Core -- build-csharp.yaml --input <spec.yaml> [options]
+#
+# CLI Options:
+#   --input, -i     OpenAPI spec file (REQUIRED)
+#   --output, -o    Output directory (default: derived from input filename)
+#   --namespace, -n Namespace (default: derived from spec info.title)
+#   --client-name, -c  Client class name (default: derived from spec info.title + "Client")
+
+# Target language: csharp, typescript, or dart
+language: csharp
+
+# Path to templates directory (defaults to ./templates if not specified)
+templatePath: templates
+
+# Generate synthetic models for inline object schemas (type: object with properties but no $ref)
+# When true, inline objects become separate model classes with typed properties
+# When false (default), inline objects are mapped to generic object types
+generateInlineModels: true
+
+# Generation steps
+# Each step processes a node from the preprocessed model and generates file(s)
+steps:
+  # Generate authentication handlers
+  - name: Generate Bearer Auth Handler
+    description: Generate Bearer token authentication handler
+    node: .
+    template: Auth/BearerAuthHandler
+    output: "Auth/BearerAuthHandler.cs"
+
+  - name: Generate Basic Auth Handler
+    description: Generate Basic authentication handler
+    node: .
+    template: Auth/BasicAuthHandler
+    output: "Auth/BasicAuthHandler.cs"
+
+  - name: Generate API Key Auth Handler
+    description: Generate API Key authentication handler
+    node: .
+    template: Auth/ApiKeyAuthHandler
+    output: "Auth/ApiKeyAuthHandler.cs"
+
+  - name: Generate OAuth Handler
+    description: Generate OAuth authentication handler
+    node: .
+    template: Auth/OAuthHandler
+    output: "Auth/OAuthHandler.cs"
+
+  # Generate base serializer class (only once)
+  - name: Generate Base Serializer
+    description: Generate base serializer with common helpers
+    node: .
+    template: BaseSerializer
+    output: "Serializers/BaseSerializer.cs"
+
+  # Generate model classes
+  - name: Generate Models
+    description: Generate C# model classes (POCOs)
+    node: Models
+    template: Model
+    output: "Models/{{ClassName}}.cs"
+
+  # Generate serializer classes (handles both regular models and enums)
+  - name: Generate Serializers
+    description: Generate serializer classes for all models
+    node: Models
+    template: Serializer
+    output: "Serializers/{{ClassName}}Serializer.cs"
+
+  # Generate JSON converters for polymorphic models
+  - name: Generate Polymorphic Converters
+    description: Generate JSON converters for models with discriminator
+    node: Models
+    template: PolymorphicConverter
+    output: "Converters/{{ClassName}}Converter.cs"
+
+  # Generate grouped client interfaces (one per tag/group)
+  - name: Generate Grouped Client Interfaces
+    description: Generate grouped client interfaces (one per group)
+    node: GroupedOperations
+    template: GroupedInterface
+    output: "Clients/{{InterfaceName}}.cs"
+
+  # Generate grouped client implementations (one per tag/group)
+  - name: Generate Grouped Client Classes
+    description: Generate grouped client classes (one per group)
+    node: GroupedOperations
+    template: GroupedClient
+    output: "Clients/{{ClassName}}.cs"
+
+#  # Generate client interface
+#  - name: Generate Client Interface
+#    description: Generate client interface
+#    node: .
+#    template: Interface
+#    output: "{{InterfaceName}}.cs"
+#
+#  # Generate client implementation
+#  - name: Generate Client Class
+#    description: Generate client class with HTTP methods
+#    node: .
+#    template: Client
+#    output: "{{ClassName}}.cs"
+
+  # Generate C# project file
+  - name: Generate Project File
+    description: Generate .csproj file for the client library
+    node: .
+    template: CsProj
+    output: "{{ClassName}}.csproj"

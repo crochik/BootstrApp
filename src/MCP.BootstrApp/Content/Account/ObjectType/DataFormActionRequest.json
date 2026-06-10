@@ -1,0 +1,108 @@
+{
+  "_id" : "17f3f711-180a-4f20-a8f6-282bcbca3977",
+  "Name" : "DataFormActionRequest",
+  "Description" : "Data Form Action Request",
+  "CollectionName" : "?",
+  "NativeType" : "DataFormActionRequest",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "DataFormActionRequest",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Action" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Action",
+        "Label" : "Action",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        },
+        "ApiName" : "Action"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Parameters" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Parameters",
+        "Label" : "Parameters",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "*"
+        },
+        "ApiName" : "Parameters"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "View" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "View",
+        "Label" : "View",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        },
+        "ApiName" : "View"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "SelectedIds" : {
+      "Field" : {
+        "_t" : "ArrayField",
+        "Name" : "SelectedIds",
+        "Label" : "Selected Object Ids",
+        "IsRequired" : false,
+        "ApiName" : "selectedIds",
+        "Options" : {
+          "_t" : "ArrayFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "ObjectId",
+            "Label" : "Object Id",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

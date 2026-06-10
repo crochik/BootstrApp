@@ -1,0 +1,167 @@
+{
+  "_id" : "4b75c45e-95af-453f-a29d-5a9202fb696a",
+  "Namespace" : "openapi",
+  "Name" : "Operation",
+  "Description" : "OpenAPI Operation",
+  "CollectionName" : "openapi.Operation",
+  "NativeType" : "PI.OpenAPI.Models.OApiOperation",
+  "BaseObjectType" : "Model",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Tags" : ["openapi"],
+  "FullName" : "openapi.Operation",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 527
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "Indexed" : true
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Namespace" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Namespace"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5
+        }
+      },
+      "Indexed" : true
+    },
+    "Summary" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Summary"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "OperationId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "OperationId"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "Raw" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Raw",
+        "Label" : "OpenAPI Spec",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "*"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Request" : {
+      "Field" : {
+        "_t" : "ObjectField",
+        "Name" : "Request",
+        "Options" : {
+          "_t" : "ObjectFieldOptions",
+          "ObjectType" : "openapi.Request"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Responses" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Responses",
+        "Label" : "Responses",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "KeyType" : "string",
+          "ObjectType" : "openapi.Response",
+          "KeyField" : {
+            "_t" : "SelectField",
+            "Label" : "Status Code",
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "200" : "Success",
+                "201" : "Added",
+                "400" : "Bad Request"
+              }
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Tags" : {
+      "Field" : {
+        "_t" : "TagsField",
+        "Name" : "Tags",
+        "Label" : "Tags",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TagsFieldOptions",
+          "Url" : "/api/v1/CustomObject/Tags(openapi.Operation)"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    }
+  },
+  "Label" : "Operation",
+  "LabelPlural" : "Operations",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

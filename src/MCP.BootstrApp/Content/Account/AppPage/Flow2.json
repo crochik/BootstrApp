@@ -1,0 +1,10 @@
+{
+  "_id" : "e24182bc-60cb-4e21-928f-05d8b3ae892d",
+  "Name" : "Flow2",
+  "Page" : {
+    "_t" : "CustomPage",
+    "Name" : "Flow2",
+    "Label" : "Flow2",
+    "ComponentName" : "Flow2"
+  }
+}

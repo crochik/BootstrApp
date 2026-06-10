@@ -1,0 +1,47 @@
+_id: f3b82d4c-0a67-4099-a391-fee334ff400e
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: ReferenceField
+Description: Reference Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: ReferenceField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: ReferenceField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: ReferenceFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ReferenceField
+IsEmbedded: true
+Name: ReferenceField
+NativeType: PI.Shared.Form.Models.ReferenceField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

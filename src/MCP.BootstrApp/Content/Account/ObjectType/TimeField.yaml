@@ -1,0 +1,47 @@
+_id: 4a8faacc-2fed-462f-961c-11c946eb51f5
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: TimeField
+Description: Time Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: TimeField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: TimeField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: TimeFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TimeField
+IsEmbedded: true
+Name: TimeField
+NativeType: PI.Shared.Form.Models.TimeField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

@@ -1,0 +1,32 @@
+_id: 9c744144-f983-4323-8f0b-36cd0ffbc823
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: Url Field Options
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: URLFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: URLFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: URLFieldOptions
+IsEmbedded: true
+Name: URLFieldOptions
+NativeType: PI.Shared.Form.Models.UrlFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

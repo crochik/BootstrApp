@@ -1,0 +1,7 @@
+{
+  "password": "pi",
+  "user": "pi",
+  "host": "host.docker.internal",
+  "port": "27017",
+  "database": "PI"
+}

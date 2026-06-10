@@ -1,0 +1,206 @@
+_id: 26dac491-2fe4-48a4-8689-972b0c443d4e
+BaseObjectType: EntityOwnedModel
+CollectionName: sendgrid.Email
+Description: Email Message
+Fields:
+  _id:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    InitialValue: '{{new ObjectId}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  CreatedOn:
+    Field:
+      _t: DateTimeField
+      Label: Created
+      Name: CreatedOn
+    Indexed: true
+    InitialValue: '{{new Date}}'
+    RBAC:
+      Permissions:
+        Admin: 1
+  Delivered:
+    Field:
+      _t: DateTimeField
+      Label: Delivered
+      Name: Delivered
+    RBAC:
+      Permissions:
+        Admin: 1
+  DeliveredResponse:
+    Field:
+      _t: TextField
+      Label: Delivered Response
+      Name: DeliveredResponse
+    RBAC:
+      Permissions:
+        Admin: 1
+  Dropped:
+    Field:
+      _t: DateTimeField
+      Label: Dropped
+      Name: Dropped
+    RBAC:
+      Permissions:
+        Admin: 1
+  DroppedReason:
+    Field:
+      _t: TextField
+      Label: Dropped Reason
+      Name: DroppedReason
+    RBAC:
+      Permissions:
+        Admin: 1
+  Error:
+    Field:
+      _t: TextField
+      Label: Error
+      Name: Error
+    RBAC:
+      Permissions:
+        Admin: 1
+  LastActor:
+    CalculatedValue: '{{Actor}}'
+    Field:
+      _t: HiddenField
+      Label: Last Actor
+      Name: LastActor
+    InitialValue: '{{Actor}}'
+    RBAC:
+      Permissions:
+        Admin: 0
+  LastModifiedOn:
+    Field:
+      _t: DateTimeField
+      Label: Last Modified
+      Name: LastModifiedOn
+    RBAC:
+      Permissions:
+        Admin: 1
+  Message|From|Email:
+    Field:
+      _t: TextField
+      Label: From e-mail
+      Name: Message|From|Email
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Message|From|Name:
+    Field:
+      _t: TextField
+      Label: From
+      Name: Message|From|Name
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Message|HtmlBody:
+    Field:
+      _t: TextField
+      Label: Body
+      Name: Message|HtmlBody
+      Options:
+        _t: TextFieldOptions
+        ContentType: text/html
+        Multline: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Message|Subject:
+    Field:
+      _t: TextField
+      Label: Subject
+      Name: Message|Subject
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Message|To|Email:
+    Field:
+      _t: TextField
+      Label: To e-mail
+      Name: Message|To|Email
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Message|To|Name:
+    Field:
+      _t: TextField
+      Label: To
+      Name: Message|To|Name
+    RBAC:
+      Permissions:
+        Admin: 5
+        Manager: 1
+  Opened:
+    Field:
+      _t: DateTimeField
+      Label: Opened
+      Name: Opened
+    RBAC:
+      Permissions:
+        Admin: 1
+  Queued:
+    Field:
+      _t: DateTimeField
+      Label: Queued
+      Name: Queued
+    RBAC:
+      Permissions:
+        Admin: 1
+  SpamReported:
+    Field:
+      _t: DateTimeField
+      Label: Reported Spam
+      Name: SpamReported
+    RBAC:
+      Permissions:
+        Admin: 1
+  TriggerObjectId:
+    Field:
+      _t: TextField
+      Label: Trigger Object
+      Name: TriggerObjectId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  TriggerObjectType:
+    Field:
+      _t: TextField
+      Label: Trigger Object Type
+      Name: TriggerObjectType
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+  Unsubscribed:
+    Field:
+      _t: DateTimeField
+      Label: Unsubscribed
+      Name: Unsubscribed
+    RBAC:
+      Permissions:
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SendGridEmailMessage
+IsAbstract: false
+IsEmbedded: false
+Name: SendGridEmailMessage
+NativeType: PI.Shared.Models.SendGridEmailMessage
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- Email
+- System

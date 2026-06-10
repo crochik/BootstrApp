@@ -1,0 +1,99 @@
+_id: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+Description: Default for Object Type
+Name: ObjectType
+ObjectType: ObjectType
+Steps:
+- _id: 05bee6c0-b769-4d63-a357-97c788dc7e37
+  ActionId: f7c9fad6-b982-4855-a151-3234ddf0335a
+  Description: Post Message to Google Chat
+  EventIdTrigger: e0904855-ab29-4902-a0fe-9f20d5e39ba4
+  IconName: 3415e2ac-acc5-443c-9b8a-9d44e9f21bcd
+  Options:
+    _t: PostToGoogleChatActionOptions
+    Message: '{{Event.MetaValues.Actor}} Launched Designer for {{Object.FullName}}'
+    NextEventId: bee036fc-ee35-47c5-8d9c-cd8229d4700f
+    Output:
+    - Description: Message posted to Google Chat
+      EventId: bee036fc-ee35-47c5-8d9c-cd8229d4700f
+      Name: next
+    To: Account
+- _id: 11c27305-2301-4165-bd3b-fc08e7df0f90
+  ActionId: f7c9fad6-b982-4855-a151-3234ddf0335a
+  Description: Post Message to Google Chat
+  EventIdTrigger: b3cf0331-aeed-4793-b741-fbbc5f9e910b
+  IconName: 3415e2ac-acc5-443c-9b8a-9d44e9f21bcd
+  Options:
+    _t: PostToGoogleChatActionOptions
+    Message: '{{Event.MetaValues.Actor}} Duplicated {{Object.FullName}}'
+    NextEventId: 26702b02-e7d1-4d55-acdc-240754a151f6
+    Output:
+    - Description: Message posted to Google Chat
+      EventId: 26702b02-e7d1-4d55-acdc-240754a151f6
+      Name: next
+    To: Account
+- _id: 25b2a3dc-bfa7-4ebb-ae64-696c0e14c46a
+  ActionId: c400abf1-3965-45b9-a77b-7d77dd050d22
+  CurrentStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+  Description: No Operation
+  EventIdTrigger: 9478adf3-2518-4910-b71e-7ddeafcedf1a
+  Options:
+    _t: GenericActionOptions
+    Output: []
+    Raw: {}
+- _id: 31c7597b-025c-414f-b4fc-ef6daa8b2a42
+  ActionId: f7c9fad6-b982-4855-a151-3234ddf0335a
+  CurrentStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+  Description: Post Message to Google Chat
+  EventIdTrigger: b3cf0331-aeed-4793-b741-fbbc5f9e910b
+  IconName: 3415e2ac-acc5-443c-9b8a-9d44e9f21bcd
+  Options:
+    _t: PostToGoogleChatActionOptions
+    Message: '{{Event.MetaValues.Actor}} Duplicated {{Object.FullName}}'
+    NextEventId: 916574f8-ed6e-46d0-a02f-ae15f9215552
+    Output:
+    - Description: Message posted to Google Chat
+      EventId: 916574f8-ed6e-46d0-a02f-ae15f9215552
+      Name: next
+    To: Account
+- _id: 612a2918-d198-47fd-80cd-224e93423e90
+  ActionId: f7c9fad6-b982-4855-a151-3234ddf0335a
+  Description: Post Message to Google Chat
+  EventIdTrigger: 1b42f1c6-1bd9-4086-aa21-3b959fcba095
+  IconName: 3415e2ac-acc5-443c-9b8a-9d44e9f21bcd
+  Options:
+    _t: PostToGoogleChatActionOptions
+    Message: '{{Event.MetaValues.Actor}} Launched Form Layout Editor for {{Object.FullName}}'
+    NextEventId: 9e8fb19a-f25c-443f-9127-cf24c73047ab
+    Output:
+    - Description: Message posted to Google Chat
+      EventId: 9e8fb19a-f25c-443f-9127-cf24c73047ab
+      Name: next
+    To: Account
+- _id: 62f418d4-cd0b-420d-9855-dc55668be95e
+  ActionId: f7c9fad6-b982-4855-a151-3234ddf0335a
+  Description: Post Message to Google Chat
+  EventIdTrigger: 8ba23d0a-086b-4488-9760-a84dba6265f6
+  IconName: 3415e2ac-acc5-443c-9b8a-9d44e9f21bcd
+  Options:
+    _t: PostToGoogleChatActionOptions
+    Message: '{{Event.MetaValues.Actor}} Launched Page Designer for {{Object.FullName}}'
+    NextEventId: 580ca529-d7bd-4b5a-bcc2-3a63e85d4d2e
+    Output:
+    - Description: Message posted to Google Chat
+      EventId: 580ca529-d7bd-4b5a-bcc2-3a63e85d4d2e
+      Name: next
+    To: Account
+- _id: bec02ad0-c2ad-42f9-b76a-2b31d7757430
+  ActionId: f7c9fad6-b982-4855-a151-3234ddf0335a
+  Description: Post Message to Google Chat
+  EventIdTrigger: db6b5733-58e9-413e-9968-00296f471c5c
+  IconName: 3415e2ac-acc5-443c-9b8a-9d44e9f21bcd
+  Options:
+    _t: PostToGoogleChatActionOptions
+    Message: '{{Event.MetaValues.Actor}} Launched Build Form for {{Object.FullName}}'
+    NextEventId: 1f869e71-8a6d-444a-8661-1b19cd70258c
+    Output:
+    - Description: Message posted to Google Chat
+      EventId: 1f869e71-8a6d-444a-8661-1b19cd70258c
+      Name: next
+    To: Account

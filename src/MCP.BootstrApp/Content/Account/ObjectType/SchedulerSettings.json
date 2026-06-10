@@ -1,0 +1,275 @@
+{
+  "_id" : "c0731dc0-85d1-4295-b092-21d7542f1dd0",
+  "CollectionName" : "scheduler.Settings",
+  "Description" : "Scheduler Settings",
+  "Name" : "SchedulerSettings",
+  "NativeType" : "PI.Shared.Models.SchedulerSettings",
+  "UniqueExternalId" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 7
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Label" : "Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "Label" : "Description",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "ExternalId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ExternalId",
+        "Label" : "Launch Code"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Organization",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Organization",
+          "AutoComplete" : true,
+          "Items" : {
+            "fc100000-0000-0000-0000-000000000000" : "[FCI Corp]"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "LeadTypeId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "LeadTypeId",
+        "Label" : "Lead Type",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "LeadType"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "ClientId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "ClientId",
+        "Label" : "Client",
+        "_Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "AppClient"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "IsActive" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "IsActive",
+        "Label" : "Active?"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : true
+    },
+    "OutOfServiceMessage" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "OutOfServiceMessage",
+        "Label" : "Out of Service",
+        "IsRequired" : false,
+        "Enable" : ["!IsActive"]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "OverrideSchedulingPolicy" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "OverrideSchedulingPolicy",
+        "Label" : "Scheduling Policy",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "NextDay" : "Tomorrow and beyond",
+            "FromNow" : "2 hours from now"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "UnavailableSlots|SchedulingPolicy" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "UnavailableSlots|SchedulingPolicy",
+        "Label" : "Scheduling Policy for Unavailable slots",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "NextDay" : "Tomorrow and beyond",
+            "FromNow" : "2 hours from now"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "UnavailableSlots|FlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "UnavailableSlots|FlowId",
+        "Label" : "Appointment Flow for Unavailable slots",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Value" : "Appointment"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "UnavailableSlots|ObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "UnavailableSlots|ObjectStatusId",
+        "Label" : "Appointment Status for Unavailable slots",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Value" : "Appointment"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "UnavailableSlots|AssignEntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "UnavailableSlots|AssignEntityId",
+        "Label" : "Assigned User for Unavailable slots",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "User",
+          "Criteria" : [{
+              "FieldName" : "OrganizationId",
+              "Value" : "{{EntityId}}"
+            }]
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "UnavailableSlots|AvailabilityPolicy" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "UnavailableSlots|AvailabilityPolicy",
+        "Label" : "Availability for Unavailable slots",
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "UserAvailability" : "Assigned User's working hours",
+            "DefaultForAccount" : "Default business hours"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    }
+  },
+  "FullName" : "SchedulerSettings",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

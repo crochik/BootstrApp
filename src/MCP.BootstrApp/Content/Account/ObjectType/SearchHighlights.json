@@ -1,0 +1,61 @@
+{
+  "_id" : "09efb63e-36a3-4011-b965-370df3cee434",
+  "Name" : "SearchHighlights",
+  "Description" : "Search Highlights",
+  "CollectionName" : "?",
+  "NativeType" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "OTG"],
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca",
+  "FullName" : "SearchHighlights",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+    }
+  },
+  "Fields" : {
+    "path" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "path",
+        "Label" : "Path",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false
+    },
+    "texts" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "texts",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "SearchHighlightText",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "Label" : "Search Highlights",
+  "LabelPlural" : "Search Highlights"
+}

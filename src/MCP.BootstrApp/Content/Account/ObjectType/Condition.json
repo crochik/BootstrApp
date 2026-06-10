@@ -1,0 +1,88 @@
+{
+  "_id" : "8f4772eb-68e9-457e-9ef8-f59b7cb26aae",
+  "Name" : "Condition",
+  "Description" : "Filter Condition",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Expressions.Condition",
+  "UniqueExternalId" : false,
+  "Constraints" : { },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "FieldName" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "FieldName",
+        "Label" : "Field Name",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "TextField"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Operator" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Operator",
+        "Label" : "Operator",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Eq" : "Equals",
+            "Ne" : "Not Equal",
+            "Gt" : "Greater Than",
+            "Gte" : "Greater or Equal",
+            "Lt" : "Less Than",
+            "Lte" : "Less Than or Equal",
+            "In" : "In",
+            "Nin" : "Not In"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    },
+    "Value" : {
+      "Field" : {
+        "_t" : "ExpressionField",
+        "Name" : "Value",
+        "Label" : "Value",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ExpressionFieldOptions",
+          "ValueField" : {
+            "_t" : "GenericField"
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "CollectionName" : "*",
+  "Tags" : ["System", "API", "PI-API"],
+  "IsAbstract" : false,
+  "IsEmbedded" : true,
+  "RelatedObjectTypes" : [],
+  "FullName" : "Condition",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

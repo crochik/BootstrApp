@@ -1,0 +1,39 @@
+{
+  "_id" : "21861b51-582f-4f0b-8bfe-bd093b7b603d",
+  "Name" : "GridFormRowLayout",
+  "Description" : "Grid Form Row Layout",
+  "CollectionName" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "GridFormRowLayout",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Fields" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Fields",
+        "Label" : "Fields",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "GridFormFieldLayout",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

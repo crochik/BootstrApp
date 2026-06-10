@@ -1,0 +1,11 @@
+_id: 623fc113-df52-49bb-bdce-c91161e15112
+ActionId: 6d094cf9-66f9-479c-b44f-f0d6ed4921dd
+ActionOptionsObjectType: ExportAppointmentActionOptions
+Description: 'O365: Create Appointment'
+IconName: 03650000-0000-0000-0000-000000000000
+IsActive: true
+Name: O365ExportAppointment
+Outputs:
+  CreatedEvent: Event Created
+  FailedToCreateEvent: Failed to create Event
+Role: Admin

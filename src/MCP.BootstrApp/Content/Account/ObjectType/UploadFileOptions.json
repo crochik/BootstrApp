@@ -1,0 +1,184 @@
+{
+  "_id" : "071fc414-936b-4662-a93b-f7fda6b80017",
+  "Name" : "UploadFileOptions",
+  "Description" : "Upload File Options",
+  "CollectionName" : "?",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "UploadFileOptions",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "Description" : "Name for the remote file (can be template)",
+        "IsRequired" : true,
+        "Label" : "Name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Owner" : {
+      "Field" : {
+        "_t" : "SelectField",
+        "Name" : "Owner",
+        "Label" : "Owner",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "SelectFieldOptions",
+          "Items" : {
+            "Organization" : "[Organization]",
+            "Manager" : "[Manager]",
+            "User" : "[User]",
+            "Account" : "[Account]",
+            "Admin" : "[Admin]"
+          },
+          "AllowUnknown" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RemoteFileFlowId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "RemoteFileFlowId",
+        "Label" : "Remote File Flow",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "Flow",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "RemoteFile"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RemoteFileObjectStatusId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "RemoteFileObjectStatusId",
+        "Label" : "Remote File Object Status",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "ObjectStatus",
+          "Criteria" : [{
+              "FieldName" : "ObjectType",
+              "Operator" : "Eq",
+              "Value" : "RemoteFile"
+            }],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RemotePath" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "RemotePath",
+        "Label" : "Remote Path",
+        "Description" : "Relative Path including file name in the bucket (can be template)",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "RemoteFolderId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "RemoteFolderId",
+        "Label" : "Base Folder",
+        "Description" : "Base Folder",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "AllowUnknown" : false,
+          "ObjectType" : "RemoteFolder",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "RemoteFileFlowId",
+      "ObjectType" : "Flow",
+      "Label" : "Remote File Flow",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{RemoteFileFlowId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }, {
+      "Name" : "RemoteFileObjectStatusId",
+      "ObjectType" : "ObjectStatus",
+      "Label" : "Remote File Object Status",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{RemoteFileObjectStatusId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : { }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

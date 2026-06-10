@@ -1,0 +1,117 @@
+{
+  "_id" : "da7a65fe-6d38-40e1-8e7f-df247b2d23d9",
+  "Name" : "MarketingCloudDataExtensionActionOptions",
+  "Description" : "Marketing CloudData Extension Options",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "DataExtensionKey" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "DataExtensionKey",
+        "Label" : "Data Extension External Key",
+        "Description" : "Object Type to be created. Can be an Expression.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "PrimaryKeyField" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "PrimaryKeyField",
+        "Label" : "Primary Key Field",
+        "Description" : "Primary Key Field Name. Can be an Expression.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "PrimaryKey" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "PrimaryKey",
+        "Label" : "Primary Key Value for the Row",
+        "Description" : "Primary Key value for the row. Can be an Expression.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Values" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Values",
+        "Label" : "Row Values",
+        "Description" : "Row Values. Value can be an Expression.",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Expression",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : true
+            }
+          },
+          "ValueField" : {
+            "_t" : "TextField",
+            "Name" : "Expression",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : true
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "FullName" : "MarketingCloudDataExtensionActionOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

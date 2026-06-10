@@ -1,0 +1,828 @@
+{{#getProposal id}}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Proposal - {{EstimateNumber}}.{{Version}}</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #1a1a1a;
+            /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+            padding: 20px;
+        }
+
+        .page {
+            /* max-width: 600px; */
+            margin: 0 auto;
+            background: white;
+            /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); */
+            /* border-radius: 16px; */
+            overflow: hidden;
+        }
+
+        .franchise-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 12px 20px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .main-header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .main-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .header-grid {
+            display: grid;
+            grid-template-columns: 1fr  1fr;
+            /* gap: 30px; */
+            align-items: start;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .header-left,
+        .header-right {
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .header-left .label,
+        .header-right .label {
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 12px;
+            margin-bottom: 4px;
+        }
+
+        .header-left .label:first-child {
+            margin-top: 0;
+        }
+
+        .header-left .value,
+        .header-right .value {
+            color: white;
+            font-weight: 400;
+        }
+
+        .header-center {
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .logo-container {
+            background: white;
+            border-radius: 12px;
+            padding: 24px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+
+        .logo-subtitle {
+            font-style: italic;
+            font-size: 16px;
+            color: #667eea;
+            font-weight: 300;
+        }
+
+        .header-right {
+            text-align: right;
+        }
+
+        .content-wrapper {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .section {
+            margin-bottom: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 20px;
+            font-weight: 600;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header::before {
+            content: '▸';
+            font-size: 16px;
+        }
+
+        .section-content {
+            padding: 20px;
+            background: #fafafa;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .section-content p {
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-content ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+
+        .section-content li {
+            margin-bottom: 6px;
+            color: #4a5568;
+            position: relative;
+            padding-left: 8px;
+        }
+
+        .section-content li::marker {
+            color: #667eea;
+        }
+
+        .section-content strong {
+            color: #2d3748;
+        }
+
+        .items-section {
+            margin-bottom: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .items-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .items-subheader {
+            background: linear-gradient(to right, #edf2f7, #e2e8f0);
+            color: #2d3748;
+            padding: 10px 20px;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .items-list {
+            background: white;
+            padding: 0;
+        }
+
+        .item {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.2s ease;
+        }
+
+        .item:hover {
+            background: #f7fafc;
+        }
+
+        .item:last-child {
+            border-bottom: none;
+        }
+
+        .item::before {
+            content: '✓';
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .item-description {
+            flex: 1;
+            font-size: 12px;
+            color: #4a5568;
+        }
+
+        .totals-section {
+            margin-top: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            border: 2px solid #667eea;
+        }
+
+        .totals-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 20px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .totals-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background: white;
+        }
+
+        .total-item {
+            padding: 20px;
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .total-item:last-child {
+            border-right: none;
+        }
+
+        .total-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #718096;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .total-value {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .total-item.highlight {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+        }
+
+        .terms-section {
+            margin-top: 40px;
+            padding-top: 40px;
+            border-top: 2px solid #e2e8f0;
+        }
+
+        .terms-title {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .terms-content {
+            font-size: 11px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .terms-content p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .terms-content h3 {
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            margin: 32px 0 16px 0;
+            color: #2d3748;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .terms-content ol {
+            margin-left: 24px;
+            counter-reset: item;
+        }
+
+        .terms-content ol li {
+            margin-bottom: 16px;
+            padding-left: 8px;
+            position: relative;
+        }
+
+        .signature-section {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+            border-radius: 12px;
+        }
+
+        .signature-field {
+            text-align: center;
+        }
+
+        .signature-line {
+            border-bottom: 2px solid #2d3748;
+            height: 60px;
+            margin-bottom: 12px;
+        }
+
+        .signature-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #718096;
+            font-weight: 600;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-left: 4px solid #667eea;
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 8px;
+            font-size: 11px;
+        }
+
+        .info-card strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 20px;
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 8px;
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+
+            .page {
+                box-shadow: none;
+                border-radius: 0;
+            }
+
+            .section,
+            .items-section,
+            .totals-section {
+                page-break-inside: avoid;
+            }
+
+            .terms-section {
+                page-break-before: always;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .header-right {
+                text-align: left;
+            }
+
+            .totals-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .total-item {
+                border-bottom: 1px solid #e2e8f0;
+            }
+
+            .total-item:nth-child(odd) {
+                border-right: 1px solid #e2e8f0;
+            }
+
+            .total-item:nth-last-child(-n+2) {
+                border-bottom: none;
+            }
+
+            .signature-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <!-- Franchise Badge -->
+        <div class="franchise-badge">
+            🏆 Locally Owned & Operated Franchisee of Floor Coverings International
+        </div>
+
+        <div class="header-grid" style="padding: 20px;">
+            <div class="header-left">
+                <div><img width="250" src="https://links.fci.cloud/logo.png" /></div>
+            </div>
+
+            {{#getUser @root.userId}}
+            <div class="header-right">
+                <div class="value" style="font-weight: 600; font-size: 14px; color:black;">{{organization.Name}}</div>
+                <div class="value" style="color:black;">{{organization.Address}}</div>
+                {{#if organization.City}}
+                <div class="value" style="color:black;">{{organization.City}}, {{organization.State}}
+                    {{organization.PostalCode}}</div>
+                {{/if}}
+
+                {{#if Phone}}
+                <div class="label" style="color:black;">Phone</div>
+                <div class="value" style="color:black;">{{organization.Phone}}</div>
+                {{/if}}
+
+                {{#if Email}}
+                <div class="label" style="color:black;">Email</div>
+                <div class="value" style="color:black;">{{Email}}</div>
+                {{/if}}
+            </div>
+            {{/getUser}}
+        </div>
+
+        <!-- Modern Header -->
+        <div class="main-header">
+            <div class="header-grid">
+                <div class="header-left">
+                    <div class="label">Proposal</div>
+                    <div class="value">{{Name}}</div>
+
+                    <div class="label">Customer</div>
+                    <div class="value">{{lead.Name}}</div>
+
+                    <div class="label">Proposal Number</div>
+                    <div class="value">{{EstimateNumber}}</div>
+
+
+                </div>
+                <div class="header-left">
+                    <div class="label">Project</div>
+                    <div class="value">{{project.Name}} ({{project.Properties.INET_Name__c}})</div>
+
+                    <div class="label">Address</div>
+                    <div class="value">
+                        {{project.Properties.Street}}<br>
+                        {{project.Properties.City}}, {{project.Properties.State}} {{project.Properties.PostalCode}}
+                    </div>
+
+                    {{#if customer.Phone}}
+                    <div class="label">Phone</div>
+                    <div class="value">{{customer.Phone}}</div>
+                    {{/if}}
+
+                    {{#if customer.Email}}
+                    <div class="label">Email</div>
+                    <div class="value">{{customer.Email}}</div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper">
+            <!-- About Section -->
+            <div class="section">
+                <div class="section-header">About Floor Coverings International</div>
+                <div class="section-content">
+                    <p>We would like to thank you for giving us the opportunity to inspire you with your new flooring
+                        project. </p>
+                    <p>At Floor Coverings International our mission is to provide
+                        an exceptional service experience. From your flooring design consultation to installation we
+                        will not only inspire your dreams, but we will bring them to life in
+                        your home. Our proprietary collection of first quality flooring selections including Carpet,
+                        Hardwood, Tile, Laminate, Vinyl, Area Rugs and Eco-Friendly options
+                        are brought to you from major manufacturers, ensuring they will perform to the highest industry
+                        standards.</p>
+                    <p>In response to the COVID-19 pandemic, Floor Coverings International has partnered with a local
+                        professional who can provide a post installation jobsite
+                        disinfecting service to bring peace of mind to our customers. Cost of this optional service is
+                        based on size and scope of the space, however, in most cases will
+                        not exceed $1.50 per square foot. Please ask your Design Associate for more information.</p>
+                    <p>For more information about our data collection and privacy practices, visit us at
+                        floorcoveringsinternational.com/privacy/.</p>
+                    <!-- <p>We are a locally owned and veteran owned business proudly serving the Inland NW. We would like to thank you for giving us the opportunity to inspire you with your new flooring project.</p>
+                    <p>At Floor Coverings International our mission is to provide an exceptional service experience. From your flooring design consultation to installation, we will not only inspire your dreams, but we will bring them to life in your home.</p>
+                    <div class="info-card">
+                        <strong>🔒 Privacy & Data Protection</strong>
+                        For more information about our data collection and privacy practices, visit us at floorcoveringsinternational.com/privacy/
+                    </div> -->
+                </div>
+            </div>
+
+            <!-- Proposal Information -->
+            <!-- <div class="section">
+                <div class="section-header">Important Proposal Information</div>
+                <div class="section-content">
+                    <p>• <strong>Subfloor Assessment:</strong> Additional leveling labor and/or material costs may apply once existing flooring is removed and a full subfloor evaluation can be completed.</p>
+                    <p>• <strong>Pre-Existing Conditions:</strong> Existing flooring may be covering drywall damage, stains, or paint lines that may become visible when new flooring is installed. FCI is not responsible for such damage or required repairs.</p>
+                    <p>• <strong>Furniture Moving:</strong> Client will move all furniture from the work area prior to install date. If furniture move is required at time of install: $80 per room (up to 4 pieces, beds and heavy items not included).</p>
+                </div>
+            </div> -->
+
+            <!-- Installation Preparation -->
+            <div class="section">
+                <div class="section-header">Getting Ready for Installation</div>
+                <div class="section-content">
+                    <p>This checklist helps you prepare for a smooth installation experience:</p>
+                    <ul>
+                        <li>Arrange for disconnection of gas appliances and electronics as needed</li>
+                        <li>Remove all furniture from rooms receiving new flooring, including decorative items</li>
+                        <li>Clear shelves, walls, and closets of items that could be disrupted during installation</li>
+                        <li>Empty storage areas and closets where new flooring will be installed</li>
+                        <li>Remove drapes, wall hangings, and pictures from installation areas</li>
+                    </ul>
+                    <div class="badge">Questions? Just Ask!</div>
+                </div>
+            </div>
+
+            <!-- License & Insurance -->
+            <!-- <div class="section">
+                <div class="section-header">License & Insurance Information</div>
+                <div class="section-content">
+                    <div class="info-card">
+                        <strong>📋 Washington State Contractor License</strong>
+                        CC FLOORCI792RA
+                    </div>
+                    <div class="info-card">
+                        <strong>📋 Idaho State Contractor License</strong>
+                        RCE-61031
+                    </div>
+                    <div class="badge">Fully Insured & Bonded in WA and ID</div>
+                </div>
+            </div> -->
+
+            <!-- Pricing Terms -->
+            <!-- <div class="section">
+                <div class="section-header">Pricing Terms & Conditions</div>
+                <div class="section-content">
+                    <p>• <strong>Price Guarantee:</strong> Except for unforeseen subfloor, plumbing, electrical, or structural issues, the price below is final. We'll discuss any additional costs before proceeding.</p>
+                    <p>• <strong>Quote Validity:</strong> Due to material price volatility, quotes are valid for 30 days from proposal date.</p>
+                    <p>• <strong>Waste Factor:</strong> Industry standard 10% waste factor included for hard surface orders (cuts, imperfections, damaged materials). No credits issued for overages.</p>
+                    <p>• <strong>Payment Terms:</strong> 50% deposit required, final payment due upon project completion. Product-only orders require upfront payment in full.</p>
+                    <p>• <strong>Promotions:</strong> FCI promotions and discounts cannot be combined.</p>
+                    <p>• <strong>Returns:</strong> Subject to restocking and return shipping fees. Must exceed manufacturer minimum return quantity.</p>
+                </div>
+            </div> -->
+
+            <!-- Custom Notes -->
+            {{#if Description}}
+            <div class="section">
+                <div class="section-header">{{Description}}</div>
+                <div class="section-content">
+                    <p>{{Summary}}</p>
+                </div>
+            </div>
+            {{/if}}
+
+            <!-- Items & Services -->
+            <div class="items-section">
+                <div class="items-header">{{Name}}</div>
+                <div style="padding: 20px;">
+                    <table style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left">Item</th>
+                                <th style="text-align: center">Quantity</th>
+                                <th style="text-align: right">Cost</th>
+                                <th style="text-align: right">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#LineItems}}
+                            <tr>
+                                <td style="text-align: left; padding-bottom: 10px;">
+                                    <b>{{Description}}</b><br />
+                                    {{Tags}}<br />
+                                    {{SKU}}
+                                </td>
+                                <td style="text-align: center">{{AdjustedQuantity.Units}} {{AdjustedQuantity.UOM}}</td>
+                                <td style="text-align: right">{{UnitPrice}}</td>
+                                <td style="text-align: right">{{TotalPrice}}</td>
+                            </tr>
+                            {{/LineItems}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pricing Terms -->
+            <div class="section">
+                <div class="section-header">Warranty and Insurance Information</div>
+                <div class="section-content">
+                    <p>Warranty: We carry a 2-year warranty on workmanship and each manufacturer's warranty is provided
+                        to you on the products.</p>
+                    <p>Insurance: We carry a $1,000,000 Liability Policy and Installers Worker's Compensation.
+                        Certificates to be provided upon request.</p>
+                    <p>Please Note: Except for any unforeseen subfloor, plumbing, electrical, and/or structural issues,
+                        the price below is the price you will pay. In the case of
+                        unforeseen conditions, we will stop work and discuss the options with you prior to progressing.
+                        In this situation, there may be additional costs to complete the
+                        job properly.</p>
+                </div>
+                <initials-field role="Customer"  style="width: 80px; height: 25px; display: inline-block;"></initials-field>
+            </div>
+
+
+            <!-- Grand Totals -->
+            <div class="totals-section">
+                <div class="totals-header">💰 Investment Summary</div>
+                <div class="totals-grid">
+                    <div class="total-item">
+                        <div class="total-label">Subtotal</div>
+                        <div class="total-value">
+                            {{TotalPrice}}
+                            {{#if Discount}}<br />{{Discount}}{{/if}}
+                        </div>
+                    </div>
+                    <div class="total-item">
+                        <div class="total-label">Tax</div>
+                        <div class="total-value">{{TotalTax}}</div>
+                    </div>
+                    <div class="total-item highlight">
+                        <div class="total-label">Total</div>
+                        <div class="total-value">{{Total}}</div>
+                    </div>
+                    <div class="total-item">
+                        <div class="total-label">Deposit</div>
+                        <div class="total-value">{{DownPayment}}</div>
+                    </div>
+                    <div class="total-item highlight">
+                        <div class="total-label">Balance Due</div>
+                        <div class="total-value">{{Total}}</div>
+                    </div>
+                </div>
+                <initials-field  role="Customer"  style="width: 80px; height: 25px; display: inline-block;"></initials-field>
+            </div>
+
+            <!-- Terms & Conditions -->
+            <div class="terms-section">
+                <div class="terms-title">Satisfaction Guarantee</div>
+                <div class="terms-content">
+                    <p>Floor Coverings International (FCI) sets standards of acceptability on floor covering products
+                        and subcontracted installation services which exceed industry standards. Floor covering products
+                        carry specific manufacturer warranties; some of these warranties include wear warranties, stain
+                        resistance warranties, and flame retardant properties. Ask your FCI representative for the
+                        warranties applicable to the product you purchased. Installation warranties are provided by the
+                        installation company contracted to install your flooring. FCI uses reasonable efforts to
+                        contract with reputable installation companies who guarantee their work, but is not liable for
+                        the conduct of any installation firm.</p>
+
+                    <h3>Disputes</h3>
+                    <p>Should litigation occur, all parties agree, the non-prevailing party shall incur the reasonable
+                        attorney fees and cost of litigation of the prevailing party. Any contractor, subcontractor, or
+                        materialman who provides home improvement goods or services pursuant to your home improvement
+                        contract and who is not paid may have a valid legal claim against your property known as a
+                        mechanic's lien.</p>
+
+                    <h3>Terms and Conditions</h3>
+                    <p>Each FCI franchise is independently owned and operated under the FCI trademark. Subject to the
+                        terms and conditions herein stated, Seller agrees to sell and deliver to Buyer. Buyer agrees to
+                        accept, the merchandise herein described. Until all said purchase (and installation) price is
+                        paid in full, title to and ownership of the property purchased under this contract shall be and
+                        remain in the FCI representative and shall only vest in the Buyer after such payment in full.
+                    </p>
+
+                    <ol>
+                        <li>Buyer agrees that deposits made on special orders or cut orders cannot be refunded.
+                            <strong>BUYER FURTHER AGREES THAT BUYER MAY CANCEL A CONTRACT FOR PURCHASE OF GOODS BEFORE
+                                INSTALLATION ONLY, AND THAT SELLER WILL RETURN ALL MONIES DEPOSITED, LESS 25% FOR
+                                RESTOCKING, MEASURING AND FREIGHT CHARGES.</strong>
+                        </li>
+                        <li>Buyer agrees to reimburse Seller for all reasonable expenses incurred in the collection of
+                            any unpaid contract balance, including reasonable attorney's fees.</li>
+                        <li>Buyer agrees that Seller will not be responsible for delays or failures in delivery or
+                            installation caused by strikes or other causes beyond Seller's control; that Seller is not
+                            responsible for consequential damages, and that Seller is not responsible for shortages of
+                            material when sale was based on measurements or plans submitted by Buyer.</li>
+                        <li>Buyer agrees to allow Seller to inspect and endeavor to correct any condition complained of,
+                            and that refusal to allow either constitutes a waiver of Buyer's rights to assert a claim or
+                            file suit against Seller.</li>
+                        <li>Buyer and Seller agree that this contract is the complete agreement between the parties, and
+                            that everything which the Buyer expects the Seller to perform is written hereon; Buyer and
+                            Seller further agree that this contract can be modified in writing only.</li>
+                        <li>Buyer hereby agrees that the terms of payment shall be Cash on Delivery, unless other
+                            arrangements are made and noted hereon; Buyer further agrees that late payments shall be
+                            subject to 1 1/2% per month (18% per annum) delinquency charge on any unpaid contract
+                            balance, calculated from date of delivery.</li>
+                        <li>All merchandise subject to commercially acceptable dye lot variations as defined by industry
+                            standards. Labor does not include cutting off any doors that do not clear carpet. We are not
+                            responsible for breakage of underlayment and replacing floor mouldings. All rug sizes are
+                            approximate.</li>
+                    </ol>
+
+                    <h3>Buyer's Right to Cancel</h3>
+                    <p>FCI wants you to join the ranks of our satisfied customers. If for any reason, you are unhappy
+                        with your order, you have the right to cancel within three (3) business days following the above
+                        date. Customer may cancel this transaction without any penalty or obligation. If Customer so
+                        cancels, any property traded in, any payments made by Customer under this Sales Agreement, and
+                        any negotiable instrument executed by Customer will be returned within ten (10) business days.
+                    </p>
+
+                    <div class="signature-section">
+                        <div class="signature-field">
+                            <div class="signature-line">
+                                <date-field name="Date" role="Customer" style="width: 160px; height: 25px; display: inline-block;">
+                                </date-field>
+                            </div>
+                            <div class="signature-label">Date</div>
+                        </div>
+                        <div class="signature-field">
+                            <div class="signature-line">
+                                <signature-field name="Customer's Signature" role="Customer"
+                                    style="width: 160px; height: 80px; display: inline-block;">
+                                </signature-field>
+                            </div>
+                            <div class="signature-label">Customer's Signature</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</hr>
+</body>
+
+</html>
+{{/getProposal}}

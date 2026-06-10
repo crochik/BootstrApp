@@ -1,0 +1,42 @@
+_id: 96f10b8a-3893-4976-a478-b760e41a493e
+BaseObjectType: Page
+CollectionName: '?'
+Constraints:
+  Account:
+    Conditions:
+    - FieldName: _t
+      Value: ExternalPage
+Description: External Page
+Fields:
+  OpenInNewWindow:
+    Field:
+      _t: CheckboxField
+      Label: Open In New Window
+      Name: OpenInNewWindow
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+  Url:
+    Field:
+      _t: UrlField
+      Label: Url
+      Name: Url
+    RBAC:
+      Permissions:
+        Admin: 7
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: ExternalPage
+IsAbstract: false
+IsEmbedded: true
+Name: ExternalPage
+NativeType: PI.Shared.Form.Models.ExternalPage
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- PI-API
+- System
+- ui

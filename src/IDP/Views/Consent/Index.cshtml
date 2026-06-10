@@ -1,0 +1,220 @@
+@model IDP.Models.ConsentViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authorize @Model.ClientName</title>
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+            background-color: #f7fafc;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .card {
+            background-color: #fff;
+            max-width: 448px;
+            width: 100%;
+            padding: 2.5rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            border-radius: 1rem;
+            border-top: 8px solid #4f46e5;
+            transition: all 300ms ease;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .client-logo {
+            margin-bottom: 1rem;
+        }
+        .client-logo img {
+            max-height: 3rem;
+            max-width: 100%;
+        }
+        .title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 0.5rem 0;
+        }
+        .subtitle {
+            font-size: 1rem;
+            color: #6b7280;
+            margin: 0;
+        }
+        .subtitle strong {
+            color: #4f46e5;
+        }
+
+        .scope-section {
+            margin-bottom: 1.5rem;
+        }
+        .scope-heading {
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #6b7280;
+            margin-bottom: 0.5rem;
+        }
+        .scope-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .scope-item {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .scope-item:last-child {
+            border-bottom: none;
+        }
+        .scope-item label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+        }
+        .scope-item input[type="checkbox"] {
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            accent-color: #4f46e5;
+        }
+        .scope-name {
+            color: #1f2937;
+            font-weight: 600;
+        }
+        .scope-description {
+            display: block;
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.125rem;
+            font-weight: 400;
+        }
+
+        .remember {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 0.875rem;
+            color: #1f2937;
+        }
+        .remember input[type="checkbox"] {
+            margin-right: 0.5rem;
+            accent-color: #4f46e5;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 0.75rem 1.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            border: 1px solid #d1d5db;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            transition: all 150ms ease-in-out;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .btn-primary {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background-color: #4338ca;
+            border-color: #4338ca;
+        }
+        .btn-secondary {
+            background-color: #fff;
+            color: #1f2937;
+        }
+        .btn-secondary:hover {
+            border-color: #9ca3af;
+            background-color: #f3f4f6;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <div class="header">
+        @if (!string.IsNullOrWhiteSpace(Model.ClientLogoUrl))
+        {
+            <div class="client-logo"><img src="@Model.ClientLogoUrl" alt="@Model.ClientName"></div>
+        }
+        <h1 class="title">@Model.ClientName</h1>
+        <p class="subtitle">is requesting your permission</p>
+    </div>
+
+    <form asp-action="Index" method="post">
+        <input type="hidden" asp-for="ReturnUrl" />
+
+        @if (Model.IdentityScopes.Any())
+        {
+            <div class="scope-section">
+                <div class="scope-heading">Personal Information</div>
+                <ul class="scope-list">
+                    @foreach (var scope in Model.IdentityScopes)
+                    {
+                        @await Html.PartialAsync("_ScopeListItem", scope)
+                    }
+                </ul>
+            </div>
+        }
+
+        @if (Model.ApiScopes.Any())
+        {
+            <div class="scope-section">
+                <div class="scope-heading">Application Access</div>
+                <ul class="scope-list">
+                    @foreach (var scope in Model.ApiScopes)
+                    {
+                        @await Html.PartialAsync("_ScopeListItem", scope)
+                    }
+                </ul>
+            </div>
+        }
+
+        @if (Model.AllowRememberConsent)
+        {
+            <label class="remember">
+                <input asp-for="RememberConsent" />
+                <strong>Remember my decision</strong>
+            </label>
+        }
+
+        <div class="actions">
+            <button name="button" value="yes" class="btn btn-primary" autofocus>Yes, Allow</button>
+            <button name="button" value="no" class="btn btn-secondary">No, Do Not Allow</button>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

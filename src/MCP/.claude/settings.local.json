@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dotnet --version)",
+      "Bash(dotnet add package:*)",
+      "Bash(dotnet build:*)",
+      "Read(//usr/share/**)",
+      "Read(//usr/local/share/**)",
+      "Read(//opt/**)",
+      "Bash(command -v mono msbuild)",
+      "Bash(find / -maxdepth 4 -name \"dotnet\" -type f)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

@@ -1,0 +1,45 @@
+_id: b2310507-7c1d-4f7b-a961-fe557eb25a43
+CollectionName: '*'
+Description: Load Source for Data Source
+Discriminator:
+  MongoDbLoadSource:
+    Conditions:
+    - FieldName: _t
+      Operator: Eq
+      Value: mongodb
+Fields:
+  _t:
+    Field:
+      _t: SelectField
+      Label: Type
+      Name: _t
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          mongodb: Mongo Db
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 5
+  Order:
+    Field:
+      _t: NumberField
+      Name: Order
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: LoadSource
+IsAbstract: true
+IsEmbedded: true
+Name: LoadSource
+NativeType: PI.Shared.Models.Dashboards.LoadSource
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- bi
+- System

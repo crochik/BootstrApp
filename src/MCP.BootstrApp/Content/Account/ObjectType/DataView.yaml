@@ -1,0 +1,172 @@
+_id: d5b20f38-10ce-4982-981a-ab708b2eda05
+CollectionName: '?'
+Description: DataView
+Fields:
+  DefaultSort:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Default Sort
+      Name: DefaultSort
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Fields:
+    Field:
+      _t: ChildrenField
+      IsRequired: true
+      Name: Fields
+      Options:
+        _t: ChildrenFieldOptions
+        KeyType: int
+        ObjectType: Field
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Filter:
+    Field:
+      _t: ArrayField
+      Description: Fields that can be used to filter dataview
+      IsRequired: false
+      Label: Filter
+      Name: Filter
+      Options:
+        _t: ArrayFieldOptions
+        ValueField:
+          _t: TextField
+          IsRequired: true
+          Label: Field Name
+          Name: Field
+          Options:
+            _t: TextFieldOptions
+            AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  FilterForm:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Label: Filter Form
+      Name: FilterForm
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Form
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsFilterableLocally:
+    Field:
+      _t: CheckboxField
+      DefaultValue: false
+      IsRequired: false
+      Label: Filterable Locally?
+      Name: IsFilterableLocally
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  IsSelectable:
+    Field:
+      _t: CheckboxField
+      DefaultValue: true
+      IsRequired: false
+      Label: Selectable?
+      Name: IsSelectable
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  KeyField:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Label: Key Field Name
+      Name: KeyField
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Menu:
+    Field:
+      _t: ObjectField
+      IsRequired: false
+      Name: Menu
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: Menu
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Name:
+    Field:
+      _t: TextField
+      IsRequired: true
+      Name: Name
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 7
+  PageSize:
+    Field:
+      _t: NumberField
+      IsRequired: false
+      Label: Page Size
+      Name: PageSize
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+        Style: Default
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Searchable:
+    Field:
+      _t: CheckboxField
+      Description: Supports full text search
+      IsRequired: false
+      Label: Searchable?
+      Name: Searchable
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+  Title:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Title
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: DataView
+IsAbstract: false
+IsEmbedded: true
+Name: DataView
+NativeType: PI.Shared.Form.Models.DataView
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- System

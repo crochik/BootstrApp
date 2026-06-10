@@ -1,0 +1,306 @@
+{{#with Data}}
+using System.Text.Json;
+{{#unless IsEnum}}
+using System.Text.Json.Serialization;
+{{/unless}}
+
+namespace {{Namespace}};
+
+/// <summary>
+/// Serializer for {{ClassName}} - handles serialization and deserialization
+/// </summary>
+public static class {{ClassName}}Serializer
+{
+{{#if IsEnum}}
+    /// <summary>
+    /// Gets the Description attribute value for an enum member
+    /// </summary>
+    private static string? GetEnumDescription({{ClassName}} value)
+    {
+        var field = value.GetType().GetField(value.ToString());
+        if (field == null)
+            return null;
+
+        var attribute = (System.ComponentModel.DescriptionAttribute?)Attribute.GetCustomAttribute(field, typeof(System.ComponentModel.DescriptionAttribute));
+        return attribute?.Description ?? value.ToString();
+    }
+
+    /// <summary>
+    /// Gets the enum value from its Description attribute
+    /// </summary>
+    private static {{ClassName}}? GetEnumFromDescription(string description)
+    {
+        var type = typeof({{ClassName}});
+        foreach (var field in type.GetFields())
+        {
+            if (Attribute.GetCustomAttribute(field, typeof(System.ComponentModel.DescriptionAttribute)) is System.ComponentModel.DescriptionAttribute attribute)
+            {
+                if (attribute.Description == description)
+                    return ({{ClassName}})field.GetValue(null)!;
+            }
+        }
+
+        // Fallback: try to parse by name
+        return Enum.TryParse<{{ClassName}}>(description, ignoreCase: true, out var result) ? result : null;
+    }
+
+    /// <summary>
+    /// Deserializes a JsonElement into a {{ClassName}} enum value using Description attribute
+    /// </summary>
+    public static {{ClassName}}? DeserializeFromElement(JsonElement element)
+    {
+        if (BaseSerializer.IsNullOrUndefined(element))
+            return null;
+
+        var stringValue = element.GetString();
+        if (string.IsNullOrEmpty(stringValue))
+            return null;
+
+        return GetEnumFromDescription(stringValue);
+    }
+
+    /// <summary>
+    /// Deserializes a JsonDocument into a {{ClassName}} enum value
+    /// </summary>
+    public static {{ClassName}}? DeserializeFromDocument(JsonDocument document)
+    {
+        if (document == null)
+            return null;
+
+        return DeserializeFromElement(document.RootElement);
+    }
+
+    /// <summary>
+    /// Serializes a {{ClassName}} enum value to a JSON string using Description attribute
+    /// </summary>
+    public static string SerializeToJson({{ClassName}} value)
+    {
+        var description = GetEnumDescription(value);
+        return JsonSerializer.Serialize(description);
+    }
+
+    /// <summary>
+    /// Serializes a {{ClassName}} enum value to its string representation (Description value)
+    /// </summary>
+    public static string SerializeToString({{ClassName}} value)
+    {
+        return GetEnumDescription(value) ?? value.ToString();
+    }
+{{else}}
+
+{{#if IsPolymorphic}}
+    /// <summary>
+    /// Deserializes a JsonDocument into a {{ClassName}} instance with explicit discriminator mapping
+    /// </summary>
+    /// <param name="document">The JsonDocument to deserialize</param>
+    /// <returns>The appropriate derived type based on the discriminator value</returns>
+    public static {{ClassName}}? DeserializeFromDocument(JsonDocument document)
+    {
+        if (document == null)
+            return null;
+
+        return DeserializeFromElement(document.RootElement);
+    }
+
+    /// <summary>
+    /// Deserializes a JsonElement into a {{ClassName}} instance with explicit discriminator mapping
+    /// </summary>
+    /// <param name="element">The JsonElement to deserialize</param>
+    /// <returns>The appropriate derived type based on the discriminator value</returns>
+    public static {{ClassName}}? DeserializeFromElement(JsonElement element)
+    {
+        if (BaseSerializer.IsNullOrUndefined(element))
+            return null;
+
+        // Try to get the discriminator property
+        if (!element.TryGetProperty("{{Discriminator.JsonPropertyName}}", out var discriminatorElement))
+        {
+            // No discriminator found - deserialize as base type
+            return DeserializeFromElementCore(element);
+        }
+
+        var discriminatorValue = discriminatorElement.GetString();
+
+        // Explicitly map discriminator value to derived type
+        return discriminatorValue switch
+        {
+{{#each Discriminator.Mapping}}
+            "{{@key}}" => {{this}}Serializer.DeserializeFromElementCore(element),
+{{/each}}
+            _ => DeserializeFromElementCore(element)
+        };
+    }
+{{else}}
+    /// <summary>
+    /// Deserializes a JsonDocument into a {{ClassName}} instance
+    /// </summary>
+    /// <param name="document">The JsonDocument to deserialize</param>
+    /// <returns>The deserialized instance</returns>
+    public static {{ClassName}}? DeserializeFromDocument(JsonDocument document)
+    {
+        if (document == null)
+            return null;
+
+        return DeserializeFromElementCore(document.RootElement);
+    }
+
+    /// <summary>
+    /// Deserializes a JsonElement into a {{ClassName}} instance
+    /// </summary>
+    /// <param name="element">The JsonElement to deserialize</param>
+    /// <returns>The deserialized instance</returns>
+    public static {{ClassName}}? DeserializeFromElement(JsonElement element)
+    {
+        if (BaseSerializer.IsNullOrUndefined(element))
+            return null;
+
+        return DeserializeFromElementCore(element);
+    }
+{{/if}}
+
+    /// <summary>
+    /// Core deserialization logic - parses JSON and creates instance with object initializer
+    /// </summary>
+    public static {{ClassName}} DeserializeFromElementCore(JsonElement element)
+    {
+        // Parse all properties into local variables first
+{{#each AllProperties}}
+{{#if IsList}}
+        List<{{BaseTypeName}}>? {{LocalVariableName}} = null;
+{{else}}
+        {{{Type}}} {{LocalVariableName}} = {{#if IsRequired}}default!{{else}}default{{/if}};
+{{/if}}
+{{/each}}
+
+        // Single iteration over JSON properties
+        foreach (var property in element.EnumerateObject())
+        {
+            switch (property.Name)
+            {
+{{#each AllProperties}}
+                case "{{JsonName}}":
+{{#if IsList}}
+                    if (property.Value.ValueKind == JsonValueKind.Array)
+                    {
+                        {{LocalVariableName}} = new List<{{BaseTypeName}}>();
+                        foreach (var _item in property.Value.EnumerateArray())
+                        {
+{{#if IsPrimitive}}
+                            {{LocalVariableName}}.Add(BaseSerializer.ParsePrimitive{{BaseTypeName}}(_item));
+{{else if IsEnum}}
+                            var _enumValue = {{SerializerName}}Serializer.DeserializeFromElement(_item);
+                            if (_enumValue != null)
+                                {{LocalVariableName}}.Add(_enumValue.Value);
+{{else if IsComplexType}}
+                            var _itemValue = {{SerializerName}}Serializer.DeserializeFromElementCore(_item);
+                            if (_itemValue != null)
+                                {{LocalVariableName}}.Add(_itemValue);
+{{/if}}
+                        }
+                    }
+{{else if IsDictionary}}
+{{#if SerializerIsPrimitive}}
+                    {{LocalVariableName}} = JsonSerializer.Deserialize<{{{Type}}}>(property.Value.GetRawText());
+{{else}}
+                    if (property.Value.ValueKind == JsonValueKind.Object)
+                    {
+                        {{LocalVariableName}} = new {{{NonNullableType}}}();
+                        foreach (var kvp in property.Value.EnumerateObject())
+                        {
+                            var value = {{SerializerName}}Serializer.DeserializeFromElementCore(kvp.Value);
+                            {{LocalVariableName}}[kvp.Name] = value;
+                        }
+                    }
+{{/if}}
+{{else if IsPrimitive}}
+                    {{LocalVariableName}} = BaseSerializer.ParsePrimitive{{BaseTypeName}}(property.Value);
+{{else if IsEnum}}
+                    var {{LocalVariableName}}Value = {{SerializerName}}Serializer.DeserializeFromElement(property.Value);
+                    if ({{LocalVariableName}}Value != null)
+                        {{LocalVariableName}} = {{LocalVariableName}}Value.Value;
+{{else if IsComplexType}}
+                    {{LocalVariableName}} = {{SerializerName}}Serializer.DeserializeFromElementCore(property.Value);
+{{/if}}
+                    break;
+{{/each}}
+            }
+        }
+
+        // Create instance with all properties set at once
+        return new {{ClassName}}
+        {
+{{#each AllProperties}}
+            {{Name}} = {{LocalVariableName}}{{#if IsRequired}}!{{/if}}{{#unless @last}},{{/unless}}
+{{/each}}
+        };
+    }
+
+{{#if IsPolymorphic}}
+    /// <summary>
+    /// Gets the derived type name based on the discriminator value
+    /// </summary>
+    /// <param name="discriminatorValue">The discriminator value</param>
+    /// <returns>The type name or null if not found</returns>
+    public static string? GetTypeFromDiscriminator(string? discriminatorValue)
+    {
+        return discriminatorValue switch
+        {
+{{#each Discriminator.Mapping}}
+            "{{@key}}" => "{{this}}",
+{{/each}}
+            _ => null
+        };
+    }
+{{/if}}
+
+    /// <summary>
+    /// Deserializes a JsonDocument into a list of {{ClassName}} instances
+    /// </summary>
+    /// <param name="document">The JsonDocument containing an array</param>
+    /// <returns>A list of deserialized instances</returns>
+    public static List<{{ClassName}}> DeserializeListFromDocument(JsonDocument document)
+    {
+        if (document == null)
+            return new List<{{ClassName}}>();
+
+        var root = document.RootElement;
+
+        if (root.ValueKind != JsonValueKind.Array)
+            throw new JsonException("Expected JSON array");
+
+        var result = new List<{{ClassName}}>();
+
+        foreach (var element in root.EnumerateArray())
+        {
+{{#if IsPolymorphic}}
+            var item = DeserializeFromElement(element);
+{{else}}
+            var item = DeserializeFromElementCore(element);
+{{/if}}
+            if (item != null)
+                result.Add(item);
+        }
+
+        return result;
+    }
+
+    /// <summary>
+    /// Serializes a {{ClassName}} instance to a JSON string
+    /// </summary>
+    public static string SerializeToJson({{ClassName}} instance)
+    {
+        var options = BaseSerializer.GetDefaultSerializerOptions();
+        return JsonSerializer.Serialize(instance, instance.GetType(), options);
+    }
+
+    /// <summary>
+    /// Serializes a list of {{ClassName}} instances to a JSON string
+    /// </summary>
+    public static string SerializeListToJson(List<{{ClassName}}> items)
+    {
+        var options = BaseSerializer.GetDefaultSerializerOptions();
+        return JsonSerializer.Serialize(items, options);
+    }
+{{/if}}
+}
+{{/with}}

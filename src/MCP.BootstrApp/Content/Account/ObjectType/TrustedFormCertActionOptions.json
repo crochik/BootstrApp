@@ -1,0 +1,203 @@
+{
+  "_id" : "1339c416-c6d0-418a-98ee-e2384e2a4f35",
+  "Name" : "TrustedFormCertActionOptions",
+  "Description" : "Trusted Form Options",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Certificate" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Certificate",
+        "Label" : "Certificate (expression)",
+        "Description" : "Certificate Url. It can be an Expression.",
+        "DefaultValue" : "{{Object.ParsedInput.TrustedFormCert}}",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Email" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Email",
+        "Label" : "Email (expression)",
+        "Description" : "Email associated with certificate. It can be an Expression.",
+        "DefaultValue" : "{{Object.ParsedInput.Email}}",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Phone" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Phone",
+        "Label" : "Phone (expression)",
+        "Visible" : ["Retain"],
+        "Description" : "Phone number associated with certificate. It can be an Expression.",
+        "DefaultValue" : "{{Object.ParsedInput.Phone}}",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Retain" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Retain",
+        "Label" : "Retain Certificate",
+        "Description" : "Whether to retain certificate or not.",
+        "DefaultValue" : false,
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Vendor" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Vendor",
+        "Label" : "Vendor",
+        "Visible" : ["Retain"],
+        "Description" : "Vendor to be associated with retained certificate. It can be an Expression.",
+        "DefaultValue" : "LeadsPiper.com",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "VendorId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "VendorId",
+        "Label" : "Vendor Id",
+        "Visible" : ["Retain"],
+        "Description" : "Id to be associated with retained certificate. It can be an Expression.",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "Insights" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Insights",
+        "Label" : "Insights",
+        "Description" : "Insights to capture. Key is the path to target property in the run",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "DictionaryFieldOptions",
+          "ExpandAllKeys" : false,
+          "KeyField" : {
+            "_t" : "TextField",
+            "Name" : "Target",
+            "Label" : "Target Property",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "TextFieldOptions",
+              "AllowExpressions" : false
+            }
+          },
+          "ValueField" : {
+            "_t" : "SelectField",
+            "Name" : "Insight",
+            "Label" : "Insight",
+            "IsRequired" : false,
+            "Options" : {
+              "_t" : "SelectFieldOptions",
+              "Items" : {
+                "age_seconds" : "Age in Seconds",
+                "approx_ip_geo" : "Approximate Location",
+                "domain" : "Domain",
+                "form_input_method" : "Input Method",
+                "ip" : "IP Address",
+                "seconds_on_page" : "Seconds in Page"
+              }
+            }
+          }
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    },
+    "AlwaysFireNextEvent" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "AlwaysFireNextEvent",
+        "Label" : "Ignore Error(s) and Continue",
+        "Description" : "When set it will always continue even if it can't validate/retain certificate.",
+        "DefaultValue" : false,
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "CollectionName" : "*",
+  "BaseObjectType" : "ActionOptions",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "?",
+  "FullName" : "TrustedFormCertActionOptions",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "0dcf531b-0783-4fb1-b5d6-692aa1e364ca"
+}

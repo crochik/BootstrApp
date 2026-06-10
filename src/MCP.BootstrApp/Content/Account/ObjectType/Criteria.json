@@ -1,0 +1,42 @@
+{
+  "_id" : "b4ff5c1d-4b32-4aa6-90df-a5bf8d9072ca",
+  "Name" : "Criteria",
+  "Description" : "Filter Criteria",
+  "IsActive" : true,
+  "NativeType" : "PI.Shared.Models.Criteria",
+  "UniqueExternalId" : false,
+  "Constraints" : { },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "Conditions" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Conditions",
+        "Label" : "Conditions",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "Condition",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      }
+    }
+  },
+  "CollectionName" : "*",
+  "Tags" : ["System"],
+  "IsAbstract" : false,
+  "IsEmbedded" : true,
+  "FullName" : "Criteria",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

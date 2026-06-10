@@ -1,0 +1,20 @@
+db.createView('View.ActiveUsers', 'Entity',
+[
+    {$group: {_id: '$OrganizationId', 
+        active: {$sum: {$cond: {if: '$IsActive', then: 1, else:0}} },
+        inactive: {$sum: {$cond: {if: '$IsActive', then: 0, else:1}} }
+    }},
+    {$lookup: {
+        from: 'Entity', localField: '_id', foreignField: '_id', as: 'Organization'
+    }},
+    {$unwind: {path: '$Organization'}},
+    {$project: {
+        _id: 1, 
+        Name: '$Organization.Name', 
+        IsActive: '$Organization.IsActive', 
+        AccountId: '$Organization.AccountId',
+        Active: {$toInt: '$active'}, 
+        Inactive: {$toInt: '$inactive'}
+    }}
+]
+)

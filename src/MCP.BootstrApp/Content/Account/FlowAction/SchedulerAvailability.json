@@ -1,0 +1,15 @@
+{
+  "_id" : "e2f70731-030b-4ca6-bc3d-fbc6760c7682",
+  "Name" : "SchedulerAvailability",
+  "_IconName" : "03650000-0000-0000-0000-000000000000",
+  "Description" : "Scheduler: Availability",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "893c9488-9748-4217-9b76-1104bc96a993",
+  "ActionOptionsObjectType" : "SchedulerAvailabilityActionOptions",
+  "Outputs" : {
+    "AvailableEvent" : "Got Availability",
+    "NotAvailableEvent" : "Couldn't determine availability"
+  },
+  "InputObjectTypes" : ["Lead"]
+}

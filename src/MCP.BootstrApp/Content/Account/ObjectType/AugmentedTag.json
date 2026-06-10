@@ -1,0 +1,41 @@
+{
+  "_id" : "ef643a7a-0885-4bbd-97a3-e4c0c38995a9",
+  "Name" : "AugmentedTag",
+  "Description" : "Augmented Tag",
+  "CollectionName" : "?",
+  "NativeType" : "AugmentedTag",
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Tags" : ["System", "PI-API"],
+  "FullName" : "AugmentedTag",
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "Fields" : {
+    "Tag" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Tag",
+        "Label" : "Tag",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Label" : "Tag",
+  "LabelPlural" : "Tags",
+  "RelatedObjectTypes" : [],
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

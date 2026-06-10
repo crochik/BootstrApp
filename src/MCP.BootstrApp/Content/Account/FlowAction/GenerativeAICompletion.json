@@ -1,0 +1,13 @@
+{
+  "_id" : "63eaf4f2-e62f-4d80-b2e9-423a8abcf8bb",
+  "Name" : "GenerativeAICompletion",
+  "Description" : "AI: Assistant Completion",
+  "IsActive" : true,
+  "Role" : "Admin",
+  "ActionId" : "189795a3-4f6b-447d-b034-88cd87b397da",
+  "ActionOptionsObjectType" : "GenerativeAICompletionActionOptions",
+  "Outputs" : {
+    "OnCompletionEvent" : "Completion Generated",
+    "OnFailedEvent" : "Failed to generate Completion"
+  }
+}

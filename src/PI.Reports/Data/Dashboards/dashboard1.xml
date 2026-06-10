@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard CurrencyCulture="chr-Cher-US">
+  <Title Text="My first one" />
+  <DataSources>
+    <JsonDataSource Name="Categories" ConnectionName="jsonCategories" RootElement="Products" ComponentName="jsonDataSource1" />
+  </DataSources>
+  <Items>
+    <TabContainer ComponentName="tabContainerDashboardItem1" Name="Tab Container 1">
+      <Pages>
+        <Page ComponentName="dashboardTabPage1" Name="Products" />
+        <Page ComponentName="dashboardTabPage2" Name="Page 2" />
+      </Pages>
+    </TabContainer>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" ParentContainer="dashboardTabPage1" DataSource="jsonDataSource1">
+      <DataItems>
+        <Dimension DataMember="ProductName" DefaultId="DataItem0" />
+        <Dimension DataMember="ReorderLevel" DefaultId="DataItem1" />
+        <Dimension DataMember="UnitPrice" DefaultId="DataItem2" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridDimensionColumn DisplayMode="Image">
+          <Dimension DefaultId="DataItem1" />
+        </GridDimensionColumn>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem2" />
+        </GridDimensionColumn>
+      </GridColumns>
+      <GridOptions />
+      <ColumnFilterOptions />
+    </Grid>
+    <ComboBox ComponentName="comboBoxDashboardItem1" Name="Combo Box 1" DataSource="jsonDataSource1">
+      <DataItems>
+        <Dimension DataMember="Discontinued" DefaultId="DataItem0" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+      </FilterDimensions>
+    </ComboBox>
+    <TreeView ComponentName="treeViewDashboardItem1" Name="Tree View 1" ParentContainer="dashboardTabPage1" DataSource="jsonDataSource1">
+      <DataItems>
+        <Dimension DataMember="CategoryId" DefaultId="DataItem0" />
+        <Dimension DataMember="SupplierId" DefaultId="DataItem1" />
+      </DataItems>
+      <FilterDimensions>
+        <Dimension DefaultId="DataItem0" />
+        <Dimension DefaultId="DataItem1" />
+      </FilterDimensions>
+    </TreeView>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutGroup Orientation="Vertical">
+        <LayoutItem DashboardItem="comboBoxDashboardItem1" />
+        <LayoutTabContainer DashboardItem="tabContainerDashboardItem1">
+          <LayoutTabPage Orientation="Vertical" DashboardItem="dashboardTabPage1">
+            <LayoutGroup>
+              <LayoutItem DashboardItem="treeViewDashboardItem1" Weight="0.2772585669781932" />
+              <LayoutItem DashboardItem="gridDashboardItem1" Weight="1.722741433021807" />
+            </LayoutGroup>
+          </LayoutTabPage>
+          <LayoutTabPage DashboardItem="dashboardTabPage2" />
+        </LayoutTabContainer>
+      </LayoutGroup>
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>

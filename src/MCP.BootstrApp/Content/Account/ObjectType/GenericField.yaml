@@ -1,0 +1,47 @@
+_id: da6e1f87-c4de-4c53-8b20-e43af0960bc1
+BaseObjectType: Field
+CollectionName: '?'
+Constraints:
+  Account:
+    Condiitons:
+    - FieldName: _t
+      Value: GenericField
+Description: Generic Field
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: GenericField
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: GenericField
+    RBAC:
+      Permissions:
+        Admin: 5
+  Options:
+    Field:
+      _t: ObjectField
+      Label: Options
+      Name: Options
+      Options:
+        _t: ObjectFieldOptions
+        ObjectType: GenericFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: GenericField
+IsEmbedded: true
+Name: GenericField
+NativeType: PI.Shared.Form.Models.GenericField
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+Tags:
+- API
+- PI-API
+- System
+- ui

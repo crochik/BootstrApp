@@ -1,0 +1,59 @@
+_id: 9e128a1a-f7b2-4628-938b-5dc9186e3414
+CollectionName: filebox.SpreadsheetRow
+Description: Spreasheet Data
+Fields:
+  _id:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Errors:
+    Field:
+      _t: TextField
+      IsRequired: false
+      Name: Errors
+      Options:
+        _t: TextFieldOptions
+        Multline: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  HasErrors:
+    Field:
+      _t: CheckboxField
+      IsRequired: false
+      Label: Failed
+      Name: HasErrors
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Row:
+    Field:
+      _t: NumberField
+      IsRequired: false
+      Name: Row
+      Options:
+        _t: NumberFieldOptions
+        Style: Default
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: SpreadsheetRow
+IsActive: true
+Name: SpreadsheetRow
+NativeType: PI.Shared.Models.SpreadsheetRow
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+RBAC:
+  Permissions:
+    Admin: 1
+    Manager: 1
+Tags: []
+UniqueExternalId: false

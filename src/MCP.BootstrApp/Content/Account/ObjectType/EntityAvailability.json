@@ -1,0 +1,236 @@
+{
+  "_id" : "bab12bb4-311e-464c-b765-b8b135330c32",
+  "Name" : "EntityAvailability",
+  "Description" : "EntityOwnedModel",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "IsActive" : true,
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15,
+      "33d883d8-c153-44b2-9094-d4fd158e767d" : 15
+    }
+  },
+  "Fields" : {
+    "Name" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Name",
+        "IsRequired" : false,
+        "ApiName" : "name",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "Description" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Description",
+        "IsRequired" : false,
+        "ApiName" : "description",
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "Multline" : true,
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    },
+    "AccountId" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "AccountId",
+        "Label" : "Account",
+        "IsRequired" : true
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{AccountId}}",
+      "IsFinal" : false
+    },
+    "EntityId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "EntityId",
+        "Label" : "Entity",
+        "DefaultValue" : "{{context \"UserId\"}}",
+        "IsRequired" : true,
+        "ApiName" : "entityId",
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "Entity",
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 5,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 5
+        }
+      },
+      "Indexed" : true,
+      "IsFinal" : false
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : true,
+        "Options" : {
+          "_t" : "TextFieldOptions",
+          "AllowExpressions" : false
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "User" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new UUID}}",
+      "IsFinal" : false
+    },
+    "LastActor" : {
+      "Field" : {
+        "_t" : "HiddenField",
+        "Name" : "LastActor",
+        "Label" : "Last Actor",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 0,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0
+        }
+      },
+      "Indexed" : false,
+      "InitialValue" : "{{Actor}}",
+      "CalculatedValue" : "{{Actor}}",
+      "IsFinal" : false
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created",
+        "IsRequired" : false,
+        "ApiName" : "createdDate"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : true,
+      "InitialValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "LastModifiedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "LastModifiedOn",
+        "Label" : "Last Modified",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 1
+        }
+      },
+      "Indexed" : false,
+      "CalculatedValue" : "{{new Date}}",
+      "IsFinal" : false
+    },
+    "Slots" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Slots",
+        "Label" : "Slots",
+        "IsRequired" : true,
+        "ApiName" : "slots",
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "AvailabilitySlot",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 7
+        }
+      },
+      "Indexed" : false,
+      "IsFinal" : false
+    }
+  },
+  "CollectionName" : "?",
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "AccountId",
+          "Operator" : "Eq",
+          "Value" : "fc100000-0000-0000-0000-000000000000"
+        }]
+    }
+  },
+  "RelatedObjectTypes" : [{
+      "Name" : "EntityId",
+      "ObjectType" : "Entity",
+      "Label" : "Entity",
+      "Criteria" : {
+        "Conditions" : [{
+            "FieldName" : "_id",
+            "Operator" : "Eq",
+            "Value" : "{{EntityId}}"
+          }]
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "33d883d8-c153-44b2-9094-d4fd158e767d" : 0
+        }
+      },
+      "RelationType" : "OneToOne"
+    }],
+  "Tags" : ["System", "OTG"],
+  "IsEmbedded" : false,
+  "IsAbstract" : true,
+  "IsFullTextSearchable" : true,
+  "UniqueExternalId" : false,
+  "NativeType" : "???",
+  "FullName" : "EntityAvailability",
+  "ApiName" : "EntityAvailability",
+  "Label" : "Availability",
+  "LabelPlural" : "Availability"
+}

@@ -1,0 +1,80 @@
+_id: ffdf1efb-a895-47d1-8566-c84da90a3d72
+BaseObjectType: FieldOptions
+CollectionName: '?'
+Description: 'Options for Text Field '
+Fields:
+  _t:
+    Field:
+      _t: TextField
+      DefaultValue: TextFieldOptions
+      Enable:
+      - false
+      Label: Type
+      Name: _t
+    InitialValue: TextFieldOptions
+    RBAC:
+      Permissions:
+        Admin: 5
+  AllowExpressions:
+    Field:
+      _t: CheckboxField
+      Label: Allow Expressions
+      Name: AllowExpressions
+    RBAC:
+      Permissions:
+        Admin: 7
+  ContentType:
+    Field:
+      _t: SelectField
+      Label: Content Type
+      Name: ContentType
+      Options:
+        _t: SelectFieldOptions
+        Items:
+          text/html: HTML
+          text/plain: Plain
+    RBAC:
+      Permissions:
+        Admin: 7
+  Format:
+    Field:
+      _t: TextField
+      Label: Format
+      Name: Format
+    RBAC:
+      Permissions:
+        Admin: 7
+  MaxLength:
+    Field:
+      _t: NumberField
+      Label: Max Length
+      Name: MaxLength
+      Options:
+        _t: NumberFieldOptions
+        DecimalPlaces: 0
+    RBAC:
+      Permissions:
+        Admin: 7
+  Multline:
+    Field:
+      _t: CheckboxField
+      Label: Multiple Lines
+      Name: Multline
+    RBAC:
+      Permissions:
+        Admin: 7
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: TextFieldOptions
+IsEmbedded: true
+Name: TextFieldOptions
+NativeType: PI.Shared.Models.TextFieldOptions
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15
+RelatedObjectTypes: []
+Tags:
+- API
+- PI-API
+- System
+- ui

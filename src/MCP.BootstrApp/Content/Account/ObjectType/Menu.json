@@ -1,0 +1,80 @@
+{
+  "_id" : "33991b53-b545-4c0e-bdd0-47576af4a36d",
+  "Name" : "Menu",
+  "Description" : "Menu Object",
+  "CollectionName" : "?",
+  "NativeType" : "PI.Shared.Form.Models.Menu",
+  "BaseObjectType" : "MenuItem",
+  "UniqueExternalId" : false,
+  "IsEmbedded" : true,
+  "IsAbstract" : false,
+  "Constraints" : {
+    "Account" : {
+      "Conditions" : [{
+          "FieldName" : "_t",
+          "Value" : "Menu"
+        }]
+    }
+  },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 15
+    }
+  },
+  "Fields" : {
+    "_t" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_t",
+        "Label" : "Type",
+        "IsRequired" : true,
+        "DefaultValue" : "Menu"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1,
+          "Manager" : 0
+        }
+      },
+      "InitialValue" : "Menu"
+    },
+    "Collapsible" : {
+      "Field" : {
+        "_t" : "CheckboxField",
+        "Name" : "Collapsible"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7,
+          "Manager" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "Items" : {
+      "Field" : {
+        "_t" : "ChildrenField",
+        "Name" : "Items",
+        "Label" : "Items",
+        "Description" : "Items",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ChildrenFieldOptions",
+          "ObjectType" : "MenuItem",
+          "KeyType" : "int"
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 7
+        }
+      },
+      "Indexed" : false
+    }
+  },
+  "Tags" : ["System", "ui", "API", "PI-API"],
+  "RelatedObjectTypes" : [],
+  "FullName" : "Menu",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

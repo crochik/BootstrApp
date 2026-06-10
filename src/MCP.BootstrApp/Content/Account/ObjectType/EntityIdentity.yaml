@@ -1,0 +1,55 @@
+_id: 84ab8a4c-ddde-4202-baaf-bd25a1b9825c
+CollectionName: '?'
+Description: Entity Identity
+Fields:
+  _id:
+    Field:
+      _t: HiddenField
+      IsRequired: false
+      Label: Id
+      Name: _id
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  ExternalId:
+    Field:
+      _t: TextField
+      Label: External Id
+      Name: ExternalId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  IdentityProviderId:
+    Field:
+      _t: TextField
+      Label: Provider
+      Name: IdentityProviderId
+    Indexed: true
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+  Name:
+    Field:
+      _t: TextField
+      Name: Name
+    RBAC:
+      Permissions:
+        Admin: 1
+        Manager: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: EntityIdentity
+IsEmbedded: true
+Name: EntityIdentity
+NativeType: PI.Shared.Models.EntityIdentity
+ObjectStatusId: 0dcf531b-0783-4fb1-b5d6-692aa1e364ca
+ObjectType: ObjectType
+ObjectTypeId: e95a5e18-f7b7-40cd-baea-3a64dbb9105f
+RBAC:
+  Permissions:
+    Admin: 1
+    Manager: 1
+RelatedObjectTypes: []

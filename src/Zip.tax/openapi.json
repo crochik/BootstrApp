@@ -1,0 +1,906 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "ZipTax API",
+    "version": "6.0.0",
+    "description": "RESTful service for US sales tax data lookup by address or coordinates.",
+    "contact": {
+      "name": "ZipTax Support",
+      "email": "support@zip.tax",
+      "url": "https://zip.tax"
+    },
+    "license": {
+      "name": "Proprietary"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.zip-tax.com",
+      "description": "Production"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyQuery": []
+    },
+    {
+      "ApiKeyHeader": []
+    }
+  ],
+  "paths": {
+    "/request/v60": {
+      "get": {
+        "operationId": "getTaxRatesV60",
+        "summary": "Get Tax Rates (v6.0)",
+        "description": "Returns tax rates in a structured format with separate base rates, service/shipping taxability, sourcing rules, and tax summaries. Requires an address or lat/lng coordinates to resolve a single tax jurisdiction.",
+        "tags": [
+          "Tax Rates"
+        ],
+        "parameters": [
+          {
+            "name": "key",
+            "in": "query",
+            "required": true,
+            "description": "API key for authentication",
+            "schema": {
+              "type": "string",
+              "minLength": 10,
+              "maxLength": 100
+            }
+          },
+          {
+            "name": "address",
+            "in": "query",
+            "description": "Street address for geocoding. Provide a full or partial US street address (e.g. \"200 Spectrum Center Dr, Irvine, CA 92618\").",
+            "schema": {
+              "type": "string",
+              "maxLength": 100
+            }
+          },
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude coordinate. Use with `lng` as an alternative to `address`.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -90,
+              "maximum": 90
+            }
+          },
+          {
+            "name": "lng",
+            "in": "query",
+            "description": "Longitude coordinate. Use with `lat` as an alternative to `address`.",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -180,
+              "maximum": 180
+            }
+          },
+          {
+            "name": "countryCode",
+            "in": "query",
+            "description": "Country code",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "USA",
+                "CAN"
+              ],
+              "default": "USA"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "description": "Response format",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "xml"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "sat_item_total",
+            "in": "query",
+            "description": "Single Article Tax item total for Tennessee",
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": 0
+            }
+          },
+          {
+            "name": "historical",
+            "in": "query",
+            "description": "Historical date for rates in YYYY-MM format",
+            "schema": {
+              "type": "string",
+              "pattern": "^[0-9]{4}-[0-9]{2}$"
+            }
+          },
+          {
+            "name": "taxabilityCode",
+            "in": "query",
+            "description": "Product taxability code (TIC). When provided, the response includes a `productDetail` section with product-specific rate rules. Requires the `product_rates` entitlement.",
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          },
+          {
+            "name": "addressDetailExtended",
+            "in": "query",
+            "description": "When set to `true` or `1`, the `addressDetail` section includes a nested `address` object with individual address components.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "true",
+                "false",
+                "1",
+                "0"
+              ],
+              "default": "false"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful tax rate lookup",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                },
+                "example": {
+                  "metadata": {
+                    "version": "v60",
+                    "response": {
+                      "code": 100,
+                      "name": "RESPONSE_CODE_SUCCESS",
+                      "message": "Successful API Request.",
+                      "definition": ""
+                    }
+                  },
+                  "baseRates": [
+                    {
+                      "rate": 0.06,
+                      "jurType": "US_STATE_SALES_TAX",
+                      "jurName": "US_STATE",
+                      "jurDescription": "US State Sales Tax",
+                      "jurTaxCode": null
+                    },
+                    {
+                      "rate": 0.0025,
+                      "jurType": "US_COUNTY_SALES_TAX",
+                      "jurName": "US_COUNTY",
+                      "jurDescription": "US County Sales Tax",
+                      "jurTaxCode": null
+                    },
+                    {
+                      "rate": 0.015,
+                      "jurType": "US_DISTRICT_SALES_TAX",
+                      "jurName": "US_DISTRICT",
+                      "jurDescription": "US District Sales Tax",
+                      "jurTaxCode": "37"
+                    }
+                  ],
+                  "service": {
+                    "adjustmentType": "SERVICE_TAXABLE",
+                    "taxable": "N",
+                    "description": "Labor portion, separately stated"
+                  },
+                  "shipping": {
+                    "adjustmentType": "FREIGHT_TAXABLE",
+                    "taxable": "N",
+                    "description": "Freight portion, separately stated"
+                  },
+                  "sourcingRules": {
+                    "adjustmentType": "ORIGIN_DESTINATION",
+                    "description": "Destination Based Taxation",
+                    "value": "D"
+                  },
+                  "taxSummaries": [
+                    {
+                      "rate": 0.0775,
+                      "taxType": "SALES_TAX",
+                      "summaryName": "Total Base Sales Tax",
+                      "displayRates": [
+                        {
+                          "name": "State",
+                          "rate": 0.06
+                        },
+                        {
+                          "name": "County",
+                          "rate": 0.0025
+                        },
+                        {
+                          "name": "District",
+                          "rate": 0.015
+                        }
+                      ]
+                    },
+                    {
+                      "rate": 0.0775,
+                      "taxType": "USE_TAX",
+                      "summaryName": "Total Base Use Tax",
+                      "displayRates": []
+                    }
+                  ],
+                  "addressDetail": {
+                    "normalizedAddress": "200 Spectrum Center Dr, Irvine, CA 92618-5003, United States",
+                    "incorporated": "true",
+                    "geoLat": 33.65253,
+                    "geoLng": -117.74794
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized – invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                },
+                "example": {
+                  "metadata": {
+                    "version": "v60",
+                    "response": {
+                      "code": 101,
+                      "name": "RESPONSE_CODE_INVALID_KEY",
+                      "message": "Key format is not valid or key not found.",
+                      "definition": ""
+                    }
+                  },
+                  "baseRates": [],
+                  "service": {},
+                  "shipping": {},
+                  "sourcingRules": {},
+                  "taxSummaries": [],
+                  "addressDetail": {}
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden – feature or international rates not enabled for this key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Method Not Allowed – requested feature or version not enabled for current plan",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity – invalid parameters, incomplete address, or no result found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests – API request limit reached",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/V60Response"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyQuery": []
+          },
+          {
+            "ApiKeyHeader": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyQuery": {
+        "type": "apiKey",
+        "in": "query",
+        "name": "key",
+        "description": "API key passed as a query parameter"
+      },
+      "ApiKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY",
+        "description": "API key passed in a request header"
+      }
+    },
+    "schemas": {
+      "V60Response": {
+        "type": "object",
+        "description": "v6.0 structured tax rate response",
+        "required": [
+          "metadata",
+          "baseRates",
+          "service",
+          "shipping",
+          "sourcingRules",
+          "taxSummaries",
+          "addressDetail"
+        ],
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/MetadataV60"
+          },
+          "baseRates": {
+            "type": "array",
+            "description": "Base tax rates broken down by jurisdiction",
+            "items": {
+              "$ref": "#/components/schemas/BaseRateV60"
+            }
+          },
+          "service": {
+            "$ref": "#/components/schemas/ServiceV60"
+          },
+          "shipping": {
+            "$ref": "#/components/schemas/ShippingV60"
+          },
+          "sourcingRules": {
+            "$ref": "#/components/schemas/OriginDestinationV60"
+          },
+          "taxSummaries": {
+            "type": "array",
+            "description": "Aggregated tax rate summaries (sales tax and use tax totals)",
+            "items": {
+              "$ref": "#/components/schemas/TaxSummaryV60"
+            }
+          },
+          "productDetail": {
+            "$ref": "#/components/schemas/ProductDetailV60",
+            "description": "Product-specific taxability detail. Present only when `taxabilityCode` is provided in the request."
+          },
+          "addressDetail": {
+            "$ref": "#/components/schemas/AddressDetailV60"
+          }
+        }
+      },
+      "MetadataV60": {
+        "type": "object",
+        "description": "Response metadata including API version and response status",
+        "required": [
+          "version",
+          "response"
+        ],
+        "properties": {
+          "version": {
+            "type": "string",
+            "description": "API version identifier",
+            "examples": [
+              "v60"
+            ]
+          },
+          "response": {
+            "$ref": "#/components/schemas/ResponseInfoV60"
+          }
+        }
+      },
+      "ResponseInfoV60": {
+        "type": "object",
+        "description": "Structured response status information",
+        "required": [
+          "code",
+          "name",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "type": "integer",
+            "description": "Numeric response code. 100 indicates success; other values indicate specific error conditions.",
+            "examples": [
+              100
+            ]
+          },
+          "name": {
+            "type": "string",
+            "description": "Machine-readable response code name",
+            "examples": [
+              "RESPONSE_CODE_SUCCESS"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "description": "Human-readable response message",
+            "examples": [
+              "Successful API Request."
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "description": "Optional extended definition or URL for the response code"
+          }
+        }
+      },
+      "BaseRateV60": {
+        "type": "object",
+        "description": "Individual tax rate for a single jurisdiction",
+        "required": [
+          "rate",
+          "jurType",
+          "jurName",
+          "jurDescription"
+        ],
+        "properties": {
+          "rate": {
+            "type": "number",
+            "format": "float",
+            "description": "Tax rate as a decimal (e.g. 0.06 = 6%)"
+          },
+          "jurType": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Jurisdiction tax type",
+                "enum": [
+                  "US_STATE_SALES_TAX",
+                  "US_STATE_USE_TAX",
+                  "US_COUNTY_SALES_TAX",
+                  "US_COUNTY_USE_TAX",
+                  "US_CITY_SALES_TAX",
+                  "US_CITY_USE_TAX",
+                  "US_DISTRICT_SALES_TAX",
+                  "US_DISTRICT_USE_TAX"
+                ]
+              },
+              {
+                "type": "string",
+                "description": "Jurisdiction tax type (Canada)"
+              }
+            ]
+          },
+          "jurName": {
+            "oneOf": [
+              {
+                "type": "string",
+                "description": "Jurisdiction level name",
+                "enum": [
+                  "US_STATE",
+                  "US_COUNTY",
+                  "US_CITY",
+                  "US_DISTRICT"
+                ]
+              },
+              {
+                "type": "string",
+                "description": "Jurisdiction level name (Canada)"
+              }
+            ]
+          },
+          "jurDescription": {
+            "type": "string",
+            "description": "Human-readable jurisdiction description"
+          },
+          "jurTaxCode": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Tax code for the jurisdiction. Null when no specific code applies."
+          }
+        }
+      },
+      "ServiceV60": {
+        "type": "object",
+        "description": "Service (labor) taxability for the jurisdiction",
+        "required": [
+          "adjustmentType",
+          "taxable",
+          "description"
+        ],
+        "properties": {
+          "adjustmentType": {
+            "type": "string",
+            "description": "Adjustment type identifier",
+            "examples": [
+              "SERVICE_TAXABLE"
+            ]
+          },
+          "taxable": {
+            "type": "string",
+            "description": "Whether services are taxable",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable taxability description"
+          }
+        }
+      },
+      "ShippingV60": {
+        "type": "object",
+        "description": "Shipping/freight taxability for the jurisdiction",
+        "required": [
+          "adjustmentType",
+          "taxable",
+          "description"
+        ],
+        "properties": {
+          "adjustmentType": {
+            "type": "string",
+            "description": "Adjustment type identifier",
+            "examples": [
+              "FREIGHT_TAXABLE"
+            ]
+          },
+          "taxable": {
+            "type": "string",
+            "description": "Whether shipping is taxable",
+            "enum": [
+              "Y",
+              "N"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable taxability description"
+          }
+        }
+      },
+      "OriginDestinationV60": {
+        "type": "object",
+        "description": "Sourcing rules indicating origin-based or destination-based taxation",
+        "required": [
+          "adjustmentType",
+          "description",
+          "value"
+        ],
+        "properties": {
+          "adjustmentType": {
+            "type": "string",
+            "description": "Adjustment type identifier",
+            "examples": [
+              "ORIGIN_DESTINATION"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "description": "Human-readable sourcing rule description"
+          },
+          "value": {
+            "type": "string",
+            "description": "O = Origin-based, D = Destination-based",
+            "enum": [
+              "O",
+              "D"
+            ]
+          }
+        }
+      },
+      "TaxSummaryV60": {
+        "type": "object",
+        "description": "Aggregated tax rate summary (e.g. total sales tax, total use tax)",
+        "required": [
+          "rate",
+          "taxType",
+          "summaryName",
+          "displayRates"
+        ],
+        "properties": {
+          "rate": {
+            "type": "number",
+            "format": "float",
+            "description": "Combined tax rate for this summary"
+          },
+          "taxType": {
+            "type": "string",
+            "description": "Tax type category",
+            "enum": [
+              "SALES_TAX",
+              "USE_TAX"
+            ]
+          },
+          "summaryName": {
+            "type": "string",
+            "description": "Human-readable summary label"
+          },
+          "displayRates": {
+            "type": "array",
+            "description": "Breakdown of individual rates contributing to this summary",
+            "items": {
+              "$ref": "#/components/schemas/DisplayRate"
+            }
+          }
+        }
+      },
+      "DisplayRate": {
+        "type": "object",
+        "description": "Individual rate contributing to a tax summary",
+        "required": [
+          "name",
+          "rate"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Jurisdiction label (e.g. \"State\", \"County\", \"District\")"
+          },
+          "rate": {
+            "type": "number",
+            "format": "float",
+            "description": "Tax rate as a decimal"
+          }
+        }
+      },
+      "AddressDetailV60": {
+        "type": "object",
+        "description": "Geocoded address information for the resolved location",
+        "required": [
+          "normalizedAddress",
+          "incorporated",
+          "geoLat",
+          "geoLng"
+        ],
+        "properties": {
+          "normalizedAddress": {
+            "type": "string",
+            "description": "Normalized full address returned by the geocoder"
+          },
+          "incorporated": {
+            "type": "string",
+            "description": "Whether the location is within an incorporated area",
+            "enum": [
+              "true",
+              "false"
+            ]
+          },
+          "geoLat": {
+            "type": "number",
+            "format": "float",
+            "description": "Geocoded latitude"
+          },
+          "geoLng": {
+            "type": "number",
+            "format": "float",
+            "description": "Geocoded longitude"
+          },
+          "address": {
+            "$ref": "#/components/schemas/AddressComponentsV60",
+            "description": "Extended address components. Present only when `addressDetailExtended=true` is passed in the request."
+          }
+        }
+      },
+      "AddressComponentsV60": {
+        "type": "object",
+        "description": "Individual address components parsed from the geocoded result",
+        "required": [
+          "countryCode",
+          "countryName",
+          "stateCode",
+          "state",
+          "county",
+          "city",
+          "street",
+          "postalCode",
+          "houseNumber"
+        ],
+        "properties": {
+          "countryCode": {
+            "type": "string",
+            "description": "ISO country code"
+          },
+          "countryName": {
+            "type": "string",
+            "description": "Full country name"
+          },
+          "stateCode": {
+            "type": "string",
+            "description": "Two-letter state abbreviation"
+          },
+          "state": {
+            "type": "string",
+            "description": "Full state name"
+          },
+          "county": {
+            "type": "string",
+            "description": "County name"
+          },
+          "city": {
+            "type": "string",
+            "description": "City name"
+          },
+          "street": {
+            "type": "string",
+            "description": "Street name"
+          },
+          "postalCode": {
+            "type": "string",
+            "description": "Postal code"
+          },
+          "houseNumber": {
+            "type": "string",
+            "description": "House or building number"
+          }
+        }
+      },
+      "ProductDetailV60": {
+        "type": "object",
+        "description": "Product-specific taxability information based on the requested taxability code",
+        "required": [
+          "taxabilityCode"
+        ],
+        "properties": {
+          "taxabilityCode": {
+            "$ref": "#/components/schemas/TaxabilityCodeV60"
+          }
+        }
+      },
+      "TaxabilityCodeV60": {
+        "type": "object",
+        "description": "Taxability code details and rate rules",
+        "required": [
+          "id",
+          "stateFIPS",
+          "countyFIPS",
+          "title",
+          "label",
+          "rateActionCode",
+          "rateActionMessage",
+          "rateRules"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Taxability code identifier"
+          },
+          "stateFIPS": {
+            "type": "string",
+            "description": "State FIPS code"
+          },
+          "countyFIPS": {
+            "type": "string",
+            "description": "County FIPS code"
+          },
+          "title": {
+            "type": "string",
+            "description": "Taxability code title"
+          },
+          "label": {
+            "type": "string",
+            "description": "Taxability code label"
+          },
+          "rateActionCode": {
+            "type": "string",
+            "description": "Rate action code indicating how the rate should be applied"
+          },
+          "rateActionMessage": {
+            "type": "string",
+            "description": "Human-readable rate action description"
+          },
+          "rateRules": {
+            "type": "array",
+            "description": "Jurisdiction-specific rate rules for this taxability code",
+            "items": {
+              "$ref": "#/components/schemas/RateRuleV60"
+            }
+          }
+        }
+      },
+      "RateRuleV60": {
+        "type": "object",
+        "description": "Individual rate rule for a taxability code within a jurisdiction",
+        "properties": {
+          "jurTaxCode": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Jurisdiction tax code"
+          },
+          "effectiveDt": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64",
+            "description": "Effective date as Unix timestamp"
+          },
+          "expiresDt": {
+            "type": [
+              "integer",
+              "null"
+            ],
+            "format": "int64",
+            "description": "Expiration date as Unix timestamp"
+          },
+          "effectiveTaxRate": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "float",
+            "description": "Effective tax rate for this rule"
+          },
+          "percentTaxable": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "float",
+            "description": "Percentage of the item that is taxable"
+          },
+          "exemptUnder": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "float",
+            "description": "Exempt if item total is under this amount"
+          },
+          "exemptOver": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "float",
+            "description": "Exempt if item total is over this amount"
+          },
+          "taxablePortionOver": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "format": "float",
+            "description": "Only the portion of the item over this amount is taxable"
+          },
+          "isDestinationTaxType": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "Whether this rule applies under destination-based sourcing"
+          },
+          "isFoodDrug": {
+            "type": [
+              "boolean",
+              "null"
+            ],
+            "description": "Whether this rule applies to food and drug items"
+          }
+        }
+      }
+    }
+  }
+}

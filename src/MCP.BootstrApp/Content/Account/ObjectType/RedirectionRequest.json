@@ -1,0 +1,138 @@
+{
+  "_id" : "5f5b2f5b-10e6-4b67-8acb-a3f9fb707c56",
+  "Name" : "RedirectionRequest",
+  "Description" : "Redirection Request (U2)",
+  "CollectionName" : "u2.request",
+  "NativeType" : "PI.Shared.Models.U2.RedirectionRequest",
+  "IsEmbedded" : false,
+  "IsAbstract" : false,
+  "Constraints" : { },
+  "RBAC" : {
+    "Permissions" : {
+      "Admin" : 1
+    }
+  },
+  "Fields" : {
+    "Location" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Location"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "UserAgent" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "UserAgent",
+        "Label" : "User Agent"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "IpAddress" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "IpAddress",
+        "Label" : "IP Address"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "RequestId" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "RequestId",
+        "Label" : "Request Id"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Url" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "Url"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "Query" : {
+      "Field" : {
+        "_t" : "DictionaryField",
+        "Name" : "Query"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      }
+    },
+    "RedirectionId" : {
+      "Field" : {
+        "_t" : "ReferenceField",
+        "Name" : "RedirectionId",
+        "Label" : "Redirection",
+        "IsRequired" : false,
+        "Options" : {
+          "_t" : "ReferenceFieldOptions",
+          "ObjectType" : "ShortLinkRedirection",
+          "Criteria" : [],
+          "AutoComplete" : true
+        }
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "Indexed" : true
+    },
+    "_id" : {
+      "Field" : {
+        "_t" : "TextField",
+        "Name" : "_id",
+        "Label" : "Id",
+        "IsRequired" : false
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new ObjectId}}"
+    },
+    "CreatedOn" : {
+      "Field" : {
+        "_t" : "DateTimeField",
+        "Name" : "CreatedOn",
+        "Label" : "Created"
+      },
+      "RBAC" : {
+        "Permissions" : {
+          "Admin" : 1
+        }
+      },
+      "InitialValue" : "{{new Date}}",
+      "Indexed" : true
+    }
+  },
+  "Tags" : ["System"],
+  "FullName" : "RedirectionRequest",
+  "FlowId" : "2344740a-2fe1-4bcf-aed8-da29afbb8019",
+  "ObjectStatusId" : "ee218fc1-bdaf-4501-aebf-7b301d67ef6d"
+}

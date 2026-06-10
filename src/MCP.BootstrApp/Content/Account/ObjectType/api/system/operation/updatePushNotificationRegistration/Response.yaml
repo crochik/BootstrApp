@@ -1,0 +1,34 @@
+_id: 3c5f4e8b-0fe4-4cd8-a48d-f8c72b73d2d3
+ApiName: PushNotificationRegistrationResponse
+CollectionName: ???
+Description: Successful response to update Push Notification Registration operation
+Fields:
+  RegistrationId:
+    Field:
+      _t: TextField
+      ApiName: registrationId
+      IsRequired: true
+      Label: Registration Id
+      Name: RegistrationId
+      Options:
+        _t: TextFieldOptions
+        AllowExpressions: false
+    Indexed: false
+    IsFinal: false
+    RBAC:
+      Permissions:
+        33d883d8-c153-44b2-9094-d4fd158e767d: 1
+        Admin: 1
+FlowId: 2344740a-2fe1-4bcf-aed8-da29afbb8019
+FullName: api.system.operation.updatePushNotificationRegistration.Response
+IsAbstract: false
+IsEmbedded: true
+Label: Response
+LabelPlural: Responses
+Name: Response
+Namespace: api.system.operation.updatePushNotificationRegistration
+NativeType: ???
+ObjectStatusId: ee218fc1-bdaf-4501-aebf-7b301d67ef6d
+RBAC:
+  Permissions:
+    Admin: 15

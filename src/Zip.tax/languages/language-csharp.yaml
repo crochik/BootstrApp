@@ -1,0 +1,195 @@
+# C# Language Configuration for OpenAPI Client Generator
+# Version 1.0
+
+version: "1.0"
+
+language:
+  name: "C#"
+  identifier: "csharp"
+  fileExtension: ".cs"
+
+capabilities:
+  supportsAsync: true
+  supportsInterfaces: true
+  supportsInheritance: true
+  requiresExplicitImports: true
+
+naming:
+  models:
+    strategy: Pascal
+    applyPrefixToInterfaces: true
+    prefix: "I"
+
+  properties:
+    strategy: Pascal
+
+  methods:
+    strategy: Pascal
+    suffix: "Async"
+
+  parameters:
+    strategy: Camel
+
+  enumValues:
+    strategy: Pascal
+    reservedMembers: []
+    escapeStrategy: "suffix"
+    escapeCharacter: "_"
+
+  files:
+    strategy: Pascal
+
+  clients:
+    strategy: Pascal
+    suffix: Client
+
+  groups:
+    strategy: Pascal
+
+  groupedClients:
+    strategy: Pascal
+    suffix: Client
+
+  localVariables:
+    strategy: Camel
+
+  reservedWords:
+    words:
+      - abstract
+      - as
+      - base
+      - bool
+      - break
+      - byte
+      - case
+      - catch
+      - char
+      - checked
+      - class
+      - const
+      - continue
+      - decimal
+      - default
+      - delegate
+      - do
+      - double
+      - else
+      - enum
+      - event
+      - explicit
+      - extern
+      - false
+      - finally
+      - fixed
+      - float
+      - for
+      - foreach
+      - goto
+      - if
+      - implicit
+      - in
+      - int
+      - interface
+      - internal
+      - is
+      - lock
+      - long
+      - namespace
+      - new
+      - null
+      - object
+      - operator
+      - out
+      - override
+      - params
+      - private
+      - protected
+      - public
+      - readonly
+      - ref
+      - return
+      - sbyte
+      - sealed
+      - short
+      - sizeof
+      - stackalloc
+      - static
+      - string
+      - struct
+      - switch
+      - this
+      - throw
+      - true
+      - try
+      - typeof
+      - uint
+      - ulong
+      - unchecked
+      - unsafe
+      - ushort
+      - using
+      - virtual
+      - void
+      - volatile
+      - while
+    escapeStrategy: "prefix"
+    escapeCharacter: "@"
+    customLogic: "CSharpLocalVariablePlugin"
+    numericEscapeStrategy: "prefix"
+    numericEscapeValue: "_"
+
+typeMappings:
+  primitives:
+    integer:
+      int32: "int"
+      int64: "long"
+      default: "int"
+    number:
+      float: "float"
+      double: "double"
+      default: "double"
+    string:
+      default: "string"
+      date: "DateOnly"
+      dateTime: "DateTimeOffset"
+      uuid: "Guid"
+      binary: "byte[]"
+      byte: "byte"
+    boolean:
+      default: "bool"
+    object:
+      default: "object"
+    any:
+      default: "object"
+
+  collections:
+    array:
+      template: "List<{T}>"
+    dictionary:
+      template: "Dictionary<{K}, {V}>"
+
+  nullability:
+    template: "{T}?"
+    valueTypeOnly: false
+
+  async:
+    template: "Task<{T}>"
+    voidReturn: "Task"
+
+defaults:
+  stringQuote: '"'
+  byType:
+    integer: "0"
+    number: "0.0"
+    string: "string.Empty"
+    boolean: "false"
+    object: "null"
+    array: "null"
+
+validation:
+  avoidPropertyClassNameCollision: true
+
+plugins:
+  - name: "CSharpLocalVariablePlugin"
+    type: "NameTransformer"
+    implementation: "OpenApiClientGenerator.Core.Plugins.CSharpLocalVariablePlugin"

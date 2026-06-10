@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\PI.Shared.Data\PI.Shared.Data.csproj" />
+    <ProjectReference Include="..\Crochik.Mongo\Crochik.Mongo.csproj" />
+  </ItemGroup>
+</Project>

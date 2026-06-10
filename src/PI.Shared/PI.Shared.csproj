@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <ItemGroup>
+        <PackageReference Include="IdentityModel" Version="6.1.0"/>
+        <PackageReference Include="libphonenumber-csharp" Version="9.0.23" />
+<!--        <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1"/>-->
+        <PackageReference Include="TimeZoneConverter" Version="7.2.0" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="10.1.1" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Crochik\Crochik.csproj"/>
+        <ProjectReference Include="..\Crochik.Mongo\Crochik.Mongo.csproj"/>
+        <ProjectReference Include="..\PI.IDP.API\PI.IDP.API.csproj"/>
+        <ProjectReference Include="..\IdentityServer4.AccessTokenValidation/src/IdentityServer4.AccessTokenValidation.csproj"/>
+    </ItemGroup>
+</Project>
