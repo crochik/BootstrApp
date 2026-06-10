@@ -19,6 +19,12 @@ public interface ISubscriptionStore
     /// <summary>Removes a subscription by id within the caller's account. Returns <c>false</c> if it was already gone.</summary>
     Task<bool> RemoveAsync(IEntityContext context, Guid id);
 
+    /// <summary>All of the caller's subscriptions, in creation order.</summary>
+    Task<IReadOnlyList<IntegrationSubscription>> ListAsync(IEntityContext context);
+
+    /// <summary>A single subscription owned by the caller, or <c>null</c>.</summary>
+    Task<IntegrationSubscription> GetAsync(IEntityContext context, Guid id);
+
     /// <summary>The caller's subscriptions for a given object/event, in creation order.</summary>
     Task<IReadOnlyList<IntegrationSubscription>> FindAsync(IEntityContext context, string objectKey, string eventKey);
 

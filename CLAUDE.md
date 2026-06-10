@@ -100,8 +100,9 @@ combines `RequireRole(...)` + `RequireScope("...")` (the `RequireScope` extensio
 `src/PI.Shared.Integrations` is the shared engine: an `ObjectType`-driven catalog,
 Mongo-persisted REST-Hook subscriptions, and a durable signed-delivery pipeline
 (`WebhookEventListener` → outbox → `WebhookDeliveryWorker` + `WebhookOutboxReconciler`,
-HMAC-signed). `src/Zapier` and `src/N8n` are thin platform-shaped adapters over it. To add
-another integration, copy that shape: a service with its `[Authorize]` policy, a
+HMAC-signed). `src/Zapier`, `src/N8n` and the generic `src/Webhooks` are thin platform-shaped
+adapters over it. To add another integration, copy that shape: a service with its
+`[Authorize]` policy, a
 `<Name>Subscription : IntegrationSubscription` model, controllers, and
 `AddIntegrationServices<TSubscription>(Configuration)` + the three lifetime services. See
 each service's `README.md` for the platform-side setup.

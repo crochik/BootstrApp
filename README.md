@@ -68,6 +68,7 @@ Services read most configuration from AWS Systems Manager (SSM) at runtime and r
   from many third parties through one dynamic, config-driven endpoint.
 - **Integrations (outbound):** [`src/PI.Shared.Integrations`](src/PI.Shared.Integrations) —
   exposes platform objects/events to automation tools and delivers signed, durable,
-  retried webhook POSTs. Consumed by [`src/Zapier`](src/Zapier/README.md) and
-  [`src/N8n`](src/N8n/README.md).
+  retried webhook POSTs. Consumed by [`src/Zapier`](src/Zapier/README.md),
+  [`src/N8n`](src/N8n/README.md) and the generic [`src/Webhooks`](src/Webhooks/README.md)
+  (any application can subscribe).
 - **Logging:** [`ELK.md`](ELK.md).

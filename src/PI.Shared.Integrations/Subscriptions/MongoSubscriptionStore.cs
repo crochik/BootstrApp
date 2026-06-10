@@ -66,6 +66,26 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
         return removed > 0;
     }
 
+    public async Task<IReadOnlyList<IntegrationSubscription>> ListAsync(IEntityContext context)
+    {
+        var found = await _connection.Filter<T>()
+            .Eq(x => x.AccountId, context.AccountId.Value)
+            .Eq(x => x.EntityId, context.UserId.Value)
+            .SortAsc(x => x.CreatedOn)
+            .FindAsync();
+
+        return found;
+    }
+
+    public async Task<IntegrationSubscription> GetAsync(IEntityContext context, Guid id)
+    {
+        return await _connection.Filter<T>()
+            .Eq(x => x.AccountId, context.AccountId.Value)
+            .Eq(x => x.EntityId, context.UserId.Value)
+            .Eq(x => x.Id, id)
+            .FirstOrDefaultAsync();
+    }
+
     public async Task<IReadOnlyList<IntegrationSubscription>> FindAsync(IEntityContext context, string objectKey, string eventKey)
     {
         var found = await _connection.Filter<T>()
