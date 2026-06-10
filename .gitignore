@@ -20,3 +20,4 @@ PI.Reports/ViewerStorages
 *.userdo
 **.csproj.user
 src/PI.Google/credentials.json
+dotnet/
