@@ -61,7 +61,7 @@ Write-Output "${IMAGE}:${TAG}"
 $Env:IMAGE = "${IMAGE}:${TAG}"
 $Env:TAG = "${APP}:${TAG}"
 
-yq '.zapier.image = env(TAG)' -i ../../OPS/staging/config/releases.yaml
+yq '.zapier.image = env(TAG)' -i ../../../OPS/staging/config/releases.yaml
 
 # # yq 4.0
 # yq '.spec.template.spec.containers[0].image = env(IMAGE)' -i ../../OPS/$DEPLOYMENT 
@@ -77,7 +77,7 @@ Write-Output "${IMAGE}:${TAG}"
 # yq '.spec.jobTemplate.spec.template.spec.containers[0].env[0].value = env(TAG)' -i ../../OPS/$JOBTEMPLATE 
 
 if (!$message) {
-    Set-Location ../../OPS
+    Set-Location ../../../OPS
     
     pwsh ./update.ps1
     
