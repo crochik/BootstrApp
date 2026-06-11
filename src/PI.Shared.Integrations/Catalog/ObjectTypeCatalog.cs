@@ -36,6 +36,7 @@ public sealed class ObjectTypeCatalog : IObjectCatalog
             .Eq(x => x.AccountId, context.AccountId)
             .Ne(x => x.IsEmbedded, true)
             .Ne(x => x.IsAbstract, true)
+            .Limit(100)
             .FindAsync();
 
         return objectTypes
