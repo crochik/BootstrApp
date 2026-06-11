@@ -47,6 +47,7 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
     {
         try
         {
+            Logger.LogInformation("Processing object event {RoutingKey}", message.RoutingKey);
             switch (message.Body)
             {
                 case SimpleActionMessage<GenericActionOptions> msg:
