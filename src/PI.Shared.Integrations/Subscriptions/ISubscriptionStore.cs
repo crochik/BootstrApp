@@ -31,8 +31,7 @@ public interface ISubscriptionStore
     /// <summary>
     /// Resolves every subscription that should receive an object event — used by the
     /// delivery listener, which has only the event's account and target, not a request
-    /// context. Matches the account, object type, the subscribed key, and an
-    /// organization scope of either "any" (null) or the object's owning entity.
+    /// context. Matches the account, object type and the subscribed key
     /// </summary>
-    Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, string objectKey, string eventKey, Guid objectEntityId);
+    Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, string objectKey, string eventKey);
 }

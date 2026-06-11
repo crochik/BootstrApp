@@ -1,28 +1,20 @@
-using System.Dynamic;
+using Crochik.Logging;
 using Crochik.Messaging;
 using Crochik.Mongo;
 using Messages.Flow;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using PI.Shared.App;
-using PI.Shared.Extensions;
+using PI.Shared.Constants;
 using PI.Shared.Integrations.Subscriptions;
 using PI.Shared.Models;
 using PI.Shared.Services;
 
 namespace PI.Shared.Integrations.Delivery;
 
-/// <summary>
-/// Generic outbound trigger. Listens to <c>object.#</c> — every object lifecycle event
-/// for every object type — and, for each, finds the matching REST Hook subscriptions,
-/// builds the per-subscriber (RBAC-flattened) payload and hands it to the
-/// <see cref="IEventPublisher"/> for durable, signed delivery. There is no per-type
-/// special casing: a subscription on any object type just works.
-/// </summary>
 public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetimeService
 {
-    private readonly MongoConnection _connection;
-    private readonly ObjectTypeService _objectTypes;
+    private readonly ObjectTypeService _objectTypeService;
     private readonly ISubscriptionStore _store;
     private readonly IEventPublisher _publisher;
 
@@ -31,13 +23,12 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
         IConfiguration configuration,
         IMessageBroker messageBroker,
         MongoConnection connection,
-        ObjectTypeService objectTypes,
+        ObjectTypeService objectTypeService,
         ISubscriptionStore store,
         IEventPublisher publisher)
         : base(logger, configuration, messageBroker)
     {
-        _connection = connection;
-        _objectTypes = objectTypes;
+        _objectTypeService = objectTypeService;
         _store = store;
         _publisher = publisher;
     }
@@ -45,101 +36,81 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
     protected override void Init(IMessageQueue queue, TypeMapper mapper)
     {
         // Every object lifecycle event for every object type: object.{type}.{id}.{action}
-        MessageBroker.Bind(queue, "object.#");
-        mapper.Register<GenericFlowEvent>();
+        // MessageBroker.Bind(queue, "object.#");
+        // mapper.Register<GenericFlowEvent>();
+
+        MessageBroker.Bind(queue, ActionIds.GetRoute(ActionIds.FireWebhook));
+        mapper.Register<SimpleActionMessage<FireWebhookActionOptions>>();
     }
 
     protected override async Task OnMessageAsync(IMessage message)
     {
         try
         {
-            if (message.Body is GenericFlowEvent evt && message.RoutingKey.StartsWith("object."))
+            if (message.Body is SimpleActionMessage<FireWebhookActionOptions> webhook)
             {
-                await HandleAsync(message.RoutingKey, evt);
+                await CreateWebhookAsync(webhook);
             }
+
+            // if (message.Body is GenericFlowEvent evt && message.RoutingKey.StartsWith("object."))
+            // {
+            //     await HandleAsync(message.RoutingKey, evt);
+            // }
         }
         catch (Exception ex)
         {
             Logger.LogError(ex, "Failed to process object event {RoutingKey}", message.RoutingKey);
         }
-
-        message.Acknowledge();
-    }
-
-    private async Task HandleAsync(string routingKey, GenericFlowEvent evt)
-    {
-        var eventKey = MapAction(routingKey);
-        if (eventKey is null || string.IsNullOrEmpty(evt.ObjectType)) return;
-
-        var accountContext = new IntegrationAccountContext(evt.AccountId);
-
-        var objectType = await _objectTypes.GetAsync(accountContext, evt.ObjectType);
-        if (objectType is null) return;
-
-        // The object's owning entity scopes org-narrowed subscriptions.
-        var doc = await _connection.Filter<ExpandoObject>(objectType.CollectionName, objectType.DatabaseName)
-            .Eq(Model.IdFieldName, evt.TargetId)
-            .FirstOrDefaultAsync();
-        if (doc is null) return;
-
-        var objectEntityId = ((IDictionary<string, object>)doc).TryGetGuidParam("EntityId", out var entityId)
-            ? entityId
-            : Guid.Empty;
-
-        var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, evt.ObjectType, eventKey, objectEntityId);
-        if (subscriptions.Count == 0) return;
-
-        // Group by profile so the RBAC-flattened payload is built once per distinct view.
-        foreach (var group in subscriptions.GroupBy(s => s.ProfileId))
+        finally
         {
-            var sample = group.First();
-            var profileContext = ProfileContext.Create(sample.ProfileId, evt.AccountId, sample.EntityId, sample.ClientId, objectEntityId);
-
-            var flat = await _objectTypes.GetFlatObjectAsync(profileContext, objectType, evt.TargetId);
-            if (flat is null) continue;
-
-            var count = await _publisher.PublishAsync(
-                new WebhookEventData(evt.AccountId, evt.ObjectType, eventKey, flat),
-                group.ToList());
-
-            Logger.LogInformation("Published {ObjectType}/{Event} to {Count} subscription(s) for profile {ProfileId}",
-                evt.ObjectType, eventKey, count, sample.ProfileId);
+            message.Acknowledge();
         }
     }
 
-    /// <summary>Maps the routing-key action segment to a lifecycle key (Create/Update/Delete).</summary>
-    private static string MapAction(string routingKey)
+    private async Task CreateWebhookAsync(SimpleActionMessage<FireWebhookActionOptions> action)
     {
-        var action = routingKey.Split('.').LastOrDefault();
-        return action?.ToLowerInvariant() switch
+        using var scope = Logger.AddScope(new
         {
-            "create" => nameof(FlowObjectEventRoute.Create),
-            "update" => nameof(FlowObjectEventRoute.Update),
-            "delete" => nameof(FlowObjectEventRoute.Delete),
-            _ => null,
-        };
-    }
-}
+            action.Event.ObjectType,
+            action.Event.TargetId,
+        });
 
-/// <summary>
-/// Minimal account-scoped context for the listener, which has no request. Admin role
-/// within the event's account — enough to resolve the object type and read the object.
-/// </summary>
-internal sealed class IntegrationAccountContext : IEntityContext
-{
-    public IntegrationAccountContext(Guid accountId)
-    {
-        AccountId = accountId;
-    }
+        Logger.LogInformation("Fire Webhook action");
 
-    public EntityRoleId Role => EntityRoleId.Admin;
-    public Guid? UserId => null;
-    public Guid? OrganizationId => null;
-    public Guid? AccountId { get; }
-    public Guid? ProfileId => null;
-    public Guid[] AllProfileIds => Array.Empty<Guid>();
-    public string ClientId => null;
-    public Guid? EntityId => AccountId;
-    public IEnumerable<Guid> GetEntityIds() => AccountId.HasValue ? new[] { AccountId.Value } : Enumerable.Empty<Guid>();
-    public IReadOnlyDictionary<string, string[]> Claims => null;
+        var evt = action.Event;
+        var eventKey = $"{evt.ObjectType}_{action.Options.EventId}";
+
+        var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, evt.ObjectType, eventKey);
+        if (subscriptions.Count == 0) return;
+
+        var accountContext = new AccountContext(evt.AccountId);
+        var objectType = await _objectTypeService.GetAsync(accountContext, evt.ObjectType);
+        if (objectType is null) return;
+
+        foreach (var subscription in subscriptions)
+        {
+            var profileContext = ProfileContext.Create(
+                subscription.ProfileId,
+                evt.AccountId,
+                subscription.EntityId, /* user id */
+                subscription.ClientId,
+                subscription.OrganizationId
+            );
+
+            var flat = await _objectTypeService.GetFlatObjectAsync(profileContext, objectType, evt.TargetId);
+            if (flat is null)
+            {
+                // "profile" doesn't have access to this object, skip
+                continue;
+            }
+
+            await _publisher.PublishAsync(
+                new WebhookEventData(evt.AccountId, evt.ObjectType, eventKey, flat),
+                [subscription]
+            );
+
+            Logger.LogInformation("Published {ObjectType}/{Event} to subscription for profile {ProfileId}",
+                evt.ObjectType, eventKey, subscription.ProfileId);
+        }
+    }
 }

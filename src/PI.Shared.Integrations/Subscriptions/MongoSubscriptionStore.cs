@@ -43,7 +43,7 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
             LastActor = context.Actor(),
             Name = $"{objectKey}: {eventKey}",
             ObjectType = objectKey,
-            Keys = new[] { eventKey },
+            Keys = [eventKey],
             Url = targetUrl,
             Secret = "whsec_" + Convert.ToBase64String(RandomNumberGenerator.GetBytes(24)),
         };
@@ -60,6 +60,7 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
     {
         var removed = await _connection.Filter<T>()
             .Eq(x => x.AccountId, context.AccountId.Value)
+            .Eq(x => x.EntityId, context.UserId.Value)
             .Eq(x => x.Id, id)
             .DeleteAsync();
 
@@ -98,12 +99,11 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
         return found;
     }
 
-    public async Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, string objectKey, string eventKey, Guid objectEntityId)
+    public async Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, string objectKey, string eventKey)
     {
         var found = await _connection.Filter<T>()
             .Eq(x => x.AccountId, accountId)
             .Eq(x => x.ObjectType, objectKey)
-            .In(x => x.OrganizationId, new[] { default(Guid?), objectEntityId })
             .AnyEq(x => x.Keys, eventKey)
             .FindAsync();
 

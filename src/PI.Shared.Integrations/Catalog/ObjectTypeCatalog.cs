@@ -58,25 +58,27 @@ public sealed class ObjectTypeCatalog(MongoConnection connection, ObjectTypeServ
             return [];
         }
 
+        var query = connection.Filter<Flow>()
+            .Eq(x => x.AccountId, context.AccountId)
+            .ElemMatchBuilder(f => f.Steps, q => q.Eq(x => x.ActionId, ActionIds.FireWebhook));
+
         if (objectType.UsesDefaultFlow)
         {
-            // TODO: load flow and get actions from it
-            // objectType.InitialFlowId
-            // ...
-            return [];
+            // load flow
+            query.Eq(x => x.Id, objectType.InitialFlowId);
         }
-
-        if (!objectType.TryGetObjectTypeFromFlowField(out var objectTypeName))
+        else
         {
-            objectTypeName = objectKey;
+            // load all flows for the object type
+            if (!objectType.TryGetObjectTypeFromFlowField(out var objectTypeName))
+            {
+                objectTypeName = objectKey;
+            }
+
+            query.Eq(x => x.ObjectType, objectTypeName);
         }
 
-        var flows = await connection.Filter<Flow>()
-            .Eq(x => x.AccountId, context.AccountId)
-            .Eq(x => x.ObjectType, objectTypeName)
-            .ElemMatchBuilder(f => f.Steps, q => q.Eq(x => x.ActionId, ActionIds.FireWebhook))
-            .FindAsync();
-
+        var flows = await query.FindAsync();
         var steps = flows
             .SelectMany(x => x.Steps
                 .Where(q => q.ActionId == ActionIds.FireWebhook)
@@ -87,7 +89,7 @@ public sealed class ObjectTypeCatalog(MongoConnection connection, ObjectTypeServ
             .Select(x => (x.Options as GenericActionOptions)?.ConvertTo<FireWebhookActionOptions>())
             .Where(x => x != null)
             .DistinctBy(x => x!.EventId)
-            .Select(x => new TriggerEventDescriptor(x!.EventId, x.EventDescription, x.EventDescription))
+            .Select(x => new TriggerEventDescriptor(x!.EventId, x.EventName, x.EventDescription))
             .ToImmutableList();
     }
 
@@ -97,11 +99,4 @@ public sealed class ObjectTypeCatalog(MongoConnection connection, ObjectTypeServ
         var description = !string.IsNullOrWhiteSpace(ot.Description) ? ot.Description : $"A {label}.";
         return new TriggerObjectDescriptor(ot.FullName, label, description);
     }
-}
-
-public class FireWebhookActionOptions : ActionOptions
-{
-    public string EventId { get; set; }
-    public string EventName { get; set; }
-    public string EventDescription { get; set; }
 }
