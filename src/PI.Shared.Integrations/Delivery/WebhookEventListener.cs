@@ -41,6 +41,7 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
 
         MessageBroker.Bind(queue, ActionIds.GetRoute(ActionIds.FireWebhook));
         mapper.Register<SimpleActionMessage<FireWebhookActionOptions>>();
+        mapper.Register<SimpleActionMessage<GenericActionOptions>>();
     }
 
     protected override async Task OnMessageAsync(IMessage message)
@@ -56,6 +57,10 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
 
                 case SimpleActionMessage<FireWebhookActionOptions> msg:
                     await CreateWebhookAsync(msg.Event, msg.Options);
+                    break;
+                
+                default:
+                    Logger.LogError("Unexpected Message: {Type}", message.Body.GetType());
                     break;
             }
         }
