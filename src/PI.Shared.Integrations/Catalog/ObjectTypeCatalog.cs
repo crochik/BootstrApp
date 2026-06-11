@@ -44,9 +44,8 @@ public sealed class ObjectTypeCatalog(MongoConnection connection, ObjectTypeServ
 
     public async Task<TriggerEventDescriptor?> GetEventAsync(IEntityContext context, string objectKey, string eventKey)
     {
-        throw new NotImplementedException();
-        // var obj = await GetObjectAsync(context, objectKey);
-        // return obj?.Events.FirstOrDefault(e => string.Equals(e.Key, eventKey, StringComparison.OrdinalIgnoreCase));
+        var list = await GetEventsAsync(context, objectKey);
+        return list.FirstOrDefault(x => x.Key == eventKey);
     }
 
     public async Task<IReadOnlyList<TriggerEventDescriptor>> GetEventsAsync(IEntityContext context, string objectKey)
