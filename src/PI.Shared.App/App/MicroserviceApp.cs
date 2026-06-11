@@ -348,11 +348,7 @@ public abstract class MicroserviceApp : HostedApp
                     {
                         AuthorizationUrl = new Uri($"{AuthConfig.Authority}/connect/authorize"), // ?acr_values=idp:InspireNet
                         TokenUrl = new Uri($"{AuthConfig.Authority}/connect/token"),
-                        Scopes = new Dictionary<string, string>
-                        {
-                            { "api", "ProgramInterface.com" },
-                            { "rest", "REST API" }
-                        }
+                        Scopes = SwaggerScopes
                     }
                 }
             });
@@ -365,6 +361,12 @@ public abstract class MicroserviceApp : HostedApp
         var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
         if (File.Exists(xmlPath)) options.IncludeXmlComments(xmlPath);
     }
+
+    protected virtual IDictionary<string, string> SwaggerScopes => new Dictionary<string, string>
+    {
+        { "api", "ProgramInterface.com" },
+        { "rest", "REST API" }
+    };
 
     private Dictionary<Type, string> resolved = new()
     {

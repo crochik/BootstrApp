@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using IdentityModel;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PI.Shared.App;
@@ -83,6 +83,11 @@ public class Program : MicroserviceApp
         // HttpCallOut flow action (unrelated to Zapier subscriptions).
         AddLifetimeService<WebhookService>(services);
     }
+
+    protected override IDictionary<string, string> SwaggerScopes => new Dictionary<string, string>
+    {
+        { "zapier", "Zapier" },
+    };
 
     protected override void AddPolicies(AuthorizationOptions options)
     {
