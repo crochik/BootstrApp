@@ -15,20 +15,13 @@ namespace Zapier.Controllers;
 /// </summary>
 [Authorize("zapier")]
 [Route("/zapier/v1")]
-public class CatalogController : APIController
+public class CatalogController(IObjectCatalog catalog) : APIController
 {
-    private readonly IObjectCatalog _catalog;
-
-    public CatalogController(IObjectCatalog catalog)
-    {
-        _catalog = catalog;
-    }
-
     /// <summary>Lists every object — source for the "Object" dropdown.</summary>
     [HttpGet("objects")]
     public async Task<IActionResult> GetObjects()
     {
-        var objects = await _catalog.GetObjectsAsync(Context);
+        var objects = await catalog.GetObjectsAsync(Context);
         return Ok(objects.Select(o => new ObjectDto(o.Key, o.Label, o.Description)));
     }
 
@@ -36,7 +29,7 @@ public class CatalogController : APIController
     [HttpGet("objects/{objectKey}/events")]
     public async Task<IActionResult> GetEvents(string objectKey)
     {
-        var events = await _catalog.GetEventsAsync(Context, objectKey);
+        var events = await catalog.GetEventsAsync(Context, objectKey);
         return Ok(events.Select(e => new EventDto(e.Key, e.Label, e.Description)));
     }
 }

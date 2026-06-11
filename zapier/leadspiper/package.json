@@ -1,0 +1,16 @@
+{
+  "name": "leadspiper-zapier",
+  "version": "1.0.0",
+  "description": "Get the most of your leads with the help of your friendly bard",
+  "scripts": {
+    "test": "jest --testTimeout 10000"
+  },
+  "dependencies": {
+    "zapier-platform-core": "19.0.0"
+  },
+  "devDependencies": {
+    "jest": "^29.6.0"
+  },
+  "private": true,
+  "main": "index.js"
+}

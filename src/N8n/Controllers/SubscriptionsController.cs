@@ -17,25 +17,13 @@ namespace N8n.Controllers;
 /// </summary>
 [Authorize("n8n")]
 [Route("/n8n/v1")]
-public class SubscriptionsController : APIController
+public class SubscriptionsController(
+    ILogger<SubscriptionsController> logger,
+    IObjectCatalog catalog,
+    ISubscriptionStore store,
+    ISampleFactory samples)
+    : APIController
 {
-    private readonly ILogger<SubscriptionsController> _logger;
-    private readonly IObjectCatalog _catalog;
-    private readonly ISubscriptionStore _store;
-    private readonly ISampleFactory _samples;
-
-    public SubscriptionsController(
-        ILogger<SubscriptionsController> logger,
-        IObjectCatalog catalog,
-        ISubscriptionStore store,
-        ISampleFactory samples)
-    {
-        _logger = logger;
-        _catalog = catalog;
-        _store = store;
-        _samples = samples;
-    }
-
     /// <summary>create: registers the node's webhook URL for an object/event.</summary>
     [HttpPost("subscriptions")]
     public async Task<IActionResult> CreateAsync([FromBody] SubscribeRequest request)
@@ -47,14 +35,14 @@ public class SubscriptionsController : APIController
             return BadRequest(new { error = "targetUrl must be an absolute http(s) URL" });
         }
 
-        if (await _catalog.GetEventAsync(Context, request.Object ?? "", request.Event ?? "") is null)
+        if (await catalog.GetEventAsync(Context, request.Object ?? "", request.Event ?? "") is null)
         {
             return BadRequest(new { error = $"unknown object/event '{request.Object}/{request.Event}'" });
         }
 
-        var subscription = await _store.AddAsync(Context, request.Object, request.Event, request.TargetUrl);
+        var subscription = await store.AddAsync(Context, request.Object, request.Event, request.TargetUrl);
 
-        _logger.LogInformation("Created n8n subscription {SubscriptionId} for {ObjectType}/{Event}",
+        logger.LogInformation("Created n8n subscription {SubscriptionId} for {ObjectType}/{Event}",
             subscription.Id, request.Object, request.Event);
 
         return Ok(new SubscribeResponse(subscription.Id.ToString(), request.Object, request.Event, subscription.Url));
@@ -66,7 +54,7 @@ public class SubscriptionsController : APIController
     {
         if (Guid.TryParse(id, out var subscriptionId))
         {
-            await _store.RemoveAsync(Context, subscriptionId);
+            await store.RemoveAsync(Context, subscriptionId);
         }
 
         return NoContent();
@@ -79,7 +67,7 @@ public class SubscriptionsController : APIController
     [HttpGet("subscriptions/exists")]
     public async Task<IActionResult> ExistsAsync([FromQuery] string @object, [FromQuery] string @event, [FromQuery] string targetUrl)
     {
-        var matches = await _store.FindAsync(Context, @object ?? "", @event ?? "");
+        var matches = await store.FindAsync(Context, @object ?? "", @event ?? "");
         var match = matches.FirstOrDefault(s => string.Equals(s.Url, targetUrl, StringComparison.OrdinalIgnoreCase));
 
         return Ok(new ExistsResponse(match is not null, match?.Id.ToString()));
@@ -92,12 +80,12 @@ public class SubscriptionsController : APIController
     [HttpGet("objects/{objectKey}/events/{eventKey}/samples")]
     public async Task<IActionResult> SamplesAsync(string objectKey, string eventKey)
     {
-        if (await _catalog.GetEventAsync(Context, objectKey, eventKey) is null)
+        if (await catalog.GetEventAsync(Context, objectKey, eventKey) is null)
         {
             return NotFound(new { error = $"unknown object/event '{objectKey}/{eventKey}'" });
         }
 
-        var sample = await _samples.CreateDeliveredSampleAsync(Context, objectKey, eventKey, Context.AccountId?.ToString() ?? "");
+        var sample = await samples.CreateDeliveredSampleAsync(Context, objectKey, eventKey, Context.AccountId?.ToString() ?? "");
         return Ok(new[] { sample });
     }
 }
