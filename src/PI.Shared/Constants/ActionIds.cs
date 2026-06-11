@@ -105,6 +105,7 @@ public class ActionIds
     public static readonly Guid ExportToQuickbooks = Guid.Parse("1d1430a0-a6c8-4dbc-b073-aef699b0b36a");
     public static readonly Guid Compose = Guid.Parse("ce1b6a5b-f528-4cd8-ab63-90ed0444d2b7");
     public static readonly Guid FireEvent = Guid.Parse("9003b678-fb9d-421f-97cd-09f5d2869637");
+    public static readonly Guid FireWebhook = Guid.Parse("dc672599-64a4-403d-8cec-b7413d86cf6d");
     
     // salesforce
     public static readonly Guid CreateSalesforceObject = Guid.Parse("1d5f47f3-1880-4f3c-8297-5e1f60e40cd6");

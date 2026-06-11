@@ -1,5 +1,9 @@
+using System.Collections.Immutable;
 using Crochik.Mongo;
+using Messages.Flow;
+using PI.Shared.Constants;
 using PI.Shared.Models;
+using PI.Shared.Services;
 
 namespace PI.Shared.Integrations.Catalog;
 
@@ -9,30 +13,11 @@ namespace PI.Shared.Integrations.Catalog;
 /// can read; events are the platform lifecycle — Create/Update/Delete — which is the
 /// same vocabulary <c>FlowObjectEventRoute</c> uses on the wire.
 /// </summary>
-public sealed class ObjectTypeCatalog : IObjectCatalog
+public sealed class ObjectTypeCatalog(MongoConnection connection, ObjectTypeService objectTypeService) : IObjectCatalog
 {
-    /// <summary>
-    /// Lifecycle every object exposes. Keys match <see cref="FlowObjectEventRoute"/>
-    /// names so a subscription's stored key equals the action carried on the
-    /// <c>object.{type}.{id}.{action}</c> routing key the listener receives.
-    /// </summary>
-    public static readonly IReadOnlyList<TriggerEventDescriptor> Lifecycle = new[]
-    {
-        new TriggerEventDescriptor(nameof(FlowObjectEventRoute.Create), "Created", "Fires when the object is created."),
-        new TriggerEventDescriptor(nameof(FlowObjectEventRoute.Update), "Updated", "Fires when the object is updated."),
-        new TriggerEventDescriptor(nameof(FlowObjectEventRoute.Delete), "Deleted", "Fires when the object is deleted."),
-    };
-
-    private readonly MongoConnection _connection;
-
-    public ObjectTypeCatalog(MongoConnection connection)
-    {
-        _connection = connection;
-    }
-
     public async Task<IReadOnlyList<TriggerObjectDescriptor>> GetObjectsAsync(IEntityContext context)
     {
-        var objectTypes = await _connection.Filter<ObjectType>()
+        var objectTypes = await connection.Filter<ObjectType>()
             .Eq(x => x.AccountId, context.AccountId)
             .BitsAllSet(x => x.RBAC.Permissions[context.ProfileId.ToString()], 1)
             .Ne(x => x.IsEmbedded, true)
@@ -49,7 +34,7 @@ public sealed class ObjectTypeCatalog : IObjectCatalog
     {
         if (string.IsNullOrWhiteSpace(objectKey)) return null;
 
-        var objectType = await _connection.Filter<ObjectType>()
+        var objectType = await connection.Filter<ObjectType>()
             .Eq(x => x.AccountId, context.AccountId)
             .Eq(x => x.Name, objectKey)
             .FirstOrDefaultAsync();
@@ -64,16 +49,59 @@ public sealed class ObjectTypeCatalog : IObjectCatalog
         // return obj?.Events.FirstOrDefault(e => string.Equals(e.Key, eventKey, StringComparison.OrdinalIgnoreCase));
     }
 
-    public Task<IReadOnlyList<TriggerEventDescriptor>> GetEventsAsync(IEntityContext context, string objectKey)
+    public async Task<IReadOnlyList<TriggerEventDescriptor>> GetEventsAsync(IEntityContext context, string objectKey)
     {
-        throw new NotImplementedException();
+        var objectType = await objectTypeService.GetAsync(context, objectKey);
+        if (objectType is null)
+        {
+            // error
+            return [];
+        }
+
+        if (objectType.UsesDefaultFlow)
+        {
+            // TODO: load flow and get actions from it
+            // objectType.InitialFlowId
+            // ...
+            return [];
+        }
+
+        if (!objectType.TryGetObjectTypeFromFlowField(out var objectTypeName))
+        {
+            objectTypeName = objectKey;
+        }
+
+        var flows = await connection.Filter<Flow>()
+            .Eq(x => x.AccountId, context.AccountId)
+            .Eq(x => x.ObjectType, objectTypeName)
+            .ElemMatchBuilder(f => f.Steps, q => q.Eq(x => x.ActionId, ActionIds.FireWebhook))
+            .FindAsync();
+
+        var steps = flows
+            .SelectMany(x => x.Steps
+                .Where(q => q.ActionId == ActionIds.FireWebhook)
+            )
+            .ToArray();
+
+        return steps
+            .Select(x => (x.Options as GenericActionOptions)?.ConvertTo<FireWebhookActionOptions>())
+            .Where(x => x != null)
+            .DistinctBy(x => x!.EventId)
+            .Select(x => new TriggerEventDescriptor(x!.EventId, x.EventDescription, x.EventDescription))
+            .ToImmutableList();
     }
 
     private static TriggerObjectDescriptor Describe(ObjectType ot)
     {
         var label = ot.LabelPlural ?? ot.Label ?? ot.Name;
-        var noun = ot.Label ?? ot.Namespace;
         var description = !string.IsNullOrWhiteSpace(ot.Description) ? ot.Description : $"A {label}.";
         return new TriggerObjectDescriptor(ot.FullName, label, description);
     }
+}
+
+public class FireWebhookActionOptions : ActionOptions
+{
+    public string EventId { get; set; }
+    public string EventName { get; set; }
+    public string EventDescription { get; set; }
 }
