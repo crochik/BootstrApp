@@ -98,7 +98,7 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
 
         Logger.LogInformation("Fire Webhook action");
 
-        var eventKey = $"{evt.ObjectType}_{options.EventId}";
+        var eventKey = options.EventId;
 
         var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, evt.ObjectType, eventKey);
         if (subscriptions.Count == 0)
