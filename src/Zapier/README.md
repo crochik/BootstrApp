@@ -21,7 +21,6 @@ Manager/Admin/Root role and the `zapier` scope. Send it as `Authorization: Beare
 | `GET /user` | Connection test — returns the current user. |
 | `GET /objects` | Source for Zapier's "Object" dropdown (`{key,label,description}`). |
 | `GET /objects/{object}/events` | Source for the dependent "Event" dropdown. |
-| `GET /triggers` | Flattened object+event pairs for a single combined trigger dropdown. |
 | `POST /subscriptions` | Subscribe: register Zapier's callback URL for an object/event. |
 | `DELETE /subscriptions/{id}` | Unsubscribe (idempotent). |
 | `GET /objects/{object}/events/{event}/samples` | Example delivered envelope for the "test trigger" step. |
@@ -53,9 +52,6 @@ The connection holds the user's platform bearer token (a JWT with the `zapier` s
   `label` → label.
 - **Event** — a dynamic dropdown that *depends on* Object, sourced from
   `GET /zapier/v1/objects/{{bundle.inputData.object}}/events`; map `key` → value, `label` → label.
-
-> Alternatively drop both fields and use one "What happened?" dropdown sourced from
-> `GET /zapier/v1/triggers`, keyed on `key` (`"{object}.{event}"`).
 
 ### 3. REST Hook (subscribe / unsubscribe / perform)
 

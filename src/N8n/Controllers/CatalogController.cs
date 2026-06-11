@@ -36,12 +36,7 @@ public class CatalogController : APIController
     [HttpGet("objects/{objectKey}/events")]
     public async Task<IActionResult> GetEvents(string objectKey)
     {
-        var obj = await _catalog.GetObjectAsync(Context, objectKey);
-        if (obj is null)
-        {
-            return NotFound(new { error = $"unknown object '{objectKey}'" });
-        }
-
-        return Ok(obj.Events.Select(e => new N8nOption(e.Label, e.Key, e.Description)));
+        var events = await _catalog.GetEventsAsync(Context, objectKey);
+        return Ok(events.Select(e => new N8nOption(e.Label, e.Key, e.Description)));
     }
 }

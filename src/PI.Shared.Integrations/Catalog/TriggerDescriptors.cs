@@ -10,9 +10,7 @@ namespace PI.Shared.Integrations.Catalog;
 public sealed record TriggerObjectDescriptor(
     string Key,
     string Label,
-    string Noun,
-    string Description,
-    IReadOnlyList<TriggerEventDescriptor> Events);
+    string Description);
 
 /// <summary>
 /// A single event an object can emit. Keyed by the platform's lifecycle vocabulary

@@ -44,29 +44,24 @@ public class CatalogController : APIController
     [HttpGet("objects/{objectKey}/events")]
     public async Task<IActionResult> GetEvents(string objectKey)
     {
-        var obj = await _catalog.GetObjectAsync(Context, objectKey);
-        if (obj is null)
-        {
-            return NotFound(new { error = $"unknown object '{objectKey}'" });
-        }
-
-        return Ok(obj.Events.Select(e => new EventDto(e.Key, e.Label, e.Description)));
+        var events = await _catalog.GetEventsAsync(Context, objectKey);
+        return Ok(events.Select(e => new EventDto(e.Key, e.Label, e.Description)));
     }
 
     /// <summary>The full flattened set of subscribable event types (<c>object.event</c>).</summary>
-    [HttpGet("events")]
-    public async Task<IActionResult> GetEventTypes()
-    {
-        var objects = await _catalog.GetObjectsAsync(Context);
-        var eventTypes = objects
-            .SelectMany(o => o.Events.Select(e => new EventTypeDto(
-                Key: $"{o.Key}.{e.Key}",
-                ObjectKey: o.Key,
-                ObjectLabel: o.Label,
-                EventKey: e.Key,
-                EventLabel: e.Label,
-                Description: e.Description)));
-
-        return Ok(eventTypes);
-    }
+    // [HttpGet("events")]
+    // public async Task<IActionResult> GetEventTypes()
+    // {
+    //     var objects = await _catalog.GetObjectsAsync(Context);
+    //     var eventTypes = objects
+    //         .SelectMany(o => o.Events.Select(e => new EventTypeDto(
+    //             Key: $"{o.Key}.{e.Key}",
+    //             ObjectKey: o.Key,
+    //             ObjectLabel: o.Label,
+    //             EventKey: e.Key,
+    //             EventLabel: e.Label,
+    //             Description: e.Description)));
+    //
+    //     return Ok(eventTypes);
+    // }
 }

@@ -34,13 +34,12 @@ public sealed class ObjectTypeCatalog : IObjectCatalog
     {
         var objectTypes = await _connection.Filter<ObjectType>()
             .Eq(x => x.AccountId, context.AccountId)
+            .BitsAllSet(x => x.RBAC.Permissions[context.ProfileId.ToString()], 1)
             .Ne(x => x.IsEmbedded, true)
             .Ne(x => x.IsAbstract, true)
-            .Limit(100)
             .FindAsync();
 
         return objectTypes
-            .Where(ot => !string.IsNullOrWhiteSpace(ot.Name))
             .Select(Describe)
             .OrderBy(o => o.Label, StringComparer.OrdinalIgnoreCase)
             .ToList();
@@ -60,15 +59,21 @@ public sealed class ObjectTypeCatalog : IObjectCatalog
 
     public async Task<TriggerEventDescriptor?> GetEventAsync(IEntityContext context, string objectKey, string eventKey)
     {
-        var obj = await GetObjectAsync(context, objectKey);
-        return obj?.Events.FirstOrDefault(e => string.Equals(e.Key, eventKey, StringComparison.OrdinalIgnoreCase));
+        throw new NotImplementedException();
+        // var obj = await GetObjectAsync(context, objectKey);
+        // return obj?.Events.FirstOrDefault(e => string.Equals(e.Key, eventKey, StringComparison.OrdinalIgnoreCase));
+    }
+
+    public Task<IReadOnlyList<TriggerEventDescriptor>> GetEventsAsync(IEntityContext context, string objectKey)
+    {
+        throw new NotImplementedException();
     }
 
     private static TriggerObjectDescriptor Describe(ObjectType ot)
     {
-        var label = !string.IsNullOrWhiteSpace(ot.Label) ? ot.Label : ot.Name;
-        var noun = !string.IsNullOrWhiteSpace(ot.LabelPlural) ? ot.LabelPlural : label;
+        var label = ot.LabelPlural ?? ot.Label ?? ot.Name;
+        var noun = ot.Label ?? ot.Namespace;
         var description = !string.IsNullOrWhiteSpace(ot.Description) ? ot.Description : $"A {label}.";
-        return new TriggerObjectDescriptor(ot.Name, label, noun, description, Lifecycle);
+        return new TriggerObjectDescriptor(ot.FullName, label, description);
     }
 }

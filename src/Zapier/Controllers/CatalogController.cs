@@ -36,30 +36,7 @@ public class CatalogController : APIController
     [HttpGet("objects/{objectKey}/events")]
     public async Task<IActionResult> GetEvents(string objectKey)
     {
-        var obj = await _catalog.GetObjectAsync(Context, objectKey);
-        if (obj is null)
-        {
-            return NotFound(new { error = $"unknown object '{objectKey}'" });
-        }
-
-        return Ok(obj.Events.Select(e => new EventDto(e.Key, e.Label, e.Description)));
-    }
-
-    /// <summary>Flattened object+event pairs — backs a single "What happened?" dropdown.</summary>
-    [HttpGet("triggers")]
-    public async Task<IActionResult> GetTriggers()
-    {
-        var objects = await _catalog.GetObjectsAsync(Context);
-        var triggers = objects
-            .SelectMany(o => o.Events.Select(e => new TriggerDto(
-                Key: $"{o.Key}.{e.Key}",
-                Label: $"{o.Label}: {e.Label}",
-                ObjectKey: o.Key,
-                ObjectLabel: o.Label,
-                EventKey: e.Key,
-                EventLabel: e.Label,
-                Description: e.Description)));
-
-        return Ok(triggers);
+        var events = await _catalog.GetEventsAsync(Context, objectKey);
+        return Ok(events.Select(e => new EventDto(e.Key, e.Label, e.Description)));
     }
 }

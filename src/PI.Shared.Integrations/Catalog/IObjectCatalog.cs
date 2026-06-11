@@ -19,4 +19,9 @@ public interface IObjectCatalog
 
     /// <summary>Resolves a single event on an object, or <c>null</c> if either is unknown.</summary>
     Task<TriggerEventDescriptor?> GetEventAsync(IEntityContext context, string objectKey, string eventKey);
+    
+    /// <summary>
+    /// Get events for object
+    /// </summary>
+    Task<IReadOnlyList<TriggerEventDescriptor>> GetEventsAsync(IEntityContext context, string objectKey);
 }
