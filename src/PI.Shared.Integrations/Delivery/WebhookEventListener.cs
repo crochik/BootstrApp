@@ -101,11 +101,19 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
         var eventKey = $"{evt.ObjectType}_{options.EventId}";
 
         var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, evt.ObjectType, eventKey);
-        if (subscriptions.Count == 0) return;
+        if (subscriptions.Count == 0)
+        {
+            Logger.LogInformation("Found no subscriptions in the {Account} for {ObjectType}_{EventKey}", evt.AccountId, evt.ObjectType, eventKey);
+            return;
+        }
 
         var accountContext = new AccountContext(evt.AccountId);
         var objectType = await _objectTypeService.GetAsync(accountContext, evt.ObjectType);
-        if (objectType is null) return;
+        if (objectType is null)
+        {
+            Logger.LogError("Couldn't load {ObjectType} for {AccountId}", evt.ObjectType, evt.AccountId);
+            return;
+        }
 
         foreach (var subscription in subscriptions)
         {
@@ -121,6 +129,13 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
             if (flat is null)
             {
                 // "profile" doesn't have access to this object, skip
+                Logger.LogInformation("{ProfileId} {UserId} {OrganizationId} does not have access to {ObjectType} {ObjectId}",
+                    subscription.ProfileId,
+                    subscription.EntityId,
+                    subscription.OrganizationId,
+                    evt.ObjectType,
+                    evt.TargetId
+                    );
                 continue;
             }
 
