@@ -10,7 +10,7 @@ public interface IWebhookStore
     Task SaveEventAsync(WebhookEvent webhookEvent);
 
     /// <summary>Inserts the per-subscription delivery documents for an event.</summary>
-    Task CreateDeliveriesAsync(IReadOnlyList<WebhookDelivery> deliveries);
+    Task CreateDeliveriesAsync(IEnumerable<WebhookDelivery> deliveries);
 
     Task<WebhookEvent> GetEventAsync(Guid eventId);
 

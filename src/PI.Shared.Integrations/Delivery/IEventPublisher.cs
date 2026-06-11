@@ -17,7 +17,7 @@ public sealed record WebhookEventData(Guid AccountId, string ObjectType, string 
 public interface IEventPublisher
 {
     /// <returns>The number of per-subscription deliveries enqueued.</returns>
-    Task<int> PublishAsync(WebhookEventData data, IReadOnlyList<IntegrationSubscription> targets, CancellationToken ct = default);
+    Task<WebhookDelivery[]> PublishAsync(WebhookEventData data, IReadOnlyList<IntegrationSubscription> targets, CancellationToken ct = default);
 }
 
 /// <summary>
@@ -41,9 +41,9 @@ public sealed class WebhookEventPublisher : IEventPublisher
         _logger = logger;
     }
 
-    public async Task<int> PublishAsync(WebhookEventData data, IReadOnlyList<IntegrationSubscription> targets, CancellationToken ct = default)
+    public async Task<WebhookDelivery[]> PublishAsync(WebhookEventData data, IReadOnlyList<IntegrationSubscription> targets, CancellationToken ct = default)
     {
-        if (targets.Count == 0) return 0;
+        if (targets.Count == 0) return [];
 
         var now = DateTime.UtcNow;
         var webhookEvent = new WebhookEvent
@@ -73,7 +73,7 @@ public sealed class WebhookEventPublisher : IEventPublisher
             NextAttemptAt = now, // due immediately; gives the reconciler a uniform sweep key
             CreatedOn = now,
             UpdatedOn = now,
-        }).ToList();
+        }).ToArray();
 
         await _store.CreateDeliveriesAsync(deliveries);
 
@@ -90,7 +90,7 @@ public sealed class WebhookEventPublisher : IEventPublisher
             }
         }
 
-        return deliveries.Count;
+        return deliveries;
     }
 }
 

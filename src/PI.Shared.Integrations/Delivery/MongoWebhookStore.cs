@@ -8,24 +8,17 @@ namespace PI.Shared.Integrations.Delivery;
 /// authoritative per-delivery status/attempt history in the <c>webhook.Event</c> and
 /// <c>webhook.Delivery</c> collections.
 /// </summary>
-public sealed class MongoWebhookStore : IWebhookStore
+public sealed class MongoWebhookStore(MongoConnection connection) : IWebhookStore
 {
-    private readonly MongoConnection _connection;
+    public async Task SaveEventAsync(WebhookEvent webhookEvent) => await connection.InsertAsync(webhookEvent);
 
-    public MongoWebhookStore(MongoConnection connection)
-    {
-        _connection = connection;
-    }
+    public async Task CreateDeliveriesAsync(IEnumerable<WebhookDelivery> deliveries)
+        => await connection.InsertManyAsync(deliveries);
 
-    public Task SaveEventAsync(WebhookEvent webhookEvent) => _connection.InsertAsync(webhookEvent);
+    public async Task<WebhookEvent> GetEventAsync(Guid eventId)
+        => await connection.Filter<WebhookEvent>().Eq(x => x.Id, eventId).FirstOrDefaultAsync();
 
-    public Task CreateDeliveriesAsync(IReadOnlyList<WebhookDelivery> deliveries)
-        => deliveries.Count == 0 ? Task.CompletedTask : _connection.InsertManyAsync(deliveries);
-
-    public Task<WebhookEvent> GetEventAsync(Guid eventId)
-        => _connection.Filter<WebhookEvent>().Eq(x => x.Id, eventId).FirstOrDefaultAsync();
-
-    public Task<WebhookDelivery> TryClaimAsync(Guid deliveryId, DateTime now, DateTime staleDeliveringBefore)
+    public async Task<WebhookDelivery> TryClaimAsync(Guid deliveryId, DateTime now, DateTime staleDeliveringBefore)
     {
         var f = Builders<WebhookDelivery>.Filter;
         var claimablePending = f.In(d => d.Status, new[] { DeliveryStatus.Pending, DeliveryStatus.Retrying });
@@ -34,7 +27,7 @@ public sealed class MongoWebhookStore : IWebhookStore
             f.Lte(d => d.UpdatedOn, staleDeliveringBefore));
 
         // _id == deliveryId AND (pending/retrying OR stale-delivering)
-        return _connection.Filter<WebhookDelivery>()
+        return await connection.Filter<WebhookDelivery>()
             .Eq(x => x.Id, deliveryId)
             .Or(claimablePending, claimableStale)
             .Update
@@ -43,9 +36,9 @@ public sealed class MongoWebhookStore : IWebhookStore
             .UpdateAndGetOneAsync();
     }
 
-    public Task RecordAttemptAsync(Guid deliveryId, DeliveryAttempt attempt, DeliveryStatus newStatus, DateTime? nextAttemptAt)
+    public async Task RecordAttemptAsync(Guid deliveryId, DeliveryAttempt attempt, DeliveryStatus newStatus, DateTime? nextAttemptAt)
     {
-        var update = _connection.Filter<WebhookDelivery>()
+        var update = connection.Filter<WebhookDelivery>()
             .Eq(x => x.Id, deliveryId)
             .Update
             .Push(x => x.Attempts, attempt)
@@ -68,7 +61,7 @@ public sealed class MongoWebhookStore : IWebhookStore
             update.Set(x => x.NextAttemptAt, nextAttemptAt);
         }
 
-        return update.UpdateOneAsync();
+        await update.UpdateOneAsync();
     }
 
     public async Task<IReadOnlyList<WebhookDelivery>> GetDueDeliveriesAsync(DateTime dueBefore, DateTime staleDeliveringBefore, int limit)
@@ -81,7 +74,7 @@ public sealed class MongoWebhookStore : IWebhookStore
             f.Eq(d => d.Status, DeliveryStatus.Delivering),
             f.Lte(d => d.UpdatedOn, staleDeliveringBefore));
 
-        return await _connection.Filter<WebhookDelivery>()
+        return await connection.Filter<WebhookDelivery>()
             .Combine(f.Or(dueScheduled, dueStale))
             .Limit(limit)
             .FindAsync();
