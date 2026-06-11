@@ -47,15 +47,16 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
     {
         try
         {
-            if (message.Body is SimpleActionMessage<FireWebhookActionOptions> webhook)
+            switch (message.Body)
             {
-                await CreateWebhookAsync(webhook);
-            }
+                case SimpleActionMessage<GenericActionOptions> msg:
+                    await ProcessMessageAsync(msg);
+                    break;
 
-            // if (message.Body is GenericFlowEvent evt && message.RoutingKey.StartsWith("object."))
-            // {
-            //     await HandleAsync(message.RoutingKey, evt);
-            // }
+                case SimpleActionMessage<FireWebhookActionOptions> msg:
+                    await CreateWebhookAsync(msg.Event, msg.Options);
+                    break;
+            }
         }
         catch (Exception ex)
         {
@@ -67,18 +68,31 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
         }
     }
 
-    private async Task CreateWebhookAsync(SimpleActionMessage<FireWebhookActionOptions> action)
+    private async Task ProcessMessageAsync(SimpleActionMessage<GenericActionOptions> action)
+    {
+        if (action.Options is not GenericActionOptions genericActionOptions)
+        {
+            Logger.LogError("Unexpected Options");
+            return;
+        }
+        
+        var options = genericActionOptions.ConvertTo<FireWebhookActionOptions>();
+        options.Output = genericActionOptions.Output;
+
+        await CreateWebhookAsync(action.Event, options);
+    }
+
+    private async Task CreateWebhookAsync(FlowEvent evt, FireWebhookActionOptions options)
     {
         using var scope = Logger.AddScope(new
         {
-            action.Event.ObjectType,
-            action.Event.TargetId,
+            evt.ObjectType,
+            evt.TargetId,
         });
 
         Logger.LogInformation("Fire Webhook action");
 
-        var evt = action.Event;
-        var eventKey = $"{evt.ObjectType}_{action.Options.EventId}";
+        var eventKey = $"{evt.ObjectType}_{options.EventId}";
 
         var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, evt.ObjectType, eventKey);
         if (subscriptions.Count == 0) return;
