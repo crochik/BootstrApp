@@ -64,7 +64,7 @@ Write-Output "${IMAGE}:${TAG}"
 $Env:IMAGE = "${IMAGE}:${TAG}"
 $Env:TAG = "${APP}:${TAG}"
 
-yq '.productcatalog.image = env(TAG)' -i ../../OPS/staging/config/releases.yaml 
+yq '.productcatalog.image = env(TAG)' -i ../../../OPS/staging/config/releases.yaml 
 
 # # yq4
 # yq '.spec.template.spec.containers[0].image = env(IMAGE)' -i ../../OPS/$DEPLOYMENT 
@@ -83,7 +83,7 @@ yq '.productcatalog.image = env(TAG)' -i ../../OPS/staging/config/releases.yaml
 # }
 
 if (!$message) {
-    Set-Location ../../OPS
+    Set-Location ../../../OPS
     
     pwsh ./update.ps1
     
