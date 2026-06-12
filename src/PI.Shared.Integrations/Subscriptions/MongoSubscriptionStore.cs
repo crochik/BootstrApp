@@ -10,22 +10,13 @@ namespace PI.Shared.Integrations.Subscriptions;
 /// <typeparamref name="T"/> (carrying its own <c>[BsonCollection]</c>) so Zapier and
 /// n8n persist into separate collections while sharing this logic.
 /// </summary>
-public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
+public sealed class MongoSubscriptionStore<T>(MongoConnection connection, ILogger<MongoSubscriptionStore<T>> logger) : ISubscriptionStore
     where T : IntegrationSubscription, new()
 {
-    private readonly MongoConnection _connection;
-    private readonly ILogger<MongoSubscriptionStore<T>> _logger;
-
-    public MongoSubscriptionStore(MongoConnection connection, ILogger<MongoSubscriptionStore<T>> logger)
-    {
-        _connection = connection;
-        _logger = logger;
-    }
-
     public async Task<IntegrationSubscription> AddAsync(IContextWithActor context, string objectKey, string eventKey, string targetUrl)
     {
         // Replace any subscription from the same caller to the same URL (re-activation).
-        await _connection.Filter<T>()
+        await connection.Filter<T>()
             .Eq(x => x.AccountId, context.AccountId.Value)
             .Eq(x => x.EntityId, context.UserId.Value)
             .Eq(x => x.Url, targetUrl)
@@ -48,9 +39,9 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
             Secret = "whsec_" + Convert.ToBase64String(RandomNumberGenerator.GetBytes(24)),
         };
 
-        await _connection.InsertAsync(subscription);
+        await connection.InsertAsync(subscription);
 
-        _logger.LogInformation("Created subscription {SubscriptionId} for {ObjectType}/{Event} to {Url}",
+        logger.LogInformation("Created subscription {SubscriptionId} for {ObjectType}/{Event} to {Url}",
             subscription.Id, objectKey, eventKey, targetUrl);
 
         return subscription;
@@ -58,7 +49,7 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
 
     public async Task<bool> RemoveAsync(IEntityContext context, Guid id)
     {
-        var removed = await _connection.Filter<T>()
+        var removed = await connection.Filter<T>()
             .Eq(x => x.AccountId, context.AccountId.Value)
             .Eq(x => x.EntityId, context.UserId.Value)
             .Eq(x => x.Id, id)
@@ -69,7 +60,7 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
 
     public async Task<IReadOnlyList<IntegrationSubscription>> ListAsync(IEntityContext context)
     {
-        var found = await _connection.Filter<T>()
+        var found = await connection.Filter<T>()
             .Eq(x => x.AccountId, context.AccountId.Value)
             .Eq(x => x.EntityId, context.UserId.Value)
             .SortAsc(x => x.CreatedOn)
@@ -80,7 +71,7 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
 
     public async Task<IntegrationSubscription> GetAsync(IEntityContext context, Guid id)
     {
-        return await _connection.Filter<T>()
+        return await connection.Filter<T>()
             .Eq(x => x.AccountId, context.AccountId.Value)
             .Eq(x => x.EntityId, context.UserId.Value)
             .Eq(x => x.Id, id)
@@ -89,7 +80,7 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
 
     public async Task<IReadOnlyList<IntegrationSubscription>> FindAsync(IEntityContext context, string objectKey, string eventKey)
     {
-        var found = await _connection.Filter<T>()
+        var found = await connection.Filter<T>()
             .Eq(x => x.AccountId, context.AccountId.Value)
             .Eq(x => x.EntityId, context.UserId.Value)
             .Eq(x => x.ObjectType, objectKey)
@@ -99,14 +90,18 @@ public sealed class MongoSubscriptionStore<T> : ISubscriptionStore
         return found;
     }
 
-    public async Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, string objectKey, string eventKey)
+    public async Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, Guid? organizationId, string objectKey, string eventKey)
     {
-        var found = await _connection.Filter<T>()
+        var query = connection.Filter<T>()
             .Eq(x => x.AccountId, accountId)
             .Eq(x => x.ObjectType, objectKey)
-            .AnyEq(x => x.Keys, eventKey)
-            .FindAsync();
+            .AnyEq(x => x.Keys, eventKey);
 
-        return found;
+        if (organizationId.HasValue)
+        {
+            query = query.Eq(x => x.OrganizationId, organizationId.Value);
+        }
+        
+        return await query.FindAsync();
     }
 }

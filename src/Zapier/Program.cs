@@ -6,10 +6,12 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PI.Shared.App;
+using PI.Shared.Constants;
 using PI.Shared.Integrations.Delivery;
 using PI.Shared.Integrations.DependencyInjection;
 using PI.Shared.Models;
 using PI.Shared.Services;
+using PI.Shared.Services.ActionRunners;
 using Serilog;
 using Zapier.Models;
 using Zapier.Services;
@@ -75,13 +77,27 @@ public class Program : MicroserviceApp
             .AddIntegrationServices<ZapierSubscription>(Configuration)
             ;
 
+        
+        // AddLifetimeService<WebhookEventListener>(services);
+        services.AddSingleton<ActionRunnerService>()
+            .AddRunner<FireEventActionRunner>()
+            ;
+        
+        AddLifetimeService<ActionRunnerFlowService>(services)
+            .Configure<ActionRunnerFlowServiceOptions>(options =>
+            {
+                options.ActionIds =
+                [
+                    ActionIds.FireWebhook,
+                ];
+            });
+        
         // Generic REST Hook delivery: listen to object events, deliver, retry.
-        AddLifetimeService<WebhookEventListener>(services);
-        AddLifetimeService<WebhookDeliveryWorker>(services);
-        AddLifetimeService<WebhookOutboxReconciler>(services);
+        AddLifetimeService<WebhookDeliveryWorkerService>(services);
+        AddLifetimeService<WebhookOutboxReconcilerService>(services);
 
         // HttpCallOut flow action (unrelated to Zapier subscriptions).
-        AddLifetimeService<WebhookService>(services);
+        AddLifetimeService<HttpCallOutService>(services);
     }
 
     protected override IDictionary<string, string> SwaggerScopes => new Dictionary<string, string>

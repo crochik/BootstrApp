@@ -1,6 +1,5 @@
 using Crochik.Logging;
 using Crochik.Messaging;
-using Crochik.Mongo;
 using Messages.Flow;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -12,17 +11,17 @@ using PI.Shared.Services;
 
 namespace PI.Shared.Integrations.Delivery;
 
-public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetimeService
+[Obsolete("use action runner")]
+public sealed class WebhookEventListenerService : AbstractMessageQueueService, ILifetimeService
 {
     private readonly ObjectTypeService _objectTypeService;
     private readonly ISubscriptionStore _store;
     private readonly IEventPublisher _publisher;
 
-    public WebhookEventListener(
-        ILogger<WebhookEventListener> logger,
+    public WebhookEventListenerService(
+        ILogger<WebhookEventListenerService> logger,
         IConfiguration configuration,
         IMessageBroker messageBroker,
-        MongoConnection connection,
         ObjectTypeService objectTypeService,
         ISubscriptionStore store,
         IEventPublisher publisher)
@@ -35,10 +34,6 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
 
     protected override void Init(IMessageQueue queue, TypeMapper mapper)
     {
-        // Every object lifecycle event for every object type: object.{type}.{id}.{action}
-        // MessageBroker.Bind(queue, "object.#");
-        // mapper.Register<GenericFlowEvent>();
-
         MessageBroker.Bind(queue, ActionIds.GetRoute(ActionIds.FireWebhook));
         mapper.Register<SimpleActionMessage<FireWebhookActionOptions>>();
         mapper.Register<SimpleActionMessage<GenericActionOptions>>();
@@ -100,7 +95,7 @@ public sealed class WebhookEventListener : AbstractMessageQueueService, ILifetim
 
         var eventKey = options.EventId;
 
-        var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, evt.ObjectType, eventKey);
+        var subscriptions = await _store.FindForDeliveryAsync(evt.AccountId, null, evt.ObjectType, eventKey);
         if (subscriptions.Count == 0)
         {
             Logger.LogInformation("Found no subscriptions in the {Account} for {ObjectType}_{EventKey}", evt.AccountId, evt.ObjectType, eventKey);

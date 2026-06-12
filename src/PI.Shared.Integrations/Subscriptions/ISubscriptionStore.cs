@@ -33,5 +33,5 @@ public interface ISubscriptionStore
     /// delivery listener, which has only the event's account and target, not a request
     /// context. Matches the account, object type and the subscribed key
     /// </summary>
-    Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, string objectKey, string eventKey);
+    Task<IReadOnlyList<IntegrationSubscription>> FindForDeliveryAsync(Guid accountId, Guid? organizationId, string objectKey, string eventKey);
 }

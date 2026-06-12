@@ -10,17 +10,17 @@ namespace PI.Shared.Integrations.Delivery;
 /// <summary>
 /// Consumes delivery references from the broker, delivers them over HTTP and records
 /// the outcome. On a retryable failure it reschedules the delivery in MongoDB
-/// (<c>Retrying</c> + <c>NextAttemptAt</c>); the <see cref="WebhookOutboxReconciler"/>
+/// (<c>Retrying</c> + <c>NextAttemptAt</c>); the <see cref="WebhookOutboxReconcilerService"/>
 /// re-enqueues it when due. MongoDB is the source of truth for status and attempts.
 /// </summary>
-public sealed class WebhookDeliveryWorker : AbstractMessageQueueService, ILifetimeService
+public sealed class WebhookDeliveryWorkerService : AbstractMessageQueueService, ILifetimeService
 {
     private readonly IServiceScopeFactory _scopeFactory;
     private readonly IWebhookStore _store;
     private readonly DeliveryOptions _options;
 
-    public WebhookDeliveryWorker(
-        ILogger<WebhookDeliveryWorker> logger,
+    public WebhookDeliveryWorkerService(
+        ILogger<WebhookDeliveryWorkerService> logger,
         IConfiguration configuration,
         IMessageBroker messageBroker,
         IServiceScopeFactory scopeFactory,

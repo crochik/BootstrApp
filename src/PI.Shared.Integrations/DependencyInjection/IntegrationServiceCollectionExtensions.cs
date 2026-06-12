@@ -12,8 +12,8 @@ namespace PI.Shared.Integrations.DependencyInjection;
 /// subscription store, and the durable signed-delivery pipeline (event/delivery store,
 /// signer, HTTP client, publisher).
 /// <para>
-/// The lifetime services — <see cref="WebhookEventListener"/>,
-/// <see cref="WebhookDeliveryWorker"/> and <see cref="WebhookOutboxReconciler"/> — are
+/// The lifetime services — <see cref="WebhookEventListenerService"/>,
+/// <see cref="WebhookDeliveryWorkerService"/> and <see cref="WebhookOutboxReconcilerService"/> — are
 /// registered by the host service via <c>AddLifetimeService</c> so they participate in
 /// the standard start/stop lifecycle.
 /// </para>

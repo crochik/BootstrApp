@@ -72,9 +72,9 @@ public class Program : MicroserviceApp
             ;
 
         // Generic REST Hook delivery: listen to object events, deliver, retry.
-        AddLifetimeService<WebhookEventListener>(services);
-        AddLifetimeService<WebhookDeliveryWorker>(services);
-        AddLifetimeService<WebhookOutboxReconciler>(services);
+        AddLifetimeService<WebhookEventListenerService>(services);
+        AddLifetimeService<WebhookDeliveryWorkerService>(services);
+        AddLifetimeService<WebhookOutboxReconcilerService>(services);
     }
 
     protected override void AddPolicies(AuthorizationOptions options)

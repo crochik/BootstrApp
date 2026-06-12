@@ -13,17 +13,17 @@ namespace PI.Shared.Integrations.Delivery;
 /// This is what drives retry timing now that delays live in Mongo rather than in broker
 /// delay queues.
 /// </summary>
-public sealed class WebhookOutboxReconciler : ILifetimeService
+public sealed class WebhookOutboxReconcilerService : ILifetimeService
 {
     private readonly IWebhookStore _store;
     private readonly IMessageBroker _broker;
     private readonly DeliveryOptions _options;
-    private readonly ILogger<WebhookOutboxReconciler> _logger;
+    private readonly ILogger<WebhookOutboxReconcilerService> _logger;
 
     private CancellationTokenSource _cts;
     private Task _loop;
 
-    public WebhookOutboxReconciler(IWebhookStore store, IMessageBroker broker, IOptions<DeliveryOptions> options, ILogger<WebhookOutboxReconciler> logger)
+    public WebhookOutboxReconcilerService(IWebhookStore store, IMessageBroker broker, IOptions<DeliveryOptions> options, ILogger<WebhookOutboxReconcilerService> logger)
     {
         _store = store;
         _broker = broker;

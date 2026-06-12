@@ -27,13 +27,13 @@ namespace Zapier.Services;
 /// Zapier REST Hook subscriptions, which are delivered by
 /// <c>PI.Shared.Integrations.Delivery.WebhookEventListener</c> and its pipeline.
 /// </summary>
-public class WebhookService : AbstractMessageQueueService, ILifetimeService
+public class HttpCallOutService : AbstractMessageQueueService, ILifetimeService
 {
     private readonly MongoConnection _connection;
     private readonly IHttpClientFactory _httpClientFactory;
 
-    public WebhookService(
-        ILogger<WebhookService> logger,
+    public HttpCallOutService(
+        ILogger<HttpCallOutService> logger,
         IConfiguration configuration,
         IMessageBroker messageBroker,
         MongoConnection connection,
