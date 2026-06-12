@@ -32,6 +32,7 @@ using System.Threading;
 using Crochik.Logging;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi;
 using Newtonsoft.Json.Serialization;
 using PI.Shared.Models;
@@ -586,8 +587,16 @@ public abstract class MicroserviceApp : HostedApp
     {
         foreach (var serviceType in _lifetimeServiceTypes)
         {
-            var service = (ILifetimeService)services.GetRequiredService(serviceType);
-            service.Start();
+            try
+            {
+                Console.WriteLine($"Starting service {serviceType.Name}");
+                var service = (ILifetimeService)services.GetRequiredService(serviceType);
+                service.Start();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error: starting service: {ex.Message}");
+            }
         }
     }
 
