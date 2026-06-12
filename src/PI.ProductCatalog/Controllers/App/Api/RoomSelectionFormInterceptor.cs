@@ -80,6 +80,8 @@ public class RoomSelectionFormInterceptor(ILogger<RoomSelectionFormInterceptor> 
                 if (existing.PatternTypeId.HasValue) defaultValues[nameof(RoomSelection.PatternTypeId)] = existing.PatternTypeId.Value;
                 if (existing.TrimWorkId.HasValue) defaultValues[nameof(RoomSelection.TrimWorkId)] = existing.TrimWorkId.Value;
                 if (existing.UnderlaymentId.HasValue) defaultValues[nameof(RoomSelection.UnderlaymentId)] = existing.UnderlaymentId.Value;
+                if (existing.SubfloorPrepId.HasValue) defaultValues[nameof(RoomSelection.SubfloorPrepId)] = existing.SubfloorPrepId.Value;
+                if (existing.StairsRiserFinishId.HasValue) defaultValues[nameof(RoomSelection.StairsRiserFinishId)] = existing.StairsRiserFinishId.Value;
             }
         }
 
@@ -197,6 +199,8 @@ public class RoomSelectionFormInterceptor(ILogger<RoomSelectionFormInterceptor> 
                 nameof(RoomSelection.PatternTypeId) => false,
                 nameof(RoomSelection.TrimWorkId) => false,
                 nameof(RoomSelection.UnderlaymentId) => false,
+                nameof(RoomSelection.SubfloorPrepId) => false,
+                nameof(RoomSelection.StairsRiserFinishId) => false,
                 nameof(RoomSelection.RuleSetId) => false,
                 _ => true,
             })
@@ -285,6 +289,8 @@ public class RoomSelectionFormInterceptor(ILogger<RoomSelectionFormInterceptor> 
                         nameof(RoomSelection.PatternTypeId) => "fcb2b.PatternTypeOption",
                         nameof(RoomSelection.TrimWorkId) => "fcb2b.TrimWorkOption",
                         nameof(RoomSelection.UnderlaymentId) => "fcb2b.UnderlaymentOption",
+                        nameof(RoomSelection.SubfloorPrepId) => "fcb2b.SubfloorPrepOption",
+                        nameof(RoomSelection.StairsRiserFinishId) => "fcb2b.StairsRiserFinishOption",
                         _ => throw new BadRequestException($"Unexpected Field: {field.Name}"),
                     })
                     .SortDesc(x => x.ExistingSubfloorId); // prefer exact match
@@ -292,6 +298,7 @@ public class RoomSelectionFormInterceptor(ILogger<RoomSelectionFormInterceptor> 
                 switch (field.Name)
                 {
                     case nameof(RoomSelection.UnderlaymentId):
+                    // case nameof(RoomSelection.SubfloorPrepId):
                     case nameof(RoomSelection.InstallationTypeId):
                     {
                         if (defaultValues.TryGetValue(nameof(RegularRoom.ExistingSubfloorId), out var existingSubFloorId))

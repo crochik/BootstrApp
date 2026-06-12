@@ -52,6 +52,8 @@ public enum EstimateInput
     InstallationType,
     PatternType,
     RemoveExistingFloor,
+    SubfloorPrep,
+    StairsRiserFinish,
 
     // even needed????
     ProductType,

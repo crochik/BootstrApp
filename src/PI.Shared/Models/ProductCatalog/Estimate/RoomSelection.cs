@@ -71,6 +71,9 @@ public class RoomSelection : FlowObjectModel, ITaggable, ITaxable
     public Guid? PatternTypeId { get; set; }
     public Guid? TrimWorkId { get; set; }
     public Guid? UnderlaymentId { get; set; }
+    
+    public Guid? SubfloorPrepId { get; set; }
+    public Guid? StairsRiserFinishId { get; set; }
 
     public Measurement Area { get; set; }
     public Measurement Perimeter { get; set; }
@@ -102,6 +105,8 @@ public class RoomSelection : FlowObjectModel, ITaggable, ITaxable
             if (PatternTypeId.HasValue) yield return PatternTypeId.Value;
             if (TrimWorkId.HasValue) yield return TrimWorkId.Value;
             if (UnderlaymentId.HasValue) yield return UnderlaymentId.Value;
+            if (SubfloorPrepId.HasValue) yield return SubfloorPrepId.Value;
+            if (StairsRiserFinishId.HasValue) yield return StairsRiserFinishId.Value;
         }
     }
 

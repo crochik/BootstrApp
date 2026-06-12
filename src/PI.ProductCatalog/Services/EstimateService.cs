@@ -1724,6 +1724,8 @@ public class EstimateService(ILogger<EstimateService> logger, MongoConnection co
             { EstimateInput.PatternType, selection.PatternTypeId },
             { EstimateInput.TrimWork, selection.TrimWorkId },
             { EstimateInput.Underlayment, selection.UnderlaymentId },
+            { EstimateInput.SubfloorPrep, selection.SubfloorPrepId },
+            { EstimateInput.StairsRiserFinish, selection.StairsRiserFinishId },
         };
 
         if (!Enum.TryParse<ProductType>(selection.ProductType, out var productType)) return Result.Error<Dictionary<string, object>>($"Unexpected value for Product Type: {selection.ProductType}");

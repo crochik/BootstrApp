@@ -44,6 +44,18 @@ public class UnderlaymentOption : EstimateOption
     public ProductType ProductType { get; set; }
 }
 
+[BsonDiscriminator("SubfloorPrep")]
+public class SubfloorPrepOption : EstimateOption
+{
+    public ProductType ProductType { get; set; }
+}
+
+[BsonDiscriminator("StairsRiserFinish")]
+public class StairsRiserFinishOption : EstimateOption
+{
+    public ProductType ProductType { get; set; }
+}
+
 [BsonDiscriminator("ExistingSubfloor")]
 public class ExistingSubfloorOption : EstimateOption
 {
