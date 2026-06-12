@@ -18,7 +18,7 @@ namespace PI.Shared.Services.ActionRunners;
 public class FireEventActionRunner(ILogger<FireEventActionRunner> logger, MongoConnection connection, ObjectTypeService objectTypeService)
     : AbstractRunner<FireEventActionOptions>
 {
-    public override Guid ActionId => ActionIds.FireWebhook;
+    public override Guid ActionId => ActionIds.FireEvent;
 
     protected override async ValueTask<FlowEvent[]> RunAsync(ActionRunnerContext context, FireEventActionOptions options)
     {

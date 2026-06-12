@@ -7,6 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using PI.Shared.App;
 using PI.Shared.Constants;
+using PI.Shared.Integrations.ActionRunners;
 using PI.Shared.Integrations.Delivery;
 using PI.Shared.Integrations.DependencyInjection;
 using PI.Shared.Models;
@@ -80,7 +81,7 @@ public class Program : MicroserviceApp
         
         // AddLifetimeService<WebhookEventListener>(services);
         services.AddSingleton<ActionRunnerService>()
-            .AddRunner<FireEventActionRunner>()
+            .AddRunner<FireWebhookActionRunner>()
             ;
         
         AddLifetimeService<ActionRunnerFlowService>(services)
