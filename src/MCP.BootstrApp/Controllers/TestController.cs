@@ -109,7 +109,7 @@ public class TestController(
         var accountContext = new AccountContext(Guid.Parse("6355a537-a47c-42b1-af6b-7d2febc00895"));
         await plugin.LoadObjectTypesAsync(accountContext, "/^app\\./");
 
-        var env = ScriptEnvironment.FromPlugins(plugin, new SystemDatePlugin());
+        var env = ScriptEnvironment.FromPlugins(plugin, new SystemDatePlugin(), new SystemSessionScriptPlugin());
         var dts = new TypeScriptDeclarationGenerator(env).Generate();
 
         return Content(dts, "text/plain"); // "application/x-typescript"
@@ -121,7 +121,7 @@ public class TestController(
     {
         var accountContext = new AccountContext(Guid.Parse("6355a537-a47c-42b1-af6b-7d2febc00895"));
         await plugin.LoadObjectTypesAsync(accountContext, "/^app\\./"); // Context
-        var env = ScriptEnvironment.FromPlugins(plugin);
+        var env = ScriptEnvironment.FromPlugins(plugin, new SystemDatePlugin(), new SystemSessionScriptPlugin());
         var result = await env.ValidateAsync(Request.GetBody(), cancellationToken);
 
         return Ok(result);
@@ -138,6 +138,9 @@ public class TestController(
         {
         };
 
+        // the session the script runs as — resolved by system.session.* getters
+        context.AddService<IEntityContext>(plugin.EntityContext);
+
         context.SetValueDeep("input", new Dictionary<string, object?>
         {
             // {"id", "test"},
@@ -147,7 +150,7 @@ public class TestController(
             // {"newDisplayOrder", null}
         });
 
-        var env = ScriptEnvironment.FromPlugins(plugin);
+        var env = ScriptEnvironment.FromPlugins(plugin, new SystemSessionScriptPlugin());
 
         var result = await env.ExecuteAsync(Request.GetBody(), context, cancellationToken);
         return Ok(result);
